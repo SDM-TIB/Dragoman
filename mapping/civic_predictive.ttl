@@ -10,7 +10,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/ontology/sio.owl> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
-@prefix varnext: <https://github.com/samiscoding/Mapping-SIO/function.ttl#> .
+@prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
 
 <#Evidence>
 	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
@@ -137,11 +137,11 @@
         rr:predicateObjectMap [
          	rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant varnext:subStringFunction 
+            	rr:constant varharnom:subStringFunction 
         	]
         ];
         rr:predicateObjectMap [
-            rr:predicate varnext:stringToLook;
+            rr:predicate varharnom:stringToLook;
             rr:objectMap [ 
             	rml:reference "hgvs_expressions" 
             ]

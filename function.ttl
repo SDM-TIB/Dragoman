@@ -2,62 +2,37 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix varnext: <https://github.com/samiscoding/Mapping-SIO/function.ttl#> .
+@prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
 
-varnext:subStringProblem a fno:Problem;
-varnext:subStringAlgorithm a fno:Algorithm;
+varharnom:subStringProblem a fno:Problem;
+varharnom:subStringAlgorithm a fno:Algorithm;
 
-varnext:subStringFunction a fno:Function;
+varharnom:subStringFunction a fno:Function;
     fno:name "The string extraction function"^^xsd:string;
     dcterms:description "This function can extract part of a string base on requirement."^^xsd:string;
-    fno:solves varnext:subStringProblem;
-    fno:implements varnext:subStringAlgorithm;
+    fno:solves varharnom:subStringProblem;
+    fno:implements varharnom:subStringAlgorithm;
     fno:expects ( 
         [
-            fno:predicate varnext:stringToLook; 
+            fno:predicate varharnom:stringToLook; 
             fno:required "true"^^xsd:boolean 
         ]
         [
-            fno:predicate varnext:subStringIdentifier; 
+            fno:predicate varharnom:subStringIdentifier; 
             fno:required "true"^^xsd:boolean 
         ]
     ).
     fno:returns (
         [
-            fno:predicate varnext:extractedSubString; 
+            fno:predicate varharnom:extractedSubString; 
             fno:required "true"^^xsd:boolean 
         ]  
     ).
-varnext:stringToLook fno:type xsd:string.
-varnext:subStringIdentifier fno:type xsd:string.
-varnext:extractedSubString fno:type xsd:string.
+varharnom:stringToLook fno:type xsd:string.
+varharnom:subStringIdentifier fno:type xsd:string.
+varharnom:extractedSubString fno:type xsd:string.
 
-varnext:subStringExecution a fno:Execution;
-    fno:executes varnext:subStringFunction;
-    varnext:stringToLook ""^^xsd:string;
-    varnext:subStringIdentifier "NC"^^xsd:string.
-
-
-
-ex:findInString a fno:Function;
-    fno:name "Finding multiple values in a string function"^^xsd:string;
-    dcterms:description "This function returns true if any of the input values is found in the string."^^xsd:string;
-    fno:expects (
-        [
-            fno:predicate ex:body;
-            fno:required "true"^^xsd:boolean
-        ]
-        [
-            fno:predicate ex:searchValues;
-            fno:required "true"^^xsd:boolean
-        ]
-        [
-            fno:predicate ex:found;
-            fno:required "true"^^xsd:boolean
-        ]
-    ).
-
-ex:findExecution a fno:Execution;
-    fno:executes ex:findInString;
-    ex:body "Try and find some values in this string."^^xsd:string;
-    ex:searchValues ("Paris" "Brussels" "Tokyo" "Los Angeles") .
+varharnom:subStringExecution a fno:Execution;
+    fno:executes varharnom:subStringFunction;
+    varharnom:stringToLook ""^^xsd:string;
+    varharnom:subStringIdentifier "NC"^^xsd:string.
