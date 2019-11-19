@@ -34,5 +34,8 @@ varharnom:extractedSubString fno:type xsd:string.
 
 varharnom:subStringExecution a fno:Execution;
     fno:executes varharnom:subStringFunction;
-    varharnom:stringToLook ""^^xsd:string;
+    varharnom:stringToLook "???"^^xsd:string;
     varharnom:subStringIdentifier "NC"^^xsd:string.
+
+
+
