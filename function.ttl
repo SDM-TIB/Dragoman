@@ -38,4 +38,6 @@ varharnom:subStringExecution a fno:Execution;
     varharnom:subStringIdentifier "NC"^^xsd:string.
 
 
-
+# http://semanticscience.org/resource/SIO_011133/{extractedSubString} # gDNA variation notation
+# http://semanticscience.org/resource/SIO_011134/{extractedSubString} # cDNA variation notation
+# http://semanticscience.org/resource/SIO_011135/{extractedSubString} # amino acid sequence variation notation

@@ -36,7 +36,7 @@
 		rr:objectMap [ 
 			rr:parentTriplesMap <#Drug>
 		]
-	];	
+	]; 	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
