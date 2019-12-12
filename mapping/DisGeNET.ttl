@@ -1,0 +1,153 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rev: <http://purl.org/stuff/rev#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms> .
+@prefix dce: <http://purl.org/dc/elements/1.1> .
+@prefix af: <http://purl.org/ontology/af> .
+@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix base: <http://semanticscience.org/resource> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sio: <http://semanticscience.org/resource> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
+
+<#Evidence>
+	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_001350/{evidence_id}";
+		rr:class sio:SIO_001350 # gene-disease association linked with genomic alteration
+	];	
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_001403; # is associated with
+		rr:objectMap [ 
+			rr:parentTriplesMap <#Disease> 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate dcterms:provenance
+		rr:objectMap [ 
+			rml:reference "source" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate time:hasBeginning;
+		rr:objectMap [
+			rr:template "http://semanticscience.org/resource/SIO_000428/{YearInitial}";  # year
+		]
+	];	
+	rr:predicateObjectMap [
+		rr:predicate time:hasEnd;
+		rr:objectMap [ 
+			rr:template "http://semanticscience.org/resource/SIO_000428/{YearFinal}"; # year 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000628; # refers to 
+		rr:objectMap [ 
+			rr:parentTriplesMap <#Publication>
+		]
+	];			
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_001403; # is associated with
+		rr:objectMap [ 
+			rr:parentTriplesMap <#Variation> 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate af:confidence;
+		rr:objectMap [ 
+			rml:reference "score" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate ru:curation_status;
+		rr:objectMap [ 
+			rml:reference "Confidence" 
+		]
+	].				
+	
+<#Variation>
+	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://project-iasis.eu/Variation/{snpId}";
+		rr:class sio:SIO_011137 # variation
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000061; # is located in
+		rr:objectMap [
+			rr:template "http://semanticscience.org/resource/SIO_000899/{chromosome}" # chromosome
+		]
+	];	
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000061; # is located in 
+		rr:objectMap [
+			rr:template "http://semanticscience.org/ontology/sio.owl/SIO_011141/{position}" # deoxyribonucleic acid sequence position
+		]
+	].
+
+<#Disease>
+	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_010299/{diseaseName}";
+		rr:class sio:SIO_010299 # disease
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+		rr:objectMap [ 
+			rml:reference "diseaseName" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000255;
+		rr:objectMap [
+			rr:parentTriplesMap <#Annotation>
+		]
+	].
+
+<#Annotation>
+	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_001166/{diseaseId}";
+		rr:class iasis:Annotation
+	];
+	rr:predicateObjectMap [
+		rr:predicate dce:identifier;
+		rr:objectMap [ 
+			rml:reference "diseaseId" 
+		]
+	];
+	rr:predicateObjectMap [
+		rr:predicate dcterms:provenance
+		rr:objectMap [ 
+			rr:constant "UMLS" 
+		]
+	].			
+
+<#Publication>
+	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_000154/{pmid}"; 
+		rr:class sio:SIO_000154; # publication
+	];
+	rr:predicateObjectMap [
+		rr:predicate dce:identifier;
+		rr:objectMap [ 
+			rml:reference "pmid" 
+		]
+	].	
