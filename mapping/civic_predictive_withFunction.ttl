@@ -115,15 +115,15 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate owl:sameAs; 
-		rr:objectMap rr:objectMap  <#FunctionMap_gDNA>
+		rr:objectMap <#FunctionMap_gDNA>
 	];
 	rr:predicateObjectMap [
 		rr:predicate owl:sameAs; 
-		rr:objectMap rr:objectMap  <#FunctionMap_cDNA>
+		rr:objectMap <#FunctionMap_cDNA>
 	];
 	rr:predicateObjectMap [
 		rr:predicate owl:sameAs; 
-		rr:objectMap rr:objectMap  <#FunctionMap_peptide>
+		rr:objectMap <#FunctionMap_peptide>
 	];
 
 #	rr:predicateObjectMap [
