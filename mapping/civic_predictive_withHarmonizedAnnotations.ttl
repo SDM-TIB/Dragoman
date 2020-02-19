@@ -13,13 +13,13 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix base: <http://semanticscience.org/resource> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sio: <http://semanticscience.org/resource> .
+@prefix sio: <http://semanticscience.org/resource#> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
 
 
 <#Evidence>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/VariantHarmonizedNomenclature/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -46,7 +46,7 @@
 	].		
 	
 <#Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/VariantHarmonizedNomenclature/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -133,7 +133,7 @@
 	].	
 
 <#Disease>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/VariantHarmonizedNomenclature/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -142,7 +142,7 @@
 	].
 
 <#Transcript>	
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/VariantHarmonizedNomenclature/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -157,7 +157,7 @@
 	].
 
 <#Publication>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/VariantHarmonizedNomenclature/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
