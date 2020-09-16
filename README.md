@@ -1,1 +1,1 @@
-# VariantHarmonizedNomenclature
+# GenoDIS
