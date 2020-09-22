@@ -65,6 +65,11 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
         value = replvalue2
     return value
 
+## new functions for GenoDIS
+def CGI():
+    return value
+
+
 def prefix_extraction(uri):
     prefix = ""
     url = ""
