@@ -19,7 +19,7 @@ def handler():
     for i in range (0, len(df)):  
     	gene = str(df['Gene'][i])
     	gFormat[i] = str(gFormat[i]).replace(":","\\")  
-    	cFormat[i] = str(gene) + "_" + str(df['cDNA'][i])
+    	cFormat[i] = str(gene) + "\\" + str(df['cDNA'][i])
         pFormat[i] = str(df['individual_mutation']).replace(":","\\")
     gSeries = pd.Series(gFormat, name="gFormat")
     cSeries = pd.Series(cFormat, name="cFormat")
