@@ -520,9 +520,9 @@ def execute_function(row,dic):
     elif "civic_gFormat" in dic["function"]:
         return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["chromosome"]])
     elif "civic_cFormat" in dic["function"]:
-        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
+        return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
     elif "civic_pFormat" in dic["function"]:
-        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])                
+        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])                
     else:
         print("Invalid function")
         print("Aborting...")
@@ -608,6 +608,90 @@ def join_csv(source, dic, output):
                         projection.append({dic["func_par"]["column1"]:row[dic["func_par"]["column1"]], dic["func_par"]["column2"]:row[dic["func_par"]["column2"]]})
 
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
+        
+
+        elif "civic_pFormat" in dic["function"] or "civic_cFormat" in dic["function"]:
+            if dic["func_par"]["hgvs"]+dic["func_par"]["gene"] in columns:
+
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+
+                for row in columns[dic["func_par"]["hgvs"]+dic["func_par"]["gene"]]:
+                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["gene"]] is not None):
+                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if attr[1] is not "constant":
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]]] = value
+            else:
+
+                reader = pd.read_csv(source, usecols=keys)
+                reader = reader.where(pd.notnull(reader), None)
+                reader = reader.to_dict(orient='records')
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+                projection = []
+
+                for row in reader:
+                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["gene"]] is not None):                   
+                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if attr[1] is not "constant":
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]]] = value
+                            projection.append({dic["func_par"]["hgvs"]:row[dic["func_par"]["hgvs"]], dic["func_par"]["gene"]:row[dic["func_par"]["gene"]]})
+
+                columns[dic["func_par"]["hgvs"]+dic["func_par"]["gene"]] = projection 
+
+        elif "civic_gFormat" in dic["function"]:
+            if dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"] in columns:
+
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+
+                for row in columns[dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"]]:
+                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["chromosome"]] is not None):
+                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if attr[1] is not "constant":
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]]] = value
+            else:
+
+                reader = pd.read_csv(source, usecols=keys)
+                reader = reader.where(pd.notnull(reader), None)
+                reader = reader.to_dict(orient='records')
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+                projection = []
+
+                for row in reader:
+                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["chromosome"]] is not None):                   
+                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if attr[1] is not "constant":
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]]] = value
+                            projection.append({dic["func_par"]["hgvs"]:row[dic["func_par"]["hgvs"]], dic["func_par"]["chromosome"]:row[dic["func_par"]["chromosome"]]})
+
+                columns[dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"]] = projection
+
         else:
             if dic["func_par"]["value"] in columns:
 
