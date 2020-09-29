@@ -348,28 +348,47 @@ def translate(config_path):
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
+										elif "civic_pFormat" in current_func["function"] or "civic_cFormat" in current_func["function"]:
+											fields[current_func["func_par"]["hgvs"]] = "object"
+											fields[current_func["func_par"]["gene"]] = "object"
+										elif "civic_gFormat" in current_func["function"]:
+											fields[current_func["func_par"]["hgvs"]] = "object"
+											fields[current_func["func_par"]["chromosome"]] = "object" 
 										else:
 											fields[current_func["func_par"]["value"]] = "object"
 							else:
 								if po.object_map.mapping_type == "parent triples map":
-									fields[po.object_map.child] = "object"
-								else:
-									if "{" in po.object_map.value:
-										object_field = po.object_map.value.split("{")
-										if len(object_field) == 2:
-											fields[object_field[1].split("}")[0]] = "object"
-										else:
-											for of in object_field:
-												if "}" in of:
-													fields[of.split("}")[0]] = "object"
+									if po.object_map.child is not None:
+										fields[po.object_map.child] = "object"
 									else:
-										fields[po.object_map.value] = "object"
+										for tp in triples_map_list:
+											if tp.triples_map_id == po.object_map.value:
+												if "{" in tp.subject_map.value:
+													object_field = tp.subject_map.value.split("{")
+													if len(object_field) == 2:
+														fields[object_field[1].split("}")[0]] = "object"
+													else:
+														for of in object_field:
+															if "}" in of:
+																fields[of.split("}")[0]] = "object"
+												else:
+													fields[tp.subject_map.value] = "object"
+								else:
+										if "{" in po.object_map.value:
+											object_field = po.object_map.value.split("{")
+											if len(object_field) == 2:
+												fields[object_field[1].split("}")[0]] = "object"
+											else:
+												for of in object_field:
+													if "}" in of:
+														fields[of.split("}")[0]] = "object"
+										else:
+											fields[po.object_map.value] = "object"
 
 						if config["datasets"]["enrichment"].lower() == "yes":
 
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
-
 								reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
 								reader = reader.where(pd.notnull(reader), None)
 								reader = reader.drop_duplicates(keep='first')
