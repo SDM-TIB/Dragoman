@@ -70,7 +70,7 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ################################################################################################################
 
 def concat(value1,value2,value3):
-    result = str(value1, value2, value3) 
+    result = str(str(value1)+str(value2)+str(value3)) 
     return(result)
 
 def civic_gFormat(hgvs,chromosome):
@@ -78,6 +78,8 @@ def civic_gFormat(hgvs,chromosome):
     for j in range(0,len(expressionsList)):
         if "g." in expressionsList[j]:
             gFormat = "chr" + chromosome + "\\" + expressionsList[j].split(",")[0]  
+        else:
+            gFormat = ""
     return(gFormat)
 
 def civic_cFormat(hgvs,gene):
@@ -85,23 +87,33 @@ def civic_cFormat(hgvs,gene):
     for j in range(0,len(expressionsList)):
         if "c." in expressionsList[j]:    
             cFormat = gene + "\\" + expressionsList[j].split(",")[0]
+        else:
+            cFormat = ""
     return(cFormat)
 
 def civic_pFormat(hgvs,gene):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "p." in expressionsList[j]:
-            pFormat_threeCharacters = expressionsList[j].split(",")[0].lower()     
+            pFormat_threeCharacters = expressionsList[j].split(",")[0].lower()  
+        else:
+            pFormat_threeCharacters = ""
+    pFormat = renameAminoAcid(pFormat_threeCharacters) 
+    return (pFormat)  
+           
+def renameAminoAcid(threeLetters):            
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
-    if pFormat_threeCharacters != "":
-        first = pFormat_threeCharacters.split(".")[1][0:3]
-        second = pFormat_threeCharacters.split(".")[1][-3:]
-        middle = pFormat_threeCharacters.split(".")[1][3:-3]
+    if threeLetters != "":
+        first = threeLetters.split(".")[1][0:3]
+        second = threeLetters.split(".")[1][-3:]
+        middle = threeLetters.split(".")[1][3:-3]
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
-            pFormat = gene + "\\" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
-    return(pFormat)
+            oneLetter = gene + "\\" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
+        else:
+            oneLetter = ""    
+    return(oneLetter)
 
 
 def prefix_extraction(uri):
@@ -522,7 +534,11 @@ def execute_function(row,dic):
     elif "civic_cFormat" in dic["function"]:
         return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
     elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])                
+        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) renameAminoAcid    
+    elif "concat" in dic["function"]:
+        return concat(row[dic["func_par"]["value1"]],row[dic["func_par"]["value2"]],row[dic["func_par"]["value3"]])
+    elif "renameAminoAcid" in dic["function"]:
+        return renameAminoAcid(dic["func_par"]["threeLetters"])             
     else:
         print("Invalid function")
         print("Aborting...")
