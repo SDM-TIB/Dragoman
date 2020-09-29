@@ -95,7 +95,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:chromosome;
+            rr:predicate ex:gene;
             rr:objectMap [ 
                 rml:reference "gene.clinical" 
             ]
@@ -120,7 +120,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:chromosome;
+            rr:predicate ex:gene;
             rr:objectMap [ 
                 rml:reference "gene.clinical" 
             ]
