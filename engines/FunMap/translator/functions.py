@@ -65,9 +65,40 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
         value = replvalue2
     return value
 
-## new functions for GenoDIS
-def CGI():
-    return value
+################################################################################################################
+######################## new functions for GenoDIS: civicPredictive dataset ####################################
+################################################################################################################
+
+def civic_gFormat(hgvs,chromosome):
+    expressionsList = hgvs.split(":")
+    for j in range(0,len(expressionsList)):
+        if "g." in expressionsList[j]:
+            gFormat = "chr" + chromosome + "\\" + expressionsList[j].split(",")[0]  
+    return(gFormat)
+
+def civic_cFormat(hgvs,gene):
+    expressionsList = hgvs.split(":")
+    for j in range(0,len(expressionsList)):
+        if "c." in expressionsList[j]:    
+            cFormat = gene + "\\" + expressionsList[j].split(",")[0]
+    return(cFormat)
+
+def civic_pFormat(hgvs,gene):
+    expressionsList = hgvs.split(":")
+    for j in range(0,len(expressionsList)):
+        if "p." in expressionsList[j]:
+            pFormat_threeCharacters = expressionsList[j].split(",")[0].lower()     
+    aminoAcidsDic = {
+    "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
+    "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
+    if pFormat_threeCharacters != "":
+        first = pFormat_threeCharacters.split(".")[1][0:3]
+        second = pFormat_threeCharacters.split(".")[1][-3:]
+        middle = pFormat_threeCharacters.split(".")[1][3:-3]
+        if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
+            pFormat = gene + "\\" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
+    return(pFormat)
+
 
 
 def prefix_extraction(uri):
@@ -483,6 +514,12 @@ def execute_function(row,dic):
         return variantIdentifier(row[dic["func_par"]["column1"]],row[dic["func_par"]["column2"]],dic["func_par"]["prefix"])
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
+    elif "civic_gFormat" in dic["function"]:
+        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["chromosome"]])
+    elif "civic_cFormat" in dic["function"]:
+        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
+    elif "civic_pFormat" in dic["function"]:
+        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])                
     else:
         print("Invalid function")
         print("Aborting...")
