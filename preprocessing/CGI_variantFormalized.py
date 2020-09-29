@@ -18,11 +18,13 @@ def handler():
     pFormat = [""]* len(df)
     for i in range (0, len(df)):  
     	gene = str(df['Gene'][i])
-    	gFormat[i] = str(gFormat[i]).replace(":","_").replace(">","~")   
-    	cFormat[i] = str(gene) + "_" + str(df['cDNA'][i]).replace(">","~")
+    	gFormat[i] = str(gFormat[i]).replace(":","\\")  
+    	cFormat[i] = str(gene) + "_" + str(df['cDNA'][i])
+        pFormat[i] = str(df['individual_mutation']).replace(":","\\")
     gSeries = pd.Series(gFormat, name="gFormat")
     cSeries = pd.Series(cFormat, name="cFormat")
-    df_result = pd.concat([df, gSeries, cSeries], axis=1)
+    pSeries = pd.Series(pFormat, name="pFormat")
+    df_result = pd.concat([df, gSeries, cSeries, pSeries], axis=1)
 
     df_result.to_csv("/mnt/e/Backup/CGI/processed/cgi_biomarkers_per_variant_processed_formalized.csv")
 

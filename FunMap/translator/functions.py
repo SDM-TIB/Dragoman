@@ -69,6 +69,10 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ######################## new functions for GenoDIS: civicPredictive dataset ####################################
 ################################################################################################################
 
+def concat(value1,value2,value3):
+    result = str(value1, value2, value3) 
+    return(result)
+
 def civic_gFormat(hgvs,chromosome):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
@@ -98,7 +102,6 @@ def civic_pFormat(hgvs,gene):
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
             pFormat = gene + "\\" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
     return(pFormat)
-
 
 
 def prefix_extraction(uri):

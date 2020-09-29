@@ -123,7 +123,7 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011135; # has peptide annotation
 		rr:objectMap <civic_pFormat>
-	];
+	].
 
 <civic_gFormat>
 	fnml:functionValue [

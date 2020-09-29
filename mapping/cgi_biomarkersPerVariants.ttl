@@ -6,18 +6,17 @@
 @prefix rev: <http://purl.org/stuff/rev#> .
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcterms: <http://purl.org/dc/terms> .
-@prefix dce: <http://purl.org/dc/elements/1.1> .
-@prefix af: <http://purl.org/ontology/af> .
-@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix base: <http://semanticscience.org/resource> .
+@prefix base: <http://tib.de/ontario/mapping#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix iasis: <http://project-iasis.eu/vocab/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
-@prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
+@prefix ex: <http://www.example.com/> .
+@base <http://GenoDIS.KG/> .
 
-<#Evidence>
+<Evidence>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -34,19 +33,19 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Drug>
+			rr:parentTriplesMap <Drug>
 		]
 	]; 	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Variation> 
+			rr:parentTriplesMap <Variation> 
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000628; # refers to 
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Publication>
+			rr:parentTriplesMap <Publication>
 		]
 	];		
 	rr:predicateObjectMap [
@@ -56,7 +55,7 @@
 		]
 	].			
 
-<#Variation>
+<Variation>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -73,11 +72,116 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <#TumorType>
+			rr:parentTriplesMap <TumorType>
 		]
-	].
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_011133; # has gDNA annotation
+		rr:objectMap <gFormat_replaceDots>
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_011134; # has cDNA annotation
+		rr:objectMap <cFormat_concat>
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_011135; # has peptide annotation
+		rr:objectMap <pFormat_replaceDots>
+	].	
 
-<#Drug>
+<gFormat_replaceDots>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:replaceValue 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+            	rml:reference "gDNA" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+            	rr:constant ":" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+            	rr:constant "\" 
+            ]
+        ];        
+    ].
+
+<cFormat_concat>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+            	rml:reference "Gene" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "\" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "cDNA" 
+            ]
+        ];        
+    ]. 
+
+<pFormat_replaceDots>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:replaceValue 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+            	rml:reference "individual_mutation" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+            	rr:constant ":" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+            	rr:constant "\" 
+            ]
+        ];        
+    ].
+
+<Drug>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
@@ -91,7 +195,7 @@
 		]
 	].	
 
-<#Transcript>	
+<Transcript>	
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
@@ -106,7 +210,7 @@
 		]
 	].
 
-<#Publication>
+<Publication>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -115,7 +219,7 @@
 		rr:class sio:SIO_000154; # publication
 	].
 
-<#TumorType>
+<TumorType>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
