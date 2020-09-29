@@ -534,7 +534,7 @@ def execute_function(row,dic):
     elif "civic_cFormat" in dic["function"]:
         return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
     elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) renameAminoAcid    
+        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])  
     elif "concat" in dic["function"]:
         return concat(row[dic["func_par"]["value1"]],row[dic["func_par"]["value2"]],row[dic["func_par"]["value3"]])
     elif "renameAminoAcid" in dic["function"]:
