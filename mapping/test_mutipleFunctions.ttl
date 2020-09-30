@@ -114,6 +114,25 @@
             ]
         ];
         rr:predicateObjectMap [
+            rr:predicate ex:threeLetters;
+            rr:objectMap [ 
+                rml:reference <civic_aa_threeLetters> 
+            ]
+        ];    
+    ].
+
+<civic_aa_threeLetters>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:civic_pFormat 
+            ]
+        ];
+        rr:predicateObjectMap [
             rr:predicate ex:hgvs;
             rr:objectMap [ 
                 rml:reference "hgvs_expressions" 
@@ -124,28 +143,5 @@
             rr:objectMap [ 
                 rml:reference "gene.clinical" 
             ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:gene;
-            rr:objectMap <renameAminoAcid>; 
-        ];        
+        ];      
     ].                      
-
-<renameAminoAcid>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:renameAminoAcid 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:threeLetters;
-            rr:objectMap [ 
-                rml:reference "hgvs_expressions" 
-            ]
-        ];    
-    ].

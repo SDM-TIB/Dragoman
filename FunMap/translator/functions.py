@@ -91,17 +91,16 @@ def civic_cFormat(hgvs,gene):
             cFormat = ""
     return(cFormat)
 
-def civic_pFormat(hgvs,gene):
+def civic_aa_threeLetters(hgvs,gene):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "p." in expressionsList[j]:
-            pFormat_threeCharacters = expressionsList[j].split(",")[0].lower()  
+            aa_threeLetters = expressionsList[j].split(",")[0].lower()  
         else:
-            pFormat_threeCharacters = ""
-    pFormat = renameAminoAcid(pFormat_threeCharacters) 
-    return (pFormat)  
+            aa_threeLetters = "" 
+    return (aa_threeLetters)  
            
-def renameAminoAcid(threeLetters):            
+def civic_pFormat(threeLetters):            
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
@@ -532,13 +531,13 @@ def execute_function(row,dic):
     elif "civic_gFormat" in dic["function"]:
         return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["chromosome"]])
     elif "civic_cFormat" in dic["function"]:
-        return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])
-    elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]])  
+        return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
     elif "concat" in dic["function"]:
         return concat(row[dic["func_par"]["value1"]],row[dic["func_par"]["value2"]],row[dic["func_par"]["value3"]])
-    elif "renameAminoAcid" in dic["function"]:
-        return renameAminoAcid(dic["func_par"]["threeLetters"])             
+    elif "civic_aa_threeLetters" in dic["function"]:
+        return civic_aa_threeLetters(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
+    elif "civic_pFormat" in dic["function"]:
+        return civic_pFormat(dic["func_par"]["threeLetters"])             
     else:
         print("Invalid function")
         print("Aborting...")
