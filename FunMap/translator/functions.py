@@ -104,6 +104,7 @@ def civic_pFormat(threeLetters):
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
+    print(threeLetters)
     if threeLetters != "":
         first = threeLetters.split(".")[1][0:3]
         second = threeLetters.split(".")[1][-3:]
@@ -537,7 +538,7 @@ def execute_function(row,dic):
     elif "civic_aa_threeLetters" in dic["function"]:
         return civic_aa_threeLetters(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
     elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(dic["func_par"]["threeLetters"])             
+        return civic_pFormat(row)             
     else:
         print("Invalid function")
         print("Aborting...")
@@ -572,7 +573,7 @@ def execute_function_mysql(row,header,dic):
         print("Aborting...")
         sys.exit(1)
 
-def join_csv(source, dic, output):
+def join_csv(source, dic, output,triple_map_list):
     with open(output + "/" + dic["output_name"] + ".csv", "w") as temp_csv:
         writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 
@@ -625,7 +626,7 @@ def join_csv(source, dic, output):
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
         
 
-        elif "civic_pFormat" in dic["function"] or "civic_cFormat" in dic["function"]:
+        elif "civic_cFormat" in dic["function"]:
             if dic["func_par"]["hgvs"]+dic["func_par"]["gene"] in columns:
 
                 keys.append(dic["output_name"])
@@ -665,6 +666,39 @@ def join_csv(source, dic, output):
                             projection.append({dic["func_par"]["hgvs"]:row[dic["func_par"]["hgvs"]], dic["func_par"]["gene"]:row[dic["func_par"]["gene"]]})
 
                 columns[dic["func_par"]["hgvs"]+dic["func_par"]["gene"]] = projection 
+
+        elif "civic_pFormat" in dic["function"]:
+            for tp in triple_map_list:
+                if tp.triples_map_id == dic["func_par"]["threeLetters"]:
+                    temp_dic = create_dictionary(tp)
+                    current_func = {"inputs":temp_dic["inputs"], 
+                                    "function":temp_dic["executes"],
+                                    "func_par":temp_dic,
+                                    "termType":True}
+                    keys.append(dic["output_name"])
+                    writer.writerow(keys)
+
+                    temp_keys = []
+                    for attr in temp_dic["inputs"]:
+                        if attr[1] is not "constant":
+                            temp_keys.append(attr[0])
+
+                    reader = pd.read_csv(tp.data_source, usecols=temp_keys)
+                    reader = reader.where(pd.notnull(reader), None)
+                    reader = reader.to_dict(orient='records')
+
+                    for row in reader:
+                        if None not in row.values():
+                            temp_value = execute_function(row,current_func)
+                            if temp_value is not None:
+                                if (temp_value not in values) and (temp_value is not ""):
+                                    value = execute_function(temp_value,dic)
+                                    line = []
+                                    line.append(value)
+                                    writer.writerow(line)
+                                    values[temp_value] = value
+                                
+
 
         elif "civic_gFormat" in dic["function"]:
             if dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"] in columns:

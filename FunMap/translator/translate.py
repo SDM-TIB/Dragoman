@@ -343,7 +343,7 @@ def translate(config_path):
 																"func_par":dic,
 																"termType":False}
 												function_dic[triples_map_element.triples_map_id] = current_func
-												join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"])
+												join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"], triples_map_list)
 											i += 1
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"

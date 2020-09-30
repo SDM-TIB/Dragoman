@@ -17,7 +17,7 @@
 @base <http://GenoDIS.KG/> .
 
 <Evidence>
-    rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -32,7 +32,7 @@
     ].      
     
 <Variation>
-    rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -54,7 +54,7 @@
 
 <civic_gFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -79,7 +79,7 @@
 
 <civic_cFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -104,7 +104,7 @@
 
 <civic_pFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -115,15 +115,13 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:threeLetters;
-            rr:objectMap [ 
-                rml:reference <civic_aa_threeLetters> 
-            ]
+            rr:objectMap <civic_aa_threeLetters> 
         ];    
     ].
 
 <civic_aa_threeLetters>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
