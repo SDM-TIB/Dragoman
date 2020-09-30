@@ -110,10 +110,10 @@ def civic_pFormat(threeLetters):
         second = threeLetters.split(".")[1][-3:]
         middle = threeLetters.split(".")[1][3:-3]
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
-            oneLetter = gene + "~" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
+            pFormat = gene + "~" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
         else:
-            oneLetter = ""    
-    return(oneLetter)
+            pFormat = ""    
+    return(pFormat)
 
 
 def prefix_extraction(uri):
