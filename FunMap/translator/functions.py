@@ -77,7 +77,7 @@ def civic_gFormat(hgvs,chromosome):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "g." in expressionsList[j]:
-            gFormat = "chr" + chromosome + "\\" + expressionsList[j].split(",")[0]  
+            gFormat = "chr" + chromosome + "~" + expressionsList[j].split(",")[0]  
         else:
             gFormat = ""
     return(gFormat)
@@ -86,7 +86,7 @@ def civic_cFormat(hgvs,gene):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "c." in expressionsList[j]:    
-            cFormat = gene + "\\" + expressionsList[j].split(",")[0]
+            cFormat = gene + "~" + expressionsList[j].split(",")[0]
         else:
             cFormat = ""
     return(cFormat)
@@ -110,7 +110,7 @@ def renameAminoAcid(threeLetters):
         second = threeLetters.split(".")[1][-3:]
         middle = threeLetters.split(".")[1][3:-3]
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
-            oneLetter = gene + "\\" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
+            oneLetter = gene + "~" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
         else:
             oneLetter = ""    
     return(oneLetter)
