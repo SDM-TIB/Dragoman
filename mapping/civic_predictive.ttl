@@ -126,79 +126,96 @@
 	].
 
 <civic_gFormat>
-	fnml:functionValue [
+    fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
-		rml:referenceFormulation ql:CSV 
-							];
+        rml:referenceFormulation ql:CSV 
+                            ];
         rr:predicateObjectMap [
-         	rr:predicate fno:executes ;
+            rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:civic_gFormat 
-        	]
+                rr:constant ex:civic_gFormat 
+            ]
         ];
         rr:predicateObjectMap [
             rr:predicate ex:hgvs;
             rr:objectMap [ 
-            	rml:reference "hgvs_expressions" 
+                rml:reference "hgvs_expressions" 
             ]
         ];
         rr:predicateObjectMap [
             rr:predicate ex:chromosome;
             rr:objectMap [ 
-            	rml:reference "chromosome.clinical" 
+                rml:reference "chromosome.clinical" 
             ]
         ];
-    ].         	
+    ].          
 
 <civic_cFormat>
-	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
-		rml:referenceFormulation ql:CSV 
-							];
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/data/civic_Predictive.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
         rr:predicateObjectMap [
-         	rr:predicate fno:executes ;
+            rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:civic_cFormat 
-        	]
+                rr:constant ex:civic_cFormat 
+            ]
         ];
         rr:predicateObjectMap [
             rr:predicate ex:hgvs;
             rr:objectMap [ 
-            	rml:reference "hgvs_expressions" 
+                rml:reference "hgvs_expressions" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:chromosome;
+            rr:predicate ex:gene;
             rr:objectMap [ 
-            	rml:reference "gene.clinical" 
+                rml:reference "gene.clinical" 
             ]
         ];
-    ].  	
+    ].      
 
 <civic_pFormat>
-	fnml:functionValue [
+    fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
-		rml:referenceFormulation ql:CSV 
-							];
+        rml:referenceFormulation ql:CSV 
+                            ];
         rr:predicateObjectMap [
-         	rr:predicate fno:executes ;
+            rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:civic_pFormat 
-        	]
+                rr:constant ex:civic_pFormat 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:threeLetters;
+            rr:objectMap <civic_aa_threeLetters> 
+        ];    
+    ].
+
+<civic_aa_threeLetters>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:civic_aa_threeLetters 
+            ]
         ];
         rr:predicateObjectMap [
             rr:predicate ex:hgvs;
             rr:objectMap [ 
-            	rml:reference "hgvs_expressions" 
+                rml:reference "hgvs_expressions" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:chromosome;
+            rr:predicate ex:gene;
             rr:objectMap [ 
-            	rml:reference "gene.clinical" 
+                rml:reference "gene.clinical" 
             ]
-        ];
-    ].  		        	
+        ];      
+    ]. 		        	
 
 <Disease>
 	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
