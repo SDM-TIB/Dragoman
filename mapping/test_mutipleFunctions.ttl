@@ -129,7 +129,7 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:civic_pFormat 
+                rr:constant ex:civic_aa_threeLetters 
             ]
         ];
         rr:predicateObjectMap [
