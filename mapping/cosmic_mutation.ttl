@@ -121,7 +121,7 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value1;
-			rr:objectMap <replaceRegex>
+			rr:objectMap <cFormat_replaceRegex>
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value2;
@@ -137,7 +137,7 @@
         ];        
     ].    
 
-<replaceRegex>
+<cFormat_replaceRegex>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
@@ -151,13 +151,13 @@
         rr:predicateObjectMap [
             rr:predicate ex:regex;
             rr:objectMap [ 
-                rml:reference "_.*" 
+                rr:constant "_.*" 
             ] 
         ];  
         rr:predicateObjectMap [
             rr:predicate ex:replvalue;
             rr:objectMap [ 
-                rml:reference "" 
+                rr:constant "" 
             ] 
         ];   
         rr:predicateObjectMap [
@@ -169,6 +169,33 @@
     ].
 
 <pFormat>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+			rr:objectMap <pFormat_replaceRegex>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+			rr:objectMap <pFormat_split>
+        ];     
+    ].  
+
+<pFormat_replaceRegex>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
@@ -176,15 +203,58 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex: 
+                rr:constant ex:replaceRegex 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:;
+            rr:predicate ex:regex;
             rr:objectMap [ 
-                rml:reference "" 
+                rr:constant "_.*" 
             ] 
-        ];    
+        ];  
+        rr:predicateObjectMap [
+            rr:predicate ex:replvalue;
+            rr:objectMap [ 
+                rr:constant "" 
+            ] 
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "Gene name" 
+            ] 
+        ];                     
+    ].
+
+<pFormat_split>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:split 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "Mutation AA" 
+            ] 
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "value" 
+            ] 
+        ];           
+        rr:predicateObjectMap [
+            rr:predicate ex:index;
+            rr:objectMap [ 
+                rr:constant "1" 
+            ] 
+        ];                    
     ].
 
 <Publication>
