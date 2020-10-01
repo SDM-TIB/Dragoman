@@ -77,18 +77,18 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011133; # has gDNA annotation
-		rr:objectMap <gFormat_replaceDots>
+		rr:objectMap <cgi_gFormat>
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has cDNA annotation
-		rr:objectMap <cFormat_concat>
+		rr:objectMap <cgi_cFormat>
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <pFormat_replaceDots>
+		rr:objectMap <cgi_pFormat>
 	].	
 
-<gFormat_replaceDots>
+<cgi_gFormat>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
@@ -119,7 +119,7 @@
         ];        
     ].
 
-<cFormat_concat>
+<cgi_cFormat>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
@@ -139,7 +139,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value2;
             rr:objectMap [ 
-            	rr:constant "\" 
+            	rr:constant "~" 
             ]
         ];
         rr:predicateObjectMap [
@@ -150,7 +150,7 @@
         ];        
     ]. 
 
-<pFormat_replaceDots>
+<cgi_pFormat>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
