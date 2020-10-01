@@ -17,7 +17,7 @@
 @base <http://GenoDIS.KG/> .
 
 <Transcript>	
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -32,92 +32,37 @@
 	].
 
 <Gene>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
+	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
 		rr:template "http://semanticscience.org/resource/SIO_010035/{Gene name}"; # gene
+		rr:class sio:SIO_010035
 	];
 	rr:predicateObjectMap [
-		rr:predicate rdf:type;
+		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:template "http://semanticscience.org/resource/SIO_010035" 
+			rr:parentTriplesMap <Sample> 
 		]
-	].
+	].	
 
 <Sample>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
+	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Sample/{ID_sample}";
-		rr:class sio:Sample
+		rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}";
+		rr:class sio:SIO_001050 # sample
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:sampleLabel;
-		rr:objectMap [
-			rml:reference "Sample name"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:sampleID;
-		rr:objectMap [
-			rml:reference "ID_sample"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:sampleAge;
+		rr:predicate sio:SIO_000068; # is part of
 		rr:objectMap [ 
-			rml:reference "Age" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:primaryTissue;
-		rr:objectMap [ 
-			rr:template "http://project-iasis.eu/Tissue/{Primary site}";
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:tissueSubtype1;
-		rr:objectMap [
-			rr:template "http://project-iasis.eu/SubTissue/{Site subtype 1}";
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:primaryHistology;
-		rr:objectMap [ 
-			rr:template "http://project-iasis.eu/TissueType/{Primary histology}";
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:histologySubtype1;
-		rr:objectMap [ 
-			rr:template "http://project-iasis.eu/TissueSubType/{Histology subtype 1}";
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:sample_isTakenFrom_tumor;
-		rr:objectMap [ 
-			rr:parentTriplesMap <Tumor>
-		]
-	].
-
-<Tumor>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
-						rml:referenceFormulation ql:CSV ];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Tumor/{ID_tumour}";
-		rr:class sio:Tumor;
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:tumorID;
-		rr:objectMap [
-			rml:reference "ID_tumour"
+			rr:template "http://semanticscience.org/resource/SIO_010002"; # tissue
 		]
 	].
 
 <Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -127,25 +72,25 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061; # is located in
 		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_000899/{chromosome.clinical}" # chromosome
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061; # is located in
-		rr:objectMap [
 			rr:template "http://semanticscience.org/resource/SIO_010035/{gene.clinical}" # gene
 		]
 	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000001; # is related to
+		rr:objectMap [
+			rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
+		]
+	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061;  # is located in
 		rr:objectMap [
 			rr:parentTriplesMap <Transcript>
 		]
-	];
+	];	
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001279; # has phenotype
+		rr:predicate sio:SIO_000061;  # is located in
 		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_010056/{phenotypes}" # phenotype 
+			rr:parentTriplesMap <Sample>
 		]
 	];	
 	rr:predicateObjectMap [
@@ -167,127 +112,55 @@
 		rr:objectMap <civic_pFormat>
 	].
 
+<civic_cFormat>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex: 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:;
+            rr:objectMap [ 
+                rml:reference "" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:;
+            rr:objectMap [ 
+                rml:reference "" 
+            ]
+        ];
+    ].      
 
-<Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
-						rml:referenceFormulation ql:CSV ];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{cFormat}";
-		rr:class sio:Variation;
-	];
-	rr:predicateObjectMap [
-		rr:predicate rdf:type;
-		rr:objectMap [ 
-			rr:template "http://project-iasis.eu/vocab/CDNA-Variation"
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate owl:sameAs;
-		rr:objectMap [
-			rr:parentTriplesMap <#Peptide-Variation>
-		]
-	];
-			
-	rr:predicateObjectMap [
-		rr:predicate sio:zygosity;
-		rr:objectMap [ 
-			rr:template "http://project-iasis.eu/Zygosity/{Mutation zygosity}";
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:loh;
-		rr:objectMap [ 
-			rml:reference "LOH"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:snp;
-		rr:objectMap [ 
-			rml:reference "SNP"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_aa;
-		rr:objectMap [ 
-			rml:reference "Mutation AA"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_cds;
-		rr:objectMap [ 
-			rml:reference "Mutation CDS"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:fathmm_prediction;
-		rr:objectMap [ 
-			rml:reference "FATHMM prediction"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:fathmm_score;
-		rr:objectMap [ 
-			rml:reference "FATHMM score" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_somatic_status;
-		rr:objectMap [ 
-			rml:reference "Mutation somatic status" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variationDescription;
-		rr:objectMap [
-			rml:reference "Mutation Description"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_genome_position;
-		rr:objectMap [ 
-			rml:reference "Mutation genome position" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_strand;
-		rr:objectMap [ 
-			rml:reference "Mutation strand" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_studyID;
-		rr:objectMap [ 
-			rml:reference "ID_STUDY" 
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:variation_isLocatedIn_sample;
-		rr:objectMap [ 
-			rr:parentTriplesMap <#Sample> 
-		]
-	];
-
-
-<Peptide-Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{pFormat}";
-		rr:class sio:Peptide-Variation
-	].
+<civic_pFormat>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex: 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:;
+            rr:objectMap [ 
+                rml:reference "" 
+            ] 
+        ];    
+    ].
 
 <Publication>
-	rml:logicalSource [ rml:source "/data/data/genomic/COSMIC_mutation_grch37.csv";
+	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Publication/{Pubmed_PMID}";
-		rr:class sio:Publication;
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:pubmedID;
-		rr:objectMap [ 
-			rml:reference "Pubmed_PMID" 
-		]
+		rr:template "http://semanticscience.org/resource/SIO_000154/{citation_id}"; 
+		rr:class sio:SIO_000154; # publication
 	].
