@@ -114,7 +114,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value;
             rr:objectMap [ 
-            	rr:constant "\" 
+            	rr:constant "~" 
             ]
         ];        
     ].
@@ -176,7 +176,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value;
             rr:objectMap [ 
-            	rr:constant "\" 
+            	rr:constant "~" 
             ]
         ];        
     ].
