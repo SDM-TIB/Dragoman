@@ -116,7 +116,7 @@
         rr:predicateObjectMap [
          	rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:concat 
+            	rr:constant ex:concat3 
         	]
         ];
         rr:predicateObjectMap [
@@ -176,7 +176,7 @@
         rr:predicateObjectMap [
          	rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:concat 
+            	rr:constant ex:concat3 
         	]
         ];
         rr:predicateObjectMap [
