@@ -69,38 +69,42 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ######################## new functions for GenoDIS: civicPredictive dataset ####################################
 ################################################################################################################
 
-def concat(value1,value2,value3):
+def concat3(value1,value2,value3):
     result = str(str(value1)+str(value2)+str(value3)) 
     return(result)
 
-def civic_gFormat(hgvs,chromosome):
+def concat4(value1,value2,value3,value3):
+    result = str(str(value1)+str(value2)+str(value3)+str(value4)) 
+    return(result)
+
+def match_gdna(hgvs):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "g." in expressionsList[j]:
-            gFormat = "chr" + chromosome + "~" + expressionsList[j].split(",")[0]  
+            gdna = expressionsList[j]
         else:
-            gFormat = ""
-    return(gFormat)
+            gdna = ""
+    return(gdna)
 
-def civic_cFormat(hgvs,gene):
+def match_cdna(hgvs):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
-        if "c." in expressionsList[j]:    
-            cFormat = gene + "~" + expressionsList[j].split(",")[0]
+        if "c." in expressionsList[j]:  
+            cdna = expressionsList[j]  
         else:
-            cFormat = ""
-    return(cFormat)
+            cdna = ""
+    return(cdna)
 
-def civic_aa_threeLetters(hgvs):
+def match_aa(hgvs):
     expressionsList = hgvs.split(":")
     for j in range(0,len(expressionsList)):
         if "p." in expressionsList[j]:
-            aa_threeLetters = expressionsList[j].split(",")[0].lower()  
+            aa_threeLetters = expressionsList[j]
         else:
             aa_threeLetters = "" 
     return (aa_threeLetters)  
            
-def civic_pFormat(threeLetters,gene):            
+def match_pFormat(threeLetters,gene):            
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
@@ -114,6 +118,13 @@ def civic_pFormat(threeLetters,gene):
             pFormat = ""    
     return(pFormat)
 
+# returns the regex match with the replvalue in the column
+def replaceRegex(regex,replvalue,column):
+    return re.sub(regex,replvalue,column)
+
+# returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
+def split(column,separator,index):
+    return column.split(separator)[int(index)]
 
 def prefix_extraction(uri):
     prefix = ""
@@ -528,16 +539,16 @@ def execute_function(row,dic):
         return variantIdentifier(row[dic["func_par"]["column1"]],row[dic["func_par"]["column2"]],dic["func_par"]["prefix"])
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
-    elif "civic_gFormat" in dic["function"]:
-        return civic_gFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["chromosome"]])
-    elif "civic_cFormat" in dic["function"]:
-        return civic_cFormat(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
+    elif "match_gdna" in dic["function"]:
+        return match_gdna(row[dic["func_par"]["hgvs"]])
+    elif "match_cdna" in dic["function"]:
+        return match_cdna(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
     elif "concat" in dic["function"]:
         return concat(row[dic["func_par"]["value1"]],row[dic["func_par"]["value2"]],row[dic["func_par"]["value3"]])
-    elif "civic_aa_threeLetters" in dic["function"]:
-        return civic_aa_threeLetters(row[dic["func_par"]["hgvs"]]) 
-    elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])             
+    elif "match_aa" in dic["function"]:
+        return match_aa(row[dic["func_par"]["hgvs"]]) 
+    elif "match_pFormat" in dic["function"]:
+        return match_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])             
     else:
         print("Invalid function")
         print("Aborting...")
