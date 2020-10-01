@@ -100,19 +100,44 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011133; # has gDNA annotation
-		rr:objectMap <civic_gFormat>
-	];
-	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has cDNA annotation
-		rr:objectMap <civic_cFormat>
+		rr:objectMap <cFormat>
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <civic_pFormat>
+		rr:objectMap <pFormat>
 	].
 
-<civic_cFormat>
+<cFormat>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+			rr:objectMap <replaceRegex>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "Mutation CDS" 
+            ]
+        ];        
+    ].    
+
+<replaceRegex>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
@@ -120,24 +145,30 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex: 
+                rr:constant ex:replaceRegex 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:;
+            rr:predicate ex:regex;
             rr:objectMap [ 
-                rml:reference "" 
-            ]
-        ];
+                rml:reference "_.*" 
+            ] 
+        ];  
         rr:predicateObjectMap [
-            rr:predicate ex:;
+            rr:predicate ex:replvalue;
             rr:objectMap [ 
                 rml:reference "" 
-            ]
-        ];
-    ].      
+            ] 
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "Gene name" 
+            ] 
+        ];                     
+    ].
 
-<civic_pFormat>
+<pFormat>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
