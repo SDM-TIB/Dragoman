@@ -104,7 +104,6 @@ def civic_pFormat(threeLetters,gene):
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
-    print(threeLetters)
     if threeLetters != "":
         first = threeLetters.split(".")[1][0:3]
         second = threeLetters.split(".")[1][-3:]
@@ -281,7 +280,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                         mapping += "[\n"
                         mapping += "        rr:parentTriplesMap <#" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
                         for attr in dic[predicate_object.object_map.value]["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 mapping += "        rr:joinCondition [\n"
                                 mapping += "            rr:child \"" + attr[0] + "\";\n"
                                 mapping += "            rr:parent \"" + attr[0] +"\";\n"
@@ -443,7 +442,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
                         mapping += "[\n"
                         mapping += "        rr:parentTriplesMap <#" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
                         for attr in dic[predicate_object.object_map.value]["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 mapping += "        rr:joinCondition [\n"
                                 mapping += "            rr:child \"" + attr[0] + "\";\n"
                                 mapping += "            rr:parent \"" + attr[0] +"\";\n"
@@ -538,7 +537,7 @@ def execute_function(row,dic):
     elif "civic_aa_threeLetters" in dic["function"]:
         return civic_aa_threeLetters(row[dic["func_par"]["hgvs"]]) 
     elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row,dic["func_par"]["gene"])             
+        return civic_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])             
     else:
         print("Invalid function")
         print("Aborting...")
@@ -579,7 +578,7 @@ def join_csv(source, dic, output,triple_map_list):
 
         keys = []
         for attr in dic["inputs"]:
-            if attr[1] is not "constant":
+            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                 keys.append(attr[0])
 
         values = {}
@@ -597,7 +596,7 @@ def join_csv(source, dic, output,triple_map_list):
                         value = execute_function(row,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -616,7 +615,7 @@ def join_csv(source, dic, output,triple_map_list):
                         value = execute_function(row,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -638,7 +637,7 @@ def join_csv(source, dic, output,triple_map_list):
                             value = execute_function(row,dic)
                             line = []
                             for attr in dic["inputs"]:
-                                if attr[1] is not "constant":
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                     line.append(row[attr[0]])
                             line.append(value)
                             writer.writerow(line)
@@ -658,7 +657,7 @@ def join_csv(source, dic, output,triple_map_list):
                             value = execute_function(row,dic)
                             line = []
                             for attr in dic["inputs"]:
-                                if attr[1] is not "constant":
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                     line.append(row[attr[0]])
                             line.append(value)
                             writer.writerow(line)
@@ -675,13 +674,15 @@ def join_csv(source, dic, output,triple_map_list):
                                     "function":temp_dic["executes"],
                                     "func_par":temp_dic,
                                     "termType":True}
+                    keys.append("threeLetters")
                     keys.append(dic["output_name"])
                     writer.writerow(keys)
 
                     temp_keys = []
                     for attr in temp_dic["inputs"]:
-                        if attr[1] is not "constant":
+                        if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                             temp_keys.append(attr[0])
+                    temp_keys.append(dic["func_par"]["gene"])
 
                     reader = pd.read_csv(tp.data_source, usecols=temp_keys)
                     reader = reader.where(pd.notnull(reader), None)
@@ -691,12 +692,18 @@ def join_csv(source, dic, output,triple_map_list):
                         if None not in row.values():
                             temp_value = execute_function(row,current_func)
                             if temp_value is not None:
-                                if (temp_value not in values) and (temp_value is not ""):
-                                    value = execute_function(temp_value,dic)
-                                    line = []
-                                    line.append(value)
-                                    writer.writerow(line)
-                                    values[temp_value] = value
+                                if (temp_value+row[dic["func_par"]["gene"]] not in values) and (temp_value+row[dic["func_par"]["gene"]] is not ""):
+                                    temp_row = {}
+                                    temp_row[dic["func_par"]["gene"]] = row[dic["func_par"]["gene"]]
+                                    temp_row["threeLetters"] = temp_value
+                                    if (row[dic["func_par"]["gene"]] != "") and (temp_value != ""):
+                                        value = execute_function(temp_row,dic)
+                                        line = []
+                                        line.append(row[dic["func_par"]["gene"]])
+                                        line.append(temp_value)
+                                        line.append(value)
+                                        writer.writerow(line)
+                                        values[temp_value+row[dic["func_par"]["gene"]]] = value
                                 
 
 
@@ -712,7 +719,7 @@ def join_csv(source, dic, output,triple_map_list):
                             value = execute_function(row,dic)
                             line = []
                             for attr in dic["inputs"]:
-                                if attr[1] is not "constant":
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                     line.append(row[attr[0]])
                             line.append(value)
                             writer.writerow(line)
@@ -732,7 +739,7 @@ def join_csv(source, dic, output,triple_map_list):
                             value = execute_function(row,dic)
                             line = []
                             for attr in dic["inputs"]:
-                                if attr[1] is not "constant":
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                     line.append(row[attr[0]])
                             line.append(value)
                             writer.writerow(line)
@@ -752,7 +759,7 @@ def join_csv(source, dic, output,triple_map_list):
                         value = execute_function(row,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -772,7 +779,7 @@ def join_csv(source, dic, output,triple_map_list):
                         value = execute_function(row,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)

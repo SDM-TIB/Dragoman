@@ -348,8 +348,10 @@ def translate(config_path):
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
-										elif "civic_pFormat" in current_func["function"] or "civic_cFormat" in current_func["function"]:
+										elif "civic_cFormat" in current_func["function"]:
 											fields[current_func["func_par"]["hgvs"]] = "object"
+											fields[current_func["func_par"]["gene"]] = "object"
+										elif "civic_pFormat" in current_func["function"]:
 											fields[current_func["func_par"]["gene"]] = "object"
 										elif "civic_gFormat" in current_func["function"]:
 											fields[current_func["func_par"]["hgvs"]] = "object"
