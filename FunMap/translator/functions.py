@@ -539,16 +539,22 @@ def execute_function(row,dic):
         return variantIdentifier(row[dic["func_par"]["column1"]],row[dic["func_par"]["column2"]],dic["func_par"]["prefix"])
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
+    elif "concat3" in dic["function"]:
+        return concat3(row[dic["value21"]],row[dic["value2"]],row[dic["value3"]]) 
+    elif "concat4" in dic["function"]:
+        return concat3(row[dic["value21"]],row[dic["value2"]],row[dic["value3"]],row[dic["value4"]])         
     elif "match_gdna" in dic["function"]:
         return match_gdna(row[dic["func_par"]["hgvs"]])
     elif "match_cdna" in dic["function"]:
         return match_cdna(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
-    elif "concat" in dic["function"]:
-        return concat(row[dic["func_par"]["value1"]],row[dic["func_par"]["value2"]],row[dic["func_par"]["value3"]])
     elif "match_aa" in dic["function"]:
-        return match_aa(row[dic["func_par"]["hgvs"]]) 
-    elif "match_pFormat" in dic["function"]:
-        return match_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])             
+        return match_aa(row[dic["func_par"]["hgvs"]])   
+    elif "match_pFormat" in dic["function"]:  ## individual execution of function should also be added
+        return match_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])  ## individual execution of function should also be added 
+    elif "replaceRegex" in dic["function"]:
+        return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["gene"]])   
+    elif "split" in dic["function"]:
+        return split(row[dic["func_par"]["column"]],dic["func_par"]["separator"],dic["func_par"]["index"],)            
     else:
         print("Invalid function")
         print("Aborting...")
