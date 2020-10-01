@@ -116,7 +116,13 @@
         rr:predicateObjectMap [
             rr:predicate ex:threeLetters;
             rr:objectMap <civic_aa_threeLetters> 
-        ];    
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:gene;
+            rr:objectMap [ 
+                rml:reference "gene.clinical" 
+            ]
+        ];              
     ].
 
 <civic_aa_threeLetters>
@@ -136,10 +142,4 @@
                 rml:reference "hgvs_expressions" 
             ]
         ];
-        rr:predicateObjectMap [
-            rr:predicate ex:gene;
-            rr:objectMap [ 
-                rml:reference "gene.clinical" 
-            ]
-        ];      
-    ].                      
+    ].                     
