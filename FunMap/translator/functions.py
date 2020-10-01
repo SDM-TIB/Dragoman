@@ -538,7 +538,7 @@ def execute_function(row,dic):
     elif "civic_aa_threeLetters" in dic["function"]:
         return civic_aa_threeLetters(row[dic["func_par"]["hgvs"]]) 
     elif "civic_pFormat" in dic["function"]:
-        return civic_pFormat(row,row[dic["func_par"]["gene"]])             
+        return civic_pFormat(row,dic["func_par"]["gene"])             
     else:
         print("Invalid function")
         print("Aborting...")
