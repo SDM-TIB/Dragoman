@@ -74,7 +74,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value4;
             rr:objectMap <gFormat_split>
         ];        
     ].         
@@ -101,7 +101,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value3;
+            rr:predicate ex:index;
             rr:objectMap [ 
                 rr:constant "0" 
             ]
