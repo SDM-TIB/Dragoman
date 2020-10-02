@@ -713,6 +713,7 @@ def join_csv(source, dic, output,triple_map_list):
                                 value = execute_function(temp_row,dic)
                                 line.append(value)
                                 writer.writerow(line)
+                                values[temp_value] = temp_value
 
         elif "match_pFormat" in dic["function"]:
             for tp in triple_map_list:
