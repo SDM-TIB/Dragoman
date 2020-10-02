@@ -73,17 +73,20 @@ def concat3(value1,value2,value3):
     result = str(str(value1)+str(value2)+str(value3)) 
     return(result)
 
-def concat4(value1,value2,value3,value3):
+def concat4(value1,value2,value3,value4):
     result = str(str(value1)+str(value2)+str(value3)+str(value4)) 
     return(result)
 
 def match_gdna(hgvs):
-    expressionsList = hgvs.split(":")
-    for j in range(0,len(expressionsList)):
-        if "g." in expressionsList[j]:
-            gdna = expressionsList[j]
-        else:
-            gdna = ""
+    if hgvs is not None:
+        expressionsList = hgvs.split(":")
+        for j in range(0,len(expressionsList)):
+            if "g." in expressionsList[j]:
+                gdna = expressionsList[j]
+            else:
+                gdna = ""
+    else:
+        gdna = ""
     return(gdna)
 
 def match_cdna(hgvs):
@@ -190,9 +193,9 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
             pass
         else:
             if "#" in triples_map.triples_map_id:
-                mapping += "<#" + triples_map.triples_map_id.split("#")[1] + ">\n"
+                mapping += "<" + triples_map.triples_map_id.split("#")[1] + ">\n"
             else: 
-                mapping += "<#" + triples_map.triples_map_id + ">\n"
+                mapping += "<" + triples_map.triples_map_id + ">\n"
 
             mapping += "    a rr:TriplesMap;\n"
             if data_source:
@@ -289,9 +292,9 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 elif "reference function" in predicate_object.object_map.mapping_type:
                     if join:
                         mapping += "[\n"
-                        mapping += "        rr:parentTriplesMap <#" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
+                        mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
                         for attr in dic[predicate_object.object_map.value]["inputs"]:
-                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                            if (attr[1] is not "constant"):
                                 mapping += "        rr:joinCondition [\n"
                                 mapping += "            rr:child \"" + attr[0] + "\";\n"
                                 mapping += "            rr:parent \"" + attr[0] +"\";\n"
@@ -310,7 +313,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
 
     if join:
         for function in dic.keys():
-            mapping += "<#" + dic[function]["output_name"] + ">\n"
+            mapping += "<" + dic[function]["output_name"] + ">\n"
             mapping += "    a rr:TriplesMap;\n"
             mapping += "    rml:logicalSource [ rml:source \"" + dic[function]["output_file"] +"\";\n"
             if "csv" in dic[function]["output_file"]:
@@ -350,9 +353,9 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
             pass
         else:
             if "#" in triples_map.triples_map_id:
-                mapping += "<#" + triples_map.triples_map_id.split("#")[1] + ">\n"
+                mapping += "<" + triples_map.triples_map_id.split("#")[1] + ">\n"
             else: 
-                mapping += "<#" + triples_map.triples_map_id + ">\n"
+                mapping += "<" + triples_map.triples_map_id + ">\n"
 
             mapping += "    a rr:TriplesMap;\n"
             if data_source:
@@ -451,7 +454,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
                 elif "reference function" in predicate_object.object_map.mapping_type:
                     if join:
                         mapping += "[\n"
-                        mapping += "        rr:parentTriplesMap <#" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
+                        mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
                         for attr in dic[predicate_object.object_map.value]["inputs"]:
                             if (attr[1] is not "constant") and ("reference function" not in attr[1]):
                                 mapping += "        rr:joinCondition [\n"
@@ -472,7 +475,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
 
     if join:
         for function in dic.keys():
-            mapping += "<#" + dic[function]["output_name"] + ">\n"
+            mapping += "<" + dic[function]["output_name"] + ">\n"
             mapping += "    a rr:TriplesMap;\n"
             mapping += "    rml:logicalSource [ rml:source \"" + dic[function]["output_file"] +"\";\n"
             if "csv" in dic[function]["output_file"]:
@@ -487,7 +490,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
             mapping += "    ].\n\n"
 
     prefix_string = ""
-    db_source = "<#DB_source> a d2rq:Database;\n"
+    db_source = "<DB_source> a d2rq:Database;\n"
     
     f = open(original,"r")
     original_mapping = f.readlines()
@@ -533,24 +536,24 @@ def execute_function(row,dic):
             return substring(row[dic["func_par"]["value"]],dic["func_par"]["index1"],None)
     elif "replaceValue" in dic["function"]:
         return replaceValue(row[dic["func_par"]["value"]],dic["func_par"]["value2"],dic["func_par"]["value3"])
-    elif "match" in dic["function"]:
-        return match(dic["func_par"]["regex"],row[dic["func_par"]["value"]])
     elif "variantIdentifier" in dic["function"]:
         return variantIdentifier(row[dic["func_par"]["column1"]],row[dic["func_par"]["column2"]],dic["func_par"]["prefix"])
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
     elif "concat3" in dic["function"]:
-        return concat3(row[dic["value21"]],row[dic["value2"]],row[dic["value3"]]) 
+        return concat3(row[dic["func_par"]["value1"]],dic["func_par"]["value2"],dic["func_par"]["value3"]) 
     elif "concat4" in dic["function"]:
-        return concat3(row[dic["value21"]],row[dic["value2"]],row[dic["value3"]],row[dic["value4"]])         
+        return concat4(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]])         
     elif "match_gdna" in dic["function"]:
-        return match_gdna(row[dic["func_par"]["hgvs"]])
+        return match_gdna(row[dic["func_par"]["separator"]])
     elif "match_cdna" in dic["function"]:
         return match_cdna(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
     elif "match_aa" in dic["function"]:
         return match_aa(row[dic["func_par"]["hgvs"]])   
     elif "match_pFormat" in dic["function"]:  ## individual execution of function should also be added
-        return match_pFormat(row["threeLetters"],row[dic["func_par"]["gene"]])  ## individual execution of function should also be added 
+        return match_pFormat(row[dic["func_par"]["threeLetters"]],row[dic["func_par"]["gene"]])  ## individual execution of function should also be added
+    elif "match" in dic["function"]:
+        return match(dic["func_par"]["regex"],row[dic["func_par"]["value"]]) 
     elif "replaceRegex" in dic["function"]:
         return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["gene"]])   
     elif "split" in dic["function"]:
@@ -588,6 +591,34 @@ def execute_function_mysql(row,header,dic):
         print("Invalid function")
         print("Aborting...")
         sys.exit(1)
+
+def inner_function(row,dic,triples_map_list):
+
+    function = ""
+    keys = []
+    for attr in dic["inputs"]:
+        if ("reference function" in attr[1]):
+            function = attr[0]
+        elif "constant" not in attr[1]:
+            keys.append(attr[0])
+
+    if function != "":
+        for tp in triples_map_list:
+            if tp.triples_map_id == function:
+                temp_dic = create_dictionary(tp)
+                current_func = {"inputs":temp_dic["inputs"], 
+                                "function":temp_dic["executes"],
+                                "func_par":temp_dic,
+                                "termType":True}
+                value = inner_function(row,current_func,triples_map_list)
+                temp_row = {}
+                temp_row[function] = value
+                for key in keys:
+                    temp_row[key] = row[key]
+                return execute_function(temp_row,dic)
+
+    else:
+        return execute_function(row,dic)
 
 def join_csv(source, dic, output,triple_map_list):
     with open(output + "/" + dic["output_name"] + ".csv", "w") as temp_csv:
@@ -642,48 +673,48 @@ def join_csv(source, dic, output,triple_map_list):
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
         
 
-        elif "civic_cFormat" in dic["function"]:
-            if dic["func_par"]["hgvs"]+dic["func_par"]["gene"] in columns:
+        elif "concat" in dic["function"]:
 
-                keys.append(dic["output_name"])
-                writer.writerow(keys)
+            function = ""
+            outer_keys = []
+            for attr in dic["inputs"]:
+                if ("reference function" in attr[1]):
+                    function = attr[0]
+                elif "constant" not in attr[1]:
+                    outer_keys.append(attr[0])
 
-                for row in columns[dic["func_par"]["hgvs"]+dic["func_par"]["gene"]]:
-                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["gene"]] is not None):
-                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] is not None):
-                            value = execute_function(row,dic)
-                            line = []
-                            for attr in dic["inputs"]:
-                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
-                                    line.append(row[attr[0]])
-                            line.append(value)
-                            writer.writerow(line)
-                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]]] = value
-            else:
+            if function != "":
+                for tp in triple_map_list:
+                    if tp.triples_map_id == function:
 
-                reader = pd.read_csv(source, usecols=keys)
-                reader = reader.where(pd.notnull(reader), None)
-                reader = reader.to_dict(orient='records')
-                keys.append(dic["output_name"])
-                writer.writerow(keys)
-                projection = []
+                        temp_dic = create_dictionary(tp)
+                        current_func = {"inputs":temp_dic["inputs"], 
+                                        "function":temp_dic["executes"],
+                                        "func_par":temp_dic,
+                                        "termType":True}
+                        keys.append(function)
+                        keys.append(dic["output_name"])
+                        writer.writerow(keys)
 
-                for row in reader:
-                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["gene"]] is not None):                   
-                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]] is not None):
-                            value = execute_function(row,dic)
-                            line = []
-                            for attr in dic["inputs"]:
-                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
-                                    line.append(row[attr[0]])
-                            line.append(value)
-                            writer.writerow(line)
-                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["gene"]]] = value
-                            projection.append({dic["func_par"]["hgvs"]:row[dic["func_par"]["hgvs"]], dic["func_par"]["gene"]:row[dic["func_par"]["gene"]]})
+                        reader = pd.read_csv(source)
+                        reader = reader.where(pd.notnull(reader), None)
+                        reader = reader.to_dict(orient='records')
 
-                columns[dic["func_par"]["hgvs"]+dic["func_par"]["gene"]] = projection 
+                        for row in reader:
+                            temp_value = inner_function(row,current_func,triple_map_list)
+                            if (temp_value not in values) and (temp_value is not ""):
+                                temp_row = {}
+                                line = []
+                                for key in outer_keys:
+                                    temp_row[key] = row[key]
+                                    line.append(row[key])
+                                temp_row[function] = temp_value
+                                line.append(temp_value)
+                                value = execute_function(temp_row,dic)
+                                line.append(value)
+                                writer.writerow(line)
 
-        elif "civic_pFormat" in dic["function"]:
+        elif "match_pFormat" in dic["function"]:
             for tp in triple_map_list:
                 if tp.triples_map_id == dic["func_par"]["threeLetters"]:
                     temp_dic = create_dictionary(tp)
@@ -691,7 +722,7 @@ def join_csv(source, dic, output,triple_map_list):
                                     "function":temp_dic["executes"],
                                     "func_par":temp_dic,
                                     "termType":True}
-                    keys.append("threeLetters")
+                    keys.append(dic["func_par"]["threeLetters"])
                     keys.append(dic["output_name"])
                     writer.writerow(keys)
 
@@ -712,7 +743,7 @@ def join_csv(source, dic, output,triple_map_list):
                                 if (temp_value+row[dic["func_par"]["gene"]] not in values) and (temp_value+row[dic["func_par"]["gene"]] is not ""):
                                     temp_row = {}
                                     temp_row[dic["func_par"]["gene"]] = row[dic["func_par"]["gene"]]
-                                    temp_row["threeLetters"] = temp_value
+                                    temp_row[dic["func_par"]["threeLetters"]] = temp_value
                                     if (row[dic["func_par"]["gene"]] != "") and (temp_value != ""):
                                         value = execute_function(temp_row,dic)
                                         line = []
@@ -721,49 +752,6 @@ def join_csv(source, dic, output,triple_map_list):
                                         line.append(value)
                                         writer.writerow(line)
                                         values[temp_value+row[dic["func_par"]["gene"]]] = value
-                                
-
-
-        elif "civic_gFormat" in dic["function"]:
-            if dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"] in columns:
-
-                keys.append(dic["output_name"])
-                writer.writerow(keys)
-
-                for row in columns[dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"]]:
-                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["chromosome"]] is not None):
-                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] is not None):
-                            value = execute_function(row,dic)
-                            line = []
-                            for attr in dic["inputs"]:
-                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
-                                    line.append(row[attr[0]])
-                            line.append(value)
-                            writer.writerow(line)
-                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]]] = value
-            else:
-
-                reader = pd.read_csv(source, usecols=keys)
-                reader = reader.where(pd.notnull(reader), None)
-                reader = reader.to_dict(orient='records')
-                keys.append(dic["output_name"])
-                writer.writerow(keys)
-                projection = []
-
-                for row in reader:
-                    if (row[dic["func_par"]["hgvs"]] is not None) and (row[dic["func_par"]["chromosome"]] is not None):                   
-                        if (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] not in values) and (row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]] is not None):
-                            value = execute_function(row,dic)
-                            line = []
-                            for attr in dic["inputs"]:
-                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
-                                    line.append(row[attr[0]])
-                            line.append(value)
-                            writer.writerow(line)
-                            values[row[dic["func_par"]["hgvs"]]+row[dic["func_par"]["chromosome"]]] = value
-                            projection.append({dic["func_par"]["hgvs"]:row[dic["func_par"]["hgvs"]], dic["func_par"]["chromosome"]:row[dic["func_par"]["chromosome"]]})
-
-                columns[dic["func_par"]["hgvs"]+dic["func_par"]["chromosome"]] = projection
 
         else:
             if dic["func_par"]["value"] in columns:
