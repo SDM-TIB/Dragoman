@@ -41,18 +41,10 @@
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011133; # has gDNA annotation
-        rr:objectMap <civic_gFormat>
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011134; # has cDNA annotation
-        rr:objectMap <civic_cFormat>
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011135; # has peptide annotation
-        rr:objectMap <civic_pFormat>
+        rr:objectMap <gFormat_concat>
     ].
 
-<civic_gFormat>
+<gFormat_concat>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
@@ -60,24 +52,34 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:civic_gFormat 
+                rr:constant ex:concat4 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:hgvs;
+            rr:predicate ex:value1;
             rr:objectMap [ 
-                rml:reference "hgvs_expressions" 
+                rr:constant "chr" 
             ]
-        ];
+        ];        
         rr:predicateObjectMap [
-            rr:predicate ex:chromosome;
+            rr:predicate ex:value2;
             rr:objectMap [ 
                 rml:reference "chromosome.clinical" 
             ]
         ];
-    ].          
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap <gFormat_split>
+        ];        
+    ].         
 
-<civic_cFormat>
+<gFormat_split>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
@@ -85,61 +87,42 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:civic_cFormat 
+                rr:constant ex:split 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:hgvs;
+            rr:predicate ex:column;
+            rr:objectMap <gFormat> 
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:separator;
+            rr:objectMap [ 
+                rr:constant "," 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rr:constant "0" 
+            ]
+        ];        
+    ].  
+
+<gFormat>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:match_gdna 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:separator;
             rr:objectMap [ 
                 rml:reference "hgvs_expressions" 
             ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:gene;
-            rr:objectMap [ 
-                rml:reference "gene.clinical" 
-            ]
-        ];
-    ].      
-
-<civic_pFormat>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:civic_pFormat 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:threeLetters;
-            rr:objectMap <civic_aa_threeLetters> 
-        ]; 
-        rr:predicateObjectMap [
-            rr:predicate ex:gene;
-            rr:objectMap [ 
-                rml:reference "gene.clinical" 
-            ]
-        ];              
+        ];    
     ].
-
-<civic_aa_threeLetters>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:civic_aa_threeLetters 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:hgvs;
-            rr:objectMap [ 
-                rml:reference "hgvs_expressions" 
-            ]
-        ];
-    ].                     

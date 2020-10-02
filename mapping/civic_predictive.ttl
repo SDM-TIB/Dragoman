@@ -127,7 +127,7 @@
 
 <gFormat_concat>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -210,7 +210,7 @@
 
 <cFormat_concat>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -287,7 +287,7 @@
 
 <civic_pFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -310,7 +310,7 @@
 
 <pFormat_tolower>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -327,7 +327,7 @@
 
 <pFormat_split>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -350,7 +350,7 @@
 
 <civic_aa_threeLetters>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
