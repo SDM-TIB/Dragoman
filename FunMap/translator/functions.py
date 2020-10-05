@@ -631,7 +631,6 @@ def join_csv(source, dic, output,triple_map_list):
 
         values = {}
         global columns
-        
         if "variantIdentifier" in dic["function"]:
 
             if  dic["func_par"]["column1"]+dic["func_par"]["column2"] in columns:
@@ -673,7 +672,7 @@ def join_csv(source, dic, output,triple_map_list):
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
         
 
-        elif "concat" in dic["function"]:
+        elif "concat" in dic["function"] or "split" in dic["function"]:
 
             function = ""
             outer_keys = []
@@ -714,6 +713,7 @@ def join_csv(source, dic, output,triple_map_list):
                                 line.append(value)
                                 writer.writerow(line)
                                 values[temp_value] = temp_value
+
 
         elif "match_pFormat" in dic["function"]:
             for tp in triple_map_list:

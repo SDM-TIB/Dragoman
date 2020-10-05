@@ -389,15 +389,54 @@ def translate(config_path):
 
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
-								reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
-								reader = reader.where(pd.notnull(reader), None)
-								reader = reader.drop_duplicates(keep='first')
-								reader = reader.to_dict(orient='records')
-															
-								writer.writerow(reader[0].keys())
-								for row in reader:
-									writer.writerow(row.values())	
-								file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+								
+								inner_func = {}
+								for po in triples_map.predicate_object_maps_list:
+									if po.object_map.mapping_type == "reference function":
+										for triples_map_element in triples_map_list:
+											if triples_map_element.triples_map_id == po.object_map.value:
+												dic = create_dictionary(triples_map_element)
+												for inputs in dic["inputs"]:
+													if "reference function" in inputs:
+														inner_func = {"inputs":dic["inputs"], 
+																		"function":dic["executes"],
+																		"func_par":dic,
+																		"id":triples_map_element.triples_map_id}
+								if inner_func:
+									reader = pd.read_csv(triples_map.data_source)
+									reader = reader.where(pd.notnull(reader), None)
+									reader = reader.drop_duplicates(keep='first')
+									reader = reader.to_dict(orient='records')
+									projection_keys = []
+									for pk in fields:
+										projection_keys.append(pk)
+									projection_keys.append(inner_func["id"])
+									writer.writerow(projection_keys)
+									line_values = {}
+									for row in reader:
+										line = []
+										string_values = ""
+										non_none = True
+										for key in fields:
+											line.append(row[key])
+											if row[key] is None:
+												non_none = False
+											else:
+												string_values += row[key]
+										if non_none and string_values not in line_values:
+											line.append(inner_function(row,inner_func,triples_map_list))
+											writer.writerow(line)
+											line_values[string_values] = line	
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+								else:
+									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
+									reader = reader.where(pd.notnull(reader), None)
+									reader = reader.drop_duplicates(keep='first')
+									reader = reader.to_dict(orient='records')							
+									writer.writerow(reader[0].keys())
+									for row in reader:
+										writer.writerow(row.values())	
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
 								
 							j += 1
 				elif config["datasets"]["dbType"] == "mysql":
