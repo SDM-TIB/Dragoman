@@ -439,6 +439,26 @@ def translate(config_path):
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
 								
 							j += 1
+
+						else:
+							inner_func = {}
+							for po in triples_map.predicate_object_maps_list:
+								if po.object_map.mapping_type == "reference function":
+									for triples_map_element in triples_map_list:
+										if triples_map_element.triples_map_id == po.object_map.value:
+											dic = create_dictionary(triples_map_element)
+											for inputs in dic["inputs"]:
+												if "reference function" in inputs:
+													inner_func = {"inputs":dic["inputs"], 
+																	"function":dic["executes"],
+																	"func_par":dic,
+																	"id":triples_map_element.triples_map_id}
+							if inner_func:
+								print("There is a function that uses another function as an input.")
+								print("Please use the yes enrichment option.")
+								print("Aborting...")
+								sys.exit(1)
+
 				elif config["datasets"]["dbType"] == "mysql":
 					if triples_map.function:
 						pass
