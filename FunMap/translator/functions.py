@@ -630,7 +630,7 @@ def inner_function(row,dic,triples_map_list):
         return execute_function(row,dic)
 
 def join_csv(source, dic, output,triple_map_list):
-    with open(output + "/" + dic["output_name"] + ".csv", "w") as temp_csv:
+    with open(dic["output_file"], "w") as temp_csv:
         writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 
         keys = []
@@ -804,7 +804,7 @@ def join_csv(source, dic, output,triple_map_list):
                 columns[dic["func_par"]["value"]] = projection
 
 def join_csv_URI(source, dic, output):
-    with open(output + "/" + dic["output_name"] + ".csv", "w") as temp_csv:
+    with open(dic["output_file"], "w") as temp_csv:
         writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 
         keys = []

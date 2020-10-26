@@ -327,7 +327,7 @@ def translate(config_path):
 											dic = create_dictionary(triples_map_element)
 											if po.object_map.term is not None:
 												if "IRI" in po.object_map.term:
-													current_func = {"output_name":"OUTPUT" + str(i),
+													current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output",
 																	"output_file": config["datasets"]["output_folder"] + "/OUTPUT" + str(i) + ".csv", 
 																	"inputs":dic["inputs"], 
 																	"function":dic["executes"],
@@ -336,7 +336,7 @@ def translate(config_path):
 													function_dic[triples_map_element.triples_map_id] = current_func
 													join_csv_URI(triples_map.data_source, current_func, config["datasets"]["output_folder"])
 											else:
-												current_func = {"output_name":"OUTPUT" + str(i),
+												current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output",
 																"output_file": config["datasets"]["output_folder"] + "/OUTPUT" + str(i) + ".csv", 
 																"inputs":dic["inputs"], 
 																"function":dic["executes"],
