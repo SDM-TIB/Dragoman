@@ -294,7 +294,16 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                         mapping += "[\n"
                         mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
                         for attr in dic[predicate_object.object_map.value]["inputs"]:
-                            if (attr[1] is not "constant"):
+                            if ("reference function" in attr[1]):
+                                for tp in triple_maps:
+                                    if tp.triples_map_id == attr[0]:
+                                        temp_dic = create_dictionary(tp)
+                                        mapping += "        rr:joinCondition [\n"
+                                        mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
+                                        mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
+                                        mapping += "            ];\n"
+                                        break
+                            elif (attr[1] is not "constant"):
                                 mapping += "        rr:joinCondition [\n"
                                 mapping += "            rr:child \"" + attr[0] + "\";\n"
                                 mapping += "            rr:parent \"" + attr[0] +"\";\n"
@@ -691,7 +700,7 @@ def join_csv(source, dic, output,triple_map_list):
                                         "function":temp_dic["executes"],
                                         "func_par":temp_dic,
                                         "termType":True}
-                        keys.append(function)
+                        keys.append(current_func["function"].split("/")[len(current_func["function"].split("/"))-1])
                         keys.append(dic["output_name"])
                         writer.writerow(keys)
 

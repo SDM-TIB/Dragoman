@@ -400,9 +400,15 @@ def translate(config_path):
 													if "reference function" in inputs:
 														inner_func = {"inputs":dic["inputs"], 
 																		"function":dic["executes"],
-																		"func_par":dic,
-																		"id":triples_map_element.triples_map_id}
+																		"func_par":dic}
 								if inner_func:
+									for attr in inner_func["inputs"]:
+										if ("reference function" in attr[1]):
+											for triples_map_element in triples_map_list:
+												if triples_map_element.triples_map_id == attr[0]:
+													temp_dic = create_dictionary(triples_map_element)
+													break
+											break
 									reader = pd.read_csv(triples_map.data_source)
 									reader = reader.where(pd.notnull(reader), None)
 									reader = reader.drop_duplicates(keep='first')
@@ -410,7 +416,7 @@ def translate(config_path):
 									projection_keys = []
 									for pk in fields:
 										projection_keys.append(pk)
-									projection_keys.append(inner_func["id"])
+									projection_keys.append(temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1])
 									writer.writerow(projection_keys)
 									line_values = {}
 									for row in reader:
