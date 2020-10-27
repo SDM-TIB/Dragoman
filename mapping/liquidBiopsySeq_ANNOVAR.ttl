@@ -13,10 +13,11 @@
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
-@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT/> .
-@prefix dcterms: <https://dublincore.org/specifications/dublin-core/dcmi-terms/#>
+@prefix mesh: <http://purl.bioontology.org/ontology/MESH> .
+@prefix dcterms: <https://dublincore.org/specifications/dublin-core/dcmi-terms/#> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
+@prefix genodis: <http://www.genodis.com/> .
 
 <Variation>
 	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
@@ -27,35 +28,27 @@
 		rr:class sio:SIO_011137 # variation
 	];	
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061; # is located in
+		rr:predicate sio:SIO_000061; #is_located_in
 		rr:objectMap [
 			rr:template "http://semanticscience.org/resource/SIO_000899/{Chr}" # chromosome
 		]
 	];				
 	rr:predicateObjectMap [
-		rr:predicate iasis:variant_start;
+		rr:predicate sio:SIO_000061; #is_located_in
 		rr:objectMap [
-			rml:reference "Start"
+			rr:template "http://www.genodis.com/genodis_0010" #start position 
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:variant_end;
+		rr:predicate sio:SIO_000061; #is_located_in
 		rr:objectMap [
-			rml:reference "End"
+			rr:template "http://www.genodis.com/genodis_0011" #end position
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:originalBase;
-		rr:objectMap [
-			rml:reference "Ref"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:variantBase;
-		rr:objectMap [
-			rml:reference "Alt"
-		]
-	];
+		rr:predicate sio:SIO_001403; #is_associated_with
+		rr:objectMap <NucleotideVariationFunction>;
+	];	
 	rr:predicateObjectMap [
 		rr:predicate iasis:variantRegion;
 		rr:objectMap [
@@ -63,228 +56,29 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:functionalConsequence;
+		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
-			rml:reference "ExonicFunc.refGene"
+			rr:template "http://www.genodis.com/genodis_0014/{ExonicFunc.refGene}"
 		]
-	];
+	];			
 	rr:predicateObjectMap [
-		rr:predicate iasis:omim;
+		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
-			rml:reference "OMIM.refGene"
+			rr:template "http://www.genodis.com/genodis_0012/{gnomAD_genome_ALL}"
 		]
-	];
+	];								
 	rr:predicateObjectMap [
-		rr:predicate iasis:all_AF_1000GP;
+		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
-			rml:reference "1000g2015aug_all"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:all_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_ALL"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:africanAmerican_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_AFR"
+			rr:template "http://purl.obolibrary.org/obo/STATO_0000254/{AF}"
 		]
 	];	
 	rr:predicateObjectMap [
-		rr:predicate iasis:latino_AF_ExAC;
+		rr:predicate skos:exactMatch;
 		rr:objectMap [
-			rml:reference "ExAC_AMR"
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate iasis:eastAsian_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_EAS"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:finnish_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_FIN"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:nonFinnishEuropean_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_NFE"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:other_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_OTH"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:southAsian_AF_ExAC;
-		rr:objectMap [
-			rml:reference "ExAC_SAS"
-		]
-	];									
-	rr:predicateObjectMap [
-		rr:predicate iasis:all_AF_gnomAD_genome;
-		rr:objectMap [
-			rml:reference "gnomAD_genome_ALL"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:all_AF_gnomAD_exome;
-		rr:objectMap [
-			rml:reference "gnomAD_exome_ALL"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:all_AF_Kaviar;
-		rr:objectMap [
-			rml:reference "Kaviar_AF"
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate iasis:clinicalSignificance;
-		rr:objectMap [
-			rml:reference "CLINSIG"
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate iasis:variant_associatedWith_disease;
-		rr:objectMap [
-			rml:reference "CLNDBN"
+			rr:template "http://project-iasis.eu/VariationType/{}"
 		]
 	];		
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_SIFT;
-		rr:objectMap [
-			rml:reference "SIFT_converted_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_Polyphen2_HDIV;
-		rr:objectMap [
-			rml:reference "Polyphen2_HDIV_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_Polyphen2_HVAR;
-		rr:objectMap [
-			rml:reference "Polyphen2_HVAR_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_LRT;
-		rr:objectMap [
-			rml:reference "LRT_converted_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_MutationTaster;
-		rr:objectMap [
-			rml:reference "MutationTaster_converted_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_MutationAssessor;
-		rr:objectMap [
-			rml:reference "MutationAssessor_score_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_FATHMM;
-		rr:objectMap [
-			rml:reference "FATHMM_converted_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:prediction_FATHMM;
-		rr:objectMap [
-			rml:reference "FATHMM_pred"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_CADD;
-		rr:objectMap [
-			rml:reference "CADD_raw_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_fathmm_MKL;
-		rr:objectMap [
-			rml:reference "fathmm-MKL_coding_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:prediction_fathmm_MKL;
-		rr:objectMap [
-			rml:reference "fathmm-MKL_coding_pred"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_GERP_RS;
-		rr:objectMap [
-			rml:reference "GERP++_RS_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_phyloP100way_vertebrate;
-		rr:objectMap [
-			rml:reference "phyloP100way_vertebrate_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_phyloP20way_mammalian;
-		rr:objectMap [
-			rml:reference "phyloP20way_mammalian_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_phastCons100way_vertebrate;
-		rr:objectMap [
-			rml:reference "phastCons100way_vertebrate_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_phastCons20way_mammalian;
-		rr:objectMap [
-			rml:reference "phastCons20way_mammalian_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:predictionScore_SiPhy;
-		rr:objectMap [
-			rml:reference "SiPhy_29way_logOdds_rankscore"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:proteinDomain_Interpro;
-		rr:objectMap [
-			rml:reference "Interpro_domain"
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:sample_AF;
-		rr:objectMap [
-			rml:reference "AF";
-			rr:datatype xsd:float;
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate iasis:variantType_AF;
-		rr:objectMap [
-			rr:template "http://project-iasis.eu/VariationType/{variantType_basedOnAF}"
-		]
-	];		
-	rr:predicateObjectMap [
-		rr:predicate iasis:variantScore_ExonicFunc;
-		rr:objectMap [
-			rml:reference "variantScore_basedOnExonicFunc"
-		]
-	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [
@@ -304,9 +98,9 @@
 		]
 	];				
 	rr:predicateObjectMap [
-		rr:predicate iasis:variant_dbsnpLink;
+		rr:predicate skos:exactMatch;
 		rr:objectMap [
-			rr:template "http://project-iasis.eu/Variation/{snp138}";
+			rml:reference "snp138";
 		]
 	];
 	rr:predicateObjectMap [
@@ -321,6 +115,52 @@
 		rr:predicate sio:SIO_011135; # has peptide annotation
 		rr:objectMap <lb_pFormat>
 	].	
+
+<ExternalLink>
+	rml:logicalSource [ rml:source "/data/data/genomic/variation_cosmicID_lb.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_011137/{variantID}";
+		rr:class sio:SIO_011137 # variation
+	];						
+	rr:predicateObjectMap [
+		rr:predicate skos:exactMatch;
+		rr:objectMap [
+			rml:reference "cosmic_ID";
+		]
+	].
+
+<NucleotideVariationFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat3 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rml:reference "Ref" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rml:reference "Alt" 
+            ]
+        ];        
+    ]. 
 
 <lb_gFormat>
 	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
@@ -358,7 +198,7 @@
 		rr:class sio:SIO_010035
 	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:gene_associatedWith_disease;
+		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [
 			rr:parentTriplesMap <Disease>
 		]
@@ -408,17 +248,17 @@
 	rr:predicateObjectMap [
 		rr:predicate iasis:hasLiquidBiopsySeqSample;
 		rr:objectMap [
-			rr:parentTriplesMap <Biopsy>
+			rr:parentTriplesMap <LiquidBiopsy>
 		]
 	].
 
-<Biopsy>	
+<LiquidBiopsy>	
 	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
-		rr:template "http://purl.bioontology.org/ontology/SNOMEDCT/{sampleID}";
-		rr:class snomed:86273004 # biopsy
+		rr:template "http://purl.bioontology.org/ontology/MESH/{sampleID}";
+		rr:class mesh:D000073890 # biopsy
 	];
 	rr:predicateObjectMap [
 		rr:predicate dcterms:date;

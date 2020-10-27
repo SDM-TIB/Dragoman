@@ -113,16 +113,16 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011133; # has gDNA annotation
-		rr:objectMap <gFormat_concat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <gFormat_concat> # genodis:genodis_00002
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011134; # has cDNA annotation
-		rr:objectMap <cFormat_concat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <cFormat_concat> # genodis:genodis_00003
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <civic_pFormat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <civic_pFormat> # genodis:genodis_00004
 	].
 
 <gFormat_concat>
