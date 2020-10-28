@@ -69,6 +69,10 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ######################## new functions for GenoDIS: civicPredictive dataset ####################################
 ################################################################################################################
 
+def concat2(value1,value2):
+    result = str(str(value1)+str(value2)) 
+    return(result)
+
 def concat3(value1,value2,value3):
     result = str(str(value1)+str(value2)+str(value3)) 
     return(result)
@@ -77,9 +81,17 @@ def concat4(value1,value2,value3,value4):
     result = str(str(value1)+str(value2)+str(value3)+str(value4)) 
     return(result)
 
-def match_gdna(hgvs):
-    if hgvs is not None:
-        expressionsList = hgvs.split(":")
+def concat5(value1,value2,value3,value4,value5):
+    result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)) 
+    return(result)
+
+def concat6(value1,value2,value3,value4,value5,value6):
+    result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)+str(value6)) 
+    return(result)
+
+def match_gdna(combinedValue):
+    if combinedValue is not None:
+        expressionsList = combinedValue.split(":")
         for j in range(0,len(expressionsList)):
             if "g." in expressionsList[j]:
                 gdna = expressionsList[j]
@@ -89,23 +101,41 @@ def match_gdna(hgvs):
         gdna = ""
     return(gdna)
 
-def match_cdna(hgvs):
-    expressionsList = hgvs.split(":")
-    for j in range(0,len(expressionsList)):
-        if "c." in expressionsList[j]:  
-            cdna = expressionsList[j]  
-        else:
-            cdna = ""
+def match_cdna(combinedValue):
+    if combinedValue is not None:
+        expressionsList = combinedValue.split(":")
+        for j in range(0,len(expressionsList)):
+            if "c." in expressionsList[j]:  
+                cdna = expressionsList[j]  
+            else:
+                cdna = ""
+    else:
+        cdns = ""                
     return(cdna)
 
-def match_aa(hgvs):
-    expressionsList = hgvs.split(":")
-    for j in range(0,len(expressionsList)):
-        if "p." in expressionsList[j]:
-            aa_threeLetters = expressionsList[j]
-        else:
-            aa_threeLetters = "" 
-    return (aa_threeLetters)  
+def match_aa(combinedValue):
+    if combinedValue is not None:
+        expressionsList = hgvs.split(":")
+        for j in range(0,len(expressionsList)):
+            if "p." in expressionsList[j]:
+                aa = expressionsList[j]
+            else:
+                aa = ""
+    else:
+        aa = ""             
+    return (aa)  
+
+def match_exon(combinedValue):
+    if combinedValue is not None:
+        expressionsList = combinedValue.split(":")
+        for j in range(0,len(expressionsList)):
+            if "exon" in expressionsList[j]:  
+                exon = expressionsList[j]  
+            else:
+                exon = ""
+    else:
+        exon = ""                
+    return(exon)
            
 def match_pFormat(threeLetters,gene):            
     aminoAcidsDic = {
@@ -120,6 +150,24 @@ def match_pFormat(threeLetters,gene):
         else:
             pFormat = ""    
     return(pFormat)
+
+def rearrange_cds(cds):
+    if cds is not None:
+        if "del" not in cds and "ins" not in cds:
+            firstN = cds.split(".")[1][0]
+            if cds.split(".")[1][1:-1].isdigit():
+                gp = cds.split(".")[1][1:-1]
+                secondN = cds.split(".")[1][-1]
+            else:
+                gp = cds.split(".")[1][1:-2] 
+                secondN = cds.split(".")[1][-2:]
+            new_cds = gp + firstN + "~" + secondN
+        else:
+            new_cds = cds
+    else:
+        new_cds = ""                
+    return(new_cds)
+
 
 # returns the regex match with the replvalue in the column
 def replaceRegex(regex,replvalue,column):
@@ -549,16 +597,26 @@ def execute_function(row,dic):
         return variantIdentifier(row[dic["func_par"]["column1"]],row[dic["func_par"]["column2"]],dic["func_par"]["prefix"])
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
+    elif "concat2" in dic["function"]:
+        return concat2(row[dic["func_par"]["value1"]],dic["func_par"]["value2"])
     elif "concat3" in dic["function"]:
         return concat3(row[dic["func_par"]["value1"]],dic["func_par"]["value2"],dic["func_par"]["value3"]) 
     elif "concat4" in dic["function"]:
         return concat4(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]])         
+    elif "concat5" in dic["function"]:
+        return concat5(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]])
+    elif "concat6" in dic["function"]:
+        return concat6(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]],row[dic["func_par"]["value6"]])        
     elif "match_gdna" in dic["function"]:
-        return match_gdna(row[dic["func_par"]["separator"]])
+        return match_gdna(row[dic["func_par"]["combinedValue"]])
     elif "match_cdna" in dic["function"]:
-        return match_cdna(row[dic["func_par"]["hgvs"]],row[dic["func_par"]["gene"]]) 
+        return match_cdna(row[dic["func_par"]["combinedValue"]]) 
     elif "match_aa" in dic["function"]:
-        return match_aa(row[dic["func_par"]["hgvs"]])   
+        return match_aa(row[dic["func_par"]["combinedValue"]])  
+    elif "match_exon" in dic["function"]:
+        return match_exon(row[dic["func_par"]["combinedValue"]]) 
+    elif "rearrange_cds" in dic["function"]:
+        return rearrange_cds(row[dic["func_par"]["cds"]])                  
     elif "match_pFormat" in dic["function"]:  ## individual execution of function should also be added
         return match_pFormat(row[dic["func_par"]["threeLetters"]],row[dic["func_par"]["gene"]])  ## individual execution of function should also be added
     elif "match" in dic["function"]:

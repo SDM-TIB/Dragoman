@@ -24,8 +24,8 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_011137/{variantID}";
-		rr:class sio:SIO_011137 # variation
+		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
+		rr:class vario:VariO_0001 # variation
 	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061; #is_located_in
@@ -46,8 +46,13 @@
 		]
 	];
 	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000061; #is_located_in
+		rr:objectMap <ExonFunction>
+	];	
+	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap <NucleotideVariationFunction>;
+
 	];	
 	rr:predicateObjectMap [
 		rr:predicate iasis:variantRegion;
@@ -72,29 +77,23 @@
 		rr:objectMap [
 			rr:template "http://purl.obolibrary.org/obo/STATO_0000254/{AF}"
 		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate skos:exactMatch;
-		rr:objectMap [
-			rr:template "http://project-iasis.eu/VariationType/{}"
-		]
 	];		
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
+		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [
 			rr:parentTriplesMap <Gene>
 		]
 	];		
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
+		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
 			rr:parentTriplesMap <Patient>
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
+		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [
-			rr:parentTriplesMap <Biopsy>
+			rr:parentTriplesMap <LiquidBiopsy>
 		]
 	];				
 	rr:predicateObjectMap [
@@ -104,16 +103,19 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011133; # has gDNA annotation
-		rr:objectMap <lb_gFormat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <DNAannotationFunction>;
+		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011134; # has cDNA annotation
-		rr:objectMap <lb_cFormat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <CDSannotationFunction>;
+		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <lb_pFormat>
+		rr:predicate sio:SIO_000255; # has_annotation
+		rr:objectMap <AAannotationFunction>;
+		rr:termType rr:IRI;
 	].	
 
 <ExternalLink>
@@ -130,6 +132,68 @@
 			rml:reference "cosmic_ID";
 		]
 	].
+
+<Gene>	
+	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
+						rml:referenceFormulation ql:CSV
+						];
+	rr:subjectMap [
+		rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene.refGene}"; # gene
+		rr:class ncit:C16612
+	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_001403; # is_associated_with
+		rr:objectMap [
+			rr:parentTriplesMap <Disease>
+		]
+	].
+
+<Disease>
+	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+						rml:referenceFormulation ql:CSV 
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_010299/{Disease_description.refGene}"; 
+		rr:class sio:SIO_010299 # disease
+	].
+
+<Patient>	
+	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
+						rml:referenceFormulation ql:CSV
+						];
+	rr:subjectMap [
+		rr:template "http://semanticscience.org/resource/SIO_000393/{patientID}";
+		rr:class sio:SIO_000393 # patient
+	];
+	rr:predicateObjectMap [
+		rr:predicate iasis:hasLiquidBiopsySeqSample;
+		rr:objectMap [
+			rr:parentTriplesMap <LiquidBiopsy>
+		]
+	].
+
+<LiquidBiopsy>	
+	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
+						rml:referenceFormulation ql:CSV
+						];
+	rr:subjectMap [
+		rr:template "http://purl.bioontology.org/ontology/MESH/{sampleID}";
+		rr:class mesh:D000073890 # liquid biopsy
+	];
+	rr:predicateObjectMap [
+		rr:predicate dcterms:date;
+		rr:objectMap [
+			rml:reference "sampleExtractionDate";
+			rr:datatype xsd:date;
+		]
+	].	
+
+
+
+##########################################################################################
+######################################## Functions #######################################
+##########################################################################################
+
 
 <NucleotideVariationFunction>
 	fnml:functionValue [
@@ -162,111 +226,225 @@
         ];        
     ]. 
 
-<lb_gFormat>
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{gFormat}";
-		rr:class iasis:GDNA-Variation
-	].
+####
 
-<lb_cFormat>
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{cFormat}";
-		rr:class iasis:CDNA-Variation
-	].
+<ExonFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:match_exon 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:combinedValue;
+            rr:objectMap [ 
+                rml:reference "AAChange.refGene" 
+            ]
+        ];       
+    ]. 
 
-<lb_pFormat>
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{pFormat}";
-		rr:class iasis:Peptide-Variation
-	].	
+######
 
-<Gene>	
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_010035/{Gene.refGene}"; # gene
-		rr:class sio:SIO_010035
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is_associated_with
-		rr:objectMap [
-			rr:parentTriplesMap <Disease>
-		]
-	];
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:gene_tissueSpecificity;
-#		rr:objectMap [
-#			rml:reference "Tissue_specificity(Uniprot).refGene"
-#		]
-#	];
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:pLi;
-#		rr:objectMap [
-#			rml:reference "pLi.refGene"
-#		]
-#	];
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:pRec;
-#		rr:objectMap [
-#			rml:reference "pRec.refGene"
-#		]
-#	];
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:pNull;
-#		rr:objectMap [
-#			rml:reference "pNull.refGene"
-#		]
-#	].
+<DNAannotationFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat6 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rml:reference "Chr" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~g." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap <PositionSplitFunction> 
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "Ref" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "Alt" 
+            ]
+        ];                              
+    ]. 
 
-<Disease>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_010299/{Disease_description.refGene}"; 
-		rr:class sio:SIO_010299 # disease
-	].
+<PositionSplitFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:split 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "Start" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:separator;
+            rr:objectMap [ 
+                rr:constant "." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:index;
+            rr:objectMap [ 
+                rr:constant "0" 
+            ]
+        ];   
+    ].
 
-<Patient>	
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_000393/{patientID}";
-		rr:class sio:SIO_000393 # patient
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:hasLiquidBiopsySeqSample;
-		rr:objectMap [
-			rr:parentTriplesMap <LiquidBiopsy>
-		]
-	].
+########
 
-<LiquidBiopsy>	
-	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
-						rml:referenceFormulation ql:CSV
-						];
-	rr:subjectMap [
-		rr:template "http://purl.bioontology.org/ontology/MESH/{sampleID}";
-		rr:class mesh:D000073890 # biopsy
-	];
-	rr:predicateObjectMap [
-		rr:predicate dcterms:date;
-		rr:objectMap [
-			rml:reference "sampleExtractionDate";
-			rr:datatype xsd:date;
-		]
-	].	
+<CDSannotationFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat3 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rml:reference "Gene.refGene" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~c." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap <RearrangeFunction>
+        ];                            
+    ]. 
+
+<RearrangeFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:rearrange_cds 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap <match_cds>
+        ];   
+    ].
+
+<match_cds>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:match_cds 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:combinedValue;
+            rr:objectMap [ 
+                rml:reference "AAChange.refGene" 
+            ]
+        ];       
+    ].
+
+####
+
+<AAannotationFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:concat3 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rml:reference "Gene.refGene" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap <match_aa>;
+        ];        
+    ]. 
+
+<match_aa>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:match_exon 
+        	]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:combinedValue;
+            rr:objectMap [ 
+                rml:reference "AAChange.refGene" 
+            ]
+        ];       
+    ]. 
 
 
+ 
+                   
 
