@@ -137,9 +137,17 @@ sio:SIO_010017	rdf:type	owl:Class;
 				rdfs:label	"RNA";
 				rdfs:subClassOf	sio:SIO_010016;				
 				dc:identifier "SIO_010017" ;
-				rdfs:comment ".";
-				dcterms:modified "2020-10-27"^^xsd:date;
+				rdfs:comment "Represents ribonucleic acid sequence.";
+				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
+
+sio:SIO_010018	rdf:type	owl:Class;
+				rdfs:label	"DNA";
+				rdfs:subClassOf	sio:SIO_010016;				
+				dc:identifier "SIO_010018" ;
+				rdfs:comment "Represents deoxyribonucleic acid sequence.";
+				dcterms:modified "2020-10-30"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 sio:SIO_000154	rdf:type	owl:Class;
 				rdfs:label	"Publication";
