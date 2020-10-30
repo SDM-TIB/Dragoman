@@ -14,6 +14,7 @@
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix genodis: <http://www.genodis.com/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 
@@ -23,23 +24,23 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_011136/{evidence_id}";
-		rr:class sio:SIO_011136 # chemical-disease association linked with genomic alteration
+		rr:template "http://www.genodis.com/genodis_0015/{evidence_id}";
+		rr:class genodis:genodis_0015 # Chemical-Disease-Variation-Association
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
+		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [ 
 			rr:parentTriplesMap <Disease> 
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000628; # refers to 
+		rr:predicate sio:SIO_000628; # refers_to 
 		rr:objectMap [ 
 			rr:parentTriplesMap <Publication>
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
+		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [ 
 			rr:parentTriplesMap <Variation> 
 		]

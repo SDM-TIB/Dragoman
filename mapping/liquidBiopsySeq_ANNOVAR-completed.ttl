@@ -15,6 +15,7 @@
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH> .
 @prefix dcterms: <https://dublincore.org/specifications/dublin-core/dcmi-terms/#> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 @prefix genodis: <http://www.genodis.com/> .

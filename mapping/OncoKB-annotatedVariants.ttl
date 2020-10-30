@@ -13,6 +13,7 @@
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
+@prefix genodis: <http://www.genodis.com/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 

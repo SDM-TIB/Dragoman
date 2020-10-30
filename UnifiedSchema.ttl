@@ -45,14 +45,6 @@ ncit:C16612	rdf:type	owl:Class;
 			dcterms:modified "2020-10-27"^^xsd:date;
 			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-sio:SIO_011136	rdf:type	owl:Class;
-				rdfs:label	"Evidence";
-				rdfs:subClassOf	genodis:genodis_0000;				
-				dc:identifier "SIO_011136" ;
-				rdfs:comment "chemical-disease association linked with genomic alteration.";
-				dcterms:modified "2020-10-27"^^xsd:date;
-				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
-
 sio:SIO_001166	rdf:type	owl:Class;
 				rdfs:label	"Annotation";
 				rdfs:subClassOf	genodis:genodis_0000;				
@@ -301,6 +293,47 @@ genodis:genodis_0014	rdf:type owl:Class;
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+sio:SIO_000993	rdf:type	owl:Class;
+				rdfs:label	"Chemical-Disease-Association";
+				rdfs:subClassOf	genodis:genodis_0000;				
+				dc:identifier "SIO_000993" ;
+				rdfs:comment "Represents a chemical-disease association is an association between a chemical and a disease.";
+				dcterms:modified "2020-10-30"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_001257	rdf:type	owl:Class;
+				rdfs:label	"Chemical-Gene-Association";
+				rdfs:subClassOf	genodis:genodis_0000;				
+				dc:identifier "SIO_001257" ;
+				rdfs:comment "Represents a chemical-gene assocation is an assocation between a chemical and a gene.";
+				dcterms:modified "2020-10-30"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+genodis:genodis_0015	rdf:type owl:Class;
+						rdfs:label	"Chemical-Disease-Variation-Association";
+						rdfs:subClassOf	sio:SIO_000993;				
+						dc:identifier "genodis_0015" ;
+						rdfs:comment "Represents chemical-disease association linked with genomic alteration.";
+						dcterms:modified "2020-10-30"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+genodis:genodis_0016	rdf:type owl:Class;
+						rdfs:label	"Chemical-Gene-Variation-Association";
+						rdfs:subClassOf	sio:SIO_001257;				
+						dc:identifier "genodis_0016" ;
+						rdfs:comment "Represents chemical-gene association linked with genomic alteration.";
+						dcterms:modified "2020-10-30"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+ncit:C159157	rdf:type owl:Class;
+				rdfs:label	"Chemical-Gene-Variation-Association";
+				rdfs:subClassOf	genodis:genodis_0000;				
+				dc:identifier "C159157" ;
+				rdfs:comment "Represents WHO AML classification of tumor types.";
+				dcterms:modified "2020-10-30"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
 #################################################################################################################################################
 #################################################################################################################################################
 #################################################################################################################################################
@@ -316,6 +349,15 @@ skos:exactMatch	rdf:type owl:DatatypeProperty;
 				rdfs:range	rdfs:Literal;
 				rdfs:comment "Represents another available identifier of the exactly the same entity.";
 				dcterms:modified "2020-10-27"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_000300	rdf:type	owl:DatatypeProperty;
+				rdfs:label	"has_vaue";
+				dc:identifier "SIO_000300" ;
+				rdfs:domain	genodis:genodis_0016;
+				rdfs:range	rdfs:Literal;
+				rdfs:comment "";
+				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 #################################################################################################################################################																																			
