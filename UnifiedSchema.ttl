@@ -333,6 +333,21 @@ ncit:C159157	rdf:type owl:Class;
 				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+sio:SIO_001050	rdf:type	owl:Class;
+				rdfs:label	"Sample";
+				rdfs:subClassOf	genodis:genodis_0000;				
+				dc:identifier "SIO_001050" ;
+				rdfs:comment "Represents a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use.";
+				dcterms:modified "2020-11-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_010002	rdf:type	owl:Class;
+				rdfs:label	"Tissue";
+				rdfs:subClassOf	genodis:genodis_0000;				
+				dc:identifier "SIO_010002" ;
+				rdfs:comment "Represents a mereologically maximal collection of cells that together perform some function.";
+				dcterms:modified "2020-11-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 #################################################################################################################################################
 #################################################################################################################################################
@@ -413,8 +428,22 @@ sio:SIO_001279	rdf:type	owl:ObjectProperty;
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+sio:SIO_000068	rdf:type	owl:ObjectProperty;
+				rdfs:label	"is_part_of";
+				dc:identifier "SIO_000068" ;
+				rdfs:domain	genodis:genodis_0000;
+				rdfs:range	genodis:genodis_0000;
+				rdfs:comment "Indicates a transitive, reflexive and anti-symmetric mereological relation between a whole and itself or a part and its whole.";
+				dcterms:modified "2020-11-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-
-
+sio:SIO_000001	rdf:type	owl:ObjectProperty;
+				rdfs:label	"is_related_to";
+				dc:identifier "SIO_000001" ;
+				rdfs:domain	genodis:genodis_0000;
+				rdfs:range	genodis:genodis_0000;
+				rdfs:comment "Indicates the relation between two concepts.";
+				dcterms:modified "2020-11-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 														

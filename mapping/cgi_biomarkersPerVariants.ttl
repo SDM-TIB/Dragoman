@@ -72,16 +72,16 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011133; # has gDNA annotation
-		rr:objectMap <cgi_gFormat>
+		rr:predicate sio:SIO_011133; # has_annotation
+		rr:objectMap <gFormat_ReplaceFunction> # genodis:genodis_00002
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011134; # has cDNA annotation
-		rr:objectMap <cgi_cFormat>
-	];
+		rr:predicate sio:SIO_011134; # has_annotation
+		rr:objectMap <cFormat_ConcatFuncation> # genodis:genodis_00003
+	].
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <cgi_pFormat>
+		rr:predicate sio:SIO_011134; # has_annotation
+		rr:objectMap <pFormatReplaceFunction> # genodis:genodis_00004
 	].	
 
 <Drug>
@@ -131,9 +131,14 @@
 		rr:class ncit:C159157; # WHO AML CLassification of Tumors
 	].
 
-<cgi_gFormat>
+
+##########################################################################################
+######################################## Functions #######################################
+##########################################################################################
+ 
+<gFormat_ReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -162,7 +167,9 @@
         ];        
     ].
 
-<cgi_cFormat>
+########
+
+<cFormat_ConcatFuncation>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
@@ -193,7 +200,9 @@
         ];        
     ]. 
 
-<cgi_pFormat>
+###############
+
+<pFormatReplaceFunction>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
@@ -219,8 +228,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value;
             rr:objectMap [ 
-            	rr:constant "~" 
+            	rr:constant "~p." 
             ]
         ];        
     ].
-

@@ -105,17 +105,17 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <DNAannotationFunction>;
+		rr:objectMap <DNAannotationFunction>; # genodis:genodis_00002
 		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <CDSannotationFunction>;
+		rr:objectMap <CDSannotationFunction>; # genodis:genodis_00003
 		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <AAannotationFunction>;
+		rr:objectMap <AAannotationFunction>; # genodis:genodis_00004
 		rr:termType rr:IRI;
 	].	
 
