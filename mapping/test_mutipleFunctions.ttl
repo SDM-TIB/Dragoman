@@ -8,80 +8,213 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix base: <http://tib.de/ontario/mapping#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix iasis: <http://project-iasis.eu/vocab/> .
+@prefix sio: <http://project-iasis.eu/vocab/> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
+@prefix genodis: <http://www.genodis.com/> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 
-<Evidence>
-    rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
-                        rml:referenceFormulation ql:CSV 
+<Transcript>    
+    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_011136/{evidence_id}";
-        rr:class sio:SIO_011136 # chemical-disease association linked with genomic alteration
+        rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}";
+        rr:class sio:SIO_010017 # RNA
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; # is associated with
-        rr:objectMap [ 
-            rr:parentTriplesMap <Variation> 
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
         ]
-    ].      
-    
-<Variation>
-    rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
-                        rml:referenceFormulation ql:CSV 
-                        ];
-    rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_011137/{variant.clinical}";
-        rr:class sio:SIO_011137 # variation
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011133; # has gDNA annotation
-        rr:objectMap <gFormat_concat>
     ].
 
-<gFormat_concat>
+<Gene>
+    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}"; # gene
+        rr:class ncit:C16612
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [ 
+            rr:parentTriplesMap <Sample> 
+        ]
+    ].  
+
+<Sample>
+    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}";
+        rr:class sio:SIO_001050 # sample
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000068; # is_part_of
+        rr:objectMap [ 
+            rr:template "http://semanticscience.org/resource/SIO_010002"; # tissue
+        ]
+    ].
+
+<Variation>
+    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variant.clinical}";
+        rr:class vario:VariO_0001 # variation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061; # is_located_in
+        rr:objectMap [
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}" # gene
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000001; # is_related_to
+        rr:objectMap [
+            rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;  # is_located_in
+        rr:objectMap [
+            rr:parentTriplesMap <Transcript>
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;  # is_located_in
+        rr:objectMap [
+            rr:parentTriplesMap <Sample>
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000628; # refers_to
+        rr:objectMap [ 
+            rr:parentTriplesMap <Publication>
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_011134; # has_annotation
+        rr:objectMap <cFormatFuncation> # genodis:genodis_00003
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_011135; # has_annotation
+        rr:objectMap <pFormatFunction> # genodis:genodis_00004
+    ].
+
+<Publication>
+    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_000154/{citation_id}"; 
+        rr:class sio:SIO_000154; # publication
+    ].
+
+##########################################################################################
+######################################## Functions #######################################
+##########################################################################################
+
+
+<cFormatFuncation>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:concat4 
+                rr:constant ex:concat3 
             ]
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value1;
-            rr:objectMap [ 
-                rr:constant "chr" 
-            ]
-        ];        
-        rr:predicateObjectMap [
-            rr:predicate ex:value2;
-            rr:objectMap [ 
-                rml:reference "chromosome.clinical" 
-            ]
+            rr:objectMap <GeneName_ReplaceRegexFunction>
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value3;
+            rr:predicate ex:value2;
             rr:objectMap [ 
                 rr:constant "~" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value4;
-            rr:objectMap <gFormat_split>
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "Mutation CDS" 
+            ]
         ];        
-    ].         
+    ].    
 
-<gFormat_split>
+<GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:replaceRegex 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:regex;
+            rr:objectMap [ 
+                rr:constant "_.*" 
+            ] 
+        ];  
+        rr:predicateObjectMap [
+            rr:predicate ex:replvalue;
+            rr:objectMap [ 
+                rr:constant "" 
+            ] 
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "Gene name" 
+            ] 
+        ];                     
+    ].
+
+<pFormatFunction>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat3 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <GeneName_ReplaceRegexFunction>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap <pFormat_SplitFunction>
+        ];     
+    ].  
+
+<pFormat_SplitFunction>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -92,37 +225,20 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:column;
-            rr:objectMap <gFormat> 
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:separator;
             rr:objectMap [ 
-                rr:constant "," 
-            ]
-        ];
+                rml:reference "Mutation AA" 
+            ] 
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:column;
+            rr:objectMap [ 
+                rml:reference "value" 
+            ] 
+        ];           
         rr:predicateObjectMap [
             rr:predicate ex:index;
             rr:objectMap [ 
-                rr:constant "0" 
-            ]
-        ];        
-    ].  
-
-<gFormat>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/maria-esthervidal/Documents/docker/GenoDIS/data/civic_Predictive.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:match_gdna 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:separator;
-            rr:objectMap [ 
-                rml:reference "hgvs_expressions" 
-            ]
-        ];    
+                rr:constant "1" 
+            ] 
+        ];                    
     ].
