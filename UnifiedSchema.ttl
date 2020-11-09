@@ -325,6 +325,14 @@ genodis:genodis_0016	rdf:type owl:Class;
 						dcterms:modified "2020-10-30"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+genodis:genodis_0017	rdf:type owl:Class;
+						rdfs:label	"Oncogenicity";
+						rdfs:subClassOf	genodis:genodis_0013;				
+						dc:identifier "genodis_0017" ;
+						rdfs:comment "Denotes to what extend the variation tends to cause or give rise to tumors.";
+						dcterms:modified "2020-11-09"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 ncit:C159157	rdf:type owl:Class;
 				rdfs:label	"Chemical-Gene-Variation-Association";
 				rdfs:subClassOf	genodis:genodis_0000;				

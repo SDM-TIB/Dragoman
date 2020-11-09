@@ -14,6 +14,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix genodis: <http://www.genodis.com/> .
+@prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 
@@ -22,36 +23,30 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_011137/{pFormat}";
-		rr:class sio:SIO_011137 # variation
+		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{pFormat}"; #generated identifier
+		rr:class vario:VariO_0001 # variation
 	];		
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:proteinChange;
-#		rr:objectMap [
-#			rml:reference "Protein Change"
-#		]
-#	];				
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:variant_oncogenicity;
-#		rr:objectMap [
-#			rml:reference "Oncogenicity"
-#		]
-#	];
-#	rr:predicateObjectMap [
-#		rr:predicate iasis:mutation_effect;
-#		rr:objectMap [
-#			rml:reference "Mutation Effect"
-#		]
-#	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:variation_isLocatedIn_transcript;
+		rr:predicate sio:SIO_000061;
 		rr:objectMap [
 			rr:parentTriplesMap <Transcript>
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011135; # has peptide annotation
-		rr:objectMap <oncokb_pFormat>
+		rr:predicate sio:SIO_001403; # is associated with
+		rr:objectMap [
+			rr:template "http://www.genodis.com/genodis_0014/{Mutation Effect}"; # Variation Impact
+		]
+	];		
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_001403; # is associated with
+		rr:objectMap [
+			rr:template "http://www.genodis.com/genodis_0017/{Oncogenicity}"; # Oncogenicity
+		]
+	];	
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_011134; # has_annotation
+		rr:objectMap <pFormatFunction> # genodis:genodis_00004
 	].		
 
 <Transcript>	
@@ -65,11 +60,11 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_010035/{Hugo Symbol}"; # gene
+			rr:template "http://semanticscience.org/resource/SIO_010035/{Gene}"; # gene
 		]
 	].	
 
-<oncokb_pFormat>
+<pFormatFunction>
 	fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/OncoKB_allAnnotatedVariants.csv";
 		rml:referenceFormulation ql:CSV 
