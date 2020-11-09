@@ -20,7 +20,7 @@
 @base <http://GenoDIS.KG/> .
 
 <Transcript>    
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -35,7 +35,7 @@
     ].
 
 <Gene>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -50,7 +50,7 @@
     ].  
 
 <Sample>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -60,22 +60,22 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000068; # is_part_of
         rr:objectMap [ 
-            rr:template "http://semanticscience.org/resource/SIO_010002"; # tissue
+            rr:template "http://semanticscience.org/resource/SIO_010002/{Primary site}"; # tissue
         ]
     ].
 
 <Variation>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
-        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variant.clinical}";
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{MUTATION_ID}";
         rr:class vario:VariO_0001 # variation
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061; # is_located_in
         rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}" # gene
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
         ]
     ];
     rr:predicateObjectMap [
@@ -112,11 +112,11 @@
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_000154/{citation_id}"; 
+        rr:template "http://semanticscience.org/resource/SIO_000154/{Pubmed_PMID}"; 
         rr:class sio:SIO_000154; # publication
     ].
 
@@ -127,7 +127,7 @@
 
 <cFormatFuncation>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -147,7 +147,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value3;
             rr:objectMap [ 
                 rr:constant "Mutation CDS" 
             ]
@@ -156,7 +156,7 @@
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -187,7 +187,7 @@
 
 <pFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -208,37 +208,9 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value3;
-            rr:objectMap <pFormat_SplitFunction>
-        ];     
-    ].  
-
-<pFormat_SplitFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:split 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:column;
             rr:objectMap [ 
                 rml:reference "Mutation AA" 
             ] 
-        ]; 
-        rr:predicateObjectMap [
-            rr:predicate ex:column;
-            rr:objectMap [ 
-                rml:reference "value" 
-            ] 
-        ];           
-        rr:predicateObjectMap [
-            rr:predicate ex:index;
-            rr:objectMap [ 
-                rr:constant "1" 
-            ] 
-        ];                    
-    ].
+        ];     
+    ].  
+
