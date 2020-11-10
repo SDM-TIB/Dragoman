@@ -208,26 +208,8 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value3;
-            rr:objectMap <pFormat_SplitFunction>
-        ];     
-    ].  
-
-<pFormat_SplitFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:split 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:column;
             rr:objectMap [ 
                 rml:reference "Mutation AA" 
             ] 
-        ];     
-    ].  
-
+        ];    
+    ].   

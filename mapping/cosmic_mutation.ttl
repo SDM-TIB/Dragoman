@@ -211,6 +211,5 @@
             rr:objectMap [ 
                 rml:reference "Mutation AA" 
             ] 
-        ];     
-    ].  
-
+        ];    
+    ].   
