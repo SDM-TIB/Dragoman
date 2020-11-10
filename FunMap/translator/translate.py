@@ -349,7 +349,7 @@ def translate(config_path):
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
 										elif "concat3" in current_func["function"]:
-											fields[current_func["func_par"]["value1"]] = "object"
+											pass
 										elif "concat4" in current_func["function"]:
 											fields[current_func["func_par"]["value2"]] = "object"
 										elif "match_pFormat" in current_func["function"]:
@@ -357,7 +357,6 @@ def translate(config_path):
 										else:
 											fields[current_func["func_par"]["value"]] = "object"
 							else:
-								print(po.object_map.mapping_type)
 								if po.object_map.mapping_type != "None":
 									if po.object_map.mapping_type == "parent triples map":
 										if po.object_map.child is not None:
@@ -388,9 +387,6 @@ def translate(config_path):
 												fields[po.object_map.value] = "object"
 
 						if config["datasets"]["enrichment"].lower() == "yes":
-
-							print(fields)
-
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								
@@ -432,7 +428,7 @@ def translate(config_path):
 											if row[key] is None:
 												non_none = False
 											else:
-												string_values += row[key]
+												string_values += str(row[key])
 										if non_none and string_values not in line_values:
 											line.append(inner_function(row,inner_func,triples_map_list))
 											writer.writerow(line)
