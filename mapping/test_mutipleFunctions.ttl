@@ -20,7 +20,7 @@
 @base <http://GenoDIS.KG/> .
 
 <Transcript>    
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -35,7 +35,7 @@
     ].
 
 <Gene>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -50,7 +50,7 @@
     ].  
 
 <Sample>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -65,7 +65,7 @@
     ].
 
 <Variation>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -112,7 +112,7 @@
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -127,7 +127,7 @@
 
 <cFormatFuncation>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -147,7 +147,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value3;
             rr:objectMap [ 
                 rr:constant "Mutation CDS" 
             ]
@@ -156,7 +156,7 @@
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -187,7 +187,7 @@
 
 <pFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -214,7 +214,7 @@
 
 <pFormat_SplitFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

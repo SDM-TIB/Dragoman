@@ -622,7 +622,7 @@ def execute_function(row,dic):
     elif "match" in dic["function"]:
         return match(dic["func_par"]["regex"],row[dic["func_par"]["value"]]) 
     elif "replaceRegex" in dic["function"]:
-        return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["gene"]])   
+        return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["column"]])   
     elif "split" in dic["function"]:
         return split(row[dic["func_par"]["column"]],dic["func_par"]["separator"],dic["func_par"]["index"],)            
     else:
