@@ -104,7 +104,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011134; # has_annotation
-        rr:objectMap <cFormatFuncation> # genodis:genodis_00003
+        rr:objectMap <cFormatFunction> # genodis:genodis_00003
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011135; # has_annotation
@@ -125,7 +125,7 @@
 ##########################################################################################
 
 
-<cFormatFuncation>
+<cFormatFunction>
     fnml:functionValue [
         rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
