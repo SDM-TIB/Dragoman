@@ -171,7 +171,7 @@ def rearrange_cds(cds):
 
 # returns the regex match with the replvalue in the column
 def replaceRegex(regex,replvalue,column):
-    return re.sub(regex,replvalue,column)
+    return re.sub(regex,str(replvalue),str(column))
 
 # returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
 def split(column,separator,index):

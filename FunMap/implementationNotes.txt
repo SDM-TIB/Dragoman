@@ -1,0 +1,6 @@
+1. In case of multiple functions, no duplicate removal is applied on the output source of inner functions; duplicate removal is only performed on the most outer function's output.
+2. If a function appears as subjectMap, application of MTR will be decided based on the number of predicateObjectMap which are referred to the subjectMap:
+  a. if subjectMap has only one predicateObjectMap, then the MTR(II) will be performed (i.e. the output will be generated as a new data source after performing duplicate removal,
+  a new triplesMap will be created referring to newly created data source with the subjectMap referring to the output column in the new output data source, and predicateObjectMap
+  as a joinCondition to the previous triplesMap referring to the original data source with the subjectMap referred to the previous objectMap column.) -->NOT done yet!
+  b. if subjectMap has more than one predicateObjectMap, the output column will be added to the original data source without performing duplicate removal. -->NOT done yet!

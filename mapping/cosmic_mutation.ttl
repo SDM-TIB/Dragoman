@@ -19,104 +19,104 @@
 @prefix ex: <http://www.example.com/> .
 @base <http://GenoDIS.KG/> .
 
-<Transcript>	
-	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-						rml:referenceFormulation ql:CSV
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}";
-		rr:class sio:SIO_010017 # RNA
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is_associated_with
-		rr:objectMap [
-			rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
-		]
-	].
+<Transcript>    
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}";
+        rr:class sio:SIO_010017 # RNA
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
+        ]
+    ].
 
 <Gene>
-	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}"; # gene
-		rr:class ncit:C16612
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is_associated_with
-		rr:objectMap [ 
-			rr:parentTriplesMap <Sample> 
-		]
-	].	
-
-<Sample>
-	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}";
-		rr:class sio:SIO_001050 # sample
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000068; # is_part_of
-		rr:objectMap [ 
-			rr:template "http://semanticscience.org/resource/SIO_010002"; # tissue
-		]
-	].
-
-<Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variant.clinical}";
-		rr:class vario:VariO_0001 # variation
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061; # is_located_in
-		rr:objectMap [
-			rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}" # gene
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000001; # is_related_to
-		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061;  # is_located_in
-		rr:objectMap [
-			rr:parentTriplesMap <Transcript>
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061;  # is_located_in
-		rr:objectMap [
-			rr:parentTriplesMap <Sample>
-		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000628; # refers_to
-		rr:objectMap [ 
-			rr:parentTriplesMap <Publication>
-		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011134; # has_annotation
-		rr:objectMap <cFormatFuncation> # genodis:genodis_00003
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_011135; # has_annotation
-		rr:objectMap <pFormatFunction> # genodis:genodis_00004
-	].
-
-<Publication>
-    rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_000154/{citation_id}"; 
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}"; # gene
+        rr:class ncit:C16612
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [ 
+            rr:parentTriplesMap <Sample> 
+        ]
+    ].  
+
+<Sample>
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}";
+        rr:class sio:SIO_001050 # sample
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000068; # is_part_of
+        rr:objectMap [ 
+            rr:template "http://semanticscience.org/resource/SIO_010002/{Primary site}"; # tissue
+        ]
+    ].
+
+<Variation>
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{MUTATION_ID}";
+        rr:class vario:VariO_0001 # variation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061; # is_located_in
+        rr:objectMap [
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000001; # is_related_to
+        rr:objectMap [
+            rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;  # is_located_in
+        rr:objectMap [
+            rr:parentTriplesMap <Transcript>
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;  # is_located_in
+        rr:objectMap [
+            rr:parentTriplesMap <Sample>
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000628; # refers_to
+        rr:objectMap [ 
+            rr:parentTriplesMap <Publication>
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_011134; # has_annotation
+        rr:objectMap <cFormatFunction> # genodis:genodis_00003
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_011135; # has_annotation
+        rr:objectMap <pFormatFunction> # genodis:genodis_00004
+    ].
+
+<Publication>
+    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_000154/{Pubmed_PMID}"; 
         rr:class sio:SIO_000154; # publication
     ].
 
@@ -125,38 +125,38 @@
 ##########################################################################################
 
 
-<cFormatFuncation>
-	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-		rml:referenceFormulation ql:CSV 
-							];
+<cFormatFunction>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
         rr:predicateObjectMap [
-         	rr:predicate fno:executes ;
+            rr:predicate fno:executes ;
             rr:objectMap [ 
-            	rr:constant ex:concat3 
-        	]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value1;
-			rr:objectMap <GeneName_ReplaceRegexFunction>
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value2;
-            rr:objectMap [ 
-            	rr:constant "~" 
+                rr:constant ex:concat3 
             ]
         ];
         rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <GeneName_ReplaceRegexFunction>
+        ];
+        rr:predicateObjectMap [
             rr:predicate ex:value2;
             rr:objectMap [ 
-            	rr:constant "Mutation CDS" 
+                rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rr:constant "Mutation CDS" 
             ]
         ];        
     ].    
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -186,61 +186,31 @@
     ].
 
 <pFormatFunction>
-	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
-		rml:referenceFormulation ql:CSV 
-							];
-        rr:predicateObjectMap [
-         	rr:predicate fno:executes ;
-            rr:objectMap [ 
-            	rr:constant ex:concat3 
-        	]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value1;
-			rr:objectMap <GeneName_ReplaceRegexFunction>
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value2;
-            rr:objectMap [ 
-            	rr:constant "~" 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value3;
-			rr:objectMap <pFormat_SplitFunction>
-        ];     
-    ].  
-
-<pFormat_SplitFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:split 
+                rr:constant ex:concat3 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:column;
+            rr:predicate ex:value1;
+            rr:objectMap <GeneName_ReplaceRegexFunction>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
             rr:objectMap [ 
                 rml:reference "Mutation AA" 
             ] 
-        ]; 
-        rr:predicateObjectMap [
-            rr:predicate ex:column;
-            rr:objectMap [ 
-                rml:reference "value" 
-            ] 
-        ];           
-        rr:predicateObjectMap [
-            rr:predicate ex:index;
-            rr:objectMap [ 
-                rr:constant "1" 
-            ] 
-        ];                    
-    ].
-
+        ];     
+    ].  
 
