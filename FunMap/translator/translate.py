@@ -406,7 +406,10 @@ def translate(config_path):
 										if ("reference function" in attr[1]):
 											for triples_map_element in triples_map_list:
 												if triples_map_element.triples_map_id == attr[0]:
-													temp_dic = create_dictionary(triples_map_element)
+													temp = create_dictionary(triples_map_element)
+													temp_dic = {"inputs":temp["inputs"], 
+																"function":temp["executes"],
+																"func_par":temp}
 													break
 											break
 									reader = pd.read_csv(triples_map.data_source)
@@ -416,7 +419,7 @@ def translate(config_path):
 									projection_keys = []
 									for pk in fields:
 										projection_keys.append(pk)
-									projection_keys.append(temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1])
+									projection_keys.append(temp["executes"].split("/")[len(temp["executes"].split("/"))-1])
 									writer.writerow(projection_keys)
 									line_values = {}
 									for row in reader:
@@ -430,7 +433,7 @@ def translate(config_path):
 											else:
 												string_values += str(row[key])
 										if non_none and string_values not in line_values:
-											line.append(inner_function(row,inner_func,triples_map_list))
+											line.append(inner_function(row,temp_dic,triples_map_list))
 											writer.writerow(line)
 											line_values[string_values] = line	
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
