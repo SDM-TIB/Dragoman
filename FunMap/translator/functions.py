@@ -336,6 +336,23 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                             mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
                             mapping += "            rr:parent \"" + predicate_object.object_map.parent + "\";\n"
                             mapping += "        ]\n"
+                        else:
+                            if data_source:
+                                mapping = mapping[:-1]
+                                mapping += ";\n"
+                                mapping += "        rr:joinCondition [\n"
+                                for tm in triple_maps:
+                                    if tm.triples_map_id == predicate_object.object_map.value:     
+                                        if "{" in tm.subject_map.value:
+                                            for string in tm.subject_map.value.split("{"):
+                                                if "}" in string:
+                                                    subject_value = string.split("}")[0]
+                                            mapping += "            rr:child \"" + subject_value  + "\";\n"
+                                            mapping += "            rr:parent \"" + subject_value + "\";\n"
+                                        else:
+                                            mapping += "            rr:child \"" + tm.subject_map.value  + "\";\n"
+                                            mapping += "            rr:parent \"" + tm.subject_map.value + "\";\n"
+                                mapping += "        ]\n"
                         mapping += "        ]\n"
                     elif "constant shortcut" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"

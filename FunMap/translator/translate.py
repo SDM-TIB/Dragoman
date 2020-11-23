@@ -349,9 +349,9 @@ def translate(config_path):
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
 										elif "concat3" in current_func["function"]:
-											pass
+											fields[current_func["func_par"]["value3"]] = "object"
 										elif "concat4" in current_func["function"]:
-											fields[current_func["func_par"]["value2"]] = "object"
+											fields[current_func["func_par"]["value4"]] = "object"
 										elif "match_pFormat" in current_func["function"]:
 											fields[current_func["func_par"]["gene"]] = "object" 
 										else:
@@ -386,7 +386,7 @@ def translate(config_path):
 											else:
 												fields[po.object_map.value] = "object"
 
-						if config["datasets"]["enrichment"].lower() == "yes":
+						if config["datasets"]["enrichment"].lower() == "yes" and triples_map.triples_map_id not in file_projection:
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								
@@ -461,7 +461,7 @@ def translate(config_path):
 																	"id":triples_map_element.triples_map_id}
 							if inner_func:
 								print("There is a function that uses another function as an input.")
-								print("Please use the yes enrichment option.")
+								print("Please use the \"yes\" enrichment option.")
 								print("Aborting...")
 								sys.exit(1)
 
