@@ -220,6 +220,8 @@ def prefix_extraction(uri):
             prefix = "dce"
         elif "iasis" in uri:
             prefix = "iasis"
+        elif "http://purl.obolibrary.org/obo/" in uri:
+            prefix = "vario"
         else:
             prefix = uri.split("/")[len(uri.split("/"))-2]
             if "." in prefix:
@@ -602,7 +604,7 @@ def execute_function(row,dic):
     elif "concat2" in dic["function"]:
         return concat2(row[dic["func_par"]["value1"]],dic["func_par"]["value2"])
     elif "concat3" in dic["function"]:
-        return concat3(row[dic["func_par"]["value1"]],dic["func_par"]["value2"],dic["func_par"]["value3"]) 
+        return concat3(row[dic["func_par"]["value1"]],dic["func_par"]["value2"],row[dic["func_par"]["value3"]]) 
     elif "concat4" in dic["function"]:
         return concat4(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]])         
     elif "concat5" in dic["function"]:

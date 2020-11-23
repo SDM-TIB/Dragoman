@@ -148,7 +148,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value3;
             rr:objectMap [ 
-                rr:constant "Mutation CDS" 
+                rml:reference "Mutation CDS" 
             ]
         ];        
     ].    
