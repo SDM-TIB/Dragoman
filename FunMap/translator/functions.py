@@ -170,8 +170,8 @@ def rearrange_cds(cds):
 
 
 # returns the regex match with the replvalue in the column
-def replaceRegex(regex,replvalue,column):
-    return re.sub(regex,str(replvalue),str(column))
+def replaceRegex(regex,replvalue,value):
+    return re.sub(regex,str(replvalue),str(value))
 
 # returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
 def split(column,separator,index):
@@ -643,7 +643,7 @@ def execute_function(row,dic):
     elif "match" in dic["function"]:
         return match(dic["func_par"]["regex"],row[dic["func_par"]["value"]]) 
     elif "replaceRegex" in dic["function"]:
-        return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["column"]])   
+        return replaceRegex(dic["func_par"]["regex"],dic["func_par"]["replvalue"],row[dic["func_par"]["value"]])   
     elif "split" in dic["function"]:
         return split(row[dic["func_par"]["column"]],dic["func_par"]["separator"],dic["func_par"]["index"],)            
     else:

@@ -177,7 +177,7 @@
             ] 
         ];   
         rr:predicateObjectMap [
-            rr:predicate ex:column;
+            rr:predicate ex:value;
             rr:objectMap [ 
                 rml:reference "Gene name" 
             ] 
