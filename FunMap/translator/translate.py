@@ -411,7 +411,6 @@ def translate(config_path):
 																"function":temp["executes"],
 																"func_par":temp}
 													break
-											break
 									reader = pd.read_csv(triples_map.data_source)
 									reader = reader.where(pd.notnull(reader), None)
 									reader = reader.drop_duplicates(keep='first')
@@ -450,23 +449,55 @@ def translate(config_path):
 							j += 1
 
 						else:
-							inner_func = {}
-							for po in triples_map.predicate_object_maps_list:
-								if po.object_map.mapping_type == "reference function":
-									for triples_map_element in triples_map_list:
-										if triples_map_element.triples_map_id == po.object_map.value:
-											dic = create_dictionary(triples_map_element)
-											for inputs in dic["inputs"]:
-												if "reference function" in inputs:
-													inner_func = {"inputs":dic["inputs"], 
-																	"function":dic["executes"],
-																	"func_par":dic,
-																	"id":triples_map_element.triples_map_id}
-							if inner_func:
-								print("There is a function that uses another function as an input.")
-								print("Please use the \"yes\" enrichment option.")
-								print("Aborting...")
-								sys.exit(1)
+							if triples_map.triples_map_id not in file_projection:
+								inner_func = {}
+								for po in triples_map.predicate_object_maps_list:
+									if po.object_map.mapping_type == "reference function":
+										for triples_map_element in triples_map_list:
+											if triples_map_element.triples_map_id == po.object_map.value:
+												dic = create_dictionary(triples_map_element)
+												for inputs in dic["inputs"]:
+													if "reference function" in inputs:
+														inner_func = {"inputs":dic["inputs"], 
+																		"function":dic["executes"],
+																		"func_par":dic,
+																		"id":triples_map_element.triples_map_id}
+														break
+																	
+								if inner_func:
+									for attr in inner_func["inputs"]:
+										if ("reference function" in attr[1]):
+											for triples_map_element in triples_map_list:
+												if triples_map_element.triples_map_id == attr[0]:
+													temp = create_dictionary(triples_map_element)
+													temp_dic = {"inputs":temp["inputs"], 
+																"function":temp["executes"],
+																"func_par":temp}
+													break
+
+									with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
+										writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
+										reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
+										reader = reader.where(pd.notnull(reader), None)
+										reader = reader.to_dict(orient='records')
+										projection_keys = []
+										for pk in fields:
+											projection_keys.append(pk)
+										projection_keys.append(temp["executes"].split("/")[len(temp["executes"].split("/"))-1])
+										writer.writerow(projection_keys)
+										for row in reader:
+											line = []
+											non_none = True
+											for key in fields:
+												line.append(row[key])
+												if row[key] is None:
+													non_none = False
+											if non_none:
+												line.append(inner_function(row,temp_dic,triples_map_list))
+												writer.writerow(line)
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+									j += 1
+
 
 				elif config["datasets"]["dbType"] == "mysql":
 					if triples_map.function:
@@ -586,17 +617,11 @@ def translate(config_path):
 					print("Invalid reference formulation or format")
 					print("Aborting...")
 					sys.exit(1)
-					
-			if config["datasets"]["enrichment"].lower() == "yes":
-				if str(triples_map.file_format).lower() == "csv" and triples_map.query == "None":
-					update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
-				else:
-					update_mapping_rdb(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
+
+			if str(triples_map.file_format).lower() == "csv" and triples_map.query == "None":
+				update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
 			else:
-				if str(triples_map.file_format).lower() == "csv" and triples_map.query == "None":
-					update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,{})
-				else:
-					update_mapping_rdb(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,{})
+				update_mapping_rdb(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
 
 
 			print("Successfully executed the functions in {}\n".format(config[dataset_i]["name"]))

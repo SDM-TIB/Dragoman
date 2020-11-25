@@ -250,7 +250,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 mapping += "<" + triples_map.triples_map_id + ">\n"
 
             mapping += "    a rr:TriplesMap;\n"
-            if data_source:
+            if triples_map.triples_map_id in data_source:
                 mapping += "    rml:logicalSource [ rml:source \"" + data_source[triples_map.triples_map_id] +"\";\n"
             else:
                 mapping += "    rml:logicalSource [ rml:source \"" + triples_map.data_source +"\";\n"
@@ -337,7 +337,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                             mapping += "            rr:parent \"" + predicate_object.object_map.parent + "\";\n"
                             mapping += "        ]\n"
                         else:
-                            if data_source:
+                            if triples_map.triples_map_id in data_source:
                                 mapping = mapping[:-1]
                                 mapping += ";\n"
                                 mapping += "        rr:joinCondition [\n"
@@ -352,7 +352,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                         else:
                                             mapping += "            rr:child \"" + tm.subject_map.value  + "\";\n"
                                             mapping += "            rr:parent \"" + tm.subject_map.value + "\";\n"
-                                mapping += "        ]\n"
+                                mapping += "        ];\n"
                         mapping += "        ]\n"
                     elif "constant shortcut" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
