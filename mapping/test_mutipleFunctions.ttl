@@ -8,11 +8,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix base: <http://tib.de/ontario/mapping#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sio: <http://project-iasis.eu/vocab/> .
+@prefix sio: <http://semanticscience.org/resource/> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sio: <http://semanticscience.org/resource> .
 @prefix genodis: <http://www.genodis.com/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix vario: <http://purl.obolibrary.org/obo/> .
@@ -20,7 +19,7 @@
 @base <http://GenoDIS.KG/> .
 
 <Transcript>    
-    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -35,7 +34,7 @@
     ].
 
 <Gene>
-    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -50,7 +49,7 @@
     ].  
 
 <Sample>
-    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -65,7 +64,7 @@
     ].
 
 <Variation>
-    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -104,15 +103,15 @@
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011134; # has_annotation
-        rr:objectMap <cFormatFunction> # genodis:genodis_00003
+        rr:objectMap <GeneName_ReplaceRegexFunction> # genodis:genodis_00003
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011135; # has_annotation
-        rr:objectMap <pFormatFunction> # genodis:genodis_00004
+        rr:objectMap <GeneName_ReplaceRegexFunction> # genodis:genodis_00004
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -122,41 +121,11 @@
 
 ##########################################################################################
 ######################################## Functions #######################################
-##########################################################################################
-
-
-<cFormatFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:concat3 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value1;
-            rr:objectMap <GeneName_ReplaceRegexFunction>
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value2;
-            rr:objectMap [ 
-                rr:constant "~" 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value3;
-            rr:objectMap [ 
-                rr:constant "Mutation CDS" 
-            ]
-        ];        
-    ].    
+########################################################################################## 
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoDIS/data/COSMIC_mutation_grch37.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -178,38 +147,10 @@
             ] 
         ];   
         rr:predicateObjectMap [
-            rr:predicate ex:column;
+            rr:predicate ex:value;
             rr:objectMap [ 
                 rml:reference "Gene name" 
             ] 
         ];                     
     ].
-
-<pFormatFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "../data/cosmic_mutation_sample.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:concat3 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value1;
-            rr:objectMap <GeneName_ReplaceRegexFunction>
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value2;
-            rr:objectMap [ 
-                rr:constant "~" 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value3;
-            rr:objectMap [ 
-                rml:reference "Mutation AA" 
-            ] 
-        ];    
-    ].   
+ 
