@@ -353,7 +353,9 @@ def translate(config_path):
 										elif "concat4" in current_func["function"]:
 											fields[current_func["func_par"]["value4"]] = "object"
 										elif "match_pFormat" in current_func["function"]:
-											fields[current_func["func_par"]["gene"]] = "object" 
+											fields[current_func["func_par"]["gene"]] = "object"
+										elif "replaceRegex" in  current_func["function"]:
+											pass
 										else:
 											fields[current_func["func_par"]["value"]] = "object"
 							else:
