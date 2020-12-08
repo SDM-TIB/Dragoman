@@ -1,1 +1,1 @@
-# GenoDIS
+# GenoKG
