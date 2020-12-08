@@ -398,11 +398,8 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 mapping += "                rml:referenceFormulation ql:CSV\n" 
             mapping += "            ];\n"
             mapping += "    rr:subjectMap [\n"
-            if dic[function]["termType"]:
-                mapping += "        rml:reference \"" + dic[function]["output_name"] + "\";\n"
-                mapping += "        rr:termType rr:IRI\n"
-            else:
-                mapping += "        rml:reference \"" + dic[function]["output_name"] + "\"\n"
+            mapping += "        rml:reference \"" + dic[function]["output_name"] + "\";\n"
+            mapping += "        rr:termType rr:IRI\n"
             mapping += "    ].\n\n"
 
     prefix_string = ""
