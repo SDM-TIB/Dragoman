@@ -14,9 +14,9 @@
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
-@prefix genodis: <http://www.genodis.com/> .
+@prefix genoschema: <http://www.genoschema.com/> .
 @prefix ex: <http://www.example.com/> .
-@base <http://GenoDIS.KG/> .
+@base <http://genoschema.KG/> .
 
 
 <Evidence>
@@ -24,8 +24,8 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://www.genodis.com/genodis_0015/{evidence_id}";
-		rr:class genodis:genodis_0015 # Chemical-Disease-Variation-Association
+		rr:template "http://www.genoschema.com/genoschema_0015/{evidence_id}";
+		rr:class genoschema:genoschema_0015 # Chemical-Disease-Variation-Association
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is_associated_with
@@ -116,15 +116,15 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <gFormat_concat> # genodis:genodis_00002
+		rr:objectMap <gFormat_concat> # genoschema:genoschema_00002
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <cFormat_concat> # genodis:genodis_00003
+		rr:objectMap <cFormat_concat> # genoschema:genoschema_00003
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <civic_pFormat> # genodis:genodis_00004
+		rr:objectMap <civic_pFormat> # genoschema:genoschema_00004
 	].
 
 <Disease>

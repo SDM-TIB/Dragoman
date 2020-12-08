@@ -17,8 +17,8 @@
 @prefix dcterms: <https://dublincore.org/specifications/dublin-core/dcmi-terms/#> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix ex: <http://www.example.com/> .
-@base <http://GenoDIS.KG/> .
-@prefix genodis: <http://www.genodis.com/> .
+@base <http://genoschema.KG/> .
+@prefix genoschema: <http://www.genoschema.com/> .
 
 <Variation>
 	rml:logicalSource [ rml:source "/data/data/genomic/LC_LB_Seq.csv";
@@ -37,13 +37,13 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061; #is_located_in
 		rr:objectMap [
-			rr:template "http://www.genodis.com/genodis_0010" #start position 
+			rr:template "http://www.genoschema.com/genoschema_0010" #start position 
 		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061; #is_located_in
 		rr:objectMap [
-			rr:template "http://www.genodis.com/genodis_0011" #end position
+			rr:template "http://www.genoschema.com/genoschema_0011" #end position
 		]
 	];
 	rr:predicateObjectMap [
@@ -64,13 +64,13 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
-			rr:template "http://www.genodis.com/genodis_0014/{ExonicFunc.refGene}"
+			rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
 		]
 	];			
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; #is_associated_with
 		rr:objectMap [
-			rr:template "http://www.genodis.com/genodis_0012/{gnomAD_genome_ALL}"
+			rr:template "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
 		]
 	];								
 	rr:predicateObjectMap [
@@ -105,17 +105,17 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <DNAannotationFunction>; # genodis:genodis_00002
+		rr:objectMap <DNAannotationFunction>; # genoschema:genoschema_00002
 		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <CDSannotationFunction>; # genodis:genodis_00003
+		rr:objectMap <CDSannotationFunction>; # genoschema:genoschema_00003
 		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <AAannotationFunction>; # genodis:genodis_00004
+		rr:objectMap <AAannotationFunction>; # genoschema:genoschema_00004
 		rr:termType rr:IRI;
 	].	
 

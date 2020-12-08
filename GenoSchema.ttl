@@ -1,4 +1,4 @@
-@prefix genodis: <http://www.genodis.com/> .
+@prefix genoschema: <http://www.genoschema.com/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -22,16 +22,16 @@
 #################################################################################################################################################
 #################################################################################################################################################
 
-genodis:genodis_0000	rdf:type	owl:Class;
+genoschema:genoschema_0000	rdf:type	owl:Class;
 						rdfs:label	"Concept";					
-						dc:identifier "genodis_0000" ;
+						dc:identifier "genoschema_0000" ;
 						rdfs:comment ".";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 vario:VariO_0001	rdf:type	owl:Class;
 					rdfs:label	"Variation";
-					rdfs:subClassOf	genodis:genodis_0000;					
+					rdfs:subClassOf	genoschema:genoschema_0000;					
 					dc:identifier "VariO_0001" ;
 					rdfs:comment ".";
 					dcterms:modified "2020-10-27"^^xsd:date;
@@ -39,7 +39,7 @@ vario:VariO_0001	rdf:type	owl:Class;
 
 ncit:C16612	rdf:type	owl:Class;
 			rdfs:label	"Gene";
-			rdfs:subClassOf	genodis:genodis_0000;			
+			rdfs:subClassOf	genoschema:genoschema_0000;			
 			dc:identifier "C16612" ;
 			rdfs:comment ".";
 			dcterms:modified "2020-10-27"^^xsd:date;
@@ -47,47 +47,47 @@ ncit:C16612	rdf:type	owl:Class;
 
 sio:SIO_001166	rdf:type	owl:Class;
 				rdfs:label	"Annotation";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_001166" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0001	rdf:type	owl:Class;
+genoschema:genoschema_0001	rdf:type	owl:Class;
 						rdfs:label	"Variation Annotation";
 						rdfs:subClassOf	sio:SIO_001166;						
-						dc:identifier "genodis_00001" ;
+						dc:identifier "genoschema_00001" ;
 						rdfs:comment ".";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0002	rdf:type	owl:Class;
+genoschema:genoschema_0002	rdf:type	owl:Class;
 						rdfs:label	"DNA Annotation";
-						rdfs:subClassOf	genodis:genodis_0001;							
-						dc:identifier "genodis_00002" ;
+						rdfs:subClassOf	genoschema:genoschema_0001;							
+						dc:identifier "genoschema_00002" ;
 						rdfs:comment "Represents the genome DNA sequence annotation of the variation.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0003	rdf:type	owl:Class;
+genoschema:genoschema_0003	rdf:type	owl:Class;
 						rdfs:label	"CDS Annotation";
-						rdfs:subClassOf	genodis:genodis_0001;						
-						dc:identifier "genodis_00003" ;
+						rdfs:subClassOf	genoschema:genoschema_0001;						
+						dc:identifier "genoschema_00003" ;
 						rdfs:comment "Represents the coding DNA sequence annotation of the variation.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0004	rdf:type	owl:Class;
+genoschema:genoschema_0004	rdf:type	owl:Class;
 						rdfs:label	"AA Annotation";
-						rdfs:subClassOf	genodis:genodis_0001;						
-						dc:identifier "genodis_0004" ;
+						rdfs:subClassOf	genoschema:genoschema_0001;						
+						dc:identifier "genoschema_0004" ;
 						rdfs:comment "Represents the amino acid sequence annotation of the variation.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.												
 
 sio:SIO_010038	rdf:type	owl:Class;
 				rdfs:label	"Drug";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_001166" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -95,7 +95,7 @@ sio:SIO_010038	rdf:type	owl:Class;
 
 sio:SIO_000899	rdf:type	owl:Class;
 				rdfs:label	"Chromosome";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000899" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -103,7 +103,7 @@ sio:SIO_000899	rdf:type	owl:Class;
 
 sio:SIO_010056	rdf:type	owl:Class;
 				rdfs:label	"Phenotype";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010056" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -111,7 +111,7 @@ sio:SIO_010056	rdf:type	owl:Class;
 
 sio:SIO_010299	rdf:type	owl:Class;
 				rdfs:label	"Disease";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010299" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -119,7 +119,7 @@ sio:SIO_010299	rdf:type	owl:Class;
 
 sio:SIO_010016	rdf:type	owl:Class;
 				rdfs:label	"Nucleic Acid Sequence";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010016" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -143,7 +143,7 @@ sio:SIO_010018	rdf:type	owl:Class;
 
 sio:SIO_000154	rdf:type	owl:Class;
 				rdfs:label	"Publication";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000154" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -151,7 +151,7 @@ sio:SIO_000154	rdf:type	owl:Class;
 
 sio:SIO_000393	rdf:type	owl:Class;
 				rdfs:label	"Patient";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000393" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -159,7 +159,7 @@ sio:SIO_000393	rdf:type	owl:Class;
 
 mesh:D001706	rdf:type	owl:Class;
 				rdfs:label	"Biopsy";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "D001706" ;
 				rdfs:comment ".";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -189,73 +189,73 @@ snpo:nucleotide_variation	rdf:type	owl:Class;
 							dcterms:modified "2020-10-27"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0005	rdf:type	owl:Class;
+genoschema:genoschema_0005	rdf:type	owl:Class;
 						rdfs:label	"Sequence Position";
-						rdfs:subClassOf	genodis:genodis_0000;				
-						dc:identifier "genodis_0005" ;
+						rdfs:subClassOf	genoschema:genoschema_0000;				
+						dc:identifier "genoschema_0005" ;
 						rdfs:comment ".";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 snpo:sequence_position	rdf:type	owl:Class;
 						rdfs:label	"SNP Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
+						rdfs:subClassOf	genoschema:genoschema_0005;				
 						dc:identifier "sequence_position" ;
 						rdfs:comment "Represents the position of a snp variation in a sequence (since in sn the start and end positions are the same).";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0006	rdf:type	owl:Class;
+genoschema:genoschema_0006	rdf:type	owl:Class;
 						rdfs:label	"CDS Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0006" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0006" ;
 						rdfs:comment "Represents the variation position on the coding sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0007	rdf:type	owl:Class;
+genoschema:genoschema_0007	rdf:type	owl:Class;
 						rdfs:label	"DNA Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0007" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0007" ;
 						rdfs:comment "Represents the variation position on the deoxyribonucleic acid sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0008	rdf:type	owl:Class;
+genoschema:genoschema_0008	rdf:type	owl:Class;
 						rdfs:label	"RNA Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0008" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0008" ;
 						rdfs:comment "Represents the variation position on the ribonucleic acid sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.						
 
-genodis:genodis_0009	rdf:type	owl:Class;
+genoschema:genoschema_0009	rdf:type	owl:Class;
 						rdfs:label	"AA Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0009" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0009" ;
 						rdfs:comment "Represents the variation position on the amino acid sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-genodis:genodis_0010	rdf:type	owl:Class;
+genoschema:genoschema_0010	rdf:type	owl:Class;
 						rdfs:label	"Start Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0010" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0010" ;
 						rdfs:comment "Represents the variation starting position on the deoxyribonucleic acid sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
-genodis:genodis_0011	rdf:type	owl:Class;
+genoschema:genoschema_0011	rdf:type	owl:Class;
 						rdfs:label	"End Position";
-						rdfs:subClassOf	genodis:genodis_0005;				
-						dc:identifier "genodis_0011" ;
+						rdfs:subClassOf	genoschema:genoschema_0005;				
+						dc:identifier "genoschema_0011" ;
 						rdfs:comment "Represents the variation position on the deoxyribonucleic acid sequence.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 stato:IAO_0000125	rdf:type	owl:Class;
 					rdfs:label	"Ratio";
-					rdfs:subClassOf	genodis:genodis_0000;				
+					rdfs:subClassOf	genoschema:genoschema_0000;				
 					dc:identifier "IAO_0000125" ;
 					rdfs:comment "Represents a data item which is formed with two numbers r and s is written r/s, where r is the numerator and s is the denominator. The ratio of r to s is equivalent to the quotient r/s.";
 					dcterms:modified "2020-10-27"^^xsd:date;
@@ -269,33 +269,33 @@ stato:STATO_0000254	rdf:type owl:Class;
 					dcterms:modified "2020-10-27"^^xsd:date;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0012	rdf:type owl:Class;
+genoschema:genoschema_0012	rdf:type owl:Class;
 						rdfs:label	"Population AF";
 						rdfs:subClassOf	stato:IAO_0000125;				
-						dc:identifier "genodis_0012" ;
+						dc:identifier "genoschema_0012" ;
 						rdfs:comment "Denotes the incidence of a gene variant in a population. It is calculated as a ratio, by dividing the number of copies of a particular allele by the number of copies of all alleles at the genetic place (locus) in a population.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0013	rdf:type owl:Class;
+genoschema:genoschema_0013	rdf:type owl:Class;
 						rdfs:label	"Impact";
-						rdfs:subClassOf	genodis:genodis_0000;				
-						dc:identifier "genodis_0013" ;
+						rdfs:subClassOf	genoschema:genoschema_0000;				
+						dc:identifier "genoschema_0013" ;
 						rdfs:comment "Denotes the impact of a concept on another.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0014	rdf:type owl:Class;
+genoschema:genoschema_0014	rdf:type owl:Class;
 						rdfs:label	"Variation Impact";
-						rdfs:subClassOf	genodis:genodis_0013;				
-						dc:identifier "genodis_0014" ;
+						rdfs:subClassOf	genoschema:genoschema_0013;				
+						dc:identifier "genoschema_0014" ;
 						rdfs:comment "Denotes to what extend the variation has affected the DNA or protein sequence and functionality of them.";
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 sio:SIO_000993	rdf:type	owl:Class;
 				rdfs:label	"Chemical-Disease-Association";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000993" ;
 				rdfs:comment "Represents a chemical-disease association is an association between a chemical and a disease.";
 				dcterms:modified "2020-10-30"^^xsd:date;
@@ -303,39 +303,39 @@ sio:SIO_000993	rdf:type	owl:Class;
 
 sio:SIO_001257	rdf:type	owl:Class;
 				rdfs:label	"Chemical-Gene-Association";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_001257" ;
 				rdfs:comment "Represents a chemical-gene assocation is an assocation between a chemical and a gene.";
 				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0015	rdf:type owl:Class;
+genoschema:genoschema_0015	rdf:type owl:Class;
 						rdfs:label	"Chemical-Disease-Variation-Association";
 						rdfs:subClassOf	sio:SIO_000993;				
-						dc:identifier "genodis_0015" ;
+						dc:identifier "genoschema_0015" ;
 						rdfs:comment "Represents chemical-disease association linked with genomic alteration.";
 						dcterms:modified "2020-10-30"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0016	rdf:type owl:Class;
+genoschema:genoschema_0016	rdf:type owl:Class;
 						rdfs:label	"Chemical-Gene-Variation-Association";
 						rdfs:subClassOf	sio:SIO_001257;				
-						dc:identifier "genodis_0016" ;
+						dc:identifier "genoschema_0016" ;
 						rdfs:comment "Represents chemical-gene association linked with genomic alteration.";
 						dcterms:modified "2020-10-30"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genodis:genodis_0017	rdf:type owl:Class;
+genoschema:genoschema_0017	rdf:type owl:Class;
 						rdfs:label	"Oncogenicity";
-						rdfs:subClassOf	genodis:genodis_0013;				
-						dc:identifier "genodis_0017" ;
+						rdfs:subClassOf	genoschema:genoschema_0013;				
+						dc:identifier "genoschema_0017" ;
 						rdfs:comment "Denotes to what extend the variation tends to cause or give rise to tumors.";
 						dcterms:modified "2020-11-09"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 ncit:C159157	rdf:type owl:Class;
 				rdfs:label	"Chemical-Gene-Variation-Association";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "C159157" ;
 				rdfs:comment "Represents WHO AML classification of tumor types.";
 				dcterms:modified "2020-10-30"^^xsd:date;
@@ -343,7 +343,7 @@ ncit:C159157	rdf:type owl:Class;
 
 sio:SIO_001050	rdf:type	owl:Class;
 				rdfs:label	"Sample";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_001050" ;
 				rdfs:comment "Represents a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use.";
 				dcterms:modified "2020-11-02"^^xsd:date;
@@ -351,7 +351,7 @@ sio:SIO_001050	rdf:type	owl:Class;
 
 sio:SIO_010002	rdf:type	owl:Class;
 				rdfs:label	"Tissue";
-				rdfs:subClassOf	genodis:genodis_0000;				
+				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010002" ;
 				rdfs:comment "Represents a mereologically maximal collection of cells that together perform some function.";
 				dcterms:modified "2020-11-02"^^xsd:date;
@@ -368,7 +368,7 @@ sio:SIO_010002	rdf:type	owl:Class;
 skos:exactMatch	rdf:type owl:DatatypeProperty;
 				rdfs:label	"has_exact_match";
 				dc:identifier "exactMatch" ;
-				rdfs:domain	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	rdfs:Literal;
 				rdfs:comment "Represents another available identifier of the exactly the same entity.";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -377,7 +377,7 @@ skos:exactMatch	rdf:type owl:DatatypeProperty;
 sio:SIO_000300	rdf:type	owl:DatatypeProperty;
 				rdfs:label	"has_vaue";
 				dc:identifier "SIO_000300" ;
-				rdfs:domain	genodis:genodis_0016;
+				rdfs:domain	genoschema:genoschema_0016;
 				rdfs:range	rdfs:Literal;
 				rdfs:comment "";
 				dcterms:modified "2020-10-30"^^xsd:date;
@@ -404,7 +404,7 @@ sio:SIO_000255	rdf:type	owl:ObjectProperty;
 				rdfs:label	"has_annotation";
 				dc:identifier "SIO_000255" ;
 				rdfs:domain	vario:VariO_0001;
-				rdfs:range	genodis:genodis_0001;
+				rdfs:range	genoschema:genoschema_0001;
 				rdfs:comment	"";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
@@ -412,8 +412,8 @@ sio:SIO_000255	rdf:type	owl:ObjectProperty;
 sio:SIO_001403	rdf:type	owl:ObjectProperty;
 				rdfs:label	"is_associated_with";
 				dc:identifier "SIO_001403" ;
-				rdfs:domain	genodis:genodis_0000;
-				rdfs:range	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
+				rdfs:range	genoschema:genoschema_0000;
 				rdfs:comment	"";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
@@ -421,7 +421,7 @@ sio:SIO_001403	rdf:type	owl:ObjectProperty;
 sio:SIO_000628	rdf:type	owl:ObjectProperty;
 				rdfs:label	"refers_to";
 				dc:identifier "SIO_000628" ;
-				rdfs:domain	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	sio:SIO_000154;
 				rdfs:comment	"";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -430,7 +430,7 @@ sio:SIO_000628	rdf:type	owl:ObjectProperty;
 sio:SIO_001279	rdf:type	owl:ObjectProperty;
 				rdfs:label	"has_phenotype";
 				dc:identifier "SIO_001279" ;
-				rdfs:domain	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	sio:SIO_010056;
 				rdfs:comment	"";
 				dcterms:modified "2020-10-27"^^xsd:date;
@@ -439,8 +439,8 @@ sio:SIO_001279	rdf:type	owl:ObjectProperty;
 sio:SIO_000068	rdf:type	owl:ObjectProperty;
 				rdfs:label	"is_part_of";
 				dc:identifier "SIO_000068" ;
-				rdfs:domain	genodis:genodis_0000;
-				rdfs:range	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
+				rdfs:range	genoschema:genoschema_0000;
 				rdfs:comment "Indicates a transitive, reflexive and anti-symmetric mereological relation between a whole and itself or a part and its whole.";
 				dcterms:modified "2020-11-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
@@ -448,8 +448,8 @@ sio:SIO_000068	rdf:type	owl:ObjectProperty;
 sio:SIO_000001	rdf:type	owl:ObjectProperty;
 				rdfs:label	"is_related_to";
 				dc:identifier "SIO_000001" ;
-				rdfs:domain	genodis:genodis_0000;
-				rdfs:range	genodis:genodis_0000;
+				rdfs:domain	genoschema:genoschema_0000;
+				rdfs:range	genoschema:genoschema_0000;
 				rdfs:comment "Indicates the relation between two concepts.";
 				dcterms:modified "2020-11-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.

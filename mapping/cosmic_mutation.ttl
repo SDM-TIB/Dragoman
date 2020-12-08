@@ -12,14 +12,14 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix genodis: <http://www.genodis.com/> .
+@prefix genoschema: <http://www.genoschema.com/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ex: <http://www.example.com/> .
-@base <http://GenoDIS.KG/> .
+@base <http://genoschema.KG/> .
 
 <Transcript>    
-    rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -34,7 +34,7 @@
     ].
 
 <Gene>
-    rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -49,7 +49,7 @@
     ].  
 
 <Sample>
-    rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -64,7 +64,7 @@
     ].
 
 <Variation>
-    rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -103,15 +103,15 @@
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011134; # has_annotation
-        rr:objectMap <cFormatFunction> # genodis:genodis_00003
+        rr:objectMap <cFormatFunction> # genoschema:genoschema_00003
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011135; # has_annotation
-        rr:objectMap <pFormatFunction> # genodis:genodis_00004
+        rr:objectMap <pFormatFunction> # genoschema:genoschema_00004
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -126,7 +126,7 @@
 
 <cFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -155,7 +155,7 @@
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -186,7 +186,7 @@
 
 <pFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/GenoDIS-master/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/mnt/e/genoschema-master/data/cosmic_mutation_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

@@ -14,7 +14,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix ex: <http://www.example.com/> .
-@base <http://GenoDIS.KG/> .
+@base <http://genoschema.KG/> .
 
 <Evidence>
     rml:logicalSource [ rml:source "../data/civic_Predictive.csv";

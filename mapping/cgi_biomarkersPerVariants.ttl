@@ -13,18 +13,18 @@
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
-@prefix genodis: <http://www.genodis.com/> .
+@prefix genoschema: <http://www.genoschema.com/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix ex: <http://www.example.com/> .
-@base <http://GenoDIS.KG/> .
+@base <http://genoschema.KG/> .
 
 <Evidence>
 	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://www.genodis.com/genodis_0016/{Drug}_{Gene}_{cFormat}";
-		rr:class genodis:genodis_0016 # Chemical-Gene-Variation-Association
+		rr:template "http://www.genoschema.com/genoschema_0016/{Drug}_{Gene}_{cFormat}";
+		rr:class genoschema:genoschema_0016 # Chemical-Gene-Variation-Association
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is_associated_with
@@ -73,15 +73,15 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011133; # has_annotation
-		rr:objectMap <gFormat_ReplaceFunction> # genodis:genodis_00002
+		rr:objectMap <gFormat_ReplaceFunction> # genoschema:genoschema_00002
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has_annotation
-		rr:objectMap <cFormat_ConcatFuncation> # genodis:genodis_00003
+		rr:objectMap <cFormat_ConcatFuncation> # genoschema:genoschema_00003
 	].
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has_annotation
-		rr:objectMap <pFormatReplaceFunction> # genodis:genodis_00004
+		rr:objectMap <pFormatReplaceFunction> # genoschema:genoschema_00004
 	].	
 
 <Drug>
