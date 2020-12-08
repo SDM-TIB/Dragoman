@@ -116,15 +116,18 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <gFormat_concat> # genoschema:genoschema_00002
+		rr:objectMap <gFormat_concat>; # genoschema:genoschema_0002
+        rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <cFormat_concat> # genoschema:genoschema_00003
+		rr:objectMap <cFormat_concat>; # genoschema:genoschema_0003
+        rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <civic_pFormat> # genoschema:genoschema_00004
+		rr:objectMap <match_pFormat>; # genoschema:genoschema_0004
+        rr:termType rr:IRI;
 	].
 
 <Disease>
@@ -324,7 +327,7 @@
         ];    
     ].  
 ####
-<civic_pFormat>
+<match_pFormat>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
@@ -377,7 +380,7 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:column;
-            rr:objectMap <civic_aa_threeLetters>
+            rr:objectMap <match_aa>
         ];
         rr:predicateObjectMap [
             rr:predicate ex:hgvs;
@@ -387,7 +390,7 @@
         ];        
     ].  
 
-<civic_aa_threeLetters>
+<match_aa>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
