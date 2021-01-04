@@ -115,7 +115,7 @@ def match_cdna(combinedValue):
 
 def match_aa(combinedValue):
     if combinedValue is not None:
-        expressionsList = hgvs.split(":")
+        expressionsList = combinedValue.split(":")
         for j in range(0,len(expressionsList)):
             if "p." in expressionsList[j]:
                 aa = expressionsList[j]
@@ -175,7 +175,7 @@ def replaceRegex(regex,replvalue,value):
 
 # returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
 def split(column,separator,index):
-    return column.split(separator)[int(index)]
+    return str(column).split(separator)[int(index)]
 
 def prefix_extraction(uri):
     prefix = ""

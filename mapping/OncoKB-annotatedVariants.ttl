@@ -62,7 +62,7 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_010035/{Gene}"; # gene
+			rr:template "http://semanticscience.org/resource/SIO_010035/{Hugo Symbol}"; # gene
 		]
 	].	
 
