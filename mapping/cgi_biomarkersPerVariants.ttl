@@ -6,20 +6,22 @@
 @prefix rev: <http://purl.org/stuff/rev#> .
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix base: <http://tib.de/ontario/mapping#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix iasis: <http://project-iasis.eu/vocab/> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sio: <http://semanticscience.org/resource> .
 @prefix genoschema: <http://www.genoschema.com/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix vario: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://genoschema.KG/> .
 
 <Evidence>
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -58,7 +60,7 @@
 	].			
 
 <Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -78,14 +80,14 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has_annotation
 		rr:objectMap <cFormat_ConcatFuncation> # genoschema:genoschema_00003
-	].
+	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has_annotation
 		rr:objectMap <pFormatReplaceFunction> # genoschema:genoschema_00004
 	].	
 
 <Drug>
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -99,7 +101,7 @@
 	].	
 
 <Transcript>	
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -114,7 +116,7 @@
 	].
 
 <Publication>
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -123,7 +125,7 @@
 	].
 
 <TumorType>
-	rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -138,7 +140,7 @@
  
 <gFormat_ReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -154,13 +156,13 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value1;
+            rr:predicate ex:value2;
             rr:objectMap [ 
             	rr:constant ":" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value;
+            rr:predicate ex:value3;
             rr:objectMap [ 
             	rr:constant "~" 
             ]
@@ -171,7 +173,7 @@
 
 <cFormat_ConcatFuncation>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -204,7 +206,7 @@
 
 <pFormatReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -220,13 +222,13 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value1;
+            rr:predicate ex:value2;
             rr:objectMap [ 
             	rr:constant ":" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value;
+            rr:predicate ex:value3;
             rr:objectMap [ 
             	rr:constant "~p." 
             ]
