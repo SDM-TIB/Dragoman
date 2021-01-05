@@ -309,29 +309,45 @@ sio:SIO_001257	rdf:type	owl:Class;
 				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+sio:SIO_000897	rdf:type	owl:Class;
+				rdfs:label	"Association";
+				rdfs:subClassOf	genoschema:genoschema_0000;				
+				dc:identifier "SIO_000897" ;
+				rdfs:comment "Represents relationship between two or more entities derived by some informational analysis.";
+				dcterms:modified "2021-01-05"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 genoschema:genoschema_0015	rdf:type owl:Class;
 						rdfs:label	"Chemical-Disease-Variation-Association";
-						rdfs:subClassOf	sio:SIO_000993;				
+						rdfs:subClassOf	sio:SIO_000897;				
 						dc:identifier "genoschema_0015" ;
 						rdfs:comment "Represents chemical-disease association linked with genomic alteration.";
 						dcterms:modified "2020-10-30"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 genoschema:genoschema_0016	rdf:type owl:Class;
-						rdfs:label	"Chemical-Gene-Variation-Association";
-						rdfs:subClassOf	sio:SIO_001257;				
-						dc:identifier "genoschema_0016" ;
-						rdfs:comment "Represents chemical-gene association linked with genomic alteration.";
-						dcterms:modified "2020-10-30"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+							rdfs:label	"Chemical-Gene-Variation-Association";
+							rdfs:subClassOf	sio:SIO_000897;				
+							dc:identifier "genoschema_0016" ;
+							rdfs:comment "Represents chemical-gene association linked with genomic alteration.";
+							dcterms:modified "2020-10-30"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 genoschema:genoschema_0017	rdf:type owl:Class;
-						rdfs:label	"Oncogenicity";
-						rdfs:subClassOf	genoschema:genoschema_0013;				
-						dc:identifier "genoschema_0017" ;
-						rdfs:comment "Denotes to what extend the variation tends to cause or give rise to tumors.";
-						dcterms:modified "2020-11-09"^^xsd:date;
-						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+							rdfs:label	"Oncogenicity";
+							rdfs:subClassOf	genoschema:genoschema_0013;				
+							dc:identifier "genoschema_0017" ;
+							rdfs:comment "Denotes to what extend the variation tends to cause or give rise to tumors.";
+							dcterms:modified "2020-11-09"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_001350	rdf:type owl:Class;
+			rdfs:label	"Gene-Disease-Variation-Association";
+			rdfs:subClassOf	sio:SIO_000897;				
+			dc:identifier "SIO_001350" ;
+			rdfs:comment "Represents gene-disease association linked with genomic alterations.";
+			dcterms:modified "2021-01-05"^^xsd:date;
+			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 ncit:C159157	rdf:type owl:Class;
 				rdfs:label	"Chemical-Gene-Variation-Association";
