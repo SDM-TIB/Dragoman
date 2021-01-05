@@ -17,6 +17,7 @@
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
+@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
 @base <http://genoschema.KG/> .
 
@@ -118,13 +119,25 @@
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_011137/{variantID}";
-        rr:class sio:SIO_011137 # variation
-    ];                      
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
+    ];                              
     rr:predicateObjectMap [
         rr:predicate skos:exactMatch;
         rr:objectMap [
-            rml:reference "cosmic_ID";
+            rr:parentTriplesMap <dbsnp>
+    ].
+
+<dbsnp>
+    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/variation_cosmicID_lb.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{cosmic_ID}";
+    ];                              
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp"; # rr:class snpo:dbsnp
         ]
     ].
 

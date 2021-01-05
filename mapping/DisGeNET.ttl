@@ -17,7 +17,7 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
 
-<#Evidence>
+<Evidence>
 	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -28,7 +28,7 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Disease> 
+			rr:parentTriplesMap <Disease> 
 		]
 	];
 	rr:predicateObjectMap [
@@ -52,13 +52,13 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000628; # refers to 
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Publication>
+			rr:parentTriplesMap <Publication>
 		]
 	];			
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <#Variation> 
+			rr:parentTriplesMap <Variation> 
 		]
 	];
 	rr:predicateObjectMap [
@@ -74,7 +74,7 @@
 		]
 	].				
 	
-<#Variation>
+<Variation>
 	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -95,7 +95,7 @@
 		]
 	].
 
-<#Disease>
+<Disease>
 	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -112,11 +112,11 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255;
 		rr:objectMap [
-			rr:parentTriplesMap <#Annotation>
+			rr:parentTriplesMap <Annotation>
 		]
 	].
 
-<#Annotation>
+<Annotation>
 	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
@@ -137,7 +137,7 @@
 		]
 	].			
 
-<#Publication>
+<Publication>
 	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
 						rml:referenceFormulation ql:CSV 
 						];
