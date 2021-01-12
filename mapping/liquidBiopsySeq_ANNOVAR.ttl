@@ -125,6 +125,7 @@
         rr:predicate skos:exactMatch;
         rr:objectMap [
             rr:parentTriplesMap <dbsnp>
+            ]
     ].
 
 <dbsnp>
