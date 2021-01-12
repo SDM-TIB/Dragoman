@@ -348,10 +348,10 @@ def translate(config_path):
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
-										elif "concat3" in current_func["function"]:
-											fields[current_func["func_par"]["value3"]] = "object"
-										elif "concat4" in current_func["function"]:
-											fields[current_func["func_par"]["value4"]] = "object"
+										elif "concat" in current_func["function"]:
+											for inputs in current_func["inputs"]:
+												if "reference function" not in inputs and "constant" not in inputs: 
+													fields[inputs[0]] = "object"
 										elif "match_pFormat" in current_func["function"]:
 											fields[current_func["func_par"]["gene"]] = "object"
 										elif "replaceRegex" in  current_func["function"]:
@@ -377,15 +377,16 @@ def translate(config_path):
 													else:
 														fields[tp.subject_map.value] = "object"
 									else:
-											if "{" in po.object_map.value:
-												object_field = po.object_map.value.split("{")
-												if len(object_field) == 2:
-													fields[object_field[1].split("}")[0]] = "object"
-												else:
-													for of in object_field:
-														if "}" in of:
-															fields[of.split("}")[0]] = "object"
+										if "{" in po.object_map.value:
+											object_field = po.object_map.value.split("{")
+											if len(object_field) == 2:
+												fields[object_field[1].split("}")[0]] = "object"
 											else:
+												for of in object_field:
+													if "}" in of:
+														fields[of.split("}")[0]] = "object"
+										else:
+											if po.object_map.mapping_type != "template":
 												fields[po.object_map.value] = "object"
 
 						if config["datasets"]["enrichment"].lower() == "yes" and triples_map.triples_map_id not in file_projection:

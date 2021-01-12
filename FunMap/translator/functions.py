@@ -110,7 +110,7 @@ def match_cdna(combinedValue):
             else:
                 cdna = ""
     else:
-        cdns = ""                
+        cdna = ""                
     return(cdna)
 
 def match_aa(combinedValue):
@@ -626,9 +626,9 @@ def execute_function(row,dic):
     elif "concat6" in dic["function"]:
         return concat6(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]],row[dic["func_par"]["value6"]])        
     elif "match_gdna" in dic["function"]:
-        return match_gdna(row[dic["func_par"]["combinedValue"]])
+        return match_gdna(row[dic["func_par"]["separator"]])
     elif "match_cdna" in dic["function"]:
-        return match_cdna(row[dic["func_par"]["combinedValue"]]) 
+        return match_cdna(row[dic["func_par"]["separator"]]) 
     elif "match_aa" in dic["function"]:
         return match_aa(row[dic["func_par"]["combinedValue"]])  
     elif "match_exon" in dic["function"]:
@@ -686,7 +686,6 @@ def inner_function(row,dic,triples_map_list):
             function = attr[0]
         elif "constant" not in attr[1]:
             keys.append(attr[0])
-
     if function != "":
         for tp in triples_map_list:
             if tp.triples_map_id == function:
@@ -711,7 +710,7 @@ def join_csv(source, dic, output,triple_map_list):
 
         keys = []
         for attr in dic["inputs"]:
-            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+            if (attr[1] is not "constant") and (attr[1] is not"reference function"):
                 keys.append(attr[0])
 
         values = {}
@@ -798,7 +797,48 @@ def join_csv(source, dic, output,triple_map_list):
                                 line.append(value)
                                 writer.writerow(line)
                                 values[temp_value] = temp_value
+            else:
 
+                for inputs in dic["inputs"]:
+                    if "reference function" not in inputs and "constant" not in inputs: 
+                        reference = inputs[0]
+
+                if reference in columns:
+
+                    keys.append(dic["output_name"])
+                    writer.writerow(keys)
+
+                    for row in columns[reference]:
+                        if (row[reference] not in values) and (row[reference] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[row[reference]] = value
+
+                else:
+
+                    reader = pd.read_csv(source, usecols=keys)
+                    reader = reader.where(pd.notnull(reader), None)
+                    reader = reader.to_dict(orient='records')
+                    keys.append(dic["output_name"])
+                    writer.writerow(keys)
+                    projection = []
+
+                    for row in reader:
+                        if (row[reference] not in values) and (row[reference] is not None):
+                            value = execute_function(row,dic)
+                            line = []
+                            for attr in dic["inputs"]:
+                                if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                                    line.append(row[attr[0]])
+                            line.append(value)
+                            writer.writerow(line)
+                            values[reference] = value
+                            projection.append({reference:row[reference]})
 
         elif "match_pFormat" in dic["function"]:
             for tp in triple_map_list:
@@ -812,19 +852,13 @@ def join_csv(source, dic, output,triple_map_list):
                     keys.append(dic["output_name"])
                     writer.writerow(keys)
 
-                    temp_keys = []
-                    for attr in temp_dic["inputs"]:
-                        if (attr[1] is not "constant") and ("reference function" not in attr[1]):
-                            temp_keys.append(attr[0])
-                    temp_keys.append(dic["func_par"]["gene"])
-
-                    reader = pd.read_csv(tp.data_source, usecols=temp_keys)
+                    reader = pd.read_csv(source)
                     reader = reader.where(pd.notnull(reader), None)
                     reader = reader.to_dict(orient='records')
 
                     for row in reader:
                         if None not in row.values():
-                            temp_value = execute_function(row,current_func)
+                            temp_value = inner_function(row,current_func,triple_map_list)
                             if temp_value is not None:
                                 if (temp_value+row[dic["func_par"]["gene"]] not in values) and (temp_value+row[dic["func_par"]["gene"]] is not ""):
                                     temp_row = {}
