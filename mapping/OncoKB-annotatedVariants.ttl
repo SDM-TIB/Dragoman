@@ -90,7 +90,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value3;
             rr:objectMap [ 
             	rr:constant "Protein Change" 
             ]
