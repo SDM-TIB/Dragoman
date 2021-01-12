@@ -256,13 +256,13 @@
             ]
         ]; 
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value5;
             rr:objectMap [ 
                 rr:constant "~" 
             ]
         ]; 
         rr:predicateObjectMap [
-            rr:predicate ex:value4;
+            rr:predicate ex:value6;
             rr:objectMap [ 
                 rml:reference "Alt" 
             ]
