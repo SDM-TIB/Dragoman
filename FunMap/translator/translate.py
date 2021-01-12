@@ -348,14 +348,14 @@ def translate(config_path):
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
-										elif "concat" in current_func["function"]:
+										elif "concat" in current_func["function"] or "match_pFormat" in current_func["function"]:
 											for inputs in current_func["inputs"]:
 												if "reference function" not in inputs and "constant" not in inputs: 
 													fields[inputs[0]] = "object"
-										elif "match_pFormat" in current_func["function"]:
-											fields[current_func["func_par"]["gene"]] = "object"
 										elif "replaceRegex" in  current_func["function"]:
 											pass
+										elif "match_exon" in current_func["function"]:
+											fields[current_func["func_par"]["combinedValue"]] = "object"
 										else:
 											fields[current_func["func_par"]["value"]] = "object"
 							else:
@@ -381,6 +381,7 @@ def translate(config_path):
 											object_field = po.object_map.value.split("{")
 											if len(object_field) == 2:
 												fields[object_field[1].split("}")[0]] = "object"
+
 											else:
 												for of in object_field:
 													if "}" in of:
@@ -431,7 +432,7 @@ def translate(config_path):
 										for key in fields:
 											line.append(row[key])
 											if row[key] is None:
-												non_none = False
+												pass
 											else:
 												string_values += str(row[key])
 										if non_none and string_values not in line_values:

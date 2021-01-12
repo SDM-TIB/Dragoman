@@ -152,7 +152,7 @@ def match_pFormat(threeLetters,gene):
     return(pFormat)
 
 def rearrange_cds(cds):
-    if cds is not None:
+    if cds is not None and cds is not "":
         if "del" not in cds and "ins" not in cds:
             firstN = cds.split(".")[1][0]
             if cds.split(".")[1][1:-1].isdigit():
@@ -624,7 +624,7 @@ def execute_function(row,dic):
     elif "concat5" in dic["function"]:
         return concat5(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]])
     elif "concat6" in dic["function"]:
-        return concat6(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]],row[dic["func_par"]["value6"]])        
+        return concat6(dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],dic["func_par"]["value5"],row[dic["func_par"]["value6"]])        
     elif "match_gdna" in dic["function"]:
         return match_gdna(row[dic["func_par"]["separator"]])
     elif "match_cdna" in dic["function"]:
@@ -754,9 +754,48 @@ def join_csv(source, dic, output,triple_map_list):
                         projection.append({dic["func_par"]["column1"]:row[dic["func_par"]["column1"]], dic["func_par"]["column2"]:row[dic["func_par"]["column2"]]})
 
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
-        
 
-        elif "concat" in dic["function"] or "split" in dic["function"]:
+        elif "match_exon" in dic["function"]:
+            if dic["func_par"]["combinedValue"] in columns:
+
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+
+                for row in columns[dic["func_par"]["value"]]:
+                    if (row[dic["func_par"]["combinedValue"]] not in values) and (row[dic["func_par"]["combinedValue"]] is not None):
+                        value = execute_function(row,dic)
+                        line = []
+                        for attr in dic["inputs"]:
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                                line.append(row[attr[0]])
+                        line.append(value)
+                        writer.writerow(line)
+                        values[row[dic["func_par"]["combinedValue"]]] = value
+
+            else:
+
+                reader = pd.read_csv(source, usecols=keys)
+                reader = reader.where(pd.notnull(reader), None)
+                reader = reader.to_dict(orient='records')
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+                projection = []
+
+                for row in reader:
+                    if (row[dic["func_par"]["combinedValue"]] not in values) and (row[dic["func_par"]["combinedValue"]] is not None):
+                        value = execute_function(row,dic)
+                        line = []
+                        for attr in dic["inputs"]:
+                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                                line.append(row[attr[0]])
+                        line.append(value)
+                        writer.writerow(line)
+                        values[row[dic["func_par"]["combinedValue"]]] = value
+                        projection.append({dic["func_par"]["combinedValue"]:row[dic["func_par"]["combinedValue"]]})
+
+                columns[dic["func_par"]["combinedValue"]] = projection
+
+        elif "concat" in dic["function"] or "split" in dic["function"] or "match_pFormat" in dic["function"]:
 
             function = ""
             outer_keys = []
@@ -839,39 +878,6 @@ def join_csv(source, dic, output,triple_map_list):
                             writer.writerow(line)
                             values[reference] = value
                             projection.append({reference:row[reference]})
-
-        elif "match_pFormat" in dic["function"]:
-            for tp in triple_map_list:
-                if tp.triples_map_id == dic["func_par"]["threeLetters"]:
-                    temp_dic = create_dictionary(tp)
-                    current_func = {"inputs":temp_dic["inputs"], 
-                                    "function":temp_dic["executes"],
-                                    "func_par":temp_dic,
-                                    "termType":True}
-                    keys.append(dic["func_par"]["threeLetters"])
-                    keys.append(dic["output_name"])
-                    writer.writerow(keys)
-
-                    reader = pd.read_csv(source)
-                    reader = reader.where(pd.notnull(reader), None)
-                    reader = reader.to_dict(orient='records')
-
-                    for row in reader:
-                        if None not in row.values():
-                            temp_value = inner_function(row,current_func,triple_map_list)
-                            if temp_value is not None:
-                                if (temp_value+row[dic["func_par"]["gene"]] not in values) and (temp_value+row[dic["func_par"]["gene"]] is not ""):
-                                    temp_row = {}
-                                    temp_row[dic["func_par"]["gene"]] = row[dic["func_par"]["gene"]]
-                                    temp_row[dic["func_par"]["threeLetters"]] = temp_value
-                                    if (row[dic["func_par"]["gene"]] != "") and (temp_value != ""):
-                                        value = execute_function(temp_row,dic)
-                                        line = []
-                                        line.append(row[dic["func_par"]["gene"]])
-                                        line.append(temp_value)
-                                        line.append(value)
-                                        writer.writerow(line)
-                                        values[temp_value+row[dic["func_par"]["gene"]]] = value
 
         else:
             if dic["func_par"]["value"] in columns:
