@@ -75,7 +75,7 @@
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011133; # has_annotation
-		rr:objectMap <gFormat_ReplaceFunction> # genoschema:genoschema_00002
+		rr:objectMap <gFormat_ReplaceFunction2> # genoschema:genoschema_00002
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_011134; # has_annotation
@@ -137,6 +137,35 @@
 ##########################################################################################
 ######################################## Functions #######################################
 ##########################################################################################
+
+<gFormat_ReplaceFunction2>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:replaceValue 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap <gFormat_ReplaceFunction>;
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant ":" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];        
+    ].
  
 <gFormat_ReplaceFunction>
 	fnml:functionValue [
@@ -158,7 +187,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value2;
             rr:objectMap [ 
-            	rr:constant ":" 
+            	rr:constant "_" 
             ]
         ];
         rr:predicateObjectMap [
@@ -173,7 +202,7 @@
 
 <cFormat_ConcatFuncation>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -196,17 +225,48 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value3;
-            rr:objectMap [ 
-            	rml:reference "cDNA" 
-            ]
+            rr:objectMap <cFormat_ReplaceFunction>
         ];        
     ]. 
 
 ###############
 
+<cFormat_ReplaceFunction>
+	fnml:functionValue [
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+		rml:referenceFormulation ql:CSV 
+							];
+        rr:predicateObjectMap [
+         	rr:predicate fno:executes ;
+            rr:objectMap [ 
+            	rr:constant ex:replaceValue 
+        	]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+            	rml:reference "cDNA" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+            	rr:constant ">" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+            	rr:constant "~" 
+            ]
+        ];        
+    ].
+
+###############
+
 <pFormatReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [

@@ -361,7 +361,7 @@
             ]
         ];   
         rr:predicateObjectMap [
-            rr:predicate ex:separator;
+            rr:predicate ex:combinedValue;
             rr:objectMap [ 
                 rml:reference "AAChange.refGene" 
             ]

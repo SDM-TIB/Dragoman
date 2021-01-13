@@ -245,7 +245,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:separator;
+            rr:predicate ex:combinedValue;
             rr:objectMap [ 
                 rml:reference "hgvs_expressions" 
             ]
@@ -322,7 +322,7 @@
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:separator;
+            rr:predicate ex:combinedValue;
             rr:objectMap [ 
                 rml:reference "hgvs_expressions" 
             ]

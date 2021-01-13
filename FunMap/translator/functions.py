@@ -42,7 +42,7 @@ def substring(value, index1, index2):
 
 #replace value2 by value3
 def replaceValue(value, value2, value3):
-    return value.replace(value2, value3)
+    return str(value).replace(value2, value3)
 
 
 #returns the first appearance of the regex in value
@@ -626,9 +626,9 @@ def execute_function(row,dic):
     elif "concat6" in dic["function"]:
         return concat6(dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],dic["func_par"]["value5"],row[dic["func_par"]["value6"]])        
     elif "match_gdna" in dic["function"]:
-        return match_gdna(row[dic["func_par"]["separator"]])
+        return match_gdna(row[dic["func_par"]["combinedValue"]])
     elif "match_cdna" in dic["function"]:
-        return match_cdna(row[dic["func_par"]["separator"]]) 
+        return match_cdna(row[dic["func_par"]["combinedValue"]]) 
     elif "match_aa" in dic["function"]:
         return match_aa(row[dic["func_par"]["combinedValue"]])  
     elif "match_exon" in dic["function"]:
