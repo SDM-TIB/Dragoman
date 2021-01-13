@@ -7,6 +7,12 @@ import pandas as pd
 global columns
 columns = {}
 
+def inner_function_exists(inner_func, inner_functions):
+    for inner_function in inner_functions:
+        if inner_func["function"] in inner_function["function"]:
+            return False
+    return True
+
 # returns a string in lower case
 def tolower(value):
     return value.lower()
@@ -710,7 +716,7 @@ def join_csv(source, dic, output,triple_map_list):
 
         keys = []
         for attr in dic["inputs"]:
-            if (attr[1] is not "constant") and (attr[1] is not"reference function"):
+            if (attr[1] != "constant") and (attr[1] != "reference function"):
                 keys.append(attr[0])
 
         values = {}
