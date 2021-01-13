@@ -148,11 +148,41 @@
         ];
         rr:predicateObjectMap [
             rr:predicate ex:value3;
-            rr:objectMap [ 
-                rml:reference "Mutation CDS" 
-            ]
+            rr:objectMap <cFormat_replace>
         ];        
     ].    
+
+<cFormat_replace>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/cosmic_mutation.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:replaceValue 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+                rml:reference "Mutation CDS" 
+            ] 
+        ];  
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant ">" 
+            ] 
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ] 
+        ];                     
+    ].
+
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [

@@ -152,7 +152,7 @@ def match_pFormat(threeLetters,gene):
         second = threeLetters.split(".")[1][-3:]
         middle = threeLetters.split(".")[1][3:-3]
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
-            pFormat = gene + "~" + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
+            pFormat = gene + "~p." + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
         else:
             pFormat = ""    
     return(pFormat)
