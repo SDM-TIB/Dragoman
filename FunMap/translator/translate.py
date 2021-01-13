@@ -348,7 +348,7 @@ def translate(config_path):
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
 											fields[current_func["func_par"]["column2"]] = "object"
-										elif "concat" in current_func["function"] or "match_pFormat" in current_func["function"]:
+										elif "concat" in current_func["function"] or "match_pFormat" in current_func["function"] or "replaceValue" in current_func["function"]:
 											for inputs in current_func["inputs"]:
 												if "reference function" not in inputs and "constant" not in inputs: 
 													fields[inputs[0]] = "object"

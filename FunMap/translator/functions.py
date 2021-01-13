@@ -801,7 +801,7 @@ def join_csv(source, dic, output,triple_map_list):
 
                 columns[dic["func_par"]["combinedValue"]] = projection
 
-        elif "concat" in dic["function"] or "split" in dic["function"] or "match_pFormat" in dic["function"]:
+        elif "concat" in dic["function"] or "split" in dic["function"] or "match_pFormat" in dic["function"] or "replaceValue" in dic["function"]:
 
             function = ""
             outer_keys = []
