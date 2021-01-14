@@ -630,7 +630,7 @@ def execute_function(row,dic):
     elif "concat5" in dic["function"]:
         return concat5(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]])
     elif "concat6" in dic["function"]:
-        return concat6(dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],dic["func_par"]["value5"],row[dic["func_par"]["value6"]])        
+        return concat6(dic["func_par"]["value1"],dic["func_par"]["value2"],row[dic["func_par"]["value3"]],row[dic["func_par"]["value4"]],dic["func_par"]["value5"],row[dic["func_par"]["value6"]])        
     elif "match_gdna" in dic["function"]:
         return match_gdna(row[dic["func_par"]["combinedValue"]])
     elif "match_cdna" in dic["function"]:
@@ -804,44 +804,53 @@ def join_csv(source, dic, output,triple_map_list):
         elif "concat" in dic["function"] or "split" in dic["function"] or "match_pFormat" in dic["function"] or "replaceValue" in dic["function"]:
 
             function = ""
+            functions = []
             outer_keys = []
             for attr in dic["inputs"]:
                 if ("reference function" in attr[1]):
-                    function = attr[0]
+                    functions.append(attr[0])
                 elif "constant" not in attr[1]:
                     outer_keys.append(attr[0])
 
-            if function != "":
-                for tp in triple_map_list:
-                    if tp.triples_map_id == function:
+            if functions:
+                temp_dics = {}
+                for function in functions:
+                    for tp in triple_map_list:
+                        if tp.triples_map_id == function:
+                            temp_dic = create_dictionary(tp)
+                            current_func = {"inputs":temp_dic["inputs"], 
+                                            "function":temp_dic["executes"],
+                                            "func_par":temp_dic,
+                                            "termType":True}
+                            keys.append(current_func["function"].split("/")[len(current_func["function"].split("/"))-1])
+                            temp_dics[function] = current_func
 
-                        temp_dic = create_dictionary(tp)
-                        current_func = {"inputs":temp_dic["inputs"], 
-                                        "function":temp_dic["executes"],
-                                        "func_par":temp_dic,
-                                        "termType":True}
-                        keys.append(current_func["function"].split("/")[len(current_func["function"].split("/"))-1])
-                        keys.append(dic["output_name"])
-                        writer.writerow(keys)
+                keys.append(dic["output_name"])
+                writer.writerow(keys)
+                reader = pd.read_csv(source)
+                reader = reader.where(pd.notnull(reader), None)
+                reader = reader.to_dict(orient='records')
 
-                        reader = pd.read_csv(source)
-                        reader = reader.where(pd.notnull(reader), None)
-                        reader = reader.to_dict(orient='records')
-
-                        for row in reader:
-                            temp_value = inner_function(row,current_func,triple_map_list)
-                            if (temp_value not in values) and (temp_value is not ""):
-                                temp_row = {}
-                                line = []
-                                for key in outer_keys:
-                                    temp_row[key] = row[key]
-                                    line.append(row[key])
-                                temp_row[function] = temp_value
-                                line.append(temp_value)
-                                value = execute_function(temp_row,dic)
-                                line.append(value)
-                                writer.writerow(line)
-                                values[temp_value] = temp_value
+                for row in reader:
+                    temp_string = ""
+                    temp_values = {}
+                    for current_func in temp_dics:
+                        temp_value = inner_function(row,temp_dics[current_func],triple_map_list)
+                        temp_values[current_func] = temp_value
+                        temp_string += temp_value
+                    if (temp_string not in values) and (temp_string is not ""):
+                        temp_row = {}
+                        line = []
+                        for key in outer_keys:
+                            temp_row[key] = row[key]
+                            line.append(row[key])
+                        for temp_value in temp_values:
+                            temp_row[temp_value] = temp_values[temp_value]
+                            line.append(temp_values[temp_value])
+                            values[temp_value] = temp_values[temp_value]
+                        value = execute_function(temp_row,dic)
+                        line.append(value)
+                        writer.writerow(line)
             else:
 
                 for inputs in dic["inputs"]:
