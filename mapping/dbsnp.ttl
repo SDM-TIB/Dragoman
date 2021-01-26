@@ -34,11 +34,16 @@
     ];                                                           
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <DNAannotationFunction>; # genoschema:genoschema_00002
+        rr:objectMap <DNAannotationFunction1>; # genoschema:genoschema_00002
         rr:termType rr:IRI;
-    ].
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <DNAannotationFunction2>; # genoschema:genoschema_00002
+        rr:termType rr:IRI;
+    ].    
 
-<DNAannotationFunction>
+<DNAannotationFunction1>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
         rml:referenceFormulation ql:CSV 
@@ -84,6 +89,53 @@
             ]
         ];                              
     ].  
+
+<DNAannotationFunction2>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat6 
+            ]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <ChromosomeCombination>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~g." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rml:reference "POS" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "REF" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value5;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value6;
+            rr:objectMap [ 
+                rml:reference "second_ALT" 
+            ]
+        ];                              
+    ]. 
 
 <ChromosomeCombination>
     fnml:functionValue [
