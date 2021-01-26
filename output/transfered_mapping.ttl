@@ -20,14 +20,20 @@
 @prefix ex: <http://www.example.com/> .
 @base <http://genoschema.KG/> .
 
-<http://genoschema.KG/TumorType>
+<http://genoschema.KG/Transcript>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C159157/{Primary Tumor type}";
-        rr:class ncit:C159157
+        rr:template "http://semanticscience.org/resource/SIO_010017/{Isoform}";
+        rr:class sio:SIO_010017
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:template  "http://semanticscience.org/resource/SIO_010035/{Hugo Symbol}"
+        ]
     ].
 
 <http://genoschema.KG/Variation>
@@ -36,174 +42,53 @@
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_011137/{cFormat}";
-        rr:class sio:SIO_011137
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011133;
-        rr:objectMap [
-        rr:parentTriplesMap <replaceValue_output1>;
-        rr:joinCondition [
-            rr:child "replaceValue";
-            rr:parent "replaceValue";
-            ];
-        ];
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{pFormat}";
+        rr:class vario:VariO_0001
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_011134;
         rr:objectMap [
-        rr:parentTriplesMap <replaceValue_output2>;
+        rr:parentTriplesMap <concat3_output1>;
         rr:joinCondition [
-            rr:child "individual_mutation";
-            rr:parent "individual_mutation";
+            rr:child "Hugo Symbol";
+            rr:parent "Hugo Symbol";
+            ];
+        rr:joinCondition [
+            rr:child "Protein Change";
+            rr:parent "Protein Change";
             ];
         ];
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
+        rr:predicate sio:SIO_000061;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/TumorType>;
+        rr:parentTriplesMap <http://genoschema.KG/Transcript>;
         rr:joinCondition [
-            rr:child "Primary Tumor type";
-            rr:parent "Primary Tumor type";
-        ];
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011134;
-        rr:objectMap [
-        rr:parentTriplesMap <concat3_output3>;
-        rr:joinCondition [
-            rr:child "Gene";
-            rr:parent "Gene";
-            ];
-        rr:joinCondition [
-            rr:child "replaceValue";
-            rr:parent "replaceValue";
-            ];
-        ];
-    ].
-
-<http://genoschema.KG/Transcript>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT3.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_010017/{transcript}";
-        rr:class sio:SIO_010017
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://semanticscience.org/resource/SIO_010035/{Gene}"
-        ]
-    ].
-
-<http://genoschema.KG/Evidence>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT4.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://www.genoschema.com/genoschema_0016/{Drug}_{Gene}_{cFormat}";
-        rr:class www:genoschema_0016
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000628;
-        rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Publication>;
-        rr:joinCondition [
-            rr:child "PubMedID";
-            rr:parent "PubMedID";
+            rr:child "Isoform";
+            rr:parent "Isoform";
         ];
         ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Drug>;
-        rr:joinCondition [
-            rr:child "Drug";
-            rr:parent "Drug";
-        ];
+        rr:template  "http://www.genoschema.com/genoschema_0017/{Oncogenicity}"
         ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Variation>;
-        rr:joinCondition [
-            rr:child "cFormat";
-            rr:parent "cFormat";
-        ];
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene}"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000300;
-        rr:objectMap [
-        rml:reference "Association"
+        rr:template  "http://www.genoschema.com/genoschema_0014/{Mutation Effect}"
         ]
     ].
 
-<http://genoschema.KG/Publication>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT5.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_000154/{PubMedID}";
-        rr:class sio:SIO_000154
-    ].
-
-<http://genoschema.KG/Drug>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT6.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_010038/{Drug}";
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-        rr:template  "http://semanticscience.org/resource/SIO_010038"
-        ]
-    ].
-
-<replaceValue_output1>
+<concat3_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "replaceValue_output1";
-        rr:termType rr:IRI
-    ].
-
-<replaceValue_output2>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT2.csv";
-                rml:referenceFormulation ql:CSV
-            ];
-    rr:subjectMap [
-        rml:reference "replaceValue_output2";
-        rr:termType rr:IRI
-    ].
-
-<concat3_output3>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT3.csv";
-                rml:referenceFormulation ql:CSV
-            ];
-    rr:subjectMap [
-        rml:reference "concat3_output3";
+        rml:reference "concat3_output1";
         rr:termType rr:IRI
     ].
 

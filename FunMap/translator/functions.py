@@ -111,8 +111,8 @@ def match_cdna(combinedValue):
     if combinedValue is not None:
         expressionsList = combinedValue.split(":")
         for j in range(0,len(expressionsList)):
-            if "c." in expressionsList[j]:  
-                cdna = expressionsList[j]  
+            if "c." in expressionsList[j]: 
+                cdna = expressionsList[j] 
             else:
                 cdna = ""
     else:
@@ -158,15 +158,17 @@ def match_pFormat(threeLetters,gene):
     return(pFormat)
 
 def rearrange_cds(cds):
+    print (cds)
     if cds is not None and cds is not "":
         if "del" not in cds and "ins" not in cds:
-            firstN = cds.split(".")[1][0]
-            if cds.split(".")[1][1:-1].isdigit():
-                gp = cds.split(".")[1][1:-1]
+            if cds.split(".")[1][0].isdigit():
+                firstN = cds.split(".")[1][-2]
+                gp = cds.split(".")[1][0:-2]
                 secondN = cds.split(".")[1][-1]
             else:
+                firstN = cds.split(".")[1][0]
                 gp = cds.split(".")[1][1:-2] 
-                secondN = cds.split(".")[1][-2:]
+                secondN = cds.split(".")[1][-1:]
             new_cds = gp + firstN + "~" + secondN
         else:
             new_cds = cds

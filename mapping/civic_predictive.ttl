@@ -22,7 +22,7 @@
 
 
 <Evidence>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -49,7 +49,7 @@
     ].      
     
 <Variation>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -133,7 +133,7 @@
     ].
 
 <Disease>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -142,7 +142,7 @@
     ].
 
 <Transcript>    
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -157,7 +157,7 @@
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -171,7 +171,7 @@
 
 <gFormat_concat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -206,7 +206,7 @@
 
 <gFormat_replace>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -235,7 +235,7 @@
 
 <gFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -254,7 +254,7 @@
 ######
 <cFormat_concat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -283,7 +283,7 @@
 
 <cFormat_replace>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -312,7 +312,7 @@
 
 <cFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -331,7 +331,7 @@
 ####
 <match_pFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -354,7 +354,7 @@
 
 <pFormat_tolower>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -371,7 +371,7 @@
 
 <match_aa>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

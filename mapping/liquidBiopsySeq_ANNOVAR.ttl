@@ -22,7 +22,7 @@
 @base <http://genoschema.KG/> .
 
 <Variation>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -115,7 +115,7 @@
     ].  
 
 <ExternalLink>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/variation_cosmicID_lb.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/variation_cosmicID_lb.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -129,7 +129,7 @@
     ].
 
 <dbsnp>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/variation_cosmicID_lb.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/variation_cosmicID_lb.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -143,7 +143,7 @@
     ].
 
 <Gene>  
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -158,7 +158,7 @@
     ].
 
 <Disease>
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -167,7 +167,7 @@
     ].
 
 <Patient>   
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -182,7 +182,7 @@
     ].
 
 <LiquidBiopsy>  
-    rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -204,7 +204,7 @@
 
 <ExonFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -225,7 +225,7 @@
 
 <DNAannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -272,7 +272,7 @@
 
 <PositionSplitFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -305,7 +305,7 @@
 
 <CDSannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -334,7 +334,7 @@
 
 <RearrangeFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -351,7 +351,7 @@
 
 <match_cds>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -372,7 +372,7 @@
 
 <AAannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -401,7 +401,7 @@
 
 <match_aa>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
