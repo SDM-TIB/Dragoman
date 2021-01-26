@@ -114,34 +114,6 @@
         rr:termType rr:IRI;
     ].  
 
-<ExternalLink>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/variation_cosmicID_lb.csv";
-                        rml:referenceFormulation ql:CSV 
-                        ];
-    rr:subjectMap [
-        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
-    ];                              
-    rr:predicateObjectMap [
-        rr:predicate skos:exactMatch;
-        rr:objectMap [
-            rr:parentTriplesMap <dbsnp>
-            ]
-    ].
-
-<dbsnp>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/variation_cosmicID_lb.csv";
-                        rml:referenceFormulation ql:CSV 
-                        ];
-    rr:subjectMap [
-        rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{cosmic_ID}";
-    ];                              
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp"; # rr:class snpo:dbsnp
-        ]
-    ].
-
 <Gene>  
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/LC_LB_Seq.csv";
                         rml:referenceFormulation ql:CSV

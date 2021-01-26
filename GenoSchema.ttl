@@ -333,6 +333,15 @@ genoschema:genoschema_0016	rdf:type owl:Class;
 							dcterms:modified "2020-10-30"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+genoschema:genoschema_0018	rdf:type owl:Class;
+							rdfs:label	"Disease-Variation-Association";
+							rdfs:subClassOf	sio:SIO_000897;				
+							dc:identifier "genoschema_0018" ;
+							rdfs:comment "Represents diesease association with genomic alteration.";
+							dcterms:modified "2021-01-26"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+
 genoschema:genoschema_0017	rdf:type owl:Class;
 							rdfs:label	"Oncogenicity";
 							rdfs:subClassOf	genoschema:genoschema_0013;				

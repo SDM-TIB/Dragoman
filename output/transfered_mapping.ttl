@@ -17,78 +17,52 @@
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
+@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
+@prefix dce: <http://purl.org/dc/elements/1.1> .
+@prefix af: <http://purl.org/ontology/af> .
+@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @base <http://genoschema.KG/> .
 
-<http://genoschema.KG/Transcript>
+<http://genoschema.KG/dbsnp>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_010017/{Isoform}";
-        rr:class sio:SIO_010017
+        rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{ID}";
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
+        rr:predicate sio:SIO_000255;
         rr:objectMap [
-        rr:template  "http://semanticscience.org/resource/SIO_010035/{Hugo Symbol}"
-        ]
-    ].
-
-<http://genoschema.KG/Variation>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT2.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{pFormat}";
-        rr:class vario:VariO_0001
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_011134;
-        rr:objectMap [
-        rr:parentTriplesMap <concat3_output1>;
+        rr:parentTriplesMap <concat6_output1>;
         rr:joinCondition [
-            rr:child "Hugo Symbol";
-            rr:parent "Hugo Symbol";
+            rr:child "CHROM";
+            rr:parent "CHROM";
             ];
         rr:joinCondition [
-            rr:child "Protein Change";
-            rr:parent "Protein Change";
+            rr:child "POS";
+            rr:parent "POS";
+            ];
+        rr:joinCondition [
+            rr:child "ALT";
+            rr:parent "ALT";
+            ];
+        rr:joinCondition [
+            rr:child "REF";
+            rr:parent "REF";
             ];
         ];
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061;
-        rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Transcript>;
-        rr:joinCondition [
-            rr:child "Isoform";
-            rr:parent "Isoform";
-        ];
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0017/{Oncogenicity}"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0014/{Mutation Effect}"
-        ]
     ].
 
-<concat3_output1>
+<concat6_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "concat3_output1";
+        rml:reference "concat6_output1";
         rr:termType rr:IRI
     ].
 

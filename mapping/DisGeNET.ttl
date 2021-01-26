@@ -6,24 +6,33 @@
 @prefix rev: <http://purl.org/stuff/rev#> .
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcterms: <http://purl.org/dc/terms> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix genoschema: <http://www.genoschema.com/> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix vario: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
+@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
+@prefix ex: <http://www.example.com/> .
 @prefix dce: <http://purl.org/dc/elements/1.1> .
 @prefix af: <http://purl.org/ontology/af> .
 @prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@prefix base: <http://semanticscience.org/resource/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sio: <http://semanticscience.org/resource> .
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
-@prefix varharnom: <https://github.com/SDM-TIB/VariantHarmonizedNomenclature/blob/master/function.ttl#> .
+@base <http://genoschema.KG/> .
+
 
 <Evidence>
-	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_001350/{evidence_id}";
-		rr:class sio:SIO_001350 # gene-disease association linked with genomic alteration
+		rr:template "http://www.genoschema.com/genoschema_0018/{snpId}_{diseaseId}";
+		rr:class genoschema:genoschema_0018 # disease association with genomic alteration based on publication
 	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
@@ -32,7 +41,7 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate dcterms:provenance
+		rr:predicate dcterms:provenance;
 		rr:objectMap [ 
 			rml:reference "source" 
 		]
@@ -75,28 +84,23 @@
 	].				
 	
 <Variation>
-	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Variation/{snpId}";
-		rr:class sio:SIO_011137 # variation
-	];
+		rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{snpId}";
+		rr:class vario:VariO_0001 # variation
+	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000061; # is located in
 		rr:objectMap [
 			rr:template "http://semanticscience.org/resource/SIO_000899/{chromosome}" # chromosome
 		]
-	];	
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061; # is located in 
-		rr:objectMap [
-			rr:template "http://semanticscience.org/ontology/sio.owl/SIO_011141/{position}" # deoxyribonucleic acid sequence position
-		]
 	].
 
+
 <Disease>
-	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -117,28 +121,21 @@
 	].
 
 <Annotation>
-	rml:logicalSource [ rml:source "/data/data/genomic/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
 		rr:template "http://semanticscience.org/resource/SIO_001166/{diseaseId}";
-		rr:class iasis:Annotation
 	];
 	rr:predicateObjectMap [
 		rr:predicate dce:identifier;
 		rr:objectMap [ 
 			rml:reference "diseaseId" 
 		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate dcterms:provenance
-		rr:objectMap [ 
-			rr:constant "UMLS" 
-		]
-	].			
+	].		
 
 <Publication>
-	rml:logicalSource [ rml:source "/data/data/genomic/civic_Predictive.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
