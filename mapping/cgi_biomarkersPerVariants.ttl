@@ -21,7 +21,7 @@
 @base <http://genoschema.KG/> .
 
 <Evidence>
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -60,7 +60,7 @@
 	].			
 
 <Variation>
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -87,7 +87,7 @@
 	].	
 
 <Drug>
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -101,7 +101,7 @@
 	].	
 
 <Transcript>	
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -116,7 +116,7 @@
 	].
 
 <Publication>
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -125,7 +125,7 @@
 	].
 
 <TumorType>
-	rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -140,7 +140,7 @@
 
 <gFormat_ReplaceFunction2>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -169,7 +169,7 @@
  
 <gFormat_ReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -202,7 +202,7 @@
 
 <cFormat_ConcatFuncation>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -233,7 +233,7 @@
 
 <cFormat_ReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
@@ -266,7 +266,7 @@
 
 <pFormatReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/mnt/e/data-GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [
