@@ -158,7 +158,6 @@ def match_pFormat(threeLetters,gene):
     return(pFormat)
 
 def rearrange_cds(cds):
-    print (cds)
     if cds is not None and cds is not "":
         if "del" not in cds and "ins" not in cds:
             if cds.split(".")[1][0].isdigit():
@@ -624,15 +623,120 @@ def execute_function(row,dic):
     elif "condreplace" in dic["function"]:
         return condreplace(row[dic["func_par"]["value"]],dic["func_par"]["value1"],dic["func_par"]["value2"],dic["func_par"]["replvalue1"],dic["func_par"]["replvalue2"])
     elif "concat2" in dic["function"]:
-        return concat2(row[dic["func_par"]["value1"]],dic["func_par"]["value2"])
+        for inputs in dic["func_par"]["inputs"]:
+            if dic["func_par"]["value1"] in inputs:
+                if "constant" in inputs:
+                    value1 = dic["func_par"]["value1"]
+                else:
+                    value1 = row[dic["func_par"]["value1"]]
+            elif dic["func_par"]["value2"] in inputs:
+                if "constant" in inputs:
+                    value2 = dic["func_par"]["value2"]
+                else:
+                    value2 = row[dic["func_par"]["value2"]]
+        return concat2(value1,value2)
     elif "concat3" in dic["function"]:
-        return concat3(row[dic["func_par"]["value1"]],dic["func_par"]["value2"],row[dic["func_par"]["value3"]]) 
+        for inputs in dic["func_par"]["inputs"]:
+            if dic["func_par"]["value1"] in inputs:
+                if "constant" in inputs:
+                    value1 = dic["func_par"]["value1"]
+                else:
+                    value1 = row[dic["func_par"]["value1"]]
+            elif dic["func_par"]["value2"] in inputs:
+                if "constant" in inputs:
+                    value2 = dic["func_par"]["value2"]
+                else:
+                    value2 = row[dic["func_par"]["value2"]]
+            elif dic["func_par"]["value3"] in inputs:
+                if "constant" in inputs:
+                    value3 = dic["func_par"]["value3"]
+                else:
+                    value3 = row[dic["func_par"]["value3"]]
+        return concat3(value1,value2,value3) 
     elif "concat4" in dic["function"]:
-        return concat4(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]])         
+        for inputs in dic["func_par"]["inputs"]:
+            if dic["func_par"]["value1"] in inputs:
+                if "constant" in inputs:
+                    value1 = dic["func_par"]["value1"]
+                else:
+                    value1 = row[dic["func_par"]["value1"]]
+            elif dic["func_par"]["value2"] in inputs:
+                if "constant" in inputs:
+                    value2 = dic["func_par"]["value2"]
+                else:
+                    value2 = row[dic["func_par"]["value2"]]
+            elif dic["func_par"]["value3"] in inputs:
+                if "constant" in inputs:
+                    value3 = dic["func_par"]["value3"]
+                else:
+                    value3 = row[dic["func_par"]["value3"]]
+            elif dic["func_par"]["value4"] in inputs:
+                if "constant" in inputs:
+                    value4 = dic["func_par"]["value4"]
+                else:
+                    value4 = row[dic["func_par"]["value4"]]
+        return concat4(value1,value2,value3,value4)         
     elif "concat5" in dic["function"]:
-        return concat5(dic["func_par"]["value1"],row[dic["func_par"]["value2"]],dic["func_par"]["value3"],row[dic["func_par"]["value4"]],row[dic["func_par"]["value5"]])
+        for inputs in dic["func_par"]["inputs"]:
+            if dic["func_par"]["value1"] in inputs:
+                if "constant" in inputs:
+                    value1 = dic["func_par"]["value1"]
+                else:
+                    value1 = row[dic["func_par"]["value1"]]
+            elif dic["func_par"]["value2"] in inputs:
+                if "constant" in inputs:
+                    value2 = dic["func_par"]["value2"]
+                else:
+                    value2 = row[dic["func_par"]["value2"]]
+            elif dic["func_par"]["value3"] in inputs:
+                if "constant" in inputs:
+                    value3 = dic["func_par"]["value3"]
+                else:
+                    value3 = row[dic["func_par"]["value3"]]
+            elif dic["func_par"]["value4"] in inputs:
+                if "constant" in inputs:
+                    value4 = dic["func_par"]["value4"]
+                else:
+                    value4 = row[dic["func_par"]["value4"]]
+            elif dic["func_par"]["value5"] in inputs:
+                if "constant" in inputs:
+                    value5 = dic["func_par"]["value5"]
+                else:
+                    value5 = row[dic["func_par"]["value5"]]
+        return concat5(value1,value2,value3,value4,value5)
     elif "concat6" in dic["function"]:
-        return concat6(dic["func_par"]["value1"],dic["func_par"]["value2"],row[dic["func_par"]["value3"]],row[dic["func_par"]["value4"]],dic["func_par"]["value5"],row[dic["func_par"]["value6"]])        
+        for inputs in dic["func_par"]["inputs"]:
+            if dic["func_par"]["value1"] in inputs:
+                if "constant" in inputs:
+                    value1 = dic["func_par"]["value1"]
+                else:
+                    value1 = row[dic["func_par"]["value1"]]
+            elif dic["func_par"]["value2"] in inputs:
+                if "constant" in inputs:
+                    value2 = dic["func_par"]["value2"]
+                else:
+                    value2 = row[dic["func_par"]["value2"]]
+            elif dic["func_par"]["value3"] in inputs:
+                if "constant" in inputs:
+                    value3 = dic["func_par"]["value3"]
+                else:
+                    value3 = row[dic["func_par"]["value3"]]
+            elif dic["func_par"]["value4"] in inputs:
+                if "constant" in inputs:
+                    value4 = dic["func_par"]["value4"]
+                else:
+                    value4 = row[dic["func_par"]["value4"]]
+            elif dic["func_par"]["value5"] in inputs:
+                if "constant" in inputs:
+                    value5 = dic["func_par"]["value5"]
+                else:
+                    value5 = row[dic["func_par"]["value5"]]
+            elif dic["func_par"]["value6"] in inputs:
+                if "constant" in inputs:
+                    value6 = dic["func_par"]["value6"]
+                else:
+                    value6 = row[dic["func_par"]["value6"]]
+        return concat6(value1,value2,value3,value4,value5,value6)        
     elif "match_gdna" in dic["function"]:
         return match_gdna(row[dic["func_par"]["combinedValue"]])
     elif "match_cdna" in dic["function"]:
