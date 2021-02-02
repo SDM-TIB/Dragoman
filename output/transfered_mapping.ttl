@@ -19,41 +19,217 @@
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
-@prefix dce: <http://purl.org/dc/elements/1.1> .
-@prefix af: <http://purl.org/ontology/af> .
-@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
-@prefix time: <http://www.w3.org/2006/time#> .
 @base <http://genoschema.KG/> .
 
-<http://genoschema.KG/dbsnp>
+<http://genoschema.KG/Gene>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{ID}";
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene.refGene}";
+        rr:class ncit:C16612
     ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <http://genoschema.KG/Disease>;
+        rr:joinCondition [
+            rr:child "Disease_description.refGene";
+            rr:parent "Disease_description.refGene";
+        ];
+        ]
+    ].
+
+<http://genoschema.KG/Patient>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT2.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_000393/{patientID}";
+        rr:class sio:SIO_000393
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <http://genoschema.KG/LiquidBiopsy>;
+        rr:joinCondition [
+            rr:child "sampleID";
+            rr:parent "sampleID";
+        ];
+        ]
+    ].
+
+<http://genoschema.KG/LiquidBiopsy>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT3.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://purl.bioontology.org/ontology/MESH/{sampleID}";
+        rr:class MESH:D000073890
+    ];
+    rr:predicateObjectMap [
+        rr:predicate dcterms:date;
+        rr:objectMap [
+        rml:reference "sampleExtractionDate"
+        ]
+    ].
+
+<http://genoschema.KG/Disease>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT4.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_010299/{Disease_description.refGene}";
+        rr:class sio:SIO_010299
+    ].
+
+<http://genoschema.KG/Variation>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT5.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
+        rr:class vario:VariO_0001
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;
+        rr:objectMap [
+        rr:template  "http://www.genoschema.com/genoschema_0011"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <http://genoschema.KG/LiquidBiopsy>;
+        rr:joinCondition [
+            rr:child "sampleID";
+            rr:parent "sampleID";
+        ];
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:template  "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255;
         rr:objectMap [
         rr:parentTriplesMap <concat6_output1>;
         rr:joinCondition [
-            rr:child "CHROM";
-            rr:parent "CHROM";
+            rr:child "Alt";
+            rr:parent "Alt";
             ];
         rr:joinCondition [
-            rr:child "POS";
-            rr:parent "POS";
+            rr:child "Ref";
+            rr:parent "Ref";
             ];
         rr:joinCondition [
-            rr:child "ALT";
-            rr:parent "ALT";
+            rr:child "Chr";
+            rr:parent "Chr";
             ];
         rr:joinCondition [
-            rr:child "REF";
-            rr:parent "REF";
+            rr:child "split";
+            rr:parent "split";
             ];
         ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;
+        rr:objectMap [
+        rr:template  "http://www.genoschema.com/genoschema_0010"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;
+        rr:objectMap [
+        rr:template  "http://semanticscience.org/resource/SIO_000899/{Chr}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate :exactMatch;
+        rr:objectMap [
+        rml:reference "snp138"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <http://genoschema.KG/Patient>;
+        rr:joinCondition [
+            rr:child "patientID";
+            rr:parent "patientID";
+        ];
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255;
+        rr:objectMap [
+        rr:parentTriplesMap <concat3_output2>;
+        rr:joinCondition [
+            rr:child "Gene.refGene";
+            rr:parent "Gene.refGene";
+            ];
+        rr:joinCondition [
+            rr:child "match_aa";
+            rr:parent "match_aa";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:template  "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;
+        rr:objectMap [
+        rr:parentTriplesMap <match_exon_output3>;
+        rr:joinCondition [
+            rr:child "AAChange.refGene";
+            rr:parent "AAChange.refGene";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255;
+        rr:objectMap [
+        rr:parentTriplesMap <concat3_output4>;
+        rr:joinCondition [
+            rr:child "rearrange_cds";
+            rr:parent "rearrange_cds";
+            ];
+        rr:joinCondition [
+            rr:child "Gene.refGene";
+            rr:parent "Gene.refGene";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <http://genoschema.KG/Gene>;
+        rr:joinCondition [
+            rr:child "Gene.refGene";
+            rr:parent "Gene.refGene";
+        ];
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:template  "http://purl.obolibrary.org/obo/STATO_0000254/{AF}"
+        ]
     ].
 
 <concat6_output1>
@@ -63,6 +239,36 @@
             ];
     rr:subjectMap [
         rml:reference "concat6_output1";
+        rr:termType rr:IRI
+    ].
+
+<concat3_output2>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT2.csv";
+                rml:referenceFormulation ql:CSV
+            ];
+    rr:subjectMap [
+        rml:reference "concat3_output2";
+        rr:termType rr:IRI
+    ].
+
+<match_exon_output3>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT3.csv";
+                rml:referenceFormulation ql:CSV
+            ];
+    rr:subjectMap [
+        rml:reference "match_exon_output3";
+        rr:termType rr:IRI
+    ].
+
+<concat3_output4>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT4.csv";
+                rml:referenceFormulation ql:CSV
+            ];
+    rr:subjectMap [
+        rml:reference "concat3_output4";
         rr:termType rr:IRI
     ].
 

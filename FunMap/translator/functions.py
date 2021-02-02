@@ -98,11 +98,10 @@ def concat6(value1,value2,value3,value4,value5,value6):
 def match_gdna(combinedValue):
     if combinedValue is not None:
         expressionsList = combinedValue.split(":")
+        gdna = ""
         for j in range(0,len(expressionsList)):
             if "g." in expressionsList[j]:
                 gdna = expressionsList[j]
-            else:
-                gdna = ""
     else:
         gdna = ""
     return(gdna)
@@ -110,11 +109,10 @@ def match_gdna(combinedValue):
 def match_cdna(combinedValue):
     if combinedValue is not None:
         expressionsList = combinedValue.split(":")
+        cdna = ""
         for j in range(0,len(expressionsList)):
             if "c." in expressionsList[j]: 
                 cdna = expressionsList[j] 
-            else:
-                cdna = ""
     else:
         cdna = ""                
     return(cdna)
@@ -122,11 +120,10 @@ def match_cdna(combinedValue):
 def match_aa(combinedValue):
     if combinedValue is not None:
         expressionsList = combinedValue.split(":")
+        aa = ""
         for j in range(0,len(expressionsList)):
             if "p." in expressionsList[j]:
                 aa = expressionsList[j]
-            else:
-                aa = ""
     else:
         aa = ""             
     return (aa)  
@@ -134,11 +131,10 @@ def match_aa(combinedValue):
 def match_exon(combinedValue):
     if combinedValue is not None:
         expressionsList = combinedValue.split(":")
+        exon = ""
         for j in range(0,len(expressionsList)):
             if "exon" in expressionsList[j]:  
                 exon = expressionsList[j]  
-            else:
-                exon = ""
     else:
         exon = ""                
     return(exon)
@@ -160,17 +156,15 @@ def match_pFormat(threeLetters,gene):
 def rearrange_cds(cds):
     if cds is not None and cds is not "":
         if "del" not in cds and "ins" not in cds:
-            if cds.split(".")[1][0].isdigit():
-                firstN = cds.split(".")[1][-2]
-                gp = cds.split(".")[1][0:-2]
-                secondN = cds.split(".")[1][-1]
-            else:
+            if not cds.split(".")[1][0].isdigit():
                 firstN = cds.split(".")[1][0]
-                gp = cds.split(".")[1][1:-2] 
-                secondN = cds.split(".")[1][-1:]
-            new_cds = gp + firstN + "~" + secondN
+                gp = cds.split(".")[1][1:-1]
+                secondN = cds.split(".")[1][-1]  
+                new_cds = gp + firstN + "~" + secondN                                                          
+            else:
+                new_cds = cds.split(".")[1][:-1] + "~" + cds.split(".")[1][-1]
         else:
-            new_cds = cds
+            new_cds = cds.split(".")[1]    
     else:
         new_cds = ""                
     return(new_cds)
