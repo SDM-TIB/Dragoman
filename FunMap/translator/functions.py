@@ -213,6 +213,8 @@ def prefix_extraction(uri):
             prefix = "sio"
         elif "af" in uri:
             prefix = "af"
+        elif "genoschema" in uri:
+            prefix = "genoschema"
         elif "example" in uri:
             prefix = "ex"
         elif "term" in uri:
