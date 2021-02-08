@@ -21,7 +21,7 @@
 @base <http://genoschema.KG/> .
 
 <Variation>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap <pFormatReplaceFunction> ;
@@ -35,7 +35,7 @@
 
 <pFormatReplaceFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [

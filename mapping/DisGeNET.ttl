@@ -27,7 +27,7 @@
 
 
 <Evidence>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -84,7 +84,7 @@
 	].				
 	
 <Variation>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -100,7 +100,7 @@
 
 
 <Disease>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -121,7 +121,7 @@
 	].
 
 <Annotation>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -135,7 +135,7 @@
 	].		
 
 <Publication>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/DisGeNET_variantDisease.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [

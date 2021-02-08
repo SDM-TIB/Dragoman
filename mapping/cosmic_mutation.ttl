@@ -20,7 +20,7 @@
 @prefix ex: <http://www.example.com/> .
 @base <http://genoschema.KG/> .
 <Transcript>    
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -35,7 +35,7 @@
     ].
 
 <Gene>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -50,7 +50,7 @@
     ].  
 
 <Sample>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -65,7 +65,7 @@
     ].
 
 <Variation>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -112,7 +112,7 @@
     ].
 
 <Publication>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -127,7 +127,7 @@
 
 <cFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -154,7 +154,7 @@
 
 <cFormat_replace>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -186,7 +186,7 @@
 
 <GeneName_ReplaceRegexFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -217,7 +217,7 @@
 
 <pFormatFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/cosmic_mutation_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

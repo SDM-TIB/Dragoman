@@ -21,7 +21,7 @@
 @base <http://genoschema.KG/> .
 
 <Variation>
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/OncoKB_allAnnotatedVariants.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
@@ -52,7 +52,7 @@
 	].		
 
 <Transcript>	
-	rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/OncoKB_allAnnotatedVariants.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
 						rml:referenceFormulation ql:CSV
 						];
 	rr:subjectMap [
@@ -68,7 +68,7 @@
 
 <pFormatFunction>
 	fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/OncoKB_allAnnotatedVariants.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
 		rml:referenceFormulation ql:CSV 
 							];
         rr:predicateObjectMap [

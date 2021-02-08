@@ -26,7 +26,7 @@
 @base <http://genoschema.KG/> .
 
 <dbsnp>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/dbsnp_sample.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -45,7 +45,7 @@
 
 <DNAannotationFunction1>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/dbsnp_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -92,7 +92,7 @@
 
 <DNAannotationFunction2>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/dbsnp_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -139,7 +139,7 @@
 
 <ChromosomeCombination>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/data/dbsnp_sample.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/dbsnp_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
