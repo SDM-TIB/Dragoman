@@ -18,7 +18,6 @@
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix ex: <http://www.example.com/> .
-@base <http://genoschema.KG/> .
 
 
 <Evidence>

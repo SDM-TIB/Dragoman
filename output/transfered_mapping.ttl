@@ -17,157 +17,120 @@
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
-@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
-@base <http://genoschema.KG/> .
 
-<http://genoschema.KG/Gene>
+<file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Publication>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene.refGene}";
-        rr:class ncit:C16612
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Disease>;
-        rr:joinCondition [
-            rr:child "Disease_description.refGene";
-            rr:parent "Disease_description.refGene";
-        ];
-        ]
+        rr:template "http://semanticscience.org/resource/SIO_000154/{citation_id}";
+        rr:class sio:SIO_000154
     ].
 
-<http://genoschema.KG/Patient>
+<file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Transcript>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT2.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_000393/{patientID}";
-        rr:class sio:SIO_000393
+        rr:template "http://semanticscience.org/resource/SIO_010017/{representative_transcript.clinical}";
+        rr:class sio:SIO_010017
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/LiquidBiopsy>;
-        rr:joinCondition [
-            rr:child "sampleID";
-            rr:parent "sampleID";
-        ];
+        rr:template  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}"
         ]
     ].
 
-<http://genoschema.KG/LiquidBiopsy>
+<file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Disease>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT3.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://purl.bioontology.org/ontology/MESH/{sampleID}";
-        rr:class MESH:D000073890
-    ];
-    rr:predicateObjectMap [
-        rr:predicate dcterms:date;
-        rr:objectMap [
-        rml:reference "sampleExtractionDate"
-        ]
+        rr:template "http://semanticscience.org/resource/SIO_010299/{disease}";
+        rr:class sio:SIO_010299
     ].
 
-<http://genoschema.KG/Disease>
+<file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Variation>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT4.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://semanticscience.org/resource/SIO_010299/{Disease_description.refGene}";
-        rr:class sio:SIO_010299
-    ].
-
-<http://genoschema.KG/Variation>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT5.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variant.clinical}";
         rr:class vario:VariO_0001
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061;
+        rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0011"
+        rr:template  "http://semanticscience.org/resource/SIO_010038/{drug4}"
         ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/LiquidBiopsy>;
-        rr:joinCondition [
-            rr:child "sampleID";
-            rr:parent "sampleID";
-        ];
+        rr:template  "http://semanticscience.org/resource/SIO_010038/{drug5}"
         ]
     ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255;
         rr:objectMap [
-        rr:parentTriplesMap <concat6_output1>;
+        rr:parentTriplesMap <concat4_output1>;
         rr:joinCondition [
-            rr:child "Alt";
-            rr:parent "Alt";
+            rr:child "chromosome.clinical";
+            rr:parent "chromosome.clinical";
             ];
         rr:joinCondition [
-            rr:child "Ref";
-            rr:parent "Ref";
-            ];
-        rr:joinCondition [
-            rr:child "Chr";
-            rr:parent "Chr";
-            ];
-        rr:joinCondition [
-            rr:child "split";
-            rr:parent "split";
+            rr:child "replaceValue";
+            rr:parent "replaceValue";
             ];
         ];
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061;
+        rr:predicate sio:SIO_000628;
         rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0010"
+        rr:parentTriplesMap <file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Publication>;
+        rr:joinCondition [
+            rr:child "citation_id";
+            rr:parent "citation_id";
+        ];
         ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;
         rr:objectMap [
-        rr:template  "http://semanticscience.org/resource/SIO_000899/{Chr}"
+        rr:template  "http://semanticscience.org/resource/SIO_000899/{chromosome.clinical}"
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate :exactMatch;
+        rr:predicate sio:SIO_001279;
         rr:objectMap [
-        rml:reference "snp138"
+        rr:template  "http://semanticscience.org/resource/SIO_010056/{phenotypes}"
         ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Patient>;
+        rr:template  "http://semanticscience.org/resource/SIO_010038/{drug1}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:template  "http://semanticscience.org/resource/SIO_010038/{drug3}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;
+        rr:objectMap [
+        rr:parentTriplesMap <file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Transcript>;
         rr:joinCondition [
-            rr:child "patientID";
-            rr:parent "patientID";
+            rr:child "representative_transcript.clinical";
+            rr:parent "representative_transcript.clinical";
         ];
         ]
     ];
@@ -176,69 +139,89 @@
         rr:objectMap [
         rr:parentTriplesMap <concat3_output2>;
         rr:joinCondition [
-            rr:child "Gene.refGene";
-            rr:parent "Gene.refGene";
+            rr:child "gene.clinical";
+            rr:parent "gene.clinical";
             ];
         rr:joinCondition [
-            rr:child "match_aa";
-            rr:parent "match_aa";
+            rr:child "replaceValue";
+            rr:parent "replaceValue";
             ];
         ];
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
-        ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;
         rr:objectMap [
-        rr:parentTriplesMap <match_exon_output3>;
-        rr:joinCondition [
-            rr:child "AAChange.refGene";
-            rr:parent "AAChange.refGene";
-            ];
-        ];
+        rr:template  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}"
+        ]
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255;
         rr:objectMap [
-        rr:parentTriplesMap <concat3_output4>;
+        rr:parentTriplesMap <match_pFormat_output3>;
         rr:joinCondition [
-            rr:child "rearrange_cds";
-            rr:parent "rearrange_cds";
+            rr:child "tolower";
+            rr:parent "tolower";
             ];
         rr:joinCondition [
-            rr:child "Gene.refGene";
-            rr:parent "Gene.refGene";
+            rr:child "gene.clinical";
+            rr:parent "gene.clinical";
             ];
         ];
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403;
         rr:objectMap [
-        rr:parentTriplesMap <http://genoschema.KG/Gene>;
-        rr:joinCondition [
-            rr:child "Gene.refGene";
-            rr:parent "Gene.refGene";
-        ];
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403;
-        rr:objectMap [
-        rr:template  "http://purl.obolibrary.org/obo/STATO_0000254/{AF}"
+        rr:template  "http://semanticscience.org/resource/SIO_010038/{drug2}"
         ]
     ].
 
-<concat6_output1>
+<file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Evidence>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/PROJECT5.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://www.genoschema.com/genoschema_0015/{evidence_id}";
+        rr:class www:genoschema_0015
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Variation>;
+        rr:joinCondition [
+            rr:child "variant.clinical";
+            rr:parent "variant.clinical";
+        ];
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403;
+        rr:objectMap [
+        rr:parentTriplesMap <file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Disease>;
+        rr:joinCondition [
+            rr:child "disease";
+            rr:parent "disease";
+        ];
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000628;
+        rr:objectMap [
+        rr:parentTriplesMap <file:///Users/sam/Documents/GitHub/GenoDIS/mapping/Publication>;
+        rr:joinCondition [
+            rr:child "citation_id";
+            rr:parent "citation_id";
+        ];
+        ]
+    ].
+
+<concat4_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "concat6_output1";
+        rml:reference "concat4_output1";
         rr:termType rr:IRI
     ].
 
@@ -252,23 +235,13 @@
         rr:termType rr:IRI
     ].
 
-<match_exon_output3>
+<match_pFormat_output3>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT3.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "match_exon_output3";
-        rr:termType rr:IRI
-    ].
-
-<concat3_output4>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoDIS/output/OUTPUT4.csv";
-                rml:referenceFormulation ql:CSV
-            ];
-    rr:subjectMap [
-        rml:reference "concat3_output4";
+        rml:reference "match_pFormat_output3";
         rr:termType rr:IRI
     ].
 

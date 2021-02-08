@@ -1,7 +1,8 @@
 #! /bin/bash
 
 ## Running FunMap:
-python3 /FunMap/run_translator.py config-FunMap.ini
+python3 /Users/sam/Documents/GitHub/GenoDIS/FunMap/run_translator.py /Users/sam/Documents/GitHub/GenoDIS/FunMap/config-FunMap.ini
 ## Running SDM-RDFizer over the results:
-python3 /mnt/e/TOOLS/SDM-RDFizer-master/rdfizer/run_rdfizer.py ./config-SDM.ini
+python3 /Users/sam/Desktop/TIB/SDM-RDFizer-master/rdfizer/run_rdfizer.py /Users/sam/Desktop/TIB/SDM-RDFizer-master/rdfizer/configfile.ini
+
 
