@@ -270,8 +270,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
             elif triples_map.subject_map.subject_mapping_type is "constant":
                 mapping += "        rr:constant " + triples_map.subject_map.value + ";\n"
             elif triples_map.subject_map.subject_mapping_type is "function":
-                mapping = mapping[:-2]
-                mapping += "<" + triples_map.subject_map.value + ">;\n"
+                for tp in triple_maps:
+                    if tp.triples_map_id == triples_map.subject_map.value:
+                        temp_dic = create_dictionary(tp)
+                        mapping += "        rml:reference " + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + ";\n"
+                        mapping += "        rr:termType rr:IRI\n"
             if triples_map.subject_map.rdf_class is not None:
                 prefix, url, value = prefix_extraction(triples_map.subject_map.rdf_class)
                 mapping += "        rr:class " + prefix + ":" + value  + "\n"

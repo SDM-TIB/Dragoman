@@ -310,15 +310,19 @@ def translate(config_path):
 					if triples_map.function:
 						pass
 					else:
-						subject_field = triples_map.subject_map.value.split("{")
-						if len(subject_field) == 2:
-							fields[subject_field[1].split("}")[0]] = "subject"
-						elif len(subject_field) == 1:
-							fields[subject_field[0]] = "subject"
-						else:
-							for sf in subject_field:
-								if "}" in sf:
-									fields[sf.split("}")[0]] = "subject"
+						subject_function = False
+						if triples_map.subject_map.subject_mapping_type == "template":
+							subject_field = triples_map.subject_map.value.split("{")
+							if len(subject_field) == 2:
+								fields[subject_field[1].split("}")[0]] = "subject"
+							elif len(subject_field) == 1:
+								fields[subject_field[0]] = "subject"
+							else:
+								for sf in subject_field:
+									if "}" in sf:
+										fields[sf.split("}")[0]] = "subject"
+						elif triples_map.subject_map.subject_mapping_type == "function":
+							subject_function = True
 						for po in triples_map.predicate_object_maps_list:
 							if po.object_map.mapping_type == "reference function":
 								for triples_map_element in triples_map_list:
@@ -390,11 +394,11 @@ def translate(config_path):
 											if po.object_map.mapping_type != "template":
 												fields[po.object_map.value] = "object"
 
-						if config["datasets"]["enrichment"].lower() == "yes" and triples_map.triples_map_id not in file_projection:
+						if (config["datasets"]["enrichment"].lower() == "yes" or triples_map.subject_map.subject_mapping_type == "function") and triples_map.triples_map_id not in file_projection:
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								
-								inner_functions = []
+								inner_functions = []	
 								for po in triples_map.predicate_object_maps_list:
 									inner_func = {}
 									if po.object_map.mapping_type == "reference function":
@@ -407,8 +411,17 @@ def translate(config_path):
 																		"function":dic["executes"],
 																		"func_par":dic}
 														inner_functions.append(inner_func)
-								if inner_functions:
+								if inner_functions or triples_map.subject_map.subject_mapping_type == "function":
 									temp_dics = []
+									if triples_map.subject_map.subject_mapping_type == "function":
+										for triples_map_element in triples_map_list:
+											if triples_map_element.triples_map_id == triples_map.subject_map.value:
+												temp = create_dictionary(triples_map_element)
+												temp_dic = {"inputs":temp["inputs"], 
+															"function":temp["executes"],
+															"func_par":temp}
+												if inner_function_exists(temp_dic, temp_dics):
+													temp_dics.append(temp_dic)
 									for inner_func in inner_functions:
 										for attr in inner_func["inputs"]:
 											if ("reference function" in attr[1]):
@@ -444,6 +457,7 @@ def translate(config_path):
 										if non_none and string_values not in line_values:
 											for temp_dic in temp_dics:
 												line.append(inner_function(row,temp_dic,triples_map_list))
+												string_values += inner_function(row,temp_dic,triples_map_list)
 											writer.writerow(line)
 											line_values[string_values] = line	
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
