@@ -226,7 +226,7 @@ def prefix_extraction(uri):
         elif "http://purl.obolibrary.org/obo/" in uri:
             prefix = "vario"
         else:
-            prefix = uri.split("/")[len(uri.split("/"))-2]
+            prefix = uri.split("/")[len(uri.split("/"))-2].lower()
             if "." in prefix:
                 prefix = prefix.split(".")[0] 
         value = uri.split("/")[len(uri.split("/"))-1]
