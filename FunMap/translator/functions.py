@@ -207,6 +207,8 @@ def prefix_extraction(uri):
             prefix = "tmcommons"
         elif "organisations" in uri:
             prefix = "tmorg"
+        elif "skos" in uri:
+            prefix = "skos"
         url, value = uri.split("#")[0]+"#", uri.split("#")[1]
     else:
         if "resource" in uri:
