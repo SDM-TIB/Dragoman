@@ -956,6 +956,7 @@ def join_csv(source, dic, output,triple_map_list):
                         value = execute_function(temp_row,dic)
                         line.append(value)
                         writer.writerow(line)
+                        values[temp_string] = ""
             else:
 
                 for inputs in dic["inputs"]:
