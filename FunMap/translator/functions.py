@@ -76,23 +76,38 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ################################################################################################################
 
 def concat2(value1,value2):
-    result = str(str(value1)+str(value2)) 
+    if value1 != None and value2 != None:
+        result = str(str(value1)+str(value2))
+    else:
+        result = ""  
     return(result)
 
 def concat3(value1,value2,value3):
-    result = str(str(value1)+str(value2)+str(value3)) 
+    if value1 != None and value2 != None and value3 != None:
+        result = str(str(value1)+str(value2)+str(value3))
+    else:
+        result = ""  
     return(result)
 
 def concat4(value1,value2,value3,value4):
-    result = str(str(value1)+str(value2)+str(value3)+str(value4)) 
+    if value1 != None and value2 != None and value3 != None and value4 != None:
+        result = str(str(value1)+str(value2)+str(value3)+str(value4))
+    else:
+        result = ""  
     return(result)
 
 def concat5(value1,value2,value3,value4,value5):
-    result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)) 
+    if value1 != None and value2 != None and value3 != None and value4 != None and value5 != None:
+        result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5))
+    else:
+        result = ""  
     return(result)
 
 def concat6(value1,value2,value3,value4,value5,value6):
-    result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)+str(value6)) 
+    if value1 != None and value2 != None and value3 != None and value4 != None and value5 != None and value6 != None:
+        result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)+str(value6))
+    else:
+        result = "" 
     return(result)
 
 def match_gdna(combinedValue):
@@ -369,23 +384,30 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                     elif "reference function" in predicate_object.object_map.mapping_type:
                         if join:
                             mapping += "[\n"
-                            mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
-                            for attr in dic[predicate_object.object_map.value]["inputs"]:
-                                if ("reference function" in attr[1]):
-                                    for tp in triple_maps:
-                                        if tp.triples_map_id == attr[0]:
-                                            temp_dic = create_dictionary(tp)
-                                            mapping += "        rr:joinCondition [\n"
-                                            mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
-                                            mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
-                                            mapping += "            ];\n"
-                                            break
-                                elif (attr[1] is not "constant"):
-                                    mapping += "        rr:joinCondition [\n"
-                                    mapping += "            rr:child \"" + attr[0] + "\";\n"
-                                    mapping += "            rr:parent \"" + attr[0] +"\";\n"
-                                    mapping += "            ];\n"
-                            mapping += "        ];\n"
+                            if predicate_object.object_map.value in dic:
+                                mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
+                                for attr in dic[predicate_object.object_map.value]["inputs"]:
+                                    if ("reference function" in attr[1]):
+                                        for tp in triple_maps:
+                                            if tp.triples_map_id == attr[0]:
+                                                temp_dic = create_dictionary(tp)
+                                                mapping += "        rr:joinCondition [\n"
+                                                mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
+                                                mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
+                                                mapping += "            ];\n"
+                                                break
+                                    elif (attr[1] is not "constant"):
+                                        mapping += "        rr:joinCondition [\n"
+                                        mapping += "            rr:child \"" + attr[0] + "\";\n"
+                                        mapping += "            rr:parent \"" + attr[0] +"\";\n"
+                                        mapping += "            ];\n"
+                                mapping += "        ];\n"
+                            else:
+                                for tp in triple_maps:
+                                    if tp.triples_map_id == predicate_object.object_map.value:
+                                        temp_dic = create_dictionary(tp)
+                                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
+                                        mapping += "        ];\n"
                         else:
                             mapping += "[\n"
                             mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
