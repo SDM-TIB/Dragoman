@@ -20,7 +20,7 @@
 @prefix ex: <http://www.example.com/> .
 
 <Variation>
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+    rml:logicalSource [ rml:source "/mnt/e/GitHub/GenoKGC/data/civic_Predictive.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -38,7 +38,7 @@
 
 <gFormat_concat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/GenoKGC/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -73,7 +73,7 @@
 
 <gFormat_replace>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/GenoKGC/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -102,7 +102,7 @@
 
 <gFormat>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+        rml:logicalSource [ rml:source "/mnt/e/GitHub/GenoKGC/data/civic_Predictive.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

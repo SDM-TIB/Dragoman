@@ -17,84 +17,21 @@
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
-@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
-@prefix dce: <http://purl.org/dc/elements/1.1> .
-@prefix af: <http://purl.org/ontology/af> .
-@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@base <http://genoschema.KG/> .
 
-<http://genoschema.KG/dbsnp>
+<file:///mnt/e/GitHub/GenoKGC/mapping/Variation>
     a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/output/PROJECT1.csv";
+    rml:logicalSource [ rml:source "/mnt/e/GitHub/GenoKGC/output/PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{ID}";
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variant.clinical}";
+        rr:class vario:VariO_0001
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255;
         rr:objectMap [
-        rr:parentTriplesMap <concat6_output1>;
-        rr:joinCondition [
-            rr:child "concat2";
-            rr:parent "concat2";
-            ];
-        rr:joinCondition [
-            rr:child "REF";
-            rr:parent "REF";
-            ];
-        rr:joinCondition [
-            rr:child "Second_ALT";
-            rr:parent "Second_ALT";
-            ];
-        rr:joinCondition [
-            rr:child "POS";
-            rr:parent "POS";
-            ];
+        rml:reference "concat4";
         ];
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255;
-        rr:objectMap [
-        rr:parentTriplesMap <concat6_output2>;
-        rr:joinCondition [
-            rr:child "POS";
-            rr:parent "POS";
-            ];
-        rr:joinCondition [
-            rr:child "concat2";
-            rr:parent "concat2";
-            ];
-        rr:joinCondition [
-            rr:child "ALT";
-            rr:parent "ALT";
-            ];
-        rr:joinCondition [
-            rr:child "REF";
-            rr:parent "REF";
-            ];
-        ];
-    ].
-
-<concat6_output1>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/output/OUTPUT1.csv";
-                rml:referenceFormulation ql:CSV
-            ];
-    rr:subjectMap [
-        rml:reference "concat6_output1";
-        rr:termType rr:IRI
-    ].
-
-<concat6_output2>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/output/OUTPUT2.csv";
-                rml:referenceFormulation ql:CSV
-            ];
-    rr:subjectMap [
-        rml:reference "concat6_output2";
-        rr:termType rr:IRI
     ].
 
