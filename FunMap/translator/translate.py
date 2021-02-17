@@ -409,7 +409,8 @@ def translate(config_path):
 													if "reference function" in inputs:
 														temp_dic = {"inputs":dic["inputs"], 
 																		"function":dic["executes"],
-																		"func_par":dic}
+																		"func_par":dic,
+																		"id":triples_map_element.triples_map_id}
 														if inner_function_exists(temp_dic, temp_dics):
 															temp_dics.append(temp_dic)
 								if temp_dics or triples_map.subject_map.subject_mapping_type == "function":
@@ -419,7 +420,8 @@ def translate(config_path):
 												temp = create_dictionary(triples_map_element)
 												temp_dic = {"inputs":temp["inputs"], 
 															"function":temp["executes"],
-															"func_par":temp}
+															"func_par":temp,
+															"id":triples_map_element.triples_map_id}
 												if inner_function_exists(temp_dic, temp_dics):
 													temp_dics.append(temp_dic)
 									reader = pd.read_csv(triples_map.data_source)
@@ -430,7 +432,7 @@ def translate(config_path):
 									for pk in fields:
 										projection_keys.append(pk)
 									for temp in temp_dics:
-										projection_keys.append(temp["function"].split("/")[len(temp["function"].split("/"))-1])
+										projection_keys.append(temp["function"].split("/")[len(temp["function"].split("/"))-1] + "_" + temp["id"])
 									writer.writerow(projection_keys)
 									line_values = {}
 									for row in reader:
