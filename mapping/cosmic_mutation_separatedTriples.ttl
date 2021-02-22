@@ -45,7 +45,7 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; # is_associated_with
         rr:objectMap [ 
-            rr:parentTriplesMap <Sample> 
+            rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}"; 
         ]
     ].  
 
@@ -87,19 +87,19 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
-            rr:parentTriplesMap <Transcript>
+            rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}";
         ]
     ];  
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
-            rr:parentTriplesMap <Sample>
+            rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}";
         ]
     ];  
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000628; # refers_to
         rr:objectMap [ 
-            rr:parentTriplesMap <Publication>
+            rr:template "http://semanticscience.org/resource/SIO_000154/{Pubmed_PMID}";
         ]
     ].
 
