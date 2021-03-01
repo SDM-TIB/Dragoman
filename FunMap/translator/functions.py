@@ -290,7 +290,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 for tp in triple_maps:
                     if tp.triples_map_id == triples_map.subject_map.value:
                         temp_dic = create_dictionary(tp)
-                        mapping += "        rml:reference " + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + ";\n"
+                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_"+ tp.triples_map_id + "\";\n"
                         mapping += "        rr:termType rr:IRI\n"
             if triples_map.subject_map.rdf_class is not None:
                 prefix, url, value = prefix_extraction(triples_map.subject_map.rdf_class)
