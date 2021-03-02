@@ -22,7 +22,7 @@
 @base <http://genoschema.KG/> .
 
 <DrugTargetInteraction>
-	rml:logicalSource [ rml:source "/mnt/e/data/data/drug/drugTargetInteraction.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/drugTargetInteraction.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
