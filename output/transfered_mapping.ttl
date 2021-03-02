@@ -31,7 +31,7 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255;
         rr:objectMap [
-        rml:reference "concat4";
+        rml:reference "concat4_ub1bL39C24";
         ];
     ].
 
