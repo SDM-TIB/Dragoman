@@ -382,7 +382,6 @@ genoschema:genoschema_0018	rdf:type owl:Class;
 							dcterms:modified "2021-01-26"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-
 genoschema:genoschema_0017	rdf:type owl:Class;
 							rdfs:label	"Oncogenicity";
 							rdfs:subClassOf	genoschema:genoschema_0013;				
@@ -519,5 +518,14 @@ sio:SIO_000001	rdf:type	owl:ObjectProperty;
 				rdfs:comment "Indicates the relation between two concepts.";
 				dcterms:modified "2020-11-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+genoschema:genoschema_0019	rdf:type owl:ObjectProperty;
+							rdfs:label	"externalLink";			
+							dc:identifier "genoschema_0019" ;
+							rdfs:domain	genoschema:genoschema_0000;
+							rdfs:range	genoschema:genoschema_0000;
+							rdfs:comment "";
+							dcterms:modified "2021-03-02"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 														

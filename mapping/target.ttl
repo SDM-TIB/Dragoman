@@ -36,7 +36,7 @@
 		]
 	];
 	rr:predicateObjectMap [
-		rr:predicate clarify:externalLink;
+		rr:predicate genoschema:externalLink;
 		rr:objectMap [
 			rr:template "https://www.uniprot.org/uniprot/{Uni_ID}";
 		]
