@@ -88,11 +88,11 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#dbsnp/{snpId}";
+		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{snpId}";
 		rr:class vario:VariO_0001 # variation
 	];	
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061; # is located in
+		rr:predicate sio:SIO_000061; # is_located_in
 		rr:objectMap [
 			rr:template "http://semanticscience.org/resource/SIO_000899/{chromosome}" # chromosome
 		]

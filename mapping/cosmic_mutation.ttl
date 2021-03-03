@@ -103,12 +103,14 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_011134; # has_annotation
-        rr:objectMap <cFormatFunction> # genoschema:genoschema_00003
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <cFormatFunction>; # genoschema:genoschema_00003
+        rr:termType rr:IRI;
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_011135; # has_annotation
-        rr:objectMap <pFormatFunction> # genoschema:genoschema_00004
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <pFormatFunction>; # genoschema:genoschema_00004
+        rr:termType rr:IRI;
     ].
 
 <Publication>
