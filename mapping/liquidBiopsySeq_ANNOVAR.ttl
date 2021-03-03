@@ -191,7 +191,7 @@
 ########
 <DNAannotation_resource>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
