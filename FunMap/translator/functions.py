@@ -165,7 +165,9 @@ def match_pFormat(threeLetters,gene):
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
             pFormat = gene + "~p." + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
         else:
-            pFormat = ""    
+            pFormat = ""
+    else:
+        pFormat = ""    
     return(pFormat)
 
 def rearrange_cds(cds):
