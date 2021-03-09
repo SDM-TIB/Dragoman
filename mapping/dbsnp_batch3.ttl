@@ -37,17 +37,35 @@
         rr:predicate sio:SIO_000255; # has_annotation
         rr:objectMap <DNAannotation_resource1>; # genoschema:genoschema_00002
         rr:termType rr:IRI;
-    ];
+    ].       
+
+<dbsnp2>
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/dbsnp_batch3.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{ID}"; # rr:class snpo:dbsnp
+        rr:class vario:VariO_0001 # variation
+    ];                                                           
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; # has_annotation
         rr:objectMap <DNAannotation_resource2>; # genoschema:genoschema_00002
         rr:termType rr:IRI;
-    ];
+    ].
+
+<dbsnp3>
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/dbsnp_batch3.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{ID}"; # rr:class snpo:dbsnp
+        rr:class vario:VariO_0001 # variation
+    ];                                                           
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; # has_annotation
         rr:objectMap <DNAannotation_resource3>; # genoschema:genoschema_00002
         rr:termType rr:IRI;
-    ].       
+    ].
 
 <DNAannotation_resource1>
     fnml:functionValue [
