@@ -207,7 +207,7 @@
         ];                              
     ]. 
 
-<DNAannotation_resource2>
+<DNAannotation_resource3>
     fnml:functionValue [
         rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/dbsnp_batch2.csv";
         rml:referenceFormulation ql:CSV 
