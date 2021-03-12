@@ -26,7 +26,7 @@
 @base <http://genoschema.KG/> .
 
 <dbsnp1>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -40,7 +40,7 @@
     ].
 
 <dbsnp2>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -54,7 +54,7 @@
     ].
 
 <dbsnp3>
-    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -69,7 +69,7 @@
 
 <DNAannotation_resource1>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -92,7 +92,7 @@
 
 <DNAannotationFunction1>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -139,7 +139,7 @@
 
 <DNAannotation_resource2>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -162,7 +162,7 @@
 
 <DNAannotationFunction2>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -209,7 +209,7 @@
 
 <DNAannotation_resource3>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -232,7 +232,7 @@
 
 <DNAannotationFunction3>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -278,7 +278,7 @@
     ].
 <ChromosomeCombination>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/test6.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
