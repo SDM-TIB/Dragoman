@@ -1,0 +1,303 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rev: <http://purl.org/stuff/rev#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix genoschema: <http://www.genoschema.com/> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix vario: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
+@prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
+@prefix ex: <http://www.example.com/> .
+@prefix dce: <http://purl.org/dc/elements/1.1> .
+@prefix af: <http://purl.org/ontology/af> .
+@prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@base <http://genoschema.KG/> .
+
+<dbsnp1>
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{ID}"; # rr:class snpo:dbsnp
+        rr:class vario:VariO_0001 # variation
+    ];                                                           
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <DNAannotation_resource1>; # genoschema:genoschema_00002
+        rr:termType rr:IRI;
+    ].
+
+<dbsnp2>
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{ID}"; # rr:class snpo:dbsnp
+        rr:class vario:VariO_0001 # variation
+    ];                                                           
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <DNAannotation_resource2>; # genoschema:genoschema_00002
+        rr:termType rr:IRI;
+    ].
+
+<dbsnp3>
+    rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{ID}"; # rr:class snpo:dbsnp
+        rr:class vario:VariO_0001 # variation
+    ];                                                           
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap <DNAannotation_resource3>; # genoschema:genoschema_00002
+        rr:termType rr:IRI;
+    ].
+
+<DNAannotation_resource1>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat2 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0002/" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap <DNAannotationFunction1>;
+        ];               
+    ].
+
+<DNAannotationFunction1>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat6 
+            ]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <ChromosomeCombination>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~g." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rml:reference "POS" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "REF" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value5;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value6;
+            rr:objectMap [ 
+                rml:reference "ALT" 
+            ]
+        ];                              
+    ].  
+
+<DNAannotation_resource2>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat2 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0002/" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap <DNAannotationFunction2>;
+        ];               
+    ].
+
+<DNAannotationFunction2>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat6 
+            ]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <ChromosomeCombination>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~g." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rml:reference "POS" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "REF" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value5;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value6;
+            rr:objectMap [ 
+                rml:reference "second_ALT" 
+            ]
+        ];                              
+    ]. 
+
+<DNAannotation_resource3>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat2 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0002/" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap <DNAannotationFunction3>;
+        ];               
+    ].
+
+<DNAannotationFunction3>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat6 
+            ]
+        ];   
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap <ChromosomeCombination>
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rr:constant "~g." 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value3;
+            rr:objectMap [ 
+                rml:reference "POS" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value4;
+            rr:objectMap [ 
+                rml:reference "REF" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value5;
+            rr:objectMap [ 
+                rr:constant "~" 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value6;
+            rr:objectMap [ 
+                rml:reference "third_ALT" 
+            ]
+        ];                              
+    ].
+<ChromosomeCombination>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/Users/sam/Documents/GitHub/GenoKGC/data/test6.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat2 
+            ]
+        ]; 
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "chr" 
+            ]
+        ];          
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [ 
+                rml:reference "CHROM" 
+            ]
+        ];                            
+    ].          
+

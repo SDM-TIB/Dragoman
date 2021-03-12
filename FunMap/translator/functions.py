@@ -76,6 +76,7 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ################################################################################################################
 
 def concat2(value1,value2):
+    print (type(value1),"----",type(value2))
     if value1 != None and value2 != None:
         result = str(str(value1)+str(value2))
     else:
