@@ -148,6 +148,7 @@ def mapping_parser(mapping_file):
 								 rr:parent ?parent_value.
 				 	OPTIONAL{?parent_value fnml:functionValue ?parent_function.}
 				 	OPTIONAL{?child_value fnml:functionValue ?child_function.}
+				 	OPTIONAL {?_object_map rr:termType ?term .}
 				}
 				OPTIONAL {
 					?_object_map rr:joinCondition ?join_condition .

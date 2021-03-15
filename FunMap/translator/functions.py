@@ -407,10 +407,12 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                     if tp.triples_map_id == predicate_object.object_map.value:
                                         temp_dic = create_dictionary(tp)
                                         mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                        mapping += "        rr:termType rr:IRI\n"
                                         mapping += "        ];\n"
                         else:
                             mapping += "[\n"
                             mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
+                            mapping += "        rr:termType rr:IRI\n"
                             mapping += "        ];\n"
                     mapping += "    ];\n"
             if triples_map.function:
