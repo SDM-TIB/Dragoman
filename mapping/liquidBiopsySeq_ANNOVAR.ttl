@@ -95,7 +95,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <DNAannotationFunction>; # genoschema:genoschema_00002
+        rr:objectMap <DNAannotation_resource>; # genoschema:genoschema_00002
         rr:termType rr:IRI;
     ];
     rr:predicateObjectMap [
@@ -189,6 +189,28 @@
     ]. 
 
 ########
+<DNAannotation_resource>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:referenceFormulation ql:CSV 
+                            ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes ;
+            rr:objectMap [ 
+                rr:constant ex:concat2 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0002/" 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap <DNAannotationFunction>;
+        ];               
+    ].
 
 <DNAannotationFunction>
     fnml:functionValue [
@@ -278,23 +300,29 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:concat3 
+                rr:constant ex:concat4 
             ]
-        ];   
+        ]; 
         rr:predicateObjectMap [
             rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0003/" 
+            ]
+        ];          
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
             rr:objectMap [ 
                 rml:reference "Gene.refGene" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value3;
             rr:objectMap [ 
                 rr:constant "~c." 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value3;
+            rr:predicate ex:value4;
             rr:objectMap <RearrangeFunction>
         ];                            
     ]. 
@@ -345,23 +373,29 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:concat3 
+                rr:constant ex:concat4 
             ]
-        ];   
+        ]; 
         rr:predicateObjectMap [
             rr:predicate ex:value1;
+            rr:objectMap [ 
+                rr:constant "http://www.genoschema.com/genoschema_0004/" 
+            ]
+        ];                 
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
             rr:objectMap [ 
                 rml:reference "Gene.refGene" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value2;
+            rr:predicate ex:value3;
             rr:objectMap [ 
                 rr:constant "~" 
             ]
         ];
         rr:predicateObjectMap [
-            rr:predicate ex:value3;
+            rr:predicate ex:value4;
             rr:objectMap <match_aa>;
         ];        
     ]. 

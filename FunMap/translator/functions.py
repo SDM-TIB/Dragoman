@@ -76,42 +76,46 @@ def condreplace(value, value1, value2, replvalue1, replvalue2):
 ################################################################################################################
 
 def concat2(value1,value2):
-    if value1 != None and value2 != None:
+    if bool(value1) and bool(value2):
         result = str(str(value1)+str(value2))
     else:
         result = ""  
     return(result)
 
 def concat3(value1,value2,value3):
-    if value1 != None and value2 != None and value3 != None:
+    if bool(value1) and bool(value2) and bool(value3):
         result = str(str(value1)+str(value2)+str(value3))
     else:
         result = ""  
     return(result)
 
 def concat4(value1,value2,value3,value4):
-    if value1 != None and value2 != None and value3 != None and value4 != None:
+    if bool(value1) and bool(value2) and bool(value3) and bool(value4):
         result = str(str(value1)+str(value2)+str(value3)+str(value4))
     else:
         result = ""  
     return(result)
 
 def concat5(value1,value2,value3,value4,value5):
-    if value1 != None and value2 != None and value3 != None and value4 != None and value5 != None:
-        result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5))
+    if bool(value1) and bool(value2) and bool(value3) and\
+       bool(value4) and bool(value5):
+        result = str(str(value1)+str(value2)+str(value3)+\
+                 str(value4)+str(value5))
     else:
         result = ""  
     return(result)
 
 def concat6(value1,value2,value3,value4,value5,value6):
-    if value1 != None and value2 != None and value3 != None and value4 != None and value5 != None and value6 != None:
-        result = str(str(value1)+str(value2)+str(value3)+str(value4)+str(value5)+str(value6))
+    if bool(value1) and bool(value2) and bool(value3) and\
+       bool(value4) and bool(value5) and bool(value6):
+        result = str(str(value1)+str(value2)+str(value3)+\
+                 str(value4)+str(value5)+str(value6))
     else:
         result = "" 
     return(result)
 
 def match_gdna(combinedValue):
-    if combinedValue is not None:
+    if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         gdna = ""
         for j in range(0,len(expressionsList)):
@@ -122,7 +126,7 @@ def match_gdna(combinedValue):
     return(gdna)
 
 def match_cdna(combinedValue):
-    if combinedValue is not None:
+    if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         cdna = ""
         for j in range(0,len(expressionsList)):
@@ -133,7 +137,7 @@ def match_cdna(combinedValue):
     return(cdna)
 
 def match_aa(combinedValue):
-    if combinedValue is not None:
+    if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         aa = ""
         for j in range(0,len(expressionsList)):
@@ -144,7 +148,7 @@ def match_aa(combinedValue):
     return (aa)  
 
 def match_exon(combinedValue):
-    if combinedValue is not None:
+    if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         exon = ""
         for j in range(0,len(expressionsList)):
@@ -165,11 +169,13 @@ def match_pFormat(threeLetters,gene):
         if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
             pFormat = gene + "~p." + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
         else:
-            pFormat = ""    
+            pFormat = ""
+    else:
+        pFormat = ""    
     return(pFormat)
 
 def rearrange_cds(cds):
-    if cds is not None and cds is not "":
+    if bool(cds):
         if "del" not in cds and "ins" not in cds:
             if not cds.split(".")[1][0].isdigit():
                 firstN = cds.split(".")[1][0]

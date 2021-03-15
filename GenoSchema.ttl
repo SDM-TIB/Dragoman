@@ -13,6 +13,7 @@
 @prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix stato: <http://purl.obolibrary.org/obo/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix chebi: <http://purl.obolibrary.org/obo/> .
 
 #################################################################################################################################################
 #################################################################################################################################################
@@ -32,8 +33,8 @@ genoschema:genoschema_0000	rdf:type	owl:Class;
 vario:VariO_0001	rdf:type	owl:Class;
 					rdfs:label	"Variation";
 					rdfs:subClassOf	genoschema:genoschema_0000;					
-					dc:identifier "VariO_0001" ;
-					rdfs:comment ".";
+					dc:identifier "VariO:0001" ;
+					rdfs:comment "Alteration in DNA, RNA or protein.";
 					dcterms:modified "2020-10-27"^^xsd:date;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -41,7 +42,7 @@ ncit:C16612	rdf:type	owl:Class;
 			rdfs:label	"Gene";
 			rdfs:subClassOf	genoschema:genoschema_0000;			
 			dc:identifier "C16612" ;
-			rdfs:comment ".";
+			rdfs:comment "A functional unit of heredity which occupies a specific position on a particular chromosome and serves as the template for a product that contributes to a phenotype or a biological function.";
 			dcterms:modified "2020-10-27"^^xsd:date;
 			dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -49,7 +50,7 @@ sio:SIO_001166	rdf:type	owl:Class;
 				rdfs:label	"Annotation";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_001166" ;
-				rdfs:comment ".";
+				rdfs:comment "A written explanatory or critical description, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -85,19 +86,59 @@ genoschema:genoschema_0004	rdf:type	owl:Class;
 						dcterms:modified "2020-10-27"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.												
 
+sio:SIO_010004	rdf:type	owl:Class;
+				rdfs:label	"CheminalEntity";
+				rdfs:subClassOf	genoschema:genoschema_0000;				
+				dc:identifier "SIO_010004" ;
+				rdfs:comment "A material entity that pertains to chemistry.";
+				dcterms:modified "2020-10-27"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 sio:SIO_010038	rdf:type	owl:Class;
 				rdfs:label	"Drug";
-				rdfs:subClassOf	genoschema:genoschema_0000;				
-				dc:identifier "SIO_001166" ;
-				rdfs:comment ".";
+				rdfs:subClassOf	sio:SIO_010004;				
+				dc:identifier "SIO_010038" ;
+				rdfs:comment "A chemical entity that regulates a biological process.";
 				dcterms:modified "2020-10-27"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_010423	rdf:type	owl:Class;
+				rdfs:label	"Target";
+				rdfs:subClassOf	sio:SIO_010004;				
+				dc:identifier "SIO_010423" ;
+				rdfs:comment ".";
+				dcterms:modified "2021-03-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+chebi:CHEBI_36080	rdf:type	owl:Class;
+					rdfs:label	"Protein";
+					rdfs:subClassOf	genoschema:genoschema_0000;				
+					dc:identifier "CHEBI:36080" ;
+					rdfs:comment "A biological macromolecule minimally consisting of one polypeptide chain synthesized at the ribosome.";
+					dcterms:modified "2021-03-02"^^xsd:date;
+					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_000593	rdf:type	owl:Class;
+				rdfs:label	"Interacting";
+				rdfs:subClassOf	genoschema:genoschema_0000;				
+				dc:identifier "SIO_000593" ;
+				rdfs:comment "A process characterized by the interaction between two or more entities.";
+				dcterms:modified "2021-03-02"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+sio:SIO_010013	rdf:type	owl:Class;
+				rdfs:label	"ChemicalInteraction";
+				rdfs:subClassOf	sio:SIO_000593;				
+				dc:identifier "SIO_010013" ;
+				rdfs:comment "A biochemical process in which chemical entities interact through some set of attractive forces.";
+				dcterms:modified "2021-03-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 sio:SIO_000899	rdf:type	owl:Class;
 				rdfs:label	"Chromosome";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000899" ;
-				rdfs:comment ".";
+				rdfs:comment "A molecular complex of circular or linear DNA and bound proteins.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -105,7 +146,7 @@ sio:SIO_010056	rdf:type	owl:Class;
 				rdfs:label	"Phenotype";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010056" ;
-				rdfs:comment ".";
+				rdfs:comment "An observable characteristic of an individual.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -113,7 +154,7 @@ sio:SIO_010299	rdf:type	owl:Class;
 				rdfs:label	"Disease";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010299" ;
-				rdfs:comment ".";
+				rdfs:comment "The outward manifestation of one or more disorders.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.								
 
@@ -121,7 +162,7 @@ sio:SIO_010016	rdf:type	owl:Class;
 				rdfs:label	"Nucleic Acid Sequence";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_010016" ;
-				rdfs:comment ".";
+				rdfs:comment "A symbolic representation of the sequence of nucleic acid residues in a nucleic acid.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
@@ -145,7 +186,7 @@ sio:SIO_000154	rdf:type	owl:Class;
 				rdfs:label	"Publication";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000154" ;
-				rdfs:comment ".";
+				rdfs:comment "A publication that is stand-alone section of a larger work.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.		
 
@@ -153,7 +194,7 @@ sio:SIO_000393	rdf:type	owl:Class;
 				rdfs:label	"Patient";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "SIO_000393" ;
-				rdfs:comment ".";
+				rdfs:comment "An individual that is the recepient of medical care.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.	
 
@@ -161,7 +202,7 @@ mesh:D001706	rdf:type	owl:Class;
 				rdfs:label	"Biopsy";
 				rdfs:subClassOf	genoschema:genoschema_0000;				
 				dc:identifier "D001706" ;
-				rdfs:comment ".";
+				rdfs:comment "Removal and pathologic examination of specimens from the living body.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -169,7 +210,7 @@ mesh:D000073890	rdf:type	owl:Class;
 				rdfs:label	"Liquid Biopsy";
 				rdfs:subClassOf	mesh:D001706;				
 				dc:identifier "D000073890" ;
-				rdfs:comment ".";
+				rdfs:comment "Obtaining material for pathological examination and analysis, from bodily fluids. Material retrieved includes CELL-FREE NUCLEIC ACIDS; CELL-DERIVED MICROPARTICLES; EXOSOMES; CIRCULATING NEOPLASM CELLS; and other circulating cells and CELLULAR STRUCTURES.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -341,7 +382,6 @@ genoschema:genoschema_0018	rdf:type owl:Class;
 							dcterms:modified "2021-01-26"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-
 genoschema:genoschema_0017	rdf:type owl:Class;
 							rdfs:label	"Oncogenicity";
 							rdfs:subClassOf	genoschema:genoschema_0013;				
@@ -404,7 +444,7 @@ sio:SIO_000300	rdf:type	owl:DatatypeProperty;
 				dc:identifier "SIO_000300" ;
 				rdfs:domain	genoschema:genoschema_0016;
 				rdfs:range	rdfs:Literal;
-				rdfs:comment "";
+				rdfs:comment "A relation between a informational entity and its actual value (numeric, date, text, etc).";
 				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -421,7 +461,7 @@ sio:SIO_000061	rdf:type	owl:ObjectProperty;
 				dc:identifier "SIO_000061" ;
 				rdfs:domain	vario:VariO_0001;
 				rdfs:range	ncit:C16612;
-				rdfs:comment	"";
+				rdfs:comment "A is located in B iff the spatial region occupied by A is part of the spatial region occupied by B.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -430,7 +470,7 @@ sio:SIO_000255	rdf:type	owl:ObjectProperty;
 				dc:identifier "SIO_000255" ;
 				rdfs:domain	vario:VariO_0001;
 				rdfs:range	genoschema:genoschema_0001;
-				rdfs:comment	"";
+				rdfs:comment "A relation between an entity and some textual annotation.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -439,7 +479,7 @@ sio:SIO_001403	rdf:type	owl:ObjectProperty;
 				dc:identifier "SIO_001403" ;
 				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	genoschema:genoschema_0000;
-				rdfs:comment	"";
+				rdfs:comment "x is associated with y when x and y are logically or statistically related to one another.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -448,7 +488,7 @@ sio:SIO_000628	rdf:type	owl:ObjectProperty;
 				dc:identifier "SIO_000628" ;
 				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	sio:SIO_000154;
-				rdfs:comment	"";
+				rdfs:comment "Refers to is a relation between one entity and the entity that it makes reference to.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -457,7 +497,7 @@ sio:SIO_001279	rdf:type	owl:ObjectProperty;
 				dc:identifier "SIO_001279" ;
 				rdfs:domain	genoschema:genoschema_0000;
 				rdfs:range	sio:SIO_010056;
-				rdfs:comment	"";
+				rdfs:comment "A relation between an object and an observable/measurable characteristic.";
 				dcterms:modified "2020-10-27"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
@@ -478,5 +518,14 @@ sio:SIO_000001	rdf:type	owl:ObjectProperty;
 				rdfs:comment "Indicates the relation between two concepts.";
 				dcterms:modified "2020-11-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+genoschema:genoschema_0019	rdf:type owl:ObjectProperty;
+							rdfs:label	"externalLink";			
+							dc:identifier "genoschema_0019" ;
+							rdfs:domain	genoschema:genoschema_0000;
+							rdfs:range	genoschema:genoschema_0000;
+							rdfs:comment "";
+							dcterms:modified "2021-03-02"^^xsd:date;
+							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 														
