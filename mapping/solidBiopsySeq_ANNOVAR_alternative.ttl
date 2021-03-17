@@ -22,7 +22,7 @@
 @base <http://genoschema.KG/> .
 
 <Variation>
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap [
@@ -31,48 +31,33 @@
     ];  
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061; #is_located_in
-        rr:objectMap [
-            rr:template "http://semanticscience.org/resource/SIO_000899/{Chr}" # chromosome
-        ]
-    ];              
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061; #is_located_in
-        rr:objectMap [
-            rr:template "http://www.genoschema.com/genoschema_0010/{Start}" #start position 
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061; #is_located_in
-        rr:objectMap [
-            rr:template "http://www.genoschema.com/genoschema_0011/{End}" #end position
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061; #is_located_in
         rr:objectMap <ExonFunction>
     ];   
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
-        rr:objectMap [
-            rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
-        ]
+        rr:objectMap <VariationImpact>
     ];          
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
-        rr:objectMap [
-            rr:template "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
-        ]
+        rr:objectMap <PopulationAF>
     ];                              
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
         rr:objectMap [
-            rr:template "http://purl.obolibrary.org/obo/STATO_0000254/{AF}"
+            rml:reference "AF";
+            rr:datatype xsd:float;
         ]
-    ];      
+    ]; 
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; # is_associated_with
         rr:objectMap [
             rr:parentTriplesMap <Gene>
+        ]
+    ];              
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [
+            rr:parentTriplesMap <VariantType>
         ]
     ];      
     rr:predicateObjectMap [
@@ -109,8 +94,17 @@
         rr:termType rr:IRI;
     ].  
 
+<VariantType>  
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://www.genoschema.com/genoschema_0021/{variantType_basedOnAF}"; 
+        rr:class genoschema:genoschema_0021
+    ].
+
 <Gene>  
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -118,8 +112,26 @@
         rr:class ncit:C16612
     ].
 
+<VariationImpact>  
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
+        rr:class genoschema:genoschema_0014
+    ].
+
+<PopulationAF>  
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
+        rr:class genoschema:genoschema_0012
+    ].
+
 <Patient>   
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -134,7 +146,7 @@
     ].
 
 <LiquidBiopsy>  
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -156,7 +168,7 @@
 
 <ExonFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -176,7 +188,7 @@
 ########
 <DNAannotation_resource>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -199,7 +211,7 @@
 
 <DNAannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -246,7 +258,7 @@
 
 <PositionSplitFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -279,7 +291,7 @@
 
 <CDSannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -314,7 +326,7 @@
 
 <RearrangeFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -331,7 +343,7 @@
 
 <match_cds>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -352,7 +364,7 @@
 
 <AAannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -387,7 +399,7 @@
 
 <match_aa>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_LB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [

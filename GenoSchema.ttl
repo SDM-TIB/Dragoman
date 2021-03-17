@@ -311,11 +311,19 @@ stato:STATO_0000254	rdf:type owl:Class;
 					dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 genoschema:genoschema_0012	rdf:type owl:Class;
-						rdfs:label	"Population AF";
+						rdfs:label	"PopulationAF";
 						rdfs:subClassOf	stato:IAO_0000125;				
 						dc:identifier "genoschema_0012" ;
 						rdfs:comment "Denotes the incidence of a gene variant in a population. It is calculated as a ratio, by dividing the number of copies of a particular allele by the number of copies of all alleles at the genetic place (locus) in a population.";
 						dcterms:modified "2020-10-27"^^xsd:date;
+						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
+genoschema:genoschema_0021	rdf:type owl:Class;
+						rdfs:label	"VariantType";
+						rdfs:subClassOf	genoschema:genoschema_0000;				
+						dc:identifier "genoschema_0021" ;
+						rdfs:comment "Variant type in terms of germline or somatic!";
+						dcterms:modified "2021-03-17"^^xsd:date;
 						dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
 genoschema:genoschema_0013	rdf:type owl:Class;
@@ -527,5 +535,6 @@ genoschema:genoschema_0019	rdf:type owl:ObjectProperty;
 							rdfs:comment "";
 							dcterms:modified "2021-03-02"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 
 														
