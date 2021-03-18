@@ -28,10 +28,6 @@
     rr:subjectMap [
         rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
         rr:class vario:VariO_0001 # variation
-    ];  
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061; #is_located_in
-        rr:objectMap <ExonFunction>
     ];   
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
@@ -45,13 +41,6 @@
             rr:parentTriplesMap <PopulationAF>
         ]
     ];                              
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; #is_associated_with
-        rr:objectMap [
-            rml:reference "AF";
-            rr:datatype xsd:float;
-        ]
-    ]; 
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
@@ -73,15 +62,26 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; # is_associated_with
         rr:objectMap [
-            rr:parentTriplesMap <LiquidBiopsy>
+            rr:parentTriplesMap <SolidBiopsy>
         ]
     ];              
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; #is_associated_with
+        rr:objectMap [
+            rml:reference "AF";
+            rr:datatype xsd:float;
+        ]
+    ];     
     rr:predicateObjectMap [
         rr:predicate skos:exactMatch;
         rr:objectMap [
             rr:template "http://purl.obolibrary.org/obo/VariO_0001/{snp138}";
         ]
     ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061; #is_located_in
+        rr:objectMap <ExonFunction>;
+    ];      
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; # has_annotation
         rr:objectMap <DNAannotation_resource>; # genoschema:genoschema_00002
@@ -165,11 +165,11 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; # is_associated_with
         rr:objectMap [
-            rr:parentTriplesMap <LiquidBiopsy>
+            rr:parentTriplesMap <SolidBiopsy>
         ]
     ].
 
-<LiquidBiopsy>  
+<SolidBiopsy>  
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
