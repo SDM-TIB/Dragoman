@@ -35,11 +35,15 @@
     ];   
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
-        rr:objectMap <VariationImpact>
+        rr:objectMap [
+            rr:parentTriplesMap <VariationImpact>
+        ]
     ];          
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
-        rr:objectMap <PopulationAF>
+        rr:objectMap [
+            rr:parentTriplesMap <PopulationAF>
+        ]
     ];                              
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
