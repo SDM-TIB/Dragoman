@@ -100,8 +100,13 @@
                         ];
     rr:subjectMap [
         rr:template "http://www.genoschema.com/genoschema_0021/{variantType_basedOnAF}"; 
-        rr:class genoschema:genoschema_0021
-    ].
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0021";
+        ]
+    ].     
 
 <Gene>  
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
@@ -109,8 +114,13 @@
                         ];
     rr:subjectMap [
         rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene.refGene}"; # gene
-        rr:class ncit:C16612
-    ].
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612";
+        ]
+    ].     
 
 <VariationImpact>  
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
