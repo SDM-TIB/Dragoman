@@ -117,18 +117,28 @@
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
-        rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}"
-        rr:class genoschema:genoschema_0014
-    ].
+        rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0014";
+        ]
+    ].    
 
 <PopulationAF>  
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
-        rr:template "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}"
-        rr:class genoschema:genoschema_0012
-    ].
+        rr:template "http://www.genoschema.com/genoschema_0012/{gnomAD_genome_ALL}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0012";
+        ]
+    ].     
 
 <Patient>   
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
