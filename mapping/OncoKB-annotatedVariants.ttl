@@ -26,14 +26,20 @@
 						];
 	rr:subjectMap [
 		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{pFormat}"; #generated identifier
-		rr:class vario:VariO_0001 # variation
+		rr:class vario:VariO_0001 # variation 
 	];		
 	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000061;
+		rr:predicate sio:SIO_000061; # is_located_in
 		rr:objectMap [
 			rr:parentTriplesMap <Transcript>
 		]
 	];
+	rr:predicateObjectMap [
+		rr:predicate sio:SIO_000061;  # is_located_in
+		rr:objectMap [
+			rr:parentTriplesMap <Gene>
+		]
+	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [
@@ -59,13 +65,22 @@
 	rr:subjectMap [
 		rr:template "http://semanticscience.org/resource/SIO_010017/{Isoform}";
 		rr:class sio:SIO_010017 # ribonucleic acid sequence
-	];	
+	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_010035/{Hugo Symbol}"; # gene
+			rr:parentTriplesMap <Gene>
 		]
 	].	
+
+<Gene>	
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
+						rml:referenceFormulation ql:CSV
+						];
+	rr:subjectMap [
+		rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Hugo Symbol}";
+		rr:class ncit:C16612 # Gene
+	].
 
 <pFormatFunction>
 	fnml:functionValue [

@@ -92,9 +92,9 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061; # is_located_in
+        rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}" # gene
+            rr:parentTriplesMap <Gene>
         ]
     ];
     rr:predicateObjectMap [
@@ -149,10 +149,19 @@
         rr:class sio:SIO_010017 # RNA
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:predicate sio:SIO_001403; # is associated with
         rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}" # gene
+            rr:parentTriplesMap <Gene>
         ]
+    ].
+
+<Gene>    
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene.clinical}";
+        rr:class ncit:C16612 # Gene
     ].
 
 <Publication>

@@ -430,6 +430,14 @@ sio:SIO_010002	rdf:type	owl:Class;
 				dcterms:modified "2020-11-02"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
+sio:SIO_000136	rdf:type	owl:Class;
+				rdfs:label	"Description";
+				rdfs:subClassOf	genoschema:genoschema_0000;				
+				dc:identifier "SIO_000136" ;
+				rdfs:comment "Represents a language entity in which elements of a language (formal or natural) are used to characterize an entity.";
+				dcterms:modified "2021-03-18"^^xsd:date;
+				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
+
 #################################################################################################################################################
 #################################################################################################################################################
 #################################################################################################################################################

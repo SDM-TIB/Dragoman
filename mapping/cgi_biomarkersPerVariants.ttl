@@ -28,12 +28,12 @@
 		rr:template "http://www.genoschema.com/genoschema_0016/{Drug}_{Gene}_{cFormat}";
 		rr:class genoschema:genoschema_0016 # Chemical-Gene-Variation-Association
 	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is_associated_with
-		rr:objectMap [
-			rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene}"; # gene
-		]
-	];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [ 
+            rr:parentTriplesMap <Gene>
+        ]
+    ];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is_associated_with
 		rr:objectMap [ 
@@ -73,6 +73,12 @@
 			rr:parentTriplesMap <TumorType>
 		]
 	];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000061;  # is_located_in
+        rr:objectMap [ 
+            rr:parentTriplesMap <Gene>
+        ]
+    ];    
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
 		rr:objectMap <gFormat_resource>; # genoschema:genoschema_00002
@@ -111,12 +117,21 @@
 		rr:template "http://semanticscience.org/resource/SIO_010017/{transcript}";
 		rr:class sio:SIO_010017 # ribonucleic acid sequence
 	];	
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_001403; # is associated with
-		rr:objectMap [
-			rr:template "http://semanticscience.org/resource/SIO_010035/{Gene}"; # gene
-		]
-	].
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is associated with
+        rr:objectMap [
+            rr:parentTriplesMap <Gene>
+        ]
+    ].
+
+<Gene>    
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{transcript}";
+        rr:class ncit:C16612 # Gene
+    ].  
 
 <Publication>
 	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";

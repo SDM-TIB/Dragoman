@@ -49,7 +49,7 @@
         ]
     ]; 
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
             rr:parentTriplesMap <Gene>
         ]
