@@ -25,14 +25,13 @@
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/germline_tp53.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
-    rr:subjectMap rr:subjectMap <DNAannotation_resource> ;
+    rr:subjectMap <DNAannotation_resource> ;
 
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000255; #is_associated_with
-        rr:objectMap [
-            rr:parentTriplesMap <CDSannotation_resource>
-        ]
-    ]; 
+        rr:objectMap <CDSannotation_resource> ;
+        rr:termType rr:IRI;
+    ]. 
 
 
 ##################
@@ -45,7 +44,7 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:concat3 
+                rr:constant ex:concat2 
             ]
         ];
         rr:predicateObjectMap [
@@ -100,7 +99,7 @@
         rr:predicateObjectMap [
             rr:predicate fno:executes ;
             rr:objectMap [ 
-                rr:constant ex:concat3 
+                rr:constant ex:concat2 
             ]
         ];
         rr:predicateObjectMap [
