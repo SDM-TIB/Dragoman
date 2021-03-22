@@ -129,7 +129,7 @@
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
-        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{gene}";
+        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene}";
         rr:class ncit:C16612 # Gene
     ].  
 
