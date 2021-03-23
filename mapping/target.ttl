@@ -26,14 +26,8 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_010423/{Target_name}";
+		rr:template "http://semanticscience.org/resource/SIO_010423/{Uni_ID}";
 		rr:class sio:SIO_010423
-	];
-	rr:predicateObjectMap [
-		rr:predicate owl:sameAs;
-		rr:objectMap [
-			rr:template "http://purl.obolibrary.org/obo/CHEBI_36080/{Uni_ID}"; ## protein
-		]
 	];
 	rr:predicateObjectMap [
 		rr:predicate genoschema:externalLink;
