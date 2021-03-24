@@ -80,11 +80,11 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000001; # is_related_to
+        rr:predicate genoschema:genoschema_0014; #variantImpact
         rr:objectMap [
-            rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
+            rml:reference "Mutation Description";
         ]
-    ];  
+    ];   
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [

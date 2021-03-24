@@ -30,11 +30,11 @@
         rr:class vario:VariO_0001 # variation
     ];   
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; #is_associated_with
+        rr:predicate genoschema:genoschema_0014; #variantImpact
         rr:objectMap [
-            rr:parentTriplesMap <VariationImpact>
+            rml:reference "ExonicFunc.refGene";
         ]
-    ];          
+    ];           
     rr:predicateObjectMap [
         rr:predicate sio:SIO_001403; #is_associated_with
         rr:objectMap [
@@ -124,21 +124,7 @@
         rr:objectMap [
             rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612";
         ]
-    ].     
-
-<VariationImpact>  
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap [
-        rr:template "http://www.genoschema.com/genoschema_0014/{ExonicFunc.refGene}";
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "http://www.genoschema.com/genoschema_0014";
-        ]
-    ].    
+    ].       
 
 <PopulationAF>  
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";

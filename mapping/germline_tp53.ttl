@@ -26,9 +26,25 @@
                         rml:referenceFormulation ql:CSV 
                         ];
     rr:subjectMap <DNAannotation_resource> ;
-
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; #is_associated_with
+        rr:predicate genoschema:genoschema_0014; #variantImpact
+        rr:objectMap [
+            rml:reference "Effect";
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate genoschema:genoschema_0023; # functionalImpcat
+        rr:objectMap [
+            rml:reference "SIFTClass";
+        ]
+    ];    
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; #has_annotation
+        rr:objectMap <DNAannotation_resource> ;
+        rr:termType rr:IRI;
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_000255; #has_annotation
         rr:objectMap <CDSannotation_resource> ;
         rr:termType rr:IRI;
     ]. 
