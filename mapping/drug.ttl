@@ -21,7 +21,7 @@
 @base <http://genoschema.KG/> .
 
 <Drug>
-	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/drugs.csv";
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/drug.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
