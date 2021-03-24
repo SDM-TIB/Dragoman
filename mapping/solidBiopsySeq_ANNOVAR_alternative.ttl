@@ -19,6 +19,7 @@
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
+@prefix stato: <http://purl.obolibrary.org/obo/> .
 @base <http://genoschema.KG/> .
 
 <Variation>
@@ -64,14 +65,13 @@
         rr:objectMap [
             rr:parentTriplesMap <SolidBiopsy>
         ]
-    ];              
+    ];   
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; #is_associated_with
+        rr:predicate sio:SIO_001403; # is_associated_with
         rr:objectMap [
-            rml:reference "AF";
-            rr:datatype xsd:float;
+            rr:parentTriplesMap <AF>
         ]
-    ];     
+    ];               
     rr:predicateObjectMap [
         rr:predicate skos:exactMatch;
         rr:objectMap [
@@ -171,6 +171,20 @@
         ]
     ].  
 
+<AF>  
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/STATO_0000254/{AF}";
+        rr:class stato:STATO_0000254 # Allele Frequency
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://purl.obolibrary.org/obo/STATO_0000254";
+        ]
+    ]. 
 
 ##########################################################################################
 ######################################## Functions #######################################
