@@ -1,10 +1,10 @@
-@prefix genoschema: <http://www.genoschema.com/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prv: <http://purl.org/net/provenance/ns#> .
+@prefix genoschema: <http://www.genoschema.com/> .
 @prefix vario: <http://purl.obolibrary.org/obo/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
 @prefix sio: <http://semanticscience.org/resource> .
@@ -633,7 +633,7 @@ sio:SIO_000300	rdf:type	owl:DatatypeProperty;
 				dcterms:modified "2020-10-30"^^xsd:date;
 				dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genoschema:genoschema_0014	owl:DatatypeProperty;
+genoschema:genoschema_0014	rdf:type owl:DatatypeProperty;
 							rdfs:label	"variantImpact";			
 							dc:identifier "genoschema_0014" ;
 							rdfs:domain	vario:VariO_0001;
@@ -642,7 +642,7 @@ genoschema:genoschema_0014	owl:DatatypeProperty;
 							dcterms:modified "2021-03-24"^^xsd:date;
 							dcterms:creator <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/>.
 
-genoschema:genoschema_0023	owl:DatatypeProperty;
+genoschema:genoschema_0023	rdf:type owl:DatatypeProperty;
 							rdfs:label	"functionalImpact";			
 							dc:identifier "genoschema_0023" ;
 							rdfs:domain	vario:VariO_0001;
