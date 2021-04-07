@@ -19,6 +19,7 @@
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix ex: <http://www.example.com/> .
 @base <http://genoschema.KG/> .
+
 <Transcript>    
     rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
                         rml:referenceFormulation ql:CSV
@@ -75,19 +76,19 @@
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061; # is_located_in
         rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # gene
+            rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}" # Transcript
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000001; # is_related_to
+        rr:predicate genoschema:genoschema_0014; #variantImpact
         rr:objectMap [
-            rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}" # Somatic status description
+            rml:reference "Mutation Description";
         ]
-    ];  
+    ];   
     rr:predicateObjectMap [
         rr:predicate sio:SIO_000061;  # is_located_in
         rr:objectMap [
-            rr:template "http://semanticscience.org/resource/SIO_010017/{Accession Number}";
+            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene name}" # Gene
         ]
     ];  
     rr:predicateObjectMap [
@@ -100,6 +101,21 @@
         rr:predicate sio:SIO_000628; # refers_to
         rr:objectMap [ 
             rr:template "http://semanticscience.org/resource/SIO_000154/{Pubmed_PMID}";
+        ]
+    ].
+
+<SomaticDescription>
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://semanticscience.org/resource/SIO_000136/{Mutation somatic status}"; # gene
+        rr:class sio:SIO_000136
+    ];
+    rr:predicateObjectMap [
+        rr:predicate sio:SIO_001403; # is_associated_with
+        rr:objectMap [ 
+            rr:template "http://semanticscience.org/resource/SIO_001050/{ID_sample}"; 
         ]
     ].
 

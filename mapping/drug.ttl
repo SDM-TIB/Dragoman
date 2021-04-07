@@ -18,26 +18,21 @@
 @prefix skos: <http://www.w3.org/2008/05/skos#> .
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix ex: <http://www.example.com/> .
-@prefix chebi: <http://purl.obolibrary.org/obo/> .
 @base <http://genoschema.KG/> .
 
-<Target>
-	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/target.csv";
+<Drug>
+	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/drug.csv";
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_010423/{Uni_ID}";
-		rr:class sio:SIO_010423
+		rr:template "http://semanticscience.org/resource/SIO_010038/{DrugBankID}";
+		rr:class sio:SIO_010038
 	];
 	rr:predicateObjectMap [
-		rr:predicate genoschema:externalLink;
+		rr:predicate skos:exactMatch;
 		rr:objectMap [
-			rr:template "https://www.uniprot.org/uniprot/{Uni_ID}";
+			rr:template "http://semanticscience.org/resource/SIO_010038/{DrugName}";
 		]
-	];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_001403; # is_associated_with
-        rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene_name}" # gene
-        ]
-    ].
+	].
+
+
