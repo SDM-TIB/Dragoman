@@ -380,7 +380,18 @@ def translate(config_path):
 																if "}" in of:
 																	fields[of.split("}")[0]] = "object"
 													else:
-														fields[tp.subject_map.value] = "object"
+														if tp.subject_map.subject_mapping_type == "function":
+															for func in triples_map_list:
+																if tp.subject_map.value == func.triples_map_id:
+																	temp = create_dictionary(func)
+																	temp_dic = {"inputs":temp["inputs"], 
+																				"function":temp["executes"],
+																				"func_par":temp}
+																	for attr in temp_dic["inputs"]:
+																		if "reference function" not in attr[1] and "constant" not in attr[1]:
+																			fields[attr[0]] = "object" 
+														elif tp.subject_map.subject_mapping_type != "constant":
+															fields[tp.subject_map.value] = "object"
 									else:
 										if "{" in po.object_map.value:
 											object_field = po.object_map.value.split("{")
@@ -414,6 +425,9 @@ def translate(config_path):
 																		"id":triples_map_element.triples_map_id}
 														if inner_function_exists(temp_dic, temp_dics):
 															temp_dics.append(temp_dic)
+															for attr in temp_dic["inputs"]:
+																if "reference function" not in attr[1] and "constant" not in attr[1]:
+																	fields[attr[0]] = "object"
 								if temp_dics or triples_map.subject_map.subject_mapping_type == "function":
 									if triples_map.subject_map.subject_mapping_type == "function":
 										for triples_map_element in triples_map_list:
