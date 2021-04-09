@@ -279,7 +279,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                         mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_"+ tp.triples_map_id + "\";\n"
                         mapping += "        rr:termType rr:IRI\n"
             if triples_map.subject_map.rdf_class is not None:
-                prefix, url, value = prefix_extraction(triples_map.subject_map.rdf_class)
+                prefix, url, value = prefix_extraction(original, triples_map.subject_map.rdf_class)
                 mapping += "        rr:class " + prefix + ":" + value  + "\n"
             mapping += "    ];\n"
 
@@ -287,10 +287,10 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 if predicate_object.predicate_map.mapping_type is not "None":
                     mapping += "    rr:predicateObjectMap [\n"
                     if "constant" in predicate_object.predicate_map.mapping_type :
-                        prefix, url, value = prefix_extraction(predicate_object.predicate_map.value)
+                        prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
                         mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
                     elif "constant shortcut" in predicate_object.predicate_map.mapping_type:
-                        prefix, url, value = prefix_extraction(predicate_object.predicate_map.value)
+                        prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
                         mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
                     elif "template" in predicate_object.predicate_map.mapping_type:
                         mapping += "        rr:predicateMap[\n"
@@ -492,7 +492,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
                 mapping = mapping[:-2]
                 mapping += "<" + triples_map.subject_map.value + ">;\n"
             if triples_map.subject_map.rdf_class is not None:
-                prefix, url, value = prefix_extraction(triples_map.subject_map.rdf_class)
+                prefix, url, value = prefix_extraction(original, triples_map.subject_map.rdf_class)
                 mapping += "        rr:class " + prefix + ":" + value  + "\n"
             mapping += "    ];\n"
 
@@ -500,10 +500,10 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
                 
                 mapping += "    rr:predicateObjectMap [\n"
                 if "constant" in predicate_object.predicate_map.mapping_type :
-                    prefix, url, value = prefix_extraction(predicate_object.predicate_map.value)
+                    prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
                     mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
                 elif "constant shortcut" in predicate_object.predicate_map.mapping_type:
-                    prefix, url, value = prefix_extraction(predicate_object.predicate_map.value)
+                    prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
                     mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
                 elif "template" in predicate_object.predicate_map.mapping_type:
                     mapping += "        rr:predicateMap[\n"
