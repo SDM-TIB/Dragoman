@@ -6,6 +6,8 @@ import pandas as pd
 
 global columns
 columns = {}
+global prefixes
+prefixes = {}
 
 def inner_function_exists(inner_func, inner_functions):
     for inner_function in inner_functions:
@@ -199,69 +201,45 @@ def replaceRegex(regex,replvalue,value):
 def split(column,separator,index):
     return str(column).split(separator)[int(index)]
 
-def prefix_extraction(uri):
-    prefix = ""
+def prefix_extraction(original, uri):
     url = ""
     value = ""
-    if "#" in uri:
-        if "ncicb" in uri:
-            prefix = "ncit"
-        elif "rdf-schema" in uri:
-            prefix = "rdfs"
-        elif "rdf-syntax-ns" in uri:
-            prefix = "rdf"
-        elif "rev" in uri:
-            prefix = "rev"
-        elif "ru" in uri:
-            prefix = "ru"
-        elif "owl" in uri:
-            prefix = "owl"
-        elif "fnml" in uri:
-            prefix = "fnml"
-        elif "function" in uri:
-            prefix = "fno"
-        elif "XML" in uri:
-            prefix = "xsd"
-        elif "journey" in uri:
-            prefix = "tmjourney"
-        elif "commons" in uri:
-            prefix = "tmcommons"
-        elif "organisations" in uri:
-            prefix = "tmorg"
-        elif "skos" in uri:
-            prefix = "skos"
-        url, value = uri.split("#")[0]+"#", uri.split("#")[1]
-    else:
-        if "resource" in uri:
-            prefix = "sio"
-        elif "af" in uri:
-            prefix = "af"
-        elif "genoschema" in uri:
-            prefix = "genoschema"
-        elif "example" in uri:
-            prefix = "ex"
-        elif "term" in uri:
-            prefix = "dcterms"
-        elif "elements" in uri:
-            prefix = "dce"
-        elif "iasis" in uri:
-            prefix = "iasis"
-        elif "http://purl.obolibrary.org/obo/" in uri:
-            prefix = "vario"
+    if prefixes:
+        if "#" in uri:
+            url, value = uri.split("#")[0]+"#", uri.split("#")[1]
         else:
-            prefix = uri.split("/")[len(uri.split("/"))-2].lower()
-            if "." in prefix:
-                prefix = prefix.split(".")[0] 
-        value = uri.split("/")[len(uri.split("/"))-1]
-        char = ""
-        temp = ""
-        temp_string = uri
-        while char != "/":
-            temp = temp_string
-            temp_string = temp_string[:-1]
-            char = temp[len(temp)-1]
-        url = temp
-    return prefix, url, value
+            value = uri.split("/")[len(uri.split("/"))-1]
+            char = ""
+            temp = ""
+            temp_string = uri
+            while char != "/":
+                temp = temp_string
+                temp_string = temp_string[:-1]
+                char = temp[len(temp)-1]
+            url = temp
+    else:
+        f = open(original,"r")
+        original_mapping = f.readlines()
+        for prefix in original_mapping:
+            if ("prefix" in prefix) or ("base" in prefix):
+               elements = prefix.split(" ")
+               prefixes[elements[2][1:-1]] = elements[1][:-1]
+            else:
+                break
+        f.close()
+        if "#" in uri:
+            url, value = uri.split("#")[0]+"#", uri.split("#")[1]
+        else:
+            value = uri.split("/")[len(uri.split("/"))-1]
+            char = ""
+            temp = ""
+            temp_string = uri
+            while char != "/":
+                temp = temp_string
+                temp_string = temp_string[:-1]
+                char = temp[len(temp)-1]
+            url = temp
+    return prefixes[url], url, value
 
 def update_mapping(triple_maps, dic, output, original, join, data_source):
     mapping = ""
