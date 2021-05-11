@@ -23,7 +23,7 @@
 @base <http://genoschema.KG/> .
 
 <Patient>   
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/patient_variant_sample.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap [
@@ -35,71 +35,35 @@
         rr:objectMap [
             rr:parentTriplesMap <Variation>
         ]
-    ].
+    ].   
 
 <Variation>
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
-                        rml:referenceFormulation ql:CSV 
+    rml:logicalSource [ rml:source "/mnt/e/data/data/lc_clinical_notes/patient_variant_sample.csv";
+                        rml:referenceFormulation ql:CSV;
                         ];
-    rr:subjectMap [
-        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{variantID}";
-        rr:class vario:VariO_0001 # variation
-    ];                               
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000061;  # is_located_in
-        rr:objectMap [
-            rr:parentTriplesMap <Gene>
-        ]
-    ];                                  
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <AAannotationFunction>; # genoschema:genoschema_00004
-        rr:termType rr:IRI;
-    ].     
+    rr:subjectMap <AAannotationFunction> ;
+    rr:termType rr:IRI;
 
-<Gene>  
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap [
-        rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Gene.refGene}"; # gene
-    ];
     rr:predicateObjectMap [
         rr:predicate rdf:type;
         rr:objectMap [
-            rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612";
+            rr:template "http://purl.obolibrary.org/obo/VariO_0001";     
         ]
-    ].       
+    ];
+    rr:predicateObjectMap [
+        rr:predicate clarify:hasOriginalValue;
+        rr:objectMap [
+            rml:reference "AAChange.refGene";      
+        ]
+    ].
 
 ##########################################################################################
 ######################################## Functions #######################################
 ##########################################################################################
 
-<ExonFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant ex:match_exon 
-            ]
-        ];   
-        rr:predicateObjectMap [
-            rr:predicate ex:combinedValue;
-            rr:objectMap [ 
-                rml:reference "AAChange.refGene" 
-            ]
-        ];       
-    ]. 
-
-
-########
-
 <AAannotationFunction>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/patient_variant_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
@@ -111,7 +75,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value1;
             rr:objectMap [ 
-                rr:constant "http://www.genoschema.com/genoschema_0004/" 
+                rr:constant "http://purl.obolibrary.org/obo/VariO_0001/" 
             ]
         ];                 
         rr:predicateObjectMap [
@@ -134,7 +98,7 @@
 
 <match_aa>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/LC_SB_Seq.csv";
+        rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/patient_variant_sample.csv";
         rml:referenceFormulation ql:CSV 
                             ];
         rr:predicateObjectMap [
