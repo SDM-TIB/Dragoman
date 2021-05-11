@@ -38,7 +38,7 @@
     ].   
 
 <Variation>
-    rml:logicalSource [ rml:source "/mnt/e/data/data/lc_clinical_notes/patient_variant_sample.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/patient_variant_sample.csv";
                         rml:referenceFormulation ql:CSV;
                         ];
     rr:subjectMap <AAannotationFunction> ;
@@ -48,12 +48,6 @@
         rr:predicate rdf:type;
         rr:objectMap [
             rr:template "http://purl.obolibrary.org/obo/VariO_0001";     
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate clarify:hasOriginalValue;
-        rr:objectMap [
-            rml:reference "AAChange.refGene";      
         ]
     ].
 
