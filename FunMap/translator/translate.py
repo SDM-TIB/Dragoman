@@ -21,6 +21,8 @@ global jdbcDriver
 jdbcDriver = ""
 global jdbcDSN
 jdbcDSN = ""
+global temp_dics_values
+temp_dics_values = {}
 
 def string_separetion(string):
 	if ("{" in string) and ("[" in string):
@@ -38,15 +40,12 @@ def mapping_parser(mapping_file):
 
 	"""
 	(Private function, not accessible from outside this package)
-
 	Takes a mapping file in Turtle (.ttl) or Notation3 (.n3) format and parses it into a list of
 	TriplesMap objects (refer to TriplesMap.py file)
-
 	Parameters
 	----------
 	mapping_file : string
 		Path to the mapping file
-
 	Returns
 	-------
 	A list of TriplesMap objects containing all the parsed rules from the original mapping file
@@ -70,7 +69,6 @@ def mapping_parser(mapping_file):
 		prefix fnml: <http://semweb.mmlab.be/ns/fnml#> 
 		SELECT DISTINCT *
 		WHERE {
-
 	# Subject -------------------------------------------------------------------------
 		
 			?triples_map_id rml:logicalSource ?_source .
@@ -92,7 +90,6 @@ def mapping_parser(mapping_file):
 			OPTIONAL { ?_subject_map rr:graphMap ?_graph_structure .
 					   ?_graph_structure rr:template ?graph . }
 		   	OPTIONAL {?_subject_map fnml:functionValue ?subject_function .}		   
-
 	# Predicate -----------------------------------------------------------------------
 			OPTIONAL {
 			?triples_map_id rr:predicateObjectMap ?_predicate_object_map .
@@ -114,7 +111,6 @@ def mapping_parser(mapping_file):
 				?_predicate_object_map rr:predicate ?predicate_constant_shortcut .
 			 }
 			
-
 	# Object --------------------------------------------------------------------------
 			OPTIONAL {
 				?_predicate_object_map rr:objectMap ?_object_map .
@@ -348,7 +344,7 @@ def translate(config_path):
 												else:
 													current_func["termType"] = False
 													function_dic[triples_map_element.triples_map_id] = current_func
-													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"], triples_map_list)
+													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"])
 												i += 1
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
@@ -409,7 +405,6 @@ def translate(config_path):
 						if (config["datasets"]["enrichment"].lower() == "yes" or triples_map.subject_map.subject_mapping_type == "function") and triples_map.triples_map_id not in file_projection:
 							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
-								
 								temp_dics = []
 								for po in triples_map.predicate_object_maps_list:
 									temp_dic = {}
@@ -425,9 +420,20 @@ def translate(config_path):
 																		"id":triples_map_element.triples_map_id}
 														if inner_function_exists(temp_dic, temp_dics):
 															temp_dics.append(temp_dic)
-															for attr in temp_dic["inputs"]:
-																if "reference function" not in attr[1] and "constant" not in attr[1]:
-																	fields[attr[0]] = "object"
+									elif po.object_map.mapping_type == "parent triples map":
+										for triples_map_element in triples_map_list:
+											if triples_map_element.triples_map_id == po.object_map.value:
+												if triples_map_element.subject_map.subject_mapping_type == "function":
+													for func in triples_map_list:
+														if triples_map_element.subject_map.value == func.triples_map_id:
+															dic = create_dictionary(func)
+															for inputs in dic["inputs"]:
+																temp_dic = {"inputs":dic["inputs"], 
+																				"function":dic["executes"],
+																				"func_par":dic,
+																				"id":func.triples_map_id}
+																if inner_function_exists(temp_dic, temp_dics):
+																	temp_dics.append(temp_dic)
 								if temp_dics or triples_map.subject_map.subject_mapping_type == "function":
 									if triples_map.subject_map.subject_mapping_type == "function":
 										for triples_map_element in triples_map_list:
@@ -451,8 +457,11 @@ def translate(config_path):
 									writer.writerow(projection_keys)
 									line_values = {}
 									for row in reader:
+										temp_lines = {}
+										i = 0
 										line = []
 										string_values = ""
+										string_line_values = ""
 										non_none = True
 										for key in fields:
 											line.append(row[key])
@@ -460,12 +469,97 @@ def translate(config_path):
 												pass
 											else:
 												string_values += str(row[key])
+										list_input = True
 										for temp_dic in temp_dics:
-											line.append(inner_function(row,temp_dic,triples_map_list))
-											string_values += inner_function(row,temp_dic,triples_map_list)
-										if non_none and string_values not in line_values:
-											writer.writerow(line)
-											line_values[string_values] = line	
+											string_line_values = inner_values(row,temp_dic,triples_map_list)
+											if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
+												value = inner_function(row,temp_dic,triples_map_list)
+												if temp_lines:
+													i = 0
+													for temp in temp_lines:
+														temp_temp_lines = {}
+														if isinstance(value, list):
+															for v in value:
+																if non_none:
+																	temp_temp_lines[i] = temp_lines[temp] + [v]
+																	i += 1
+														else:
+															temp_lines[temp] + [v]
+													temp_lines = temp_temp_lines
+												else:
+													if isinstance(value, list):
+														for v in value:
+															if non_none:
+																temp_lines[i] = line + [v]
+																i += 1
+														list_input = False
+													else:
+														line.append(value)
+														string_values += value
+												temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]] = {string_line_values : value}
+											else:
+												if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
+													value = inner_function(row,temp_dic,triples_map_list)
+													if temp_lines:
+														i = 0
+														for temp in temp_lines:
+															temp_temp_lines = {}
+															if isinstance(value, list):
+																for v in value:
+																	if non_none:
+																		temp_temp_lines[i] = temp_lines[temp] + [v]
+																		i += 1
+															else:
+																temp_lines[temp] + [v]
+														temp_lines = temp_temp_lines
+													else:
+														if isinstance(value, list):
+															for v in value:
+																if non_none:
+																	temp_lines[i] = line + [v]
+																	i += 1
+															list_input = False
+														else:
+															line.append(value)
+															string_values += value
+													temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values] = value
+												else:
+													value = temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values]
+													if temp_lines:
+														i = 0
+														for temp in temp_lines:
+															temp_temp_lines = {}
+															if isinstance(value, list):
+																for v in value:
+																	if non_none:
+																		temp_temp_lines[i] = temp_lines[temp] + [v]
+																		i += 1
+															else:
+																temp_lines[temp] + [v]
+														temp_lines = temp_temp_lines
+													else:
+														if isinstance(value, list):
+															for v in value:
+																if non_none:
+																	temp_lines[i] = line + [v]
+																	i += 1
+															list_input = False
+														else:
+															line.append(value)
+															string_values += value
+										if temp_lines:
+											for temp in temp_lines:
+												string_values = ""
+												for string in temp_lines[temp]:
+													string_values += string
+												if string_values not in line_values:
+													writer.writerow(temp_lines[temp])
+													line_values[string_values] = temp_lines[temp]
+										else:					
+											if non_none and string_values not in line_values and list_input:
+												writer.writerow(line)
+												line_values[string_values] = line
+
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
 								else:
 									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
@@ -529,9 +623,47 @@ def translate(config_path):
 												if row[key] is None:
 													non_none = False
 											if non_none:
+												list_input = True
 												for temp_dic in temp_dics:
-													line.append(inner_function(row,temp_dic,triples_map_list))
-												writer.writerow(line)
+													string_line_values = inner_values(row,temp_dic,triples_map_list)
+													if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
+														value = inner_function(row,temp_dic,triples_map_list)
+														if isinstance(value, list):
+															for v in value:
+																if non_none and (string_values + v) not in line_values:
+																	writer.writerow(line + [v])
+																	line_values[string_values + v] = line + [v]
+															list_input = False
+														else:
+															line.append(value)
+															string_values += value
+														temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]] = {string_line_values : value}
+													else:
+														if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
+															value = inner_function(row,temp_dic,triples_map_list)
+															if isinstance(value, list):
+																for v in value:
+																	if non_none and (string_values + v) not in line_values:
+																		writer.writerow(line + [v])
+																		line_values[string_values + v] = line + [v]
+																list_input = False
+															else:
+																line.append(value)
+																string_values += value
+															temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values] = value
+														else:
+															value = temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values]
+															if isinstance(value, list):
+																for v in value:
+																	if non_none and (string_values + v) not in line_values:
+																		writer.writerow(line + [v])
+																		line_values[string_values + v] = line + [v]
+																list_input = False
+															else:
+																line.append(value)
+																string_values += value
+												if list_input:
+													writer.writerow(line)
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
 									j += 1
 

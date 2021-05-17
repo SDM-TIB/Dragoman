@@ -9,6 +9,23 @@ columns = {}
 global prefixes
 prefixes = {}
 
+def inner_values(row,dic,triples_map_list):
+    values = ""
+    for inputs in dic["inputs"]:
+        if "reference" == inputs[1]:
+            values += str(row[inputs[0]])
+        elif "reference function" == inputs[1]:
+            temp_dics = {}
+            for tp in triples_map_list:
+                if tp.triples_map_id == inputs[0]:
+                    temp_dic = create_dictionary(tp)
+                    current_func = {"inputs":temp_dic["inputs"], 
+                                    "function":temp_dic["executes"],
+                                    "func_par":temp_dic,
+                                    "termType":True}
+                    values += inner_values(row,temp_dic,triples_map_list)
+    return values
+
 def inner_function_exists(inner_func, inner_functions):
     for inner_function in inner_functions:
         if inner_func["id"] in inner_function["id"]:
