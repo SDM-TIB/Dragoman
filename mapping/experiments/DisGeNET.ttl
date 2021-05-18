@@ -19,8 +19,8 @@
 @prefix mesh: <http://purl.bioontology.org/ontology/MESH/> .
 @prefix snpo: <http://www.loria.fr/~coulet/ontology/snpontology/version1.6/snpontology_full.owl#> .
 @prefix ex: <http://www.example.com/> .
-@prefix dce: <http://purl.org/dc/elements/1.1> .
-@prefix af: <http://purl.org/ontology/af> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix af: <http://purl.org/ontology/af/> .
 @prefix ru: <http://purl.org/imbi/ru-meta.owl#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @base <http://genoschema.KG/> .
@@ -112,28 +112,8 @@
 		rr:objectMap [ 
 			rml:reference "diseaseName" 
 		]
-	];
-	rr:predicateObjectMap [
-		rr:predicate sio:SIO_000255;
-		rr:objectMap [
-			rr:parentTriplesMap <Annotation>
-		]
 	].
-
-<Annotation>
-	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
-						rml:referenceFormulation ql:CSV 
-						];
-	rr:subjectMap [
-		rr:template "http://semanticscience.org/resource/SIO_001166/{diseaseId}";
-	];
-	rr:predicateObjectMap [
-		rr:predicate dce:identifier;
-		rr:objectMap [ 
-			rml:reference "diseaseId" 
-		]
-	].		
-
+	
 <Publication>
 	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/DisGeNET_variantDisease.csv";
 						rml:referenceFormulation ql:CSV 
