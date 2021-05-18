@@ -344,7 +344,7 @@ def translate(config_path):
 												else:
 													current_func["termType"] = False
 													function_dic[triples_map_element.triples_map_id] = current_func
-													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"])
+													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 												i += 1
 										if "variantIdentifier" in current_func["function"]:
 											fields[current_func["func_par"]["column1"]] = "object"
@@ -355,7 +355,7 @@ def translate(config_path):
 													fields[inputs[0]] = "object"
 										elif "replaceRegex" in  current_func["function"]:
 											pass
-										elif "match_exon" in current_func["function"]:
+										elif "match_exon" in current_func["function"] or "match_aa" in current_func["function"]:
 											fields[current_func["func_par"]["combinedValue"]] = "object"
 										else:
 											fields[current_func["func_par"]["value"]] = "object"

@@ -923,7 +923,7 @@ def join_csv(source, dic, output,triple_map_list):
 
                 columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]] = projection
 
-        elif "match_exon" in dic["function"]:
+        elif "match_exon" in dic["function"] or "match_aa" in dic["function"]:
             if dic["func_par"]["combinedValue"] in columns:
 
                 keys.append(dic["output_name"])
