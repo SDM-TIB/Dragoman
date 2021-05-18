@@ -370,6 +370,12 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                         if tm.subject_map.subject_mapping_type == "constant":
                                             mapping += "\n            rr:constant \"" + tm.subject_map.value + "\";\n"
                                             mapping += "            rr:termType rr:IRI\n"
+                                        elif tm.subject_map.subject_mapping_type == "function":
+                                            for func in triple_maps:
+                                                if tm.subject_map.value == func.triples_map_id:
+                                                    temp_dic = create_dictionary(func)
+                                                    mapping += "\n        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + func.triples_map_id + "\";\n"
+                                                    mapping += "        rr:termType rr:IRI\n"
                                         else:
                                             mapping += "\n"
                                             mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">;\n"
