@@ -54,8 +54,8 @@
 	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <pFormatFunction>; # genoschema:genoschema_00004
-		rr:termType rr:IRI;
+		rr:objectMap <pFormatFunction> ; # genoschema:genoschema_00004
+		rr:termType rr:IRI ;
 	].		
 
 <Transcript>	
