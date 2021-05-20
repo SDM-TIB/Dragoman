@@ -25,7 +25,7 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://www.genoschema.com/genoschema_0016/{Drug}_{Gene}_{cFormat}";
+		rr:template "http://www.genoschema.com/genoschema_0016/{Drug}_{Gene}_{v_ID}";
 		rr:class genoschema:genoschema_0016 # Chemical-Gene-Variation-Association
 	];
     rr:predicateObjectMap [
@@ -64,7 +64,7 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{cFormat}";
+		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{v_ID}";
 		rr:class vario:VariO_0001 # variation
 	];
 	rr:predicateObjectMap [
@@ -81,19 +81,64 @@
     ];    
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <gFormat_resource>; # genoschema:genoschema_00002
-        rr:termType rr:IRI;
+		rr:objectMap [ 
+            rr:parentTriplesMap <DNA_annotation> # genoschema:genoschema_00002
+        ] 
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <cFormat_ConcatFuncation>; # genoschema:genoschema_00003
-        rr:termType rr:IRI;
+		rr:objectMap [ 
+            rr:parentTriplesMap <CDS_annotation> # genoschema:genoschema_00003
+        ] 
 	];
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <pFormat_resource>; # genoschema:genoschema_00004
-        rr:termType rr:IRI;
+		rr:objectMap [ 
+            rr:parentTriplesMap <AA_annotation> # genoschema:genoschema_00004
+        ]
 	].	
+
+<DNA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <gFormat_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<CDS_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <cFormat_ConcatFuncation> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<AA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <pFormat_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
 
 <Drug>
 	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";

@@ -54,10 +54,25 @@
 	];	
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000255; # has_annotation
-		rr:objectMap <pFormatFunction> ; # genoschema:genoschema_00004
-		rr:termType rr:IRI ;
+		rr:objectMap [ 
+            rr:parentTriplesMap <AA_annotation> # genoschema:genoschema_00004
+        ]
 	].		
 
+<AA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <pFormatFunction> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+    
 <Transcript>	
 	rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
 						rml:referenceFormulation ql:CSV
@@ -81,6 +96,8 @@
 		rr:template "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612/{Hugo Symbol}";
 		rr:class ncit:C16612 # Gene
 	].
+
+#############
 
 <pFormatFunction>
 	fnml:functionValue [

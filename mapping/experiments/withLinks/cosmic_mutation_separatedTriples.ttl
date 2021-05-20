@@ -153,7 +153,35 @@
         rr:objectMap <pFormatFunction>; # genoschema:genoschema_00004
         rr:termType rr:IRI;
     ].
-    
+
+<CDS_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <cFormatFunction> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<AA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/data-GenoDIS/data/cosmic_mutation.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <pFormatFunction> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ].
+
 ##########################################################################################
 ######################################## Functions #######################################
 ##########################################################################################

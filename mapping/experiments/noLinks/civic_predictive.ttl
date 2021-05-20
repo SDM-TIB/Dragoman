@@ -114,22 +114,49 @@
         rr:objectMap [ 
             rr:parentTriplesMap <Publication>
         ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <gFormat_concat>; # genoschema:genoschema_0002
-        rr:termType rr:IRI;
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <cFormat_concat>; # genoschema:genoschema_0003
-        rr:termType rr:IRI;
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; # has_annotation
-        rr:objectMap <pFormat_resource>; # genoschema:genoschema_0004
-        rr:termType rr:IRI;
     ].
+
+<DNA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <gFormat_concat> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<CDS_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <cFormat_concat> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<AA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <pFormat_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
 
 <Disease>
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/civic_Predictive.csv";

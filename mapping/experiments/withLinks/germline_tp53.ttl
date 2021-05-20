@@ -25,7 +25,10 @@
     rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/germline_tp53.csv";
                         rml:referenceFormulation ql:CSV 
                         ];
-    rr:subjectMap <DNAannotation_resource> ;
+    rr:subjectMap [
+        rr:template "http://purl.obolibrary.org/obo/VariO_0001/{v_ID}";
+        rr:class vario:VariO_0001 # variation
+    ];
     rr:predicateObjectMap [
         rr:predicate genoschema:genoschema_0014; #variantImpact
         rr:objectMap [
@@ -39,21 +42,65 @@
         ]
     ];    
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; #has_annotation
-        rr:objectMap <DNAannotation_resource> ;
-        rr:termType rr:IRI;
-    ]; 
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap [ 
+            rr:parentTriplesMap <DNA_annotation> # genoschema:genoschema_00002
+        ] 
+    ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; #has_annotation
-        rr:objectMap <CDSannotation_resource> ;
-        rr:termType rr:IRI;
-    ]; 
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap [ 
+            rr:parentTriplesMap <CDS_annotation> # genoschema:genoschema_00003
+        ] 
+    ];
     rr:predicateObjectMap [
-        rr:predicate sio:SIO_000255; #has_annotation
-        rr:objectMap <AAannotation_resource> ;
-        rr:termType rr:IRI;
+        rr:predicate sio:SIO_000255; # has_annotation
+        rr:objectMap [ 
+            rr:parentTriplesMap <AA_annotation> # genoschema:genoschema_00004
+        ]
     ].
 
+<DNA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/germline_tp53.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <DNAannotation_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<CDS_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/germline_tp53.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <CDSannotation_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ]. 
+
+<AA_annotation>
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/germline_tp53.csv";
+                        rml:referenceFormulation ql:CSV
+                        ];
+    rr:subjectMap <AAannotation_resource> ;
+    rr:termType rr:IRI ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "http://www.genoschema.com/genoschema_0001";
+        ]
+    ].
 
 ##################
 
