@@ -25,7 +25,7 @@
 						rml:referenceFormulation ql:CSV 
 						];
 	rr:subjectMap [
-		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{pFormat}"; #generated identifier
+		rr:template "http://purl.obolibrary.org/obo/VariO_0001/{v_ID}"; #generated identifier
 		rr:class vario:VariO_0001 # variation 
 	];		
 	rr:predicateObjectMap [
