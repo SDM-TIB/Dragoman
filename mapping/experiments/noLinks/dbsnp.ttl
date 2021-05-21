@@ -255,7 +255,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value2;
             rr:objectMap [ 
-                rml:reference "CHROM" 
+                rml:reference "#CHROM" 
             ]
         ];                            
     ].          
