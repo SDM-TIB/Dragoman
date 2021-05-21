@@ -228,7 +228,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value6;
             rr:objectMap [ 
-                rml:reference "second_ALT" 
+                rml:reference "Second ALT" 
             ]
         ];                              
     ]. 
