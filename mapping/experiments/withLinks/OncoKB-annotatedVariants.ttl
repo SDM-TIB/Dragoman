@@ -60,7 +60,7 @@
 	].		
 
 <AA_annotation>
-    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/CGI_biomarkersPerVariants.csv";
+    rml:logicalSource [ rml:source "/data/sjozashoori/GenoKGC/data/OncoKB_allAnnotatedVariants.csv";
                         rml:referenceFormulation ql:CSV
                         ];
     rr:subjectMap <pFormatFunction> ;
