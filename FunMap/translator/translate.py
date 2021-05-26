@@ -484,7 +484,8 @@ def translate(config_path):
 																	temp_temp_lines[i] = temp_lines[temp] + [v]
 																	i += 1
 														else:
-															temp_lines[temp] + [v]
+															temp_temp_lines[i] =  temp_lines[temp] + [value]
+															i += 1
 													temp_lines = temp_temp_lines
 												else:
 													if isinstance(value, list):
@@ -510,7 +511,8 @@ def translate(config_path):
 																		temp_temp_lines[i] = temp_lines[temp] + [v]
 																		i += 1
 															else:
-																temp_lines[temp] + [v]
+																temp_temp_lines[i] =  temp_lines[temp] + [value]
+																i += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
@@ -535,7 +537,8 @@ def translate(config_path):
 																		temp_temp_lines[i] = temp_lines[temp] + [v]
 																		i += 1
 															else:
-																temp_lines[temp] + [v]
+																temp_temp_lines[i] =  temp_lines[temp] + [value]
+																i += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
