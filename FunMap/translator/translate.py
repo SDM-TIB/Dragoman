@@ -360,7 +360,7 @@ def translate(config_path):
 										else:
 											fields[current_func["func_par"]["value"]] = "object"
 							else:
-								if po.object_map.mapping_type != "None":
+								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
 									if po.object_map.mapping_type == "parent triples map":
 										if po.object_map.child is not None:
 											fields[po.object_map.child] = "object"

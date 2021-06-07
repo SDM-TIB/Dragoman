@@ -392,18 +392,20 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                                                 mapping += "            rr:child \"" + attr[0] + "\";\n"
                                                                 mapping += "            rr:parent \"" + attr[0] +"\";\n"
                                                                 mapping += "            ];\n"
-                                            else:
-                                                mapping += "        rr:joinCondition [\n"     
+                                            else:    
                                                 if "{" in tm.subject_map.value:
                                                     for string in tm.subject_map.value.split("{"):
                                                         if "}" in string:
                                                             subject_value = string.split("}")[0]
-                                                    mapping += "            rr:child \"" + subject_value  + "\";\n"
-                                                    mapping += "            rr:parent \"" + subject_value + "\";\n"
+                                                            mapping += "        rr:joinCondition [\n" 
+                                                            mapping += "            rr:child \"" + subject_value  + "\";\n"
+                                                            mapping += "            rr:parent \"" + subject_value + "\";\n"
+                                                            mapping += "        ];\n"
                                                 else:
+                                                    mapping += "        rr:joinCondition [\n" 
                                                     mapping += "            rr:child \"" + tm.subject_map.value  + "\";\n"
                                                     mapping += "            rr:parent \"" + tm.subject_map.value + "\";\n"
-                                                mapping += "        ];\n"
+                                                    mapping += "        ];\n"
                         mapping += "        ]\n"
                     elif "constant shortcut" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
