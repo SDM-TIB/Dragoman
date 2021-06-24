@@ -37,7 +37,7 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <Disease> 
+			rr:template "http://semanticscience.org/resource/SIO_010299/{diseaseName}"; 
 		]
 	];
 	rr:predicateObjectMap [
@@ -61,13 +61,13 @@
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_000628; # refers to 
 		rr:objectMap [ 
-			rr:parentTriplesMap <Publication>
+			rr:template "http://semanticscience.org/resource/SIO_000154/{pmid}";
 		]
 	];			
 	rr:predicateObjectMap [
 		rr:predicate sio:SIO_001403; # is associated with
 		rr:objectMap [ 
-			rr:parentTriplesMap <Variation> 
+			rr:template "http://purl.obolibrary.org/obo/VariO_0001/{snpId}"; 
 		]
 	];
 	rr:predicateObjectMap [
