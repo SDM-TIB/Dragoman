@@ -9,10 +9,16 @@ columns = {}
 global prefixes
 prefixes = {}
 
+## row: the current record of the datasource that is being provided to the function including all the columns/attributes
+## dic["func_par"]: is a dictionary itself; the keys are the name of the input parameter and the value of each key is the column/attribute of the datasource which is the input value of the input parameter(key)
+## header: is a list of the column names in the RDB that is provided as the input data source of the function 
+
 # returns a string in lower case
 def tolower(row, header, dic):
-    if isinstance(row,dict):
+    ## The definition of function to be executed over a csv file: 
+    if isinstance(row,dict): ## 
         return row[dic["func_par"]["value"]].lower()
+    ## The definition of function to be executed over a RDB file:
     elif isinstance(row,list): 
         return row[header.index(dic["func_par"]["value"])].lower()
 
