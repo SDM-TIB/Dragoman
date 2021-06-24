@@ -91,14 +91,6 @@ def variantIdentifier(row, header, dic):
         value = dic["func_par"]["prefix"]+value
     return value
 
-# returns conditionally a certain string
-def condreplace(value, value1, value2, replvalue1, replvalue2):
-    if (value == 1): 
-        value = replvalue1
-    elif (value == 0): 
-        value = replvalue2
-    return value
-
 ################################################################################################################
 ############################################## new functions for GenoKGC #######################################
 ################################################################################################################
@@ -428,7 +420,7 @@ def split(row, header, dic):
 
 def execute_function(row,header,dic):
     functions = {"tolower":"","toupper":"","totitle":"","trim":"","chomp":"","substring":"","replaceValue":"","variantIdentifier":"",
-                "condreplace":"","concat2":"","concat3":"","concat4":"","concat5":"","concat6":"","match_gdna":"","match_aa":"",
+                "concat2":"","concat3":"","concat4":"","concat5":"","concat6":"","match_gdna":"","match_aa":"",
                 "match_exon":"","rearrange_cds":"","match_pFormat":"","match":"","replaceRegex":"","split":""}
     func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
     if func in functions:
