@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 from .functions import *
 import pandas as pd
 from mysql import connector
+from .connection import *
 
 try:
 	from triples_map import TriplesMap as tm
@@ -340,25 +341,15 @@ def translate(config_path):
 												if po.object_map.term is not None:
 													if "IRI" in po.object_map.term:
 														function_dic[triples_map_element.triples_map_id] = current_func
-														join_csv_URI(triples_map.data_source, current_func, config["datasets"]["output_folder"])
+														join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 												else:
 													current_func["termType"] = False
 													function_dic[triples_map_element.triples_map_id] = current_func
 													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 												i += 1
-										if "variantIdentifier" in current_func["function"]:
-											fields[current_func["func_par"]["column1"]] = "object"
-											fields[current_func["func_par"]["column2"]] = "object"
-										elif "concat" in current_func["function"] or "match_pFormat" in current_func["function"] or "replaceValue" in current_func["function"]:
-											for inputs in current_func["inputs"]:
-												if "reference function" not in inputs and "constant" not in inputs: 
-													fields[inputs[0]] = "object"
-										elif "replaceRegex" in  current_func["function"]:
-											pass
-										elif "match_exon" in current_func["function"] or "match_aa" in current_func["function"]:
-											fields[current_func["func_par"]["combinedValue"]] = "object"
-										else:
-											fields[current_func["func_par"]["value"]] = "object"
+										for inputs in current_func["inputs"]:
+											if "reference function" not in inputs and "constant" not in inputs: 
+												fields[inputs[0]] = "object"
 							else:
 								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
 									if po.object_map.mapping_type == "parent triples map":
