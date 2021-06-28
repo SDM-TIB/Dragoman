@@ -5,6 +5,11 @@ import os
 import pandas as pd
 from .functions import *
 
+global columns
+columns = {}
+global prefixes
+prefixes = {}
+
 def dic_builder(keys,values):
     dic = {}
     for key in keys:

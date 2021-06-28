@@ -4,241 +4,243 @@ import sys
 import os
 import pandas as pd
 
-global columns
-columns = {}
-global prefixes
-prefixes = {}
+global global_row
+global_row = []
+global global_header
+global_header = []
+global global_dic
+global_dic = {}
 
 ## row: the current record of the datasource that is being provided to the function including all the columns/attributes
 ## dic["func_par"]: is a dictionary itself; the keys are the name of the input parameter and the value of each key is the column/attribute of the datasource which is the input value of the input parameter(key)
 ## header: is a list of the column names in the RDB that is provided as the input data source of the function 
 
 # returns a string in lower case
-def tolower(row, header, dic):
+def tolower():
     ## The definition of function to be executed over a csv file: 
-    if isinstance(row,dict): ## 
-        return row[dic["func_par"]["value"]].lower()
+    if isinstance(global_row,dict): ## 
+        return global_row[global_dic["func_par"]["value"]].lower()
     ## The definition of function to be executed over a RDB file:
-    elif isinstance(row,list): 
-        return row[header.index(dic["func_par"]["value"])].lower()
+    elif isinstance(global_row,list): 
+        return global_row[global_header.index(global_dic["func_par"]["value"])].lower()
 
 # return a string in upper case
-def toupper(row, header, dic):
-    if isinstance(row,dict):
-        return row[dic["func_par"]["value"]].upper()
-    elif isinstance(row,list): 
-        return row[header.index(dic["func_par"]["value"])].upper()
+def toupper():
+    if isinstance(global_row,dict):
+        return global_row[global_dic["func_par"]["value"]].upper()
+    elif isinstance(global_row,list): 
+        return global_row[global_header.index(global_dic["func_par"]["value"])].upper()
 
 
 # return a string in title case
-def totitle(row, header, dic):
-    if isinstance(row,dict):
-        return row[dic["func_par"]["value"]].title()
-    elif isinstance(row,list): 
-        return row[header.index(dic["func_par"]["value"])].title()
+def totitle():
+    if isinstance(global_row,dict):
+        return global_row[global_dic["func_par"]["value"]].title()
+    elif isinstance(global_row,list): 
+        return global_row[global_header.index(global_dic["func_par"]["value"])].title()
 
 
 # return a string after removing leading and trailing whitespaces
-def trim(row, header, dic):
-    if isinstance(row,dict):
-        return row[dic["func_par"]["value"]].strip()
-    elif isinstance(row,list): 
-        return row[header.index(dic["func_par"]["value"])].strip()
+def trim():
+    if isinstance(global_row,dict):
+        return global_row[global_dic["func_par"]["value"]].strip()
+    elif isinstance(global_row,list): 
+        return global_row[global_header.index(global_dic["func_par"]["value"])].strip()
 
 
 # return a string without s2
-def chomp(row, header, dic):
-    if isinstance(row,dict):
-        return row[dic["func_par"]["value"]].replace(dic["func_par"]["toremove"], '')
-    elif isinstance(row,list): 
-        return row[header.index(dic["func_par"]["value"])].replace(dic["func_par"]["toremove"], '')
+def chomp():
+    if isinstance(global_row,dict):
+        return global_row[global_dic["func_par"]["value"]].replace(global_dic["func_par"]["toremove"], '')
+    elif isinstance(global_row,list): 
+        return global_row[global_header.index(global_dic["func_par"]["value"])].replace(global_dic["func_par"]["toremove"], '')
 
 
 #return the substring (index2 can be null, index2 can be negative value)
-def substring(row, header, dic):
-    if isinstance(row,dict):
-        value = row[dic["func_par"]["value"]]
-    elif isinstance(row,list):
-        value = row[header.index(dic["func_par"]["value"])]
-    if "index2" is dic["func_par"]:
-        return value[int(dic["func_par"]["index1"]):]
+def substring():
+    if isinstance(global_row,dict):
+        value = global_row[global_dic["func_par"]["value"]]
+    elif isinstance(global_row,list):
+        value = global_row[global_header.index(global_dic["func_par"]["value"])]
+    if "index2" is global_dic["func_par"]:
+        return value[int(global_dic["func_par"]["index1"]):]
     else:
-        return value[int(dic["func_par"]["index1"]):int(dic["func_par"]["index2"])]
+        return value[int(global_dic["func_par"]["index1"]):int(global_dic["func_par"]["index2"])]
 
 
 #replace value2 by value3
-def replaceValue(row, header, dic):
-    if isinstance(row,dict):
-        value = row[dic["func_par"]["value"]]
-    elif isinstance(row,list):
-        value = row[header.index(dic["func_par"]["value"])]
-    return str(value).replace(dic["func_par"]["value2"], dic["func_par"]["value3"])
+def replaceValue():
+    if isinstance(global_row,dict):
+        value = global_row[global_dic["func_par"]["value"]]
+    elif isinstance(global_row,list):
+        value = global_row[global_header.index(global_dic["func_par"]["value"])]
+    return str(value).replace(global_dic["func_par"]["value2"], global_dic["func_par"]["value3"])
 
 
 #returns the first appearance of the regex in value
-def match(row, header, dic):
-    if isinstance(row,dict):
-        value = row[dic["func_par"]["value"]]
-    elif isinstance(row,list):
-        value = row[header.index(dic["func_par"]["value"])]
-    return re.match(dic["func_par"]["regex"], value)[0]
+def match():
+    if isinstance(global_row,dict):
+        value = global_row[global_dic["func_par"]["value"]]
+    elif isinstance(global_row,list):
+        value = global_row[global_header.index(global_dic["func_par"]["value"])]
+    return re.match(global_dic["func_par"]["regex"], value)[0]
 
 
-def variantIdentifier(row, header, dic):
+def variantIdentifier():
     value = ""
-    if isinstance(row,dict):
-        column1 = row[dic["func_par"]["column1"]]
-        column2 = row[dic["func_par"]["column2"]]
-    elif isinstance(row,list):
-        column1 = row[header.index(dic["func_par"]["column1"])]
-        column2 = row[header.index(dic["func_par"]["column2"])]
+    if isinstance(global_row,dict):
+        column1 = global_row[global_dic["func_par"]["column1"]]
+        column2 = global_row[global_dic["func_par"]["column2"]]
+    elif isinstance(global_row,list):
+        column1 = global_row[global_header.index(global_dic["func_par"]["column1"])]
+        column2 = global_row[global_header.index(global_dic["func_par"]["column2"])]
     if (str(column1) != "nan"):
         value = re.sub('_.*','',str(column2))+"_"+str(column1).replace("c.","").replace(">", "~")
-        value = dic["func_par"]["prefix"]+value
+        value = global_dic["func_par"]["prefix"]+value
     return value
 
 ################################################################################################################
 ############################################## new functions for GenoKGC #######################################
 ################################################################################################################
 
-def concat2(row, header,dic):
-    for inputs in dic["func_par"]["inputs"]:
-        if dic["func_par"]["value1"] in inputs:
+def concat2():
+    for inputs in global_dic["func_par"]["inputs"]:
+        if global_dic["func_par"]["value1"] in inputs:
             if "constant" in inputs:
-                value1 = dic["func_par"]["value1"]
+                value1 = global_dic["func_par"]["value1"]
             else:
-                if isinstance(row,dict):
-                    value1 = row[dic["func_par"]["value1"]]
-                elif isinstance(row,list):
-                    value1 = row[header.index(dic["func_par"]["value1"])]
-        elif dic["func_par"]["value2"] in inputs:
+                if isinstance(global_row,dict):
+                    value1 = global_row[global_dic["func_par"]["value1"]]
+                elif isinstance(global_row,list):
+                    value1 = global_row[global_header.index(global_dic["func_par"]["value1"])]
+        elif global_dic["func_par"]["value2"] in inputs:
             if "constant" in inputs:
-                value2 = dic["func_par"]["value2"]
+                value2 = global_dic["func_par"]["value2"]
             else:
-                if isinstance(row,dict):
-                    value2 = row[dic["func_par"]["value2"]]
-                elif isinstance(row,list):
-                    value2 = row[header.index(dic["func_par"]["value2"])]
+                if isinstance(global_row,dict):
+                    value2 = global_row[global_dic["func_par"]["value2"]]
+                elif isinstance(global_row,list):
+                    value2 = global_row[global_header.index(global_dic["func_par"]["value2"])]
     if bool(value1) and bool(value2):
         result = str(str(value1)+str(value2))
     else:
         result = ""  
     return(result)
 
-def concat3(row, header,dic):
-    for inputs in dic["func_par"]["inputs"]:
-        if dic["func_par"]["value1"] in inputs:
+def concat3():
+    for inputs in global_dic["func_par"]["inputs"]:
+        if global_dic["func_par"]["value1"] in inputs:
             if "constant" in inputs:
-                value1 = dic["func_par"]["value1"]
+                value1 = global_dic["func_par"]["value1"]
             else:
-                if isinstance(row,dict):
-                    value1 = row[dic["func_par"]["value1"]]
-                elif isinstance(row,list):
-                    value1 = row[header.index(dic["func_par"]["value1"])]
-        elif dic["func_par"]["value2"] in inputs:
+                if isinstance(global_row,dict):
+                    value1 = global_row[global_dic["func_par"]["value1"]]
+                elif isinstance(global_row,list):
+                    value1 = global_row[global_header.index(global_dic["func_par"]["value1"])]
+        elif global_dic["func_par"]["value2"] in inputs:
             if "constant" in inputs:
-                value2 = dic["func_par"]["value2"]
+                value2 = global_dic["func_par"]["value2"]
             else:
-                if isinstance(row,dict):
-                    value2 = row[dic["func_par"]["value2"]]
-                elif isinstance(row,list):
-                    value2 = row[header.index(dic["func_par"]["value2"])]
-        elif dic["func_par"]["value3"] in inputs:
+                if isinstance(global_row,dict):
+                    value2 = global_row[global_dic["func_par"]["value2"]]
+                elif isinstance(global_row,list):
+                    value2 = global_row[global_header.index(global_dic["func_par"]["value2"])]
+        elif global_dic["func_par"]["value3"] in inputs:
             if "constant" in inputs:
-                value3 = dic["func_par"]["value3"]
+                value3 = global_dic["func_par"]["value3"]
             else:
-                if isinstance(row,dict):
-                    value3 = row[dic["func_par"]["value3"]]
-                elif isinstance(row,list):
-                    value3 = row[header.index(dic["func_par"]["value3"])]
+                if isinstance(global_row,dict):
+                    value3 = global_row[global_dic["func_par"]["value3"]]
+                elif isinstance(global_row,list):
+                    value3 = global_row[global_header.index(global_dic["func_par"]["value3"])]
     if bool(value1) and bool(value2) and bool(value3):
         result = str(str(value1)+str(value2)+str(value3))
     else:
         result = ""  
     return(result)
 
-def concat4(row, header,dic):
-    for inputs in dic["func_par"]["inputs"]:
-        if dic["func_par"]["value1"] in inputs:
+def concat4():
+    for inputs in global_dic["func_par"]["inputs"]:
+        if global_dic["func_par"]["value1"] in inputs:
             if "constant" in inputs:
-                value1 = dic["func_par"]["value1"]
+                value1 = global_dic["func_par"]["value1"]
             else:
                 if isinstance(row,dict):
-                    value1 = row[dic["func_par"]["value1"]]
+                    value1 = global_row[global_dic["func_par"]["value1"]]
                 elif isinstance(row,list):
-                    value1 = row[header.index(dic["func_par"]["value1"])]
-        elif dic["func_par"]["value2"] in inputs:
+                    value1 = global_row[global_header.index(global_dic["func_par"]["value1"])]
+        elif global_dic["func_par"]["value2"] in inputs:
             if "constant" in inputs:
-                value2 = dic["func_par"]["value2"]
+                value2 = global_dic["func_par"]["value2"]
             else:
-                if isinstance(row,dict):
-                    value2 = row[dic["func_par"]["value2"]]
-                elif isinstance(row,list):
-                    value2 = row[header.index(dic["func_par"]["value2"])]
-        elif dic["func_par"]["value3"] in inputs:
+                if isinstance(global_row,dict):
+                    value2 = global_row[global_dic["func_par"]["value2"]]
+                elif isinstance(global_row,list):
+                    value2 = global_row[global_header.index(global_dic["func_par"]["value2"])]
+        elif global_dic["func_par"]["value3"] in inputs:
             if "constant" in inputs:
-                value3 = dic["func_par"]["value3"]
+                value3 = global_dic["func_par"]["value3"]
             else:
-                if isinstance(row,dict):
-                    value3 = row[dic["func_par"]["value3"]]
-                elif isinstance(row,list):
-                    value3 = row[header.index(dic["func_par"]["value3"])]
-        elif dic["func_par"]["value4"] in inputs:
+                if isinstance(global_row,dict):
+                    value3 = global_row[global_dic["func_par"]["value3"]]
+                elif isinstance(global_row,list):
+                    value3 = global_row[global_header.index(global_dic["func_par"]["value3"])]
+        elif global_dic["func_par"]["value4"] in inputs:
             if "constant" in inputs:
-                value4 = dic["func_par"]["value4"]
+                value4 = global_dic["func_par"]["value4"]
             else:
-                if isinstance(row,dict):
-                    value4 = row[dic["func_par"]["value4"]]
-                elif isinstance(row,list):
-                    value4 = row[header.index(dic["func_par"]["value4"])]
+                if isinstance(global_row,dict):
+                    value4 = global_row[global_dic["func_par"]["value4"]]
+                elif isinstance(global_row,list):
+                    value4 = global_row[global_header.index(global_dic["func_par"]["value4"])]
     if bool(value1) and bool(value2) and bool(value3) and bool(value4):
         result = str(str(value1)+str(value2)+str(value3)+str(value4))
     else:
         result = ""  
     return(result)
 
-def concat5(row, header,dic):
-    for inputs in dic["func_par"]["inputs"]:
-        if dic["func_par"]["value1"] in inputs:
+def concat5():
+    for inputs in global_dic["func_par"]["inputs"]:
+        if global_dic["func_par"]["value1"] in inputs:
             if "constant" in inputs:
-                value1 = dic["func_par"]["value1"]
+                value1 = global_dic["func_par"]["value1"]
             else:
-                if isinstance(row,dict):
-                    value1 = row[dic["func_par"]["value1"]]
-                elif isinstance(row,list):
-                    value1 = row[header.index(dic["func_par"]["value1"])]
-        elif dic["func_par"]["value2"] in inputs:
+                if isinstance(global_row,dict):
+                    value1 = global_row[dic["func_par"]["value1"]]
+                elif isinstance(global_row,list):
+                    value1 = global_row[global_header.index(global_dic["func_par"]["value1"])]
+        elif global_dic["func_par"]["value2"] in inputs:
             if "constant" in inputs:
-                value2 = dic["func_par"]["value2"]
+                value2 = global_dic["func_par"]["value2"]
             else:
-                if isinstance(row,dict):
-                    value2 = row[dic["func_par"]["value2"]]
-                elif isinstance(row,list):
-                    value2 = row[header.index(dic["func_par"]["value2"])]
-        elif dic["func_par"]["value3"] in inputs:
+                if isinstance(global_row,dict):
+                    value2 = global_row[global_dic["func_par"]["value2"]]
+                elif isinstance(global_row,list):
+                    value2 = global_row[global_header.index(global_dic["func_par"]["value2"])]
+        elif global_dic["func_par"]["value3"] in inputs:
             if "constant" in inputs:
-                value3 = dic["func_par"]["value3"]
+                value3 = global_dic["func_par"]["value3"]
             else:
-                if isinstance(row,dict):
-                    value3 = row[dic["func_par"]["value3"]]
-                elif isinstance(row,list):
-                    value3 = row[header.index(dic["func_par"]["value3"])]
-        elif dic["func_par"]["value4"] in inputs:
+                if isinstance(global_row,dict):
+                    value3 = global_row[global_dic["func_par"]["value3"]]
+                elif isinstance(global_row,list):
+                    value3 = global_row[global_header.index(global_dic["func_par"]["value3"])]
+        elif global_dic["func_par"]["value4"] in inputs:
             if "constant" in inputs:
-                value4 = dic["func_par"]["value4"]
+                value4 = global_dic["func_par"]["value4"]
             else:
-                if isinstance(row,dict):
-                    value4 = row[dic["func_par"]["value4"]]
-                elif isinstance(row,list):
-                    value4 = row[header.index(dic["func_par"]["value4"])]
-        elif dic["func_par"]["value5"] in inputs:
+                if isinstance(global_row,dict):
+                    value4 = global_row[global_dic["func_par"]["value4"]]
+                elif isinstance(global_row,list):
+                    value4 = global_row[global_header.index(global_dic["func_par"]["value4"])]
+        elif global_dic["func_par"]["value5"] in inputs:
             if "constant" in inputs:
-                value5 = dic["func_par"]["value5"]
+                value5 = global_dic["func_par"]["value5"]
             else:
-                if isinstance(row,dict):
-                    value5 = row[dic["func_par"]["value5"]]
-                elif isinstance(row,list):
-                    value5 = row[header.index(dic["func_par"]["value5"])]
+                if isinstance(global_row,dict):
+                    value5 = global_row[global_dic["func_par"]["value5"]]
+                elif isinstance(global_row,list):
+                    value5 = global_row[global_header.index(global_dic["func_par"]["value5"])]
     if bool(value1) and bool(value2) and bool(value3) and\
        bool(value4) and bool(value5):
         result = str(str(value1)+str(value2)+str(value3)+\
@@ -247,56 +249,56 @@ def concat5(row, header,dic):
         result = ""  
     return(result)
 
-def concat6(row, header,dic):
-    for inputs in dic["func_par"]["inputs"]:
-        if dic["func_par"]["value1"] in inputs:
+def concat6():
+    for inputs in global_dic["func_par"]["inputs"]:
+        if global_dic["func_par"]["value1"] in inputs:
             if "constant" in inputs:
-                value1 = dic["func_par"]["value1"]
+                value1 = global_dic["func_par"]["value1"]
             else:
-                if isinstance(row,dict):
-                    value1 = row[dic["func_par"]["value1"]]
-                elif isinstance(row,list):
-                    value1 = row[header.index(dic["func_par"]["value1"])]
-        elif dic["func_par"]["value2"] in inputs:
+                if isinstance(global_row,dict):
+                    value1 = global_row[global_dic["func_par"]["value1"]]
+                elif isinstance(global_row,list):
+                    value1 = global_row[global_header.index(global_dic["func_par"]["value1"])]
+        elif global_dic["func_par"]["value2"] in inputs:
             if "constant" in inputs:
-                value2 = dic["func_par"]["value2"]
+                value2 = global_dic["func_par"]["value2"]
             else:
-                if isinstance(row,dict):
-                    value2 = row[dic["func_par"]["value2"]]
-                elif isinstance(row,list):
-                    value2 = row[header.index(dic["func_par"]["value2"])]
-        elif dic["func_par"]["value3"] in inputs:
+                if isinstance(global_row,dict):
+                    value2 = global_row[global_dic["func_par"]["value2"]]
+                elif isinstance(global_row,list):
+                    value2 = global_row[global_header.index(global_dic["func_par"]["value2"])]
+        elif global_dic["func_par"]["value3"] in inputs:
             if "constant" in inputs:
-                value3 = dic["func_par"]["value3"]
+                value3 = global_dic["func_par"]["value3"]
             else:
-                if isinstance(row,dict):
-                    value3 = row[dic["func_par"]["value3"]]
-                elif isinstance(row,list):
-                    value3 = row[header.index(dic["func_par"]["value3"])]
-        elif dic["func_par"]["value4"] in inputs:
+                if isinstance(global_row,dict):
+                    value3 = global_row[global_dic["func_par"]["value3"]]
+                elif isinstance(global_row,list):
+                    value3 = global_row[global_header.index(global_dic["func_par"]["value3"])]
+        elif global_dic["func_par"]["value4"] in inputs:
             if "constant" in inputs:
-                value4 = dic["func_par"]["value4"]
+                value4 = global_dic["func_par"]["value4"]
             else:
-                if isinstance(row,dict):
-                    value4 = row[dic["func_par"]["value4"]]
-                elif isinstance(row,list):
-                    value4 = row[header.index(dic["func_par"]["value4"])]
-        elif dic["func_par"]["value5"] in inputs:
+                if isinstance(global_row,dict):
+                    value4 = global_row[global_dic["func_par"]["value4"]]
+                elif isinstance(global_row,list):
+                    value4 = global_row[global_header.index(global_dic["func_par"]["value4"])]
+        elif global_dic["func_par"]["value5"] in inputs:
             if "constant" in inputs:
-                value5 = dic["func_par"]["value5"]
+                value5 = global_dic["func_par"]["value5"]
             else:
-                if isinstance(row,dict):
-                    value5 = row[dic["func_par"]["value5"]]
-                elif isinstance(row,list):
-                    value5 = row[header.index(dic["func_par"]["value5"])]
-        elif dic["func_par"]["value6"] in inputs:
+                if isinstance(global_row,dict):
+                    value5 = global_row[global_dic["func_par"]["value5"]]
+                elif isinstance(global_row,list):
+                    value5 = global_row[global_header.index(global_dic["func_par"]["value5"])]
+        elif global_dic["func_par"]["value6"] in inputs:
             if "constant" in inputs:
-                value6 = dic["func_par"]["value6"]
+                value6 = global_dic["func_par"]["value6"]
             else:
-                if isinstance(row,dict):
-                    value6 = row[dic["func_par"]["value6"]]
-                elif isinstance(row,list):
-                    value6 = row[header.index(dic["func_par"]["value6"])]
+                if isinstance(global_row,dict):
+                    value6 = global_row[global_dic["func_par"]["value6"]]
+                elif isinstance(global_row,list):
+                    value6 = global_row[global_header.index(global_dic["func_par"]["value6"])]
     if bool(value1) and bool(value2) and bool(value3) and\
        bool(value4) and bool(value5) and bool(value6):
         result = str(str(value1)+str(value2)+str(value3)+\
@@ -305,11 +307,11 @@ def concat6(row, header,dic):
         result = "" 
     return(result)
 
-def match_gdna(row, header, dic):
-    if isinstance(row,dict):
-        combinedValue = row[dic["func_par"]["combinedValue"]]
-    elif isinstance(row,list):
-        combinedValue = row[header.index(dic["func_par"]["combinedValue"])]
+def match_gdna():
+    if isinstance(global_row,dict):
+        combinedValue = global_row[global_dic["func_par"]["combinedValue"]]
+    elif isinstance(global_row,list):
+        combinedValue = global_row[global_header.index(global_dic["func_par"]["combinedValue"])]
     if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         gdna = ""
@@ -320,11 +322,11 @@ def match_gdna(row, header, dic):
         gdna = ""
     return(gdna)
 
-def match_cdna(row, header, dic):
-    if isinstance(row,dict):
-        combinedValue = row[dic["func_par"]["combinedValue"]]
-    elif isinstance(row,list):
-        combinedValue = row[header.index(dic["func_par"]["combinedValue"])]
+def match_cdna():
+    if isinstance(global_row,dict):
+        combinedValue = global_row[global_dic["func_par"]["combinedValue"]]
+    elif isinstance(global_row,list):
+        combinedValue = global_row[global_header.index(global_dic["func_par"]["combinedValue"])]
     if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         cdna = ""
@@ -335,11 +337,11 @@ def match_cdna(row, header, dic):
         cdna = ""                
     return(cdna)
 
-def match_aa(row, header, dic):
-    if isinstance(row,dict):
-        combinedValue = row[dic["func_par"]["combinedValue"]]
-    elif isinstance(row,list):
-        combinedValue = row[header.index(dic["func_par"]["combinedValue"])]
+def match_aa():
+    if isinstance(global_row,dict):
+        combinedValue = global_row[global_dic["func_par"]["combinedValue"]]
+    elif isinstance(global_row,list):
+        combinedValue = global_row[global_header.index(global_dic["func_par"]["combinedValue"])]
     if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         aa = ""
@@ -350,11 +352,11 @@ def match_aa(row, header, dic):
         aa = ""             
     return (aa)  
 
-def match_exon(row, header, dic):
-    if isinstance(row,dict):
-        combinedValue = row[dic["func_par"]["combinedValue"]]
-    elif isinstance(row,list):
-        combinedValue = row[header.index(dic["func_par"]["combinedValue"])]
+def match_exon():
+    if isinstance(global_row,dict):
+        combinedValue = global_row[global_dic["func_par"]["combinedValue"]]
+    elif isinstance(global_row,list):
+        combinedValue = global_row[global_header.index(global_dic["func_par"]["combinedValue"])]
     if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         exon = ""
@@ -365,13 +367,13 @@ def match_exon(row, header, dic):
         exon = ""                
     return(exon)
            
-def match_pFormat(row, header, dic):    
-    if isinstance(row,dict):
-        threeLetters = row[dic["func_par"]["threeLetters"]]
-        gene = row[dic["func_par"]["gene"]]
-    elif isinstance(row,list):
-        threeLetters = row[header.index(dic["func_par"]["threeLetters"])]
-        gene = row[header.index(dic["func_par"]["gene"])]        
+def match_pFormat():    
+    if isinstance(global_row,dict):
+        threeLetters = global_row[global_dic["func_par"]["threeLetters"]]
+        gene = global_row[global_dic["func_par"]["gene"]]
+    elif isinstance(global_row,list):
+        threeLetters = global_row[global_header.index(global_dic["func_par"]["threeLetters"])]
+        gene = global_row[global_header.index(global_dic["func_par"]["gene"])]        
     aminoAcidsDic = {
     "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
     "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
@@ -387,11 +389,11 @@ def match_pFormat(row, header, dic):
         pFormat = ""    
     return(pFormat)
 
-def rearrange_cds(row, header, dic):
-    if isinstance(row,dict):
-        cds = row[dic["func_par"]["cds"]]
-    elif isinstance(row,list):
-        cds = row[header.index(dic["func_par"]["cds"])]
+def rearrange_cds():
+    if isinstance(global_row,dict):
+        cds = global_row[global_dic["func_par"]["cds"]]
+    elif isinstance(global_row,list):
+        cds = global_row[global_header.index(global_dic["func_par"]["cds"])]
     if bool(cds):
         if "del" not in cds and "ins" not in cds:
             if not cds.split(".")[1][0].isdigit():
@@ -409,20 +411,20 @@ def rearrange_cds(row, header, dic):
 
 
 # returns the regex match with the replvalue in the column
-def replaceRegex(row, header, dic):
-    if isinstance(row,dict):
-        value = row[dic["func_par"]["value"]]
-    elif isinstance(row,list):
-        value = row[header.index(dic["func_par"]["value"])]
-    return re.sub(dic["func_par"]["regex"],str(dic["func_par"]["replvalue"]),str(value))
+def replaceRegex():
+    if isinstance(global_row,dict):
+        value = global_row[global_dic["func_par"]["value"]]
+    elif isinstance(global_row,list):
+        value = global_row[global_header.index(global_dic["func_par"]["value"])]
+    return re.sub(global_dic["func_par"]["regex"],str(global_dic["func_par"]["replvalue"]),str(value))
 
 # returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
-def split(row, header, dic):
-    if isinstance(row,dict):
-        column = row[dic["func_par"]["column"]]
-    elif isinstance(row,list):
-        column = row[header.index(dic["func_par"]["column"])]
-    return str(column).split(dic["func_par"]["separator"])[int(dic["func_par"]["index"])]
+def split():
+    if isinstance(global_row,dict):
+        column = global_row[global_dic["func_par"]["column"]]
+    elif isinstance(global_row,list):
+        column = global_row[global_header.index(global_dic["func_par"]["column"])]
+    return str(column).split(global_dic["func_par"]["separator"])[int(global_dic["func_par"]["index"])]
 
 def execute_function(row,header,dic):
     functions = {"tolower":"","toupper":"","totitle":"","trim":"","chomp":"","substring":"","replaceValue":"","variantIdentifier":"",
@@ -430,8 +432,13 @@ def execute_function(row,header,dic):
                 "match_exon":"","rearrange_cds":"","match_pFormat":"","match":"","replaceRegex":"","split":""}
     func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
     if func in functions:
-        print(func)
-        return func(row,header,dic)              
+        global global_row
+        global_row = row
+        global global_header
+        global_header = header
+        global global_dic
+        global_dic = dic
+        return eval(func + "()")             
     else:
         print("Invalid function")
         print("Aborting...")

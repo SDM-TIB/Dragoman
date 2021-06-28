@@ -449,7 +449,7 @@ def translate(config_path):
 									line_values = {}
 									for row in reader:
 										temp_lines = {}
-										i = 0
+										k = 0
 										line = []
 										string_values = ""
 										string_line_values = ""
@@ -466,24 +466,24 @@ def translate(config_path):
 											if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
 												value = inner_function(row,temp_dic,triples_map_list)
 												if temp_lines:
-													i = 0
+													k = 0
 													for temp in temp_lines:
 														temp_temp_lines = {}
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_temp_lines[i] = temp_lines[temp] + [v]
-																	i += 1
+																	temp_temp_lines[k] = temp_lines[temp] + [v]
+																	k += 1
 														else:
-															temp_temp_lines[i] =  temp_lines[temp] + [value]
-															i += 1
+															temp_temp_lines[k] =  temp_lines[temp] + [value]
+															k += 1
 													temp_lines = temp_temp_lines
 												else:
 													if isinstance(value, list):
 														for v in value:
 															if non_none:
-																temp_lines[i] = line + [v]
-																i += 1
+																temp_lines[k] = line + [v]
+																k += 1
 														list_input = False
 													else:
 														line.append(value)
@@ -493,24 +493,24 @@ def translate(config_path):
 												if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
 													value = inner_function(row,temp_dic,triples_map_list)
 													if temp_lines:
-														i = 0
+														k = 0
 														for temp in temp_lines:
 															temp_temp_lines = {}
 															if isinstance(value, list):
 																for v in value:
 																	if non_none:
-																		temp_temp_lines[i] = temp_lines[temp] + [v]
+																		temp_temp_lines[k] = temp_lines[temp] + [v]
 																		i += 1
 															else:
-																temp_temp_lines[i] =  temp_lines[temp] + [value]
-																i += 1
+																temp_temp_lines[k] =  temp_lines[temp] + [value]
+																k += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_lines[i] = line + [v]
-																	i += 1
+																	temp_lines[k] = line + [v]
+																	k += 1
 															list_input = False
 														else:
 															line.append(value)
@@ -519,24 +519,24 @@ def translate(config_path):
 												else:
 													value = temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values]
 													if temp_lines:
-														i = 0
+														k = 0
 														for temp in temp_lines:
 															temp_temp_lines = {}
 															if isinstance(value, list):
 																for v in value:
 																	if non_none:
-																		temp_temp_lines[i] = temp_lines[temp] + [v]
-																		i += 1
+																		temp_temp_lines[k] = temp_lines[temp] + [v]
+																		k += 1
 															else:
-																temp_temp_lines[i] =  temp_lines[temp] + [value]
-																i += 1
+																temp_temp_lines[k] =  temp_lines[temp] + [value]
+																k += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_lines[i] = line + [v]
-																	i += 1
+																	temp_lines[k] = line + [v]
+																	k += 1
 															list_input = False
 														else:
 															line.append(value)
