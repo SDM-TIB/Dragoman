@@ -150,7 +150,7 @@ def match_aa():
     return (aa)  
 
 def match_exon():
-    combinedValue = global_dic["func_par"]["combinedValue"]
+    combinedValue = global_dic["combinedValue"]
     if bool(combinedValue):
         expressionsList = combinedValue.split(":")
         exon = ""
@@ -204,6 +204,10 @@ def replaceRegex():
 # returns the index-th string obtained by splitting the string of the column at the first aprearance of the separator
 def split():
     return str(global_dic["column"]).split(global_dic["separator"])[int(global_dic["index"])]
+
+
+###############################################################################################
+################################## Static (Do NOT change) #####################################
 
 def execute_function(row,header,dic):
     func = dic["function"].split("/")[len(dic["function"].split("/"))-1]

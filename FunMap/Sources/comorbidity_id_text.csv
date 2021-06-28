@@ -1,0 +1,5446 @@
+TEXT_ID,TEXT
+A10000,Gastritis crÛnica
+A10001,Sarcoma PleomÛrfico Pectoral Mayor 
+A10002,hiperuricemia
+A10003,intervenido pÛlipo colon
+A10004,intervenido estenosis aorta
+A10005,Disnea
+A10006,Osteoporosis
+A10007,Histerectomia con doble anexectomia
+A10008,hipotiroidismo subclÌnico
+A10009,carcinoma de prÛstata en 2011
+A10010,Cirrosis
+A10011,Osteopenia
+A10012,migraÒa
+A10013,esquizofrenia
+A10014,Fibromialgia
+A10015,Hemocromatosis
+A10016,prolapso mitral
+A10017,artrosis lumbar
+A10018,enfermedad dupuytren mano
+A10019,dermatitis contacto
+A10020,SAHS
+A10021,Hernia de hiato
+A10022,Hernia discal
+A10023,hiperplasia benigna de prÛstata
+A10024,DepresiÛn
+A10025,hepatopatÌa crÛnica
+A10026,Hemoptisis
+A10027,Osteosintesis carpiana
+A10028,artritis reumatoide
+A10029,Enfermedad de Crohn
+A10030,urticaria
+A10031,artrosis
+A10032,Articulacion temporomandibular
+A10033,Dispepsia
+A10034,Hernia hiatal
+A10035,Retinopatia diabÈtica
+A10036,SÌndrome Apnea-Hipoapnea durante el SueÒo
+A10037,Hipertrigliceridemia
+A10038,Hipotiroidismo
+A10039,Cirrosis hepatica
+A10040,Ulcus gastrico
+A10041,MigraÒas
+A10042,Escoliosis lumbar
+A10043,Hiperlordosis lumbar
+A10044,Hipertrofia benigna de prÛstata
+A10045,Catalepsia
+A10046,Osteoartrosis
+A10047,Hipoacusia
+A10048,Sindrome apnea obstructiva sueÒo
+A10049,Hernia hiato
+A10050,Cataratas
+A10051,Hernia inguinal
+A10052,Hiperplasia benigna protata
+A10053,Hiperplasia benigna prostata
+A10054,Apnea obstructiva del sueÒo
+A10055,Lipoma hombro derecho
+A10056,ResecciÛn de nevus melanocÌtico
+A10057,Fibroadenoma de mama derecho
+A10058,Mantoux positivo
+A10059,NÛdulo mamario BIRADS2 benigno
+A10060,Portadora BRCA1 con histerectomia y doble anexectomia
+A10061,Ulcera peptica
+A10062,Hemorroides y fistula anal
+A10063,Hernias discales cervicales
+A10064,Hipoacusia sensorial en OI
+A10065,Colecistectomia por colelitiasis
+A10066,HT+DA
+A10067,Faquectomia
+A10068,Parkinson
+A10069,rtu (ResecciÛn Transuteral)
+A10070,Meningitis en infancia
+A10071,Herniorrafia derecha
+A10072,Hemilaminectomia
+A10073,Sindrome Leriche crÛnico
+A10074,NefrectomÌa derecha por tumor de Urotelio superior
+A10075,insuficiencia venosa
+A10076,anemia
+A10077,Diverticulitis colica
+A10078,Cistectomia radical con neovejiga
+A10079,Adenoma tubular
+A10080,Insuficiencia renal cronica
+A10081,Queratosis actinica
+A10082,Ex consumidor heroina
+A10083,Ansiedad
+A10084,Asma bronquial alÈrgico
+A10085,Hiperglucemia
+A10086,Neumonitis obstructiva
+A10087,Candidiasis orofaringea
+A10088,Hemorroides
+A10089,Hipoacusia mixta bilateral
+A10090,Trasplante renal en 2008
+A10091,Edema en EEII
+A10092,Meralgia parestesica
+A10093,Fractura muÒeca
+A10094,Fractura rodilla
+A10095,Fimosis
+A10096,Artritis gotosa
+A10097,Glaucoma
+A10098,Ulcera duodenal +esofagitis
+A10099,Poliartritis
+A10100,Alveolitis pulmonar
+A10101,Etilismo cronico
+A10102,Hiperplasia prost·tica benigna
+A10103,sindrome de apnea e hipopnea del sueÒo
+A10104,polipos adenomatosos colon
+A10105,Hernias discales
+A10106,Ulcera g·strica
+A10107,hepatopatia enÛlica
+A10108,espondilitis anquilosante
+A10109,EPOC muy muy severo
+A10110,alcoholismo severo activo
+A10111,implante coclear
+A10112,colitis ulcerosa
+A10113,valvulopatia aÛrtica cardiaca
+A10114,epilepsia
+A10115,VHC
+A10116,VIH
+A10117,demencia
+A10118,CUSHING
+A10119,sÌndrome post-traum·tico tras traumatismo con dÈficit motor paresia hemicuerpo derecho
+A10120,colitis isquÈmica: dos episodios
+A10121,ateromatosis aÛrtica y coronaria
+A10122,depresiÛn reactiva
+A10123,herpes zÛster 2016
+A10124,ateromatosis aÛrtica
+A10125,fibrilaciÛn auricular paroxÌstica
+A10126,TumoraciÛn parÛtida derecha que sugieren adenoma pleomorfo vs tumor de Warthin
+A10127,pÛlipos colÛnicos resecados
+A10128,Estenosis canal medular
+A10129,urticaria crÛnica
+A10130,esteatohepatitis
+A10131,hipertiroidismo
+A10132,hidrosadenitis bilateral
+A10133,tromboembolismo pulmonar 2004 idiop·tico
+A10134,hiperparatiroidismo
+A10135,esteatosis hep·tica alcohÛlica
+A10136,Ateromatosis calcificada en aorta y arterias coronarias
+A10137,poliartrosis severa
+A10138,MigraÒa crÛnica con y sin aura visual
+A10139,esteatosis hep·tica
+A10140,histiocitosis no confirmada
+A10141,polineuropatÌa alcohÛlica
+A10142,Hiperuricemia con crisis gotosa
+A10143,micosis fungoide
+A10144,ACVA tipo vascular sin secuelas antiagregada
+A10145,DETERIORO COGNITIVO PROGRESIVO
+A10146,INSUFICIENCIA RENAL CRONICA 3A
+A10147,HABITO ETILICO OCASIONAL
+A10148,"LESMANIOSIS, VIH"
+A10149,BRONQUITIS CRONICA
+A10150,INGESTA ETILICA 20G DIARIOS
+A10151,ANGINA DE PRIZMETAL
+A10152,PSORIASIS
+A10153,PALUDISMO
+A10154,HABITO ENOLICO MODERADO
+A10155,ARTERIOPATIA
+A10156,CLAUDICACION INTERMITENTE
+A10157,ULCERA GASTRODUODENAL
+A10158,ARTERIOPATIA PERIFERICA
+A10159,ANEMIA CRONICA
+A10160,SCASEST
+A10161,Apnea del sueÒo
+A10162,SAOS
+A10163,IAM
+A10164,SOPLO SISTOLICO
+A10165,TROMBOSIS VENOSA PROFUNDA
+A10166,Adenoma tubular con displasia de bajo grado en colon
+A10167,SÌndrome de apnea obstructiva del sueÒo
+A10168,ulcus gastric
+A10169,Colitis linfocitaria
+A10170,sindrome apnea obstructiva del sueÒo
+A10171,hepatopatÌa crÛnica por enol
+A10172,polineuropatÌa
+A10173,Anemia ferropÈnica
+A10174,Hiperplasia prost·tica
+A10175,Hiperplasia de prÛstata
+A10176,cÛlicos nefrÌticos
+A10177,HIV categorÌa C3
+A10178,ulcus duodenal
+A10179,infecciÛn VHB
+A10180,flutter auricular
+A10181,sÌndrome prost·tico
+A10182,ESOFAGO BARRET
+A10183,Alcoholismo
+A10184,ALCOHOLICO
+A10185,discopatÌa degenerativa L5-S1
+A10186,hipovitaminosis D
+A10187,ESTENOSIS CAROTIDEA
+A10188,Hipotiroidismo secundario a tiroidectomia por bocio multinodular
+A10189,Cirrosis biliar primaria
+A10190,Meningitis aseptica
+A10191,ACV
+A10192,ULCERA DUODENAL
+A10193,POLIPO LARINGE BENIGNO
+A10194,PANCREATITIS
+A10195,HIPERIRIRCEMIA
+A10196,LARINGITIS CRONICA
+A10197,ACV ISQUEMICO
+A10198,DIVERTICULITIS
+A10199,ESOFAGO DE BARRETT
+A10200,DETERIORO COGNITIVO
+A10201,ICTUS
+A10202,DEFICIT VITAMINA B12
+A10203,DEFICIT VITAMINA D
+A10204,RINITIS CRONICA
+A10205,DUPUYTREN
+A10206,sindrome mielodisplasico
+A10207,INSUFICIENCIA RENAL
+A10208,RINITIS
+A10209,TRASTORNO BIPOLAR
+A10210,SINDROME LYNCH
+A10211,hiperplasia beningna prÛstata
+A10212,BOCIO
+A10213,enfermedad chron
+A10214,EspondoloartropatIa secundaria HLA B27 positiva
+A10215,Pioderma gangrenoso
+A10216,Alzheimer
+A10217,AMAUROSIS
+A10218,GASTRITIS DUODENAL
+A10219,HEMORRAGIA DIGESTIVA ALTA
+A10220,COLESTEATOMA
+A10221,INSUFICIENCIA VENOSA Y ARTERIAL CRONICA
+A10222,VHB
+A10223,adenoma folicular
+A10224,intervenido meningioma
+A10225,prÛtesis cadera ixda
+A10226,deteriori cognitivo leve
+A10227,HBP
+A10228,SINDROME VERTIGINOSO
+A10229,cocainomano
+A10230,consumo hachis
+A10231,ARTRITIS
+A10232,FIBROSIS PULMONAR
+A10233,SÌndrome de apnea obstructiva del sueÒo (SAOS)
+A10234,TROMBOFILIA
+A10235,ENFERMEDAD RENAL CRONICA
+A10236,HIPERIRICEMIA
+A10237,PIROSIS
+A10238,HIPOTOROIDISMO
+A10239,SAHOS
+A10240,COCAINA + SPEED
+A10241,SIFILIS
+A10242,ESQUIZOAFECTIVO
+A10243,HIPERCOLESTEROLEMIA
+A10244,ENOLISMO
+A10245,TROMBOCITOSIS
+A10246,Sdr apneasueÒo
+A10247,Fiebre botonosa
+A10248,troomboembolismo pulmonar
+A10249,Brucelosis
+A10250,Temblor esencial
+A10251,ICTUS en 2007
+A10252,Hipertrofia prost·tica benigna
+A10253,fibrosis pulmonar idiop·tica
+A10254,pÒitiriasis versicolor
+A10255,edema de reinke
+A10256,hepatitis B
+A10257,colelitiasis
+A10258,trombosis vneosa retina ojo derecho
+A10259,dÈficit leve de FXII de coagulaciÛn
+A10260,sÌndrome apnea-hipopnea sueÒo
+A10261,tromboembolismo pulmonar
+A10262,talasemia
+A10263,neumotorax derecho
+A10264,prolapso uterino
+A10265,sindrome apne-ortpnea sueÒo
+A10266,miopia magna
+A10267,lumbalgia crÛnica
+A10268,linfoma no hodking B difuso IIA
+A10269,vÈrtigos perifÈricos
+A10270,ameloblastomoa folicular (mandibulectomÌa)
+A10271,ftromboflebitis de repeticiÛn
+A10272,cifoescoliosis
+A10273,Ulcus pÈptico
+A10274,Enfermedad Menetrier
+A10275,vertigo perifÈrico
+A10276,TVP MII
+A10277,Endometriosis ovarica
+A10278,quistes renales
+A10279,quistes en cola de pancreas
+A10280,hepatitis C
+A10281,Sindrome isquemia cronica de MII
+A10282,gonartrosis
+A10283,espondiloartropatÌa
+A10284,diverticulosis colon
+A10285,hgernia de hiato
+A10286,MiotonÌa de Thonsem
+A10287,criptococosis pulmonar
+A10288,hidatidosis
+A10289,detrioro cognitivo
+A10290,dÈficit de alfa 1 antitripsina
+A10291,DegeneraciÛn cerebelosa tipo Holmes
+A10292,dÈficit de B12
+A10293,consumidor de cocaina
+A10294,coleliitasis
+A10295,paraparesia esp·stica hereditaria
+A10296,OSATEROPOROSIS
+A10297,SINDROME MENIERE
+A10298,Hidrocele bilateral
+A10299,Incontinencia urinaria
+A10300,Eritema nodoso
+A10301,Sarcoidosis
+A10302,Esofagitis por reflujo
+A10303,Pleuritis en la infancia
+A10304,GammapatÌa monoclonal de significado incierto
+A10305,Hipogonadismo primario
+A10306,"HepatopatÌa etanÛlica, CHILD B"
+A10307,Hipoacusia bilateral
+A10308,Intervenido de aneurisma de aorta abdominal infrarrenal
+A10309,Rinoconjuntivitis estacional
+A10310,Criterios clÌnicos de bronquitis crÛnica
+A10311,Leucoplasia de labio inferior
+A10312,TEP por dÈficit de factor V
+A10313,Glaucoma bilateral
+A10314,hipertransaminasemia
+A10315,esteatohepatitis leve
+A10316,Sindrome apneas/hipopneas del sueÒo
+A10317,Bronquitis crÛnica no obstructiva
+A10318,HepatopatÌa crÛnica alcohÛlica
+A10319,ca vejiga no infiltrante
+A10320,osteoporossis-bifosfonatos
+A10321,prostatismo
+A10322,cntusiÛn cerebral post-traum·tica
+A10323,leucemia aguda NL
+A10324,ataxia cerebelosa
+A10325,Hepatocarcinoma en 2016
+A10326,varices esof·gicas
+A10327,SCA tipo angina inestable
+A10328,VÈrtigo
+A10329,Diverticulosis
+A10330,Ictus en Abril 2016
+A10331,Sifilis bien tratada
+A10332,Cor pulmonale
+A10333,Atrofia muscular
+A10334,Ictus enero 2019
+A10335,Rinitis alÈrgica
+A10336,Bloqueo completo Rama Derecha HH
+A10337,insomnio
+A10338,"Leucemia linfocÌtica crÛnica desde 2016, sin tratamiento"
+A10339,BACV de primer grado
+A10340,ex- adicto a drogas por via parenteral
+A10341,lupus
+A10342,Portadora de hemofilia
+A10343,ERC estadio 3
+A10344,Hepatocarcinoma (trasplante hep·tico)
+A10345,Pancreatitis crÛnica enolica
+A10346,Ca. Cuerda vocal 2004
+A10347,Carcinoma broncogÈnico III-B en 2005 tratado en otro hospital
+A10348,Tromboembolismo pulmonar (TEP)
+A10349,ENDOMETRIOSIS
+A10350,Trastorno adaptativo
+A10351,Hidronefrosis renal
+A10352,TROMBOSIS VENOSA DE REPETICION
+A10353,MIELOMA MULTIPLE
+A10354,TRASPLANTE MEDULA OSEA
+A10355,ADC colon (hepatectomÌa derecha + colecistectomia) en 2003
+A10356,Fibropapiloma bronquial en 1996
+A10357,ADC de prÛstata T2aN0M0
+A10358,Hiperreactividad bronquial (desde inhalaciÛn de lejÌa y amoniaco)
+A10359,ADC prÛstata (RT en diciembre)
+A10360,Hipogonadismo hipogonadotropo
+A10361,HIPEURICEMIA
+A10362,carcinoma vesical
+A10363,Par·lisis diafragm·tica dcha
+A10364,Problem·tica social (aÒos indigencia) con desnutriciÛn
+A10365,PerforaciÛn g·strica
+A10366,Bronquiectasias crÛnicas
+A10367,SÌndrome ansioso depresivo
+A10368,Ictus isquÈmico ACM derecha
+A10369,IQx: cordectomÌa
+A10370,ICTUS isquÈmico
+A10371,FibrilaciÛn auricular crÛnica
+A10372,Hiperuricemia con artropatÌa gotosa
+A10373,SÌndrome de Apnea del SueÒo
+A10374,Cefalea en racimos
+A10375,TensiÛn alta no HipertensiÛn
+A10376,Litiasis renal
+A10377,Hiperplasia benigna prost·tica
+A10378,HSA por TCE sin secuelas
+A10379,Alergia a Penicilinas
+A10380,TEP bilateral
+A10381,ApendicectomÌa
+A10382,Herniorrafia umbilical
+A10383,PerforaciÛn vÌscera hueca
+A10384,Angioma
+A10385,Ulcus gastroduodenal
+A10386,Arritmia Cardiaca
+A10387,Ulcus gastrico perforado
+A10388,DiscectomÌa
+A10389,Hemangioma vertebral
+A10390,Enfermedad de Graves tratada con Iodo
+A10391,Hipotiroidismo post Iodo
+A10392,Carcinoma espinocelular
+A10393,Carcinoma basocelular
+A10394,Blefarospasmo
+A10395,ColecistectomÌa
+A10396,EsÛfago de Barret
+A10397,Diabetes insÌpida
+A10398,alergia a codeina
+A10399,traumatismo craneal en 1987 con evacuacion de hematoma
+A10400,"adk de prostata ,"
+A10401,Dolores de cabeza ocasionales
+A10402,Dolor en hombro izquierdo
+A10403,intoleracia al aspirina
+A10404,lumbalgia mecanica cronica
+A10405,gastroduodenitis
+A10406,otoesclerosis bilateral
+A10407,reduccion de mama
+A10408,amigdalectomia
+A10409,Trastorno maniaco-depresivo
+A10410,Espondilosis a nivel cervico-lumbar
+A10411,neumotorax en 1996
+A10412,patologia venosa aortica
+A10413,alergia a ala penicilina
+A10414,ulcua peptico
+A10415,ulcera gastruodenal
+A10416,Anorexia
+A10417,estenosis del canal medular
+A10418,broncopatÌa
+A10419,hiperactividad
+A10420,alergia a la penicilina
+A10421,sindrome de morris
+A10422,sindrome de horner
+A10423,cervicobraquialgia
+A10424,dolor de cabeza
+A10425,paralisis facial Bell
+A10426,hemiparesia
+A10427,hipertension portal
+A10428,hepatitis
+A10429,HepatopatÌa crÛnica.
+A10430,PolineuropatÌa diabÈtica
+A10431,Glaucoma BILATERAL.
+A10432,Tromboflebitis superficial
+A10433,enfisema pulmonar
+A10434,otoesclerosis
+A10435,Alergias
+A10436,esclerosis aortica
+A10437,cirrosis biliar
+A10438,osteoporosis menopausica
+A10439,Escoliosis
+A10440,Peritonitis
+A10441,hernia inguinal dch.
+A10442,INSUFICIENCIA VENOSA PERIFERICA
+A10443,HERNIA HIATAL DESLIZANTE
+A10444,Pielonefritis aguda en varias ocasiones
+A10445,Bebedor
+A10446,politoxicomano
+A10447,Hipoacucia
+A10448,fumador HeroÌna
+A10449,Artrodesis
+A10450,Mastitis
+A10451,Gastritis
+A10452,Faringitis
+A10453,Bronquitis
+A10454,TEP
+A10455,artopatÌa
+A10456,ex consumidor de heroÌna y crack
+A10457,VCH
+A10458,ex consumidor de cocaÌna y cannabis
+A10459,VIH +
+A10460,esclerosis lateral amiotrÛfica (ELA)
+A10461,hipernefroma
+A10462,Hipertrofia Ventricular Izquierda
+A10463,Bebedor activo
+A10464,ALERGIA AL NIQUEL
+A10465,paralisis facial
+A10466,Insuficiencia cardÌaca
+A10467,Infarto agudo del miocardio. RecibÌo Stent
+A10468,Etilismo moderado
+A10469,HEMANGIOMAS
+A10470,ANEURISMA AORTICO ABDOMINAL
+A10471,Accidente de izquemia cerebral transitoria
+A10472,INFARTO AGUDO DE MIOCARDIO
+A10473,Infarto agudo del miocardio
+A10474,TUBERCULOSIS ANTIGUA
+A10475,TVP POPLITEA
+A10476,MIOMAS UTERINOS
+A10477,SÌndroe hiper IgE
+A10478,herniografia inguinal bilateral
+A10479,sd IAVD
+A10480,Tuvo un infarto agudo del miocardio
+A10481,3 casos de acv en familia
+A10482,Pancreattis medicamentosa
+A10483,cistoadenoma pancreas
+A10484,histerectomia
+A10485,sordera oido derecho
+A10486,litiasis ureter pelviano derecho
+A10487,alergia a penicilina
+A10488,SCACEST DE CARA INFERIOR
+A10489,amputaciÛn transmetatarsiana en pie derecho por complicaciones metadiabeticas
+A10490,"nodulos de heberden en 2∫-5∫ dedos de ambas manos,"
+A10491,ALERGIA AL PARACETAMOL
+A10492,anemia hemolitica por deficit enzimatico
+A10493,TEP EN 1977
+A10494,FRACTURA DE TIBIA Y PERONE
+A10495,Tromboembolismo pulmonar 2013
+A10496,en mayo 2015 fiebre Q
+A10497,apendicectomizado
+A10498,protesis de cadera
+A10499,QUISTE HEP¡TICO SIMPLE
+A10500,dolor lumbar
+A10501,ictus isquemico 2011
+A10502,protesis cadera derecha
+A10503,catarata bilateral
+A10504,protastismo
+A10505,qx vasectomia
+A10506,Edema de Reinke intervenido aÒo 1995
+A10507,gastritis cronica en seguimiento
+A10508,isquemia de safena
+A10509,mioma uterino
+A10510,hepatitis tipo a en la infancia
+A10511,taquicardia supraventricular paroxistica
+A10512,ex bebedor desde 2000
+A10513,isquemia mesenterica en 2010
+A10514,by -pass-Ao-bifemoral
+A10515,lobectomia superior izquierda por neo de pulmon en 1997
+A10516,salmonelosis hace 5 aÒos
+A10517,ESPONDILOSIS
+A10518,PROTATITIS
+A10519,ARTERIOPATIA PERIFERICA CON CLAUDICACION INTERMITENTE
+A10520,PROBLEMAS VISUALES DESDE 2012
+A10521,ENFISEMA+ PARASEPTAL Y CENTROACINAR
+A10522,INTOLERANCIA HIDROCARBONADA
+A10523,PANCREATITIS DE ORIGEN LITIASICO
+A10524,INTERVENIDO DE GLAUCOMA
+A10525,factor 5 de LELDEN
+A10526,RETINOPATIA
+A10527,DIVERTICULOSIS COLONICA
+A10528,BEBEDOR DE ALCOHOL 8 RONES AL DIA
+A10529,CONSUMIDOR DE CANNABIS
+A10530,HIV
+A10531,FERROPENIA
+A10532,estreÒimiento
+A10533,mieloma multiple en 2005
+A10534,Lupus Eritematoso SistÈmico
+A10535,SORIASIS
+A10536,artritis reumatoide seropositiva erosiva
+A10537,fractura de femur
+A10538,cataratas subcapsular posterior bilateral
+A10539,NeumopatÌa intersticial . Hidrosadentis supurativa
+A10540,alergia AAS
+A10541,ALERGIA PENICILINA
+A10542,EPIEMIA PLEURAL IZQUIERDA
+A10543,OSTEROPORIS
+A10544,fibrilacion auricular en trat con adiro
+A10545,neumopatia intersticial centroacinar
+A10546,ToxicomanÌa: Anfetaminas y Crack
+A10547,NeuropatÌa perifÈrica
+A10548,Herpez Zoster
+A10549,PÛlipos en Colon
+A10550,Hemorragia digestiva baja
+A10551,Enfisema bulloso
+A10552,Isquemia MID
+A10553,AdicciÛn drogas
+A10554,Tumor mandibular benigno resecado
+A10555,ANEMIA MACROCITICA CRONICA
+A10556,Bocio polinodular
+A10557,OSTEOPORIS
+A10558,mielopatia compresiva cervical
+A10559,aneurisma de la bifurcacion de la basilar
+A10560,fibrosis quistica
+A10561,Isquemia crÛnica de EII
+A10562,P˙rpura trombopÈnica idiop·tica
+A10563,Neuralgia del trigÈmino
+A10564,enfisema centrolobulillar
+A10565,dilatacion aneurismatica de la aorta ascendente
+A10566,exadicto heroina
+A10567,Pseudoquiste pancre·tico
+A10568,HepatopatÌa crÛnica etÌlica
+A10569,ex cocainÛmano
+A10570,ex heroinÛmano
+A10571,ESQUIZOFRENIA PARANOIDE COMPONENTE AFECTIVO
+A10572,SINDROME DE ARNOLD CHIARI TIO I
+A10573,Paludismo en la infancia
+A10574,EPILEPSIA EN LA INFANCIA
+A10575,HERNIORRAFIA INGUINAL
+A10576,HIDROADENITIS
+A10577,HIPER TGC (tumor giant cells)
+A10578,Estenosis pulmonar
+A10579,CONDILOMAS
+A10580,Astenia grado 2
+A10581,hepatopatia
+A10582,hiperactividad bronquial
+A10583,ANEURISMA DE AORTA INFRARRENAL
+A10584,BRONCONEUMOPATÕA
+A10585,Epilepsia secundaria
+A10586,SINDROME DE KLIPPEL-TRENAWNAY
+A10587,Eosinofilia
+A10588,Hipotiroidismo primario
+A10589,Neurosis histÈrica
+A10590,Demencia senil
+A10591,Antecedente de TEP
+A10592,Gota
+A10593,"Esquizofrenia, hernia hiatal, taquicardia paroxÌstica, bocio multinodular."
+A10595,"Crisis comiciales, Hiperplasia prost·tica benigna"
+A10596,Gammapatia monoclonal
+A10597,SÌncopes a repeticiÛn no cardiogÈnicos
+A10598,SÌndrome de Dumping
+A10599,Alcoholismo Activo
+A10600,Cirrocis de origen enÛlico
+A10601,Espondilitis anquilopoyÈtica
+A10602,Aneurisma aÛrtico
+A10603,Lumbociatalgia derecha
+A10604,NÛdulo tiroideo
+A10605,Neuralgia postherpÈtica abdominal izquierda
+A10606,Dolor Punzante en regiÛn pectoral
+A10607,Neumotorax a tensiÛn hace 20 aÒos.
+A10608,Alergia al espadrapo
+A10609,Pararlisis facial
+A10610,Ictus isquÈmico previo
+A10611,TVP ilÌacas externas y femorales
+A10612,Hipergammaglobulinemia policolonal.
+A10613,Colostomia por perforaciÛn de diverticulitis
+A10614,Trombosis de arteria iliaca com˙n izquierda
+A10615,Amigdalectomia y poliposis nasal
+A10616,Adenoma tubular de intestino grueso
+A10617,Consumidor de heroÌna y cocaÌna
+A10618,Pancreatitis crÛnica
+A10619,Artrosis axial con hernias discales lumbares
+A10620,Hernia inguinal derecha
+A10621,lipoma en espalda
+A10622,FibrilaciÛn Auricular
+A10623,Hiperlipidemia
+A10624,Histeroctomizada por prolapso
+A10625,Graves-Basedow Hipertiroidismo
+A10626,Alergias sulfamidas
+A10627,Ictus arteria cerebral media derecha
+A10628,Cataratas Bilateral
+A10629,ClaudicaciÛn intermitente vascular
+A10630,Ictus lacunares previos
+A10631,"Intervenciones quirurjicas: Hernia inguinal, apendicectomia, amÌgdalas"
+A10632,EncefalopatÌa de posible orÌgen tÛxico.
+A10633,Deterioro cognitivo progresivo desde hace 8 aÒos.
+A10634,"Consumo de sustancias. Cocaina, Heroina"
+A10635,endocarditis tricuspÌdea secundaria a embolismo sÈptico
+A10636,glomerulonefritis postinfecciosa
+A10637,Insuficiencia mitral trivial
+A10638,"Hepatitis B, Hepatitis C"
+A10639,Protesis de rodilla bilateral
+A10640,Hernia discal dorsal. Apendicitis
+A10641,Cirugia: Septoplastia
+A10642,Sordomudez
+A10643,Alergia a la penicilina y las aspirinas
+A10644,Taquicardia supraventricular
+A10645,Prolapso uterino.
+A10646,Varices de MMII derecho
+A10647,HipersecreciÛn mucosa crÛnica
+A10648,"Disnea, moderados y minimos esfuerzos."
+A10649,necrosis infero lateral
+A10650,"isquemia severa,"
+A10651,Hernia discal lumbar
+A10652,Ictus con secuelas motoras
+A10653,ExtirpaciÛn quiste en regiÛn dorsal izquierda en infancia.
+A10654,Histeroctomia
+A10655,Ulcus duodonal intervenido
+A10656,Enero de 2017 con ulcus duodenal hp positivo y con lamg y sin varices esofagogastricas
+A10657,PolineuropatÌa sensitivo motora de origen mixto (OH + DM) de grado severo diagnosticada hace unos 3
+A10658,ConizaciÛn en 1998 secundaria a CIN II.
+A10659,Tos
+A10660,infarto
+A10661,Enfermedad arterial perifÈrica
+A10662,ex politoxicÛmano
+A10663,"DOLOR GENERALIZADO , TOTALGIA"
+A10664,MAREOS
+A10665,DESORENTACI”N TEMPOROESPACIAL
+A10666,FACTOR V LEIDEN
+A10667,CERVICOARTROSIS
+A10668,Poliglobulia
+A10669,anemia microcitica
+A10670,insuficiencia vascular
+A10671,Bocio nodular
+A10672,Adenoma hipofisiario
+A10673,Artrosis columna lumbar.
+A10674,Isquemia arterial perifÈrica severa
+A10675,HIPERTIROIDSMO
+A10676,Trombosis venosa profunda bilateral en miembros inferiores
+A10677,aneurisma cerebral
+A10678,amputacion de 6 desdos de las manod
+A10679,Espondiloartrosis
+A10680,Rizartrosis bilateral
+A10681,ArtropatÌa del tobillo izquierdo
+A10682,Polineuropatia sensitivo motora de origen mixto
+A10683,Empiema crÛnico pulmÛn derecho
+A10684,COLETIASIS
+A10685,ANEURISMA
+A10686,Patologia ocular no especificada
+A10687,"Subluxacion cronica ATM , dificulta apertura buca"
+A10688,Hernia hiato de esÛfago.
+A10689,ictus isquÈmico con secuelas motoras en hemicuerpo izquierdo
+A10690,Portador de marcapasos
+A10691,portador de 2 stens
+A10692,ENFERMEDAD DE RAYNAUD
+A10693,SINDROME SJOGREN
+A10694,mielopatia compresiva cervical en el 1992
+A10695,fibrosis pulmonar
+A10696,diplopia como complicaciÛn de aneurisma
+A10697,Artrosis generalizada
+A10698,Hepatitis C tratada y curado
+A10699,Desprendimiento de retina intervenido
+A10700,HerniorrafÌa
+A10701,Arritmias cardÌacas
+A10702,Arritmia
+A10703,tumor vesical de alto grado diagnosticado 2006
+A10704,POLIOMIELITIS
+A10705,Multiquistosis renal bilateral
+A10706,Dermatitis eccematosa
+A10707,SINDROME LERICHE
+A10708,OPERADO DE TIROIDES POR HIPERTIROIDISMO
+A10709,ISQUEMIA
+A10710,MIELOPATIA
+A10711,Trombolismo pulmonar
+A10712,Disartria
+A10713,Afasia
+A10714,Estenosis de canal lumbar
+A10715,Espondilolistesis
+A10716,ACV-accidente cardiovascular
+A10717,HEMATURIA
+A10718,MENINGIOMA HEPATICO
+A10719,ENFISEMA
+A10720,LUMBALGIA
+A10721,Dx de Esquizofrenia a los 20 aÒos
+A10722,ENFERMEDAD DE PARKINSON
+A10723,CATARATA
+A10724,EVENTRACION
+A10725,SINDROME DE DOWN
+A10726,ENFERMEDAD CORONARIA DE 3 VASOS CON BY PASS Y ANULOPLASTIA MITRAL
+A10727,SIGNOS DE ATROFIA CEREBRAL Y CEREBELOSA
+A10728,HIPERTENSION PULMONar moderada
+A10729,Estenosis aÛrtica moderada.
+A10730,SÌndrome de isquemia crÛnica grado IV de MID
+A10731,TRASTORNO OBSESIVO COMPULSIVO
+A10732,ARTROPATIA
+A10733,FibrilaciÛn auricular no valvular
+A10734,SD GUILLAIN BARRE
+A10735,LIPOMAS
+A10736,secuela de polio
+A10737,fractura de cadera
+A10738,varias operaciones por la polio
+A10739,elastofibromas subcutaneos
+A10740,exheroinomano
+A10741,actualmente consume hierba
+A10742,CONSUMO DE DRIGAS ILEGALES
+A10743,TBC en la infancia
+A10744,ALLERGY TO ASPIRIN AND CODEINE
+A10745,CHOLECCYTECTOMY
+A10746,HEMORRHOIDECTOMY
+A10747,Paludismo hace 20 aÒos
+A10748,†hipertensiÛn†pulmonar†secundaria†a†fibrosis†pulmonar
+A10749,GLAUCOMA Y CATARATAS
+A10750,ALERGIA A LA ASPIRINA
+A10751,LITIASIS RENOURETERAL
+A10752,contacto tbc realizÛ profilaxis
+A10753,ESTATUS EPILEPTICOS
+A10754,factor V leyden
+A10755,SAOS (SÌndrome Apnea Obstructiva del SueÒo)
+A10756,TRANSTORNO BIPOLAR
+A10757,Enfermedad Mandelung
+A10758,Estenosis Arteria Vertebral derecha
+A10759,Cardiopatia hipertensiva
+A10760,protesis bilateral de cadera
+A10761,transtorno adaptativo
+A10762,SAAS grave
+A10763,cancer mama intraductal
+A10764,Drogodependencia
+A10765,divertÌculos en sigma y pÛlipo hiperpl·sico tratado con polipectomÌa en colonoscopia de enero de 20
+A10766,Ingreso por hemorragia digestiva baja en febrero de 2016 con exÈresis de pÛlipo adenomatoso con disp
+A10767,NeumotÛrax anterior izquierdo
+A10768,Hipotiroidismo autoinmune
+A10769,HisterectomÌa con anexectomÌa a los 35 aÒos por miomas
+A10770,CirugÌa a los 24 aÒos de varices
+A10771,Hepatopatia Croncia de Origen Etilico
+A10772,Polipo Cecal compatible con adenoma tubular con displasia de baja
+A10773,Arteriopatia perifÈrica.
+A10774,CardiopatÌa isquÈmica
+A10775,Hiponatremia
+A10776,Reflujo gastroesof·gico
+A10777,Ostopenia
+A10778,nefrolitiasis
+A10779,sinupatia
+A10780,uvietis bilateral
+A10781,Estenosis pÌloro
+A10782,Esclerosis m˙ltiple
+A10783,Alopecia areata
+A10784,Rotura supraespinoso
+A10785,Metrorragias
+A10786,Hipotiroidismo primario.
+A10787,VITÕLIGO
+A10788,apneas-hipopneas del sueÒo
+A10789,CirujÌa cataratas bilateral
+A10790,CirujÌa rodilla izquierda
+A10791,Histerectomia.
+A10792,PerforaciÛn intestinal
+A10793,Varices
+A10794,Fibroadenoma de mama
+A10795,fibrotÛrax izquierdo
+A10796,Mastocitosis
+A10797,Alcohol moderado
+A10798,Timpanoplastia+mastoidectomÌa
+A10799,PolipectomÌa endoscÛpica
+A10800,Tendinitits aquilea
+A10801,Transplante unipulmonar por fibrosis idiop·tica
+A10802,Enfermedad Baastrup
+A10803,EventraciÛn lumbar posterior
+A10804,CirujÌa Dupuytren
+A10805,Psorisaris
+A10806,Dermatitis seborreica
+A10807,Miomectomia
+A10808,HIsterectomÌa con salpinguectomÌa
+A10809,Amidalectomia
+A10810,Ros·cea con rinofina
+A10811,PresiÛn intraocular
+A10812,Tinnitus
+A10813,Aneurisma Aorta Abdominal
+A10814,"ProtrusiÛn C3-C4,"
+A10815,Cervicoartrosis con mielomalacia
+A10816,Espondilolistesis L4-L5
+A10817,Estenosis canal
+A10818,Macrocitosis
+A10819,Deterioro Cognitivo Leve
+A10820,Nicturia
+A10821,Diverticulosis sigmoidea
+A10822,Quistes hep·ticos
+A10823,Hallux Valgus
+A10824,Trombocitemia esencial jak2+
+A10825,Carcinoma urotelial
+A10826,Estenosis arteria mesentÈrica y arteria principal riÒÛn izquierdo
+A10827,BroncopatÌa crÛnica con hiperreactividad bronquial
+A10828,Neuritis Ûptica isquÈmica
+A10829,Hernias cervicales
+A10830,Neurofibromatosis tipo I
+A10831,Carcinoma ductal de mama.
+A10832,"Crisis epilÈptica, crisis tÛnico-clÛnicas"
+A10833,EncefalopatÌa connatal con hemiparesia derecha.
+A10834,Estenosis pilÛrico
+A10835,Hiperlipemia
+A10836,ACV isquÈmico con hemiparesia izquierda
+A10837,Glucemia
+A10838,Hipopotasemia
+A10839,SÌndrome de intestino irritable
+A10840,Hernia umbilical
+A10841,RiÒÛn derecho afuncional
+A10842,Hernia discal L5
+A10843,Ateromatosis
+A10844,sindrome de peutz Jeguher
+A10845,DiscopatÌa cervical y lumbar
+A10846,Hiperplasia nodular prÛstatica
+A10847,Prostatitis crÛnica
+A10848,SÌndrome apnea-hipoapnea del sueÒo postural
+A10849,Urticaria con di·tesis autoinmune.
+A10850,C·ncer de mama
+A10851,Ateromatosis carotÌdea bilateral
+A10852,Retraso mental leve
+A10853,Esquizofrenia crÛnica
+A10854,Absceso pulmonar en LSI
+A10855,Fractura maleolo externo
+A10856,Fistula supuraciÛn herida codo izquierdo
+A10857,Trocanteritis
+A10858,Edema de Reinke bilateral
+A10859,Transplante unipulmonar izquierdo
+A10860,Blefaritis
+A10861,PatologÌa degenerativa lumbar
+A10862,Queratosis actÌnicas
+A10863,Traumatismo costal derecho
+A10864,LaringuectomÌa
+A10865,Carcinoma vesical urotelial
+A10866,Trombosis venosa
+A10867,SÌndrome apneas hipoapneas del sueÒo
+A10868,PÛplipo adenomatoso
+A10869,Prostatitis
+A10870,Hemorroides internas
+A10871,Hernias discales sacras
+A10872,Enfermedad de Crohn (ileon)
+A10873,Colelitiasis asintom·tica
+A10874,C·lculo renal izquierdo
+A10875,Enfermedad pulmonar intersicial difusa
+A10876,Adenocarcinoma de prÛstata
+A10877,Trombosis ojo derecho
+A10878,Gastritis aguda
+A10879,ArtropatÌa degenerativa
+A10880,Hernio de hiato
+A10881,Diverticulos intestinales
+A10882,Paniculitis mesenterica
+A10883,Exotosis conducto auditivo externo
+A10884,SÌndrome ovario poliquistico
+A10885,Disfonia
+A10886,Vao con estenosis crÌtica
+A10887,TendinopatÌa
+A10888,Hepatitis A
+A10889,Cancer de sigma
+A10890,Vejiga hiperactiva
+A10891,Reflujo gastroesf·gico
+A10892,Crisis comiciales
+A10893,NeuropatÌa tÛxica por tabaco y alcohol
+A10894,Bronquitis crÛnica obstructiva
+A10895,NeumonÌa LID.
+A10896,Microhematuria
+A10897,Lumboartrosis
+A10898,BroncopatÌa crÛnica
+A10899,CÛlicos renales izquierdos
+A10900,Insuficiencia venosa crÛnica
+A10901,plaquetopenia cronica
+A10902,colon irritable
+A10903,estreÒimiento cronico
+A10904,Hamartomas
+A10905,Aneurisma aorta
+A10906,Bocio multinodular
+A10907,discopatia degenerativa
+A10908,Miastenia gravis seropositiva
+A10909,Portador de marcapasos VVIR por BAV completo paroxÌstico asintom·tico
+A10910,FA permanente anticoagulado con sintrom
+A10911,probable neuropatÌa diabÈtica
+A10912,"AlergÌas al kathon, niquel, perfumes, mercurio, lepidoglyphus destructor y Phelum."
+A10913,HipertensiÛn pulmonar
+A10914,Estenosis aÛrtica ligera
+A10915,⁄lcera en Mid
+A10916,Quiste cortical riÒÛn derecho
+A10917,Carcinoma basocelular nasal intervenido en 2007 y 2008.
+A10918,Carcinoma epidermoide queratinizante (enfermedad de Bowen) en pierna izquierda extirpado en 2005.
+A10919,SInusitis
+A10920,Trombosis retiniana
+A10921,ERC 3b
+A10922,PolipectomÌa colon
+A10923,Agorafobia
+A10924,Dermatitis atÛpica
+A10925,CIN II
+A10926,SÌndrome antifolipido primario
+A10927,SinusopatÌa inflamatoria maxilar y etnoidal
+A10928,Trasplante unipulmonar derecho en noviembre de 2017 por EPID
+A10929,RGE
+A10930,conjuntivitis
+A10931,dermatitis asociada con ·caros del polvo
+A10932,Diverticulosis de colon
+A10933,FibrilaciÛn auricular incierta
+A10934,dislipemia
+A10935,patologia desmielinizante
+A10936,policitemia vera
+A10937,Septoplastia
+A10938,PolipectomÌa de pÛlipos de colon
+A10939,Proctitis ulcerosa
+A10940,FA permanente
+A10941,Neuralgia postherpetica
+A10942,Incidentaloma adrenal izquierdo
+A10943,hiperuricemia.
+A10944,hipoacusia severa
+A10945,TVP
+A10946,bronquiectasias en LM-LII
+A10947,sobrepeso
+A10948,FA
+A10949,transplante hepatico
+A10950,TRASTORNO MIXTO DE PERSONALIDAD
+A10951,DEPENDENCIA AL CANNABICA
+A10952,periartritis escapula-humeral izquierda.
+A10953,esquizofrenia paranoide o retraso metal
+A10954,FA PAROXÕSTICA
+A10955,cirugia tiroides
+A10956,deterioro cognitico vs depresiÛn reactiva
+A10957,accidente isquemico transitorio
+A10958,p˙rpura trombocitopÈnica
+A10959,tuberculosis
+A10960,papulosis linfomatoide
+A10961,sarcoidosis pulmonar
+A10962,trombosis mural de cayo aÛrtico
+A10963,hipercolesteromia
+A10964,aneurisma en cayado aÛrtico
+A10965,tor cronica
+A10966,ca colon
+A10967,angina
+A10968,tumor de warthin
+A10969,enfermedad pulmonar intersitial.
+A10970,transplante cardiaco
+A10971,Mastocitosis sistÈmica
+A10972,neurocisticercosis intervenido
+A10973,deficit alfa-1 antitripsina
+A10974,HIPERTIROIDISMO SUBCLÕNICO
+A10975,hiperplasioa benigna de prÛstata
+A10976,NEUROFIBROMATOSIS TIPO 1
+A10977,sindrome depresivo
+A10978,SÌndrome de Kartagener
+A10979,Derrame pleural crÛnico izquierdo
+A10980,Trastorno Obsesivo-Compulsivo
+A10981,Epilepsia focal sintom·tica
+A10982,pancreatitis secundaria a litiasis vesicula
+A10983,polipos adenomatosos en colon
+A10984,BRONQUITIS CRONICA Y BRONQUIECTASIAS
+A10985,SARCOIDOSIS CUT¡NEA
+A10986,sindrome de apnea-hipoapnea del sueÒo
+A10987,infartos cerebrales agudos
+A10988,ANGIODISPLASIA GASTRICA Y DUODENAL
+A10989,GRANULOMA EOSIN”FILO EN LA INFANCIA
+A10990,enfermedad de graves
+A10991,tiroidectomia
+A10992,hemiparesia por ACV
+A10993,ACV (Accidente CerebroVascular)
+A10994,REFLUJO GASTRO-ESOFAGICO
+A10995,SINDROME APNEA-HIPOAPNEA DEL SUE—O
+A10996,NEUTROPENIA CR”NICA
+A10997,MASTOPATIA FIBROQUISTICA
+A10998,HEPATOPATIA CRIPTOGENETICA
+A10999,SINDROME DE LERICHE
+A11000,ALTERACION DE LA MARCHA
+A11001,POLIPOS COLONICOS BENIGNOS
+A11002,hemorragia subaracnoidea
+A11003,herpes zoster en costado
+A11004,desprendimiento de retina
+A11005,NEUMOTORAX
+A11006,sindrome piernas inquietas
+A11007,POLIPOS BENIGNOS COLON
+A11008,diverticulo esofagico
+A11009,hiperplasia benigna de prÛstaa
+A11010,amputacion falanges mano izda
+A11011,ESQUIZOFRENIA PARANOIDE
+A11012,Estenosis de canal medular a nivel cervical con paraparesia secundaria
+A11013,Poliomelitis en pierna derecha
+A11014,Polipo en laringe
+A11015,Hepatitis Alcoholica y B
+A11016,Insuficiencia Renal CrÛnica E IV
+A11017,Dermatitis Pustular Cornea
+A11018,ACV Infarto IsquÈmico
+A11019,"Hiperuricemia, Enfisema Pulmonar"
+A11020,RectosigmoidectomÌa
+A11021,Neumotorax Espontaneo (27 aÒos)
+A11022,"Incontinencia urinaria y fecal, Fibromialgia"
+A11023,Enolismo Severo
+A11024,Litiasis Vesicular
+A11025,Apnea del SueÒo Grave
+A11026,Sinusitis Recidivante
+A11027,Necrosis Cabeza Femoral
+A11028,Aneurisma de aorta abdominal
+A11029,Schwannoma Vestibular Izquierdo
+A11030,Enolismo CrÛnico
+A11031,Transplante Renal
+A11032,Cancer Prostata Dx al mismo tiempo
+A11033,PatologÌa Degenerativa Discal
+A11034,Aplastamientos Vertebrales
+A11035,Sindrome Coronario
+A11036,HemitiroidectomÌa
+A11037,Aneurisma de aorta
+A11038,Apendicitis previa
+A11039,Hernia
+A11040,Trastorno Esquizoafectivo
+A11041,Timoma
+A11042,Varios Traumatismos
+A11043,Ulcus G·strico 2005
+A11044,RadiculopatÌa Motora
+A11045,Trastorno Esquizoide
+A11046,Isquemia Intestinal
+A11047,"Fibromialgia, Hernia discal"
+A11048,"VIH, Hepatitis C"
+A11049,"VIH, Tuberculosis MesentÈrica"
+A11050,Estenosis Aortica
+A11051,Hepatitis B y C
+A11052,"Romboencefalitis, Hipotiroidismo"
+A11053,Hepatitis A 35 aÒos
+A11054,Aplastamiento vertebral D12
+A11055,Hemangiomas Hep·ticos
+A11056,Hernia Inguinal Bilateral
+A11057,"Esteatosis Hep·tica, Hiperuricemia"
+A11058,"Pancreatitis crÛnica enÛlica, Esteatosis Hep·tica"
+A11059,Temblor escencial
+A11060,SAHS severo
+A11061,Enfermedad de Chron
+A11062,"Insuficiencia renal, Hipotiroidismo"
+A11063,Hepatopatias
+A11064,Alcoholismo severo
+A11065,"MigraÒa,"
+A11066,Hidrocele Testicular
+A11067,Colapsos vertebrales
+A11068,Cefaleas migraÒosas
+A11069,HepatopatÌa Alcoholica
+A11070,"Hiperplasia prost·tica, Hemangioma pulmonar, Esteatosis hepatica"
+A11071,Bypass aortobifemoral
+A11072,Marcapasos
+A11073,Adenoma prÛstata
+A11074,STENT carotida
+A11075,Poliposi colÛnica
+A11076,Virus Hepatitis C
+A11077,Betatalasemia
+A11078,Esteatosi hep·tica
+A11079,⁄lcera corneal
+A11080,Hiperplasia Adenomatosa
+A11081,Ataxia de Friederich
+A11082,Infarto isquÈmico
+A11083,Arteriopatia obliterante
+A11084,Bronquiectasias
+A11085,Panarteritis nodosa
+A11086,Apendicitis
+A11087,Miocardiopatia dilatada
+A11088,Quiste ov·rico
+A11089,Hiperplasia intraductal atÌpica mamaria
+A11090,AVC
+A11091,Litiasi urinaria
+A11092,Papiloma nasal
+A11093,Sinusitis crÛnica
+A11094,PleuroneumonÌa bacteriana
+A11095,Enfisema panacinar bulloso
+A11096,FÌstula anal
+A11097,RTU Prostata
+A11098,LudopatÌa
+A11099,Tentativa AutolÌtica
+A11100,Fibromatosis palmar
+A11101,Hernia Inguinal Intervenida
+A11102,Aneurisma de Willis
+A11103,Subpendimoma Grado I
+A11104,Ex-consumidor cocaÌna
+A11105,Cirrosis EnÛlica
+A11106,Hiperglicemia
+A11107,Hipertrofia Benigna Prostata
+A11108,Sindrome Nutcracker
+A11109,Aneurisma de ACM
+A11110,Infartos crÛnicos SNC
+A11111,Ex consumidor cocaÌna
+A11112,Psoriasis cut·nea
+A11113,Paralisis facial periferica
+A11114,Enolismo Importante
+A11115,Adenoma suprarenal
+A11116,Hipoacusia derecha
+A11117,Omalgia bilateral
+A11118,TEP Arteria lobal inferior derecha
+A11119,Miastenia Gravis
+A11120,Portador Marcapasos
+A11121,HipertensiÛn Ocular
+A11122,Politoxicomania
+A11123,Trastorno de la personalidad
+A11124,Lupus cut·neo
+A11125,Sindrome Raynaud
+A11126,Cataratas Bilaterales
+A11127,Distimia
+A11128,Osteocondrosis
+A11129,Asma
+A11130,Apneas del sueÒo
+A11131,Leucemia Linfatica crÛnica
+A11132,STENT Arteria renal derecha
+A11133,Distrofia Muscular
+A11134,Hipergliciridemia
+A11135,CÛlicos Nefriticos de repeticion
+A11136,Enfermedad de Chagas
+A11137,Pirosis Epigastrica
+A11138,Fistula Sacra
+A11139,Miastenia
+A11140,Abuso de Alcohol
+A11141,Consumo de Cannabis
+A11142,Ex-Politoxicomano
+A11143,AdenoidectomÌa
+A11144,Poliomelitis Infantil
+A11145,IRC dialisis
+A11146,Dispepsia Ocasional
+A11147,Hematoquexia Ocasional
+A11148,Hernia discal cervical
+A11149,FaquectomÌa bilateral
+A11150,Hipotasemia
+A11151,NefrectomÌa
+A11152,Enfermedad de Buerger
+A11153,Apneas Obstructivas del SueÒo
+A11154,Protesis de caderas
+A11155,DiscopatÌa Cervical
+A11156,Reflujo Esofago-Gastrico
+A11157,AmputaciÛn 1er Dedo Mano Izq
+A11158,Pleuritis CrÛnica con Fibrosis
+A11159,Pneumonia Organizativa Pseudonodular
+A11160,Tumor Benigno Pulmonar
+A11161,Hipergliciridemia Pura
+A11162,Insuficiencia Aortica
+A11163,Insomnio crÛnico
+A11164,Hiperglobulia
+A11165,Difteria Infantil
+A11166,Protesis rodilla Izq
+A11167,Litiasis Renal Previa
+A11168,Poliposis colÛnica
+A11169,Tumor QuÌstico Pancreatico Mucinoso Intraductal
+A11170,Prolapso rectal
+A11171,Dermatitis alergica
+A11172,Discapacitado Psiquico
+A11173,HepatopatÌa B
+A11174,Plaquetopenia
+A11175,Hepatomegalia EnÛlica
+A11176,Enfisema con insuficiencia respiratoria
+A11177,Fabismo
+A11178,Lumbalgia L4-S1
+A11179,Tromboembolia Pulmonar
+A11180,Sindrome Manguito Rotadores
+A11181,Consumidor de HeroÌna
+A11182,Enolismo Moderado-Severo
+A11183,Enolismo Moderado
+A11184,Escoliosis Dorsolumbar
+A11185,Leishmaniosis Visceral
+A11186,Abestosis pulmonar
+A11187,SAHS grave
+A11188,Fractura Peroneal
+A11189,PÛlipos ColÛnicos
+A11190,Sindrome Li-Fraumeni
+A11191,Mioma uterino previo
+A11192,Quiste hidatÌdico
+A11193,EventraciÛn abdominal
+A11194,Tiroiditis autoinmune
+A11195,Lumbociatica
+A11196,Hepatitis Infancia
+A11197,Virus herpes simple recidivante
+A11198,Infarto Agudo Miocardio 1991
+A11199,Litiasis renal bilateral
+A11200,Tuberculosis en la infancia
+A11201,PerforaciÛn duodenal
+A11202,Asbestosis pulmonar
+A11203,ACV 2008
+A11204,Hernia Inginal
+A11205,Colelitiasis 2013
+A11206,DiscopatÌa Lumbar
+A11207,Ateroesclerosis
+A11208,DegeneraciÛn macular asociada a la edad
+A11209,Enfermedad por reflujo gastroesof·gico
+A11210,Gripe A H1N1Previa
+A11211,IQ tendÛn de aquiles
+A11212,Bocio multinodular eutiroideo
+A11213,PolipectomÌa colÛnica
+A11214,HipertensiÛn intracraneal
+A11215,Doble Bypass
+A11216,Sindrome Apnea-Hipopnea del sueÒo
+A11217,Diarrea crÛnica
+A11218,Ulcus doudenal 1986
+A11219,Hallux vagus
+A11220,PoliartropatÌa degenerativa
+A11221,OoforectomÌa
+A11222,ACV 2005
+A11223,Enolismo Ocasional
+A11224,NeuropatÌa ocular
+A11225,MielopatÌa cervical
+A11226,Infarto cerebral
+A11227,Enfermedad Rendu-Osler
+A11228,Hernia Inguinal Izquierda
+A11229,Estenosis colon ascendente
+A11230,ACxFA
+A11231,Ex Enolismo Moderado
+A11232,Poliomielitis Infancia
+A11233,Hipotension
+A11234,Ictus 2003
+A11235,Consumo cocaÌna
+A11236,Esofagitis grado A
+A11237,Cofosis
+A11238,Neumotorax 1983
+A11239,OvariectomÌa
+A11240,Artrosis de rodilla
+A11241,Lumbociatalgia
+A11242,Enolismo Leve
+A11243,Bypass Aorto-Iliaco
+A11244,CÛlico Nefritico
+A11245,¡cido ˙rico
+A11246,Ictus Cerebeloso CrÛnico
+A11247,Leiomioma Uterino
+A11248,Insuficiencia Renal Aguda
+A11249,Trombosis Arterial Profunda
+A11250,Prolapso Vesical
+A11251,Virus Hepatitis B
+A11252,Neumotorax de juventud
+A11253,Escoliosis de infancia
+A11254,Antracosis Pulmonar 2008
+A11255,Osteomielitis maxilar
+A11256,Tuberculosis pleural antigua
+A11257,Isquemia Cerebral
+A11258,Sincopes no cardiogÈnicos
+A11259,SÌndrome de Raynaud
+A11260,implante coclear (hipoacusia)
+A11261,paquipleuritis
+A11262,ciego por retinopatia
+A11263,anemia idiopatica
+A11264,Sordera
+A11265,Neumopatia crÛnica
+A11266,SAHS portador de CPAP nocturna
+A11267,AC por FA en tratamiento anticoagulante y frenador
+A11268,v asculitis
+A11269,arritmica cardiaca
+A11270,embolismo pumonar
+A11271,embolismo pulmonar
+A11272,Lupus eritemaso sistÈmico
+A11273,arritmicas
+A11274,Hipogonadismo
+A11275,gastrectomia
+A11276,quiste testicular
+A11277,CÚlic nefrÌtic
+A11278,Trombosis Venosa Retiniana
+A11279,Enfermedad cerebrovascular
+A11280,Discapacidad 69%
+A11281,artrosis rodilla
+A11282,emisfema paraseptal y centro lubilillar
+A11283,Hipotiroidismo.
+A11284,DiscectomÌa L4-S1
+A11285,arteriopatia perifÈrica con claudicaciÛn
+A11286,bornquitis crÛnica
+A11287,e. diverticular
+A11288,Arritmia cardÌaca con fibrilaciÛn auricular
+A11289,neumoconiosis
+A11290,accidente cerebrovascular
+A11291,ICTUS cerebral
+A11292,erupciÛn crÛnica
+A11293,aneurismo abdominal
+A11294,LUPUS (pericarditis)
+A11295,neuropatia
+A11296,Neuritis ”ptica
+A11297,retenciÛn aguda de orina
+A11298,HipertrÚfiabenigna de prÛstata
+A11299,Carciona basocelular multifocal
+A11300,cefalea en cl˙ster
+A11301,Hipoacusia oido derecho
+A11302,HipotensiÛn Ortostatica
+A11303,MigraÒa con aura motora
+A11304,enfermedad acidopÈptica
+A11305,Quistes becker en rodillas
+A11306,artritis psori·sica
+A11307,Infecciones respiratorias
+A11308,coxartrosis degenerativa
+A11309,hipoapneas del sueÒo
+A11310,hipogammaglobulemia
+A11311,sÌndrome colon irritable
+A11312,hiperreactividad bronquial
+A11313,heriorrafia inguinal izquierda
+A11314,episodios de bronquitis
+A11315,pneumotorax
+A11316,sÌndrome mielodipl‡sico
+A11317,hernia de hiatus
+A11318,broqnuitis crÛnica
+A11319,migraÒa en aura
+A11320,pÛlipos ORL
+A11321,artritis reumatoide con immunosupresor
+A11322,SÌndrome de la apnea obstructiva del sueÒo
+A11323,consumo heroina
+A11324,Lipomatosis m˙ltiple
+A11325,Enfermedad Peyronie
+A11326,Hemangioma Hep·tico
+A11327,Consumo THC
+A11328,Hipergliceridemia
+A11329,Aneurisma Infrarenal
+A11330,Ex ADVP (ex adicto a drogas por vÌa parenteral)
+A11331,Schwanoma
+A11332,Sindrome Marfan
+A11333,Ex consumo cocaina
+A11334,Neurofibromatosis
+A11335,Langherhans
+A11336,Macroglobulinemia Waldestrom
+A11337,EncefalopatÌa Wernicke
+A11338,SÌndrome apertura tor·cica
+A11339,Sindrome Apnea Hipopnea del SueÒo
+A11340,Hernia inguinoescrotal
+A11341,Epilepsia Ideopatica
+A11342,TOC
+A11343,FibrilaciÛn Auricular CrÛnica Anticoagulada
+A11344,Gastritis CrÛnica H. Pylori
+A11345,Ferropenia crÛnica
+A11346,CPAP es la sigla en inglÈs de presiÛn positiva continua en la vÌa aÈrea nocturna
+A11347,Enfermedad de Bowen
+A11348,Varices en MMII
+A11349,FibrilaciÛn auricular anticoagulada
+A11350,Favismo
+A11351,Apnea nocturna
+A11352,Hiperostosis
+A11353,Ac˙fenos
+A11354,H·bito enÛlico severo
+A11355,Tos y expectoraciÛn habitual
+A11356,Trombofilia por factor Leyden
+A11357,SÌndrome de apneas-hipopneas del sueÒo
+A11358,Hiperplasia Beninga de PrÛstata
+A11359,Polineuropatia CrÛnica Sensitivo-Motora
+A11360,Efisema Pulmonar
+A11361,Insuficiencia respiratoria (O2 domiciliario)
+A11362,faringitis crÛnica
+A11363,"Hernia inguinal y umbilical, operado en 2002"
+A11364,Osteoporosis y Artrosis
+A11365,Cefaleas en racimo
+A11366,crisis de Gota
+A11367,Diverliculitis
+A11368,Cirrosis hep·tica etÌlica
+A11369,Hiperplastia Benigna de PrÛstata
+A11370,HemorragÌa Digestiva Alta por ulces duodenal
+A11371,Hiperplasi benigna de prÛstata
+A11372,Control apnea del sueÒo por neumologÌa con CPAP
+A11373,Artereopatia diabÈtica
+A11374,H·bito etÌlico moderado
+A11375,Portadir de protesis biolÛgica aÛrtica por estenosis severa
+A11376,Sindrome Apnea del SueÒo
+A11377,Tendinitis MSD
+A11378,Fractura Tibia-PeronÈ
+A11379,SAOS tratada con CPAP
+A11380,Insuficiencia renal leve
+A11381,Insuficiencia respÏratoria
+A11382,Ateroesclerosis Severa en MMII
+A11383,Corioretinosis miopica
+A11384,Sordo
+A11385,Ortopnea
+A11386,Enfermedad de la Peroynie
+A11387,hiperuricemia con m˙ltiples ataques de gota
+A11388,Accidente IsquÈmico Transitorio de repeticiÛn
+A11389,Hipercoagulabilidad
+A11390,3 episodios neumotorax tratadas con VATs en 2012
+A11391,Trombosis venosa profunda en MII
+A11392,Tromboembolismo pulmonar ramas segmentarias de LID
+A11393,Delta-Beta Talasemia anemia ferropÈnica
+A11394,Itus de repeticiÛn por E Colli
+A11395,SÌncopes de repeticiÛn secundarios a FA
+A11396,Quistes ov·ricos
+A11397,Adenoma Tubulo velloso de colÛn 2012
+A11398,SÌndrome de apneas-hipopneas del sueÒo tratada con CPAP Nocturna
+A11399,Hipertriglicemia
+A11400,Accidente cerebrovascular en 2015 sin secuelas
+A11401,Sindrome prost·tico en control por urologÌa
+A11402,Bebedor moderado 21 a 35 unidades/semana
+A11403,MielopatÌa cÈrvico-artrÛsica
+A11404,Hiperplasia Beningna de PrÛstata
+A11405,Hemiparesia izquierda residual por Ictus
+A11406,Hepatitis aguda medicamentosa (2017)
+A11407,sincope vasovagal
+A11408,Neuronitis Vestibular
+A11409,Adenoma tubulo-velloso de recto
+A11410,Fibroenfisema
+A11411,Polineuropatia axonal sensitiva cronica
+A11412,Anemia secundaria a Insuficiencia Renal CrÛnica
+A11413,Anemia normocÌtica
+A11414,DegeneraciÛn macular atrÛfica
+A11415,Carcinoma papilar de vejiga
+A11416,Distonia facial
+A11417,Transplantado hep·tica
+A11418,Habito enÛlico
+A11419,Enolismo activo
+A11420,Enfermedad pulmonar intersticial
+A11421,InfiltraciÛn linfocitaria de Jessner
+A11422,Diverticulosis de sigma
+A11423,Anemia fÈrrica
+A11424,Vertigo posicional benigno
+A11425,Leucemia prolinfocÌtica de cÈlulas B
+A11426,Insuficiencia respiratoria crÛnica
+A11427,Cefalea crÛnica
+A11428,Cancer de mama sincrÛnico con el pulmonar
+A11429,InfecciÛn VIH carga viral bien controlada
+A11430,ulcus gastrointestinal
+A11431,Carcinoma Urotelial de Vejiga pT3 pN0 cM0
+A11432,Transplantado hep·tico
+A11433,Enfermedad de Paget
+A11434,anemia ferropÈnica crÛnica
+A11435,Polimialgia reum·tica
+A11436,Rosacea intermitente
+A11437,estenosis uretral crÛnica
+A11438,Litiasis vesicales de repeticiÛn
+A11439,Granulomas hep·ticos
+A11440,hernia cervical
+A11441,Hemofilia
+A11442,Artrosis cervical
+A11443,psicosis paranoide
+A11444,cervicitis crÛnica
+A11445,Anemia hemolÌtica autoinmune
+A11446,Crisis epilÈpticas
+A11447,Artrosis dorsolumbar
+A11448,Demencia Vascular
+A11449,Bilobectomizado
+A11450,secuelas motoras de poliomielitis
+A11451,Lobectomizada LSD por aspergiloma
+A11452,Alzheimer incipiente
+A11453,discopatÌa
+A11454,Artrosis MM.II.
+A11455,SÌndrome de apneas-hipoapneas del sueÒo
+A11456,HipertensiÛn pulmonar severa
+A11457,poloneuropatÌa desmielinizante
+A11458,Anemia macrocÌtica
+A11459,Reflujo gastroexof·gico
+A11460,Estrabismo ojo derecho
+A11461,Hipoacusia neurosensorial
+A11462,Anemia microcÌtica crÛnica
+A11463,duodenitis eritematosa
+A11464,Crisis migraÒosas de repeticiÛn
+A11465,Psicosis
+A11466,Anemia microcÌtica hipocrÛmica
+A11467,Beta-talasemia minor
+A11468,Paralisis hipopotasÈmica familiar
+A11469,Sindrome de Tolosa-Hunt
+A11470,hiperostosis idiop·tica difusa
+A11471,escotoma centelleante
+A11472,Pleuritis crÛnica
+A11473,PolineuropatÌa crÛnica
+A11474,sindrome vertiginoso perifÈrico
+A11475,ArtropatÌa gotosa
+A11476,Hipergammaglobulinemia
+A11477,HepatopatÌa alcÛholica crÛnica
+A11478,Cirrosis hep·tica alcÛholica
+A11479,DegeneraciÛn macular
+A11480,ToxicÛmano
+A11481,Trombofilia por factor V de Leiden
+A11482,Panhipopituitarismo
+A11483,Angiodisplasias gastroduodenales
+A11484,Intento autolÌtico
+A11485,Hemangiomas vertebrales
+A11486,Hernia discal C6C7
+A11487,Litiasis renal izquierda. Cateter JJ
+A11488,Miomas uterinos. HisterectomÌa.
+A11489,Carcinoma ureteral no invasivo de alto grado intervenida
+A11490,Hiperractividad bronquial
+A11491,Adenoma suprarrenal
+A11492,Adenocarcinoma de prÛstata intervenido
+A11493,NINE
+A11494,Bullas enfisematosas
+A11495,Enfermedad de Graves Basedow
+A11496,Herpes zoster de repeticiÛn
+A11497,Temblor esencial vs EP idiop·tica (Datscan Fon daminÈrgico disminuida grado 2)
+A11498,SÌndorme Apneas/Hipoapneas del SueÒo
+A11499,Penfigoide ampolloso
+A11500,SÌndrome de apneas del sueÒo
+A11501,Enfermedad Cerebro Vascular
+A11502,gastriitis erosiva
+A11503,ESTENOSIS CANAL LUMBAR
+A11504,SÌndrome mieloproliferativo con Trombocitemia esencial
+A11505,"Artrosis cadera, manos y rodilla"
+A11506,Tuberculosis pulmonar cavitada (1993)
+A11507,Colecistopancreatitis
+A11508,Cirrosis Ib
+A11509,Isquemia crÛnica IIb/IV
+A11510,NeumonÌa en LID
+A11511,Reflujo gastroesof·gico II
+A11512,Gastritis erosiva
+A11513,PolipectomÌa crÛnico
+A11514,Quiste hidatÌdico encapsulado
+A11515,QuistoperiquistectomÌa total
+A11516,Fractura vertebral traum·tica
+A11517,Adenoma hipofisario asintom·tico
+A11518,Miringoplasia bilateral
+A11519,Artroplasia de rodilla derecha
+A11520,Miringoplastia bilateral
+A11521,Artroplastia de rodilla derecha
+A11522,Infarto anteroseptal
+A11523,SÌndrome vena cava superior
+A11524,Hernia hiato e inguinal
+A11525,PoliectomÌa cuerdas vocales
+A11526,CirugÌa de estÛmago
+A11527,EndarterectomÌa
+A11528,Neoplasia laringe
+A11529,Neoplasia prÛstata
+A11530,Pie equino problemas motilidad
+A11531,Incontinencia fecal
+A11532,Angina de pecho
+A11533,Aneurisma aorta abdominal con prÛtesis
+A11534,bypass femoro-femoral bilateral
+A11535,Quiste seb·ceo
+A11536,PÛlipo nasal y larÌngeos
+A11537,Prostatitis aguda
+A11538,InfecciÛn urinaria
+A11539,Quiste renal
+A11540,Pielonefritis
+A11541,Adenoma adrenal bilateral
+A11542,Isquemia crÛnica por oclusiÛn femoropoplÌtea
+A11543,Trombosis central vena retina bilateral
+A11544,ExtirpaciÛn epitelioma
+A11545,LinfadenectomÌa
+A11546,Ateromatosis carotÌdea
+A11547,PolipectomÌa colon descendente
+A11548,InfecciÛn VIH
+A11549,Ictus carotÌdeo
+A11550,"Ex-ADVP (heroÌna, cocaÌna"
+A11551,Transplante hep·tico 2013
+A11552,IAo ESCLEROSIS M-Ao
+A11553,HIPERURICEMIA-GOTA
+A11554,Quiste epidÌdimo
+A11555,Hipocausia (sÌndrome MeniËre)
+A11556,Litiasis biliar m˙ltiple
+A11557,MicropÛlipos de colon
+A11558,NeumopatÌa intersticial sugerente de Histiocitosis de cÈlulas de Langerhans
+A11559,Bebedor de riesgo
+A11560,"ApendicentocmÌa, intervenido de catarata derecha y hernia inguinal"
+A11561,artrosis cervical degenerativa
+A11562,ptosis palpebral de nacimiento
+A11563,SÌndrome Gilbert
+A11564,Estenosis canal lumbar L3-L4 y L4-L5
+A11565,lumbalgia crÛnica por espondiloartrosis
+A11566,"hernia hiatal, esofagitis, ulcus duodenal, colelitiasis"
+A11567,SCACEST (IAM anteroseptal con revascularizaciÛn de la DA con stent farmacoactivo)
+A11568,"LÈntigo maligno extirpado en 2013, resecciÛn completa"
+A11569,Pleuritis derecha en juventud
+A11570,ResecciÛn transuretral en 2011 por hiperplasia prost·tica ganglionar
+A11571,Intervenido desprendimiento de retina ojo izquierdo hace aÒos
+A11572,intervenido de menisco hace aÒos
+A11573,Tromboembolismo pulmonar + derrame pleural encapsulado izquierdo en 2008
+A11574,Intervenido hernia inguinal hace 25 aÒos
+A11575,Intervenido de un gangliÛn y de problema obstructivo urolÛgico en la infancia
+A11576,SÌndrome de Apnea-hipopnea del SueÒo grado severo
+A11577,"AlergÌa a codeÌna, Dogmatil y Torecan"
+A11578,Enfermedad de Meniere
+A11579,Cefalea vascular
+A11580,"Hernia discal L2-3, L4-L5"
+A11581,Isquemia crÛnica grado IIB
+A11582,Histiocitosis sinusal reactiva en adenopatÌas inguinales
+A11583,Litiasis urinaria
+A11584,Cataratas intervenidas
+A11585,FA crÛnica anticoagulada
+A11586,SAOS severo con CPAP
+A11587,Trombocitopenia inmune
+A11588,quistes renales y litiasis renal
+A11589,Intervenido carcinoma basocelular en espalda
+A11590,intervenido hernia inguinal con TVP posterior
+A11591,intervenido de cervicales C4-5
+A11592,mastitis derecha intervenida varias ocasiones
+A11593,sÌndrome piernas inquieta desde infancia
+A11594,hiperglucemias
+A11595,ApendicectomÌa e intervenciÛn t˙nel carpiano
+A11596,Hipocoagulabilidad
+A11597,Intervenido apendicitis ulcus gastroduodenal y de hernia abdominal
+A11598,gonartrosis bilateral
+A11599,lumbartrosis
+A11600,"˙lcera g·strica, estenosis antral"
+A11601,"espondiloartrosis lumbar, radiculopatÌa, pinzamientos L5-L1"
+A11602,"alergia a pantomicina, augmentine y narine repetabs"
+A11603,Litiasis vesical. Quiste renal simple
+A11604,DilataciÛn aneurism·tica de aorta tor·cica
+A11605,enfermedad pulmonar restrictiva leve
+A11606,"enfermedad diverticular, laparocele"
+A11607,HisterectomÌa total a los 20 aÒos
+A11608,MastectomÌa bilateral a los 26 aÒos
+A11609,SÌndrome doloroso regional complejo tipo I
+A11610,Artrosis columna
+A11611,Intolerancia a levocetirizina
+A11612,Trombocitenia esencial
+A11613,NÛdulo tiroideo benigno
+A11614,intolerancia a Primper·n y ·cido clavul·nico
+A11615,Hemiplejia residual derecha por accidente tr·fico
+A11616,vasculitis con stress
+A11617,cÛlicos nefrÌticas
+A11618,Bronquiectasia
+A11619,Intervenido cataratas bilateral
+A11620,Aneurisma aÛrtico en seguimiento
+A11621,intervenido de hidrocele derecho y de hernia umbilical
+A11622,Diverticulosis colon. PolipectomÌa
+A11623,CÛlicos nefrÌticos izquierdos
+A11624,Hemorragia subaracnoidea con embolizaciÛn posterior de aneurisma de comunicante anterior sin secuela
+A11625,SAHOS con CACP nocturna
+A11626,SCACEST tipo 2
+A11627,ColecistectomÌa con 14 aÒos
+A11628,Pinzamiento discal C5-C6
+A11629,Hernia discal intervenida L5-S1
+A11630,OoforectomÌa bilateral
+A11631,Desprendimiento retina
+A11632,bronquiectasias en LII
+A11633,divertÌculos colon
+A11634,ulcus duodenal postbulbar
+A11635,hernias de disco y de hiato
+A11636,nodulo pulmonar negativo para malignidad
+A11637,intervenido aneurisma abdominal
+A11638,intervenido hernia inguinal
+A11639,hipotiroidismo yatrÛgeno
+A11640,neumotorax recidivante intervenido en 2008
+A11641,HisterectomÌa por mioma
+A11642,leucoplasia CV Izquierda
+A11643,Esplenomegalia
+A11644,CPAP nocturno
+A11645,neumotorax en 2014
+A11646,intervenido de cataratas
+A11647,Poliomielitis infantil
+A11648,"Ictus hemisfÈrico izquierdo, secuelas de afasia mÌnima y parestesias ocasionales"
+A11649,NefrectomÌa izquierda por carcinoma renal estadÌo I
+A11650,Enfisema pulmonar en 2001
+A11651,Coxartrosis. PrÛtesis cadera derecha
+A11652,Intervenido hernia inguinal izquierda
+A11653,hemicolectomÌa en 1992
+A11654,intervenido cuerda vocal derecha por leucoplasia larÌngea
+A11655,sÌndrome vertiginoso crÛnico
+A11656,H. PÌlori controlado
+A11657,TiroidectomÌa total
+A11658,catarros de repeticiÛn
+A11659,intervenido de traumatismos por accidentes
+A11660,Artritis reumatoide seronegativa
+A11661,intervenido de hidrocele
+A11662,colecistectomÌa en 2006
+A11663,Gonartrosis. Poliartrosis
+A11664,HipertensiÛn ocular. Cataratas
+A11665,IntervenciÛn prolapso vejiga
+A11666,Hernia de hiato. Diverticulosis
+A11667,ACVA vertebrovasilar
+A11668,Desprendimiento vÌtreo
+A11669,Tuberculosis pulmonar
+A11670,FibrilaciÛn auricular paroxÌtica
+A11671,Intervenido isquemia EEII
+A11672,Estenosis carotÌdea del 50%previa
+A11673,Ictus con hemiparesia derecha
+A11674,OclusiÛn de la ACI izquierda
+A11675,OclusiÛn proximal vertebral izquierda
+A11676,Pancreatitis sin secuelas
+A11677,Artroscopia rotuliana bilateral
+A11678,peritonitis por apendicitis
+A11679,ArtropatÌa degenerativa cadera izqda
+A11680,hepatitis autoinmune
+A11681,intervenido carcinoma basocelular ala nasal izqda
+A11682,Intervenido hernia discal cervical
+A11683,intervenido melanoma piel
+A11684,videomediastinoscopia
+A11685,by-pass femoro-poplÌteo
+A11686,amputaciÛn M.I.I.
+A11687,cataratas bilaterales y desprendimiento de retina
+A11688,infarto miocardio 2012
+A11689,intervenido E. Dupuytren
+A11690,Enolismo excesivo
+A11691,Exconsumidor de heroÌna fumada
+A11692,Eccema
+A11693,Alcohol a diario (cerveza y anÌs)
+A11694,prostactectomÌa radical laparoscÛpica
+A11695,nÛdulo pulmonar vigilado
+A11696,trombosis vena central de la retina con resoluciÛn completa
+A11697,oxÌgeno domiciliario desde 28/07/2017
+A11698,DÈficit de vitamina B12
+A11699,AlÈrgico a penicilina y metamizol
+A11700,SVCS
+A11701,microangiopatÌa cerebral
+A11702,portador homocigoto gen MTHFR
+A11703,portador heterocigoto factor V
+A11704,deterioro cognitivo perfil amnÈsico
+A11705,"Colecistectomizado, Herniorrafia umbilical"
+A11706,NeumonÌas de repeticiÛn
+A11707,Aneurisma de aorta infrarrenal tratado con endoprÛtesis en mayo 2017
+A11708,sordera importante y progresiva
+A11709,Silicosis
+A11710,Trombopenia y macrocitosis
+A11711,amigdalectomÌa y apendicectomÌa
+A11712,"Palpitaciones, sd. pre-excitaciÛn"
+A11713,"pÛlipo en sigma, angiodisplasia de ciego"
+A11714,"Espondiloartrosis, cervicobraquialgia"
+A11715,valvulopatÌa mitro-aÛrtica
+A11716,isquemia crÛnica miembro inferior derecho
+A11717,Cataratas ambos ojos
+A11718,HidrocelectomÌa hace 15 aÒos
+A11719,Hernia inguinal hace 12 aÒos
+A11720,Arteritis de Weber
+A11721,esteatosis hepatopancre·tica leve
+A11722,colestasis
+A11723,neutropenia
+A11724,adenomas suprarrenales
+A11725,neumonÌa basal derecha con derrame pleural
+A11726,intervenciÛn mioma uterino en 2003
+A11727,Bloqueo de rama derecha
+A11728,DisfunciÛn ventricular leve
+A11729,Tuberculosis latente
+A11730,Artrodesis L4-L5
+A11731,cataratas y desprendimiento retina OI
+A11732,˙lcera duodenal y pÛlipos en colon
+A11733,cefalea tensional
+A11734,infarto lacunar en putamen izquierdo
+A11735,infecciÛn hepatitis C tratada hace 20 aÒos
+A11736,MiocardiopatÌa hipertrÛfica apical
+A11737,alergia a claritromicina
+A11738,intolerancia a clavul·nico y codeÌna
+A11739,HepatopatÌa VHB
+A11740,Hemiplejia residual izqda por ACVA
+A11741,fascitis plantar bilateral
+A11742,Fibro Flutter extrasÌstoles ventriculares
+A11743,histerectomÌa total con doble anexectomÌa
+A11744,NefrectomÌa radical laparoscÛpica
+A11745,OsteotomÌa
+A11746,Enfermedad Dupuytren
+A11747,Escoliosis degenerativa grave. Estenosis de canal
+A11748,bebedor moderado de alcohol
+A11749,ERGE
+A11750,Esteatosis hep·tica grado II
+A11751,IQ: meniscopatÌa rodilla derecha
+A11752,IQ: fractura muÒeca izquierda
+A11753,Insuficiencia circulatoria
+A11754,Exolftalmos crÛnico secundario
+A11755,SAHS sin CPAP
+A11756,Fibriloflutter anticoagulado
+A11757,neoplasia prÛstata 2004 no tratado
+A11758,SAHS con CPAP
+A11759,PrÛtesis cadera
+A11760,Implante de MP definitivo bicameral
+A11761,C. IsquÈmica revascularizada con stent
+A11762,"ColecistectomÌa, hernia umbilical"
+A11763,Ligadura de trompas
+A11764,Litiasis renal/litotricia
+A11765,Colecistectomizada
+A11766,TiroidectomÌa parcial
+A11767,Rizartrosis
+A11768,Sindrome de Sjogren
+A11769,V·lvula derivaciÛn ventriculoperitoneal por hidrocefalia
+A11770,cervicalgias frecuentes
+A11771,tendinitis aquilea
+A11772,Pancreatitis crÛnica etÌlica
+A11773,Hipoacusia perceptiva bilateral
+A11774,criterios de broncopatÌa crÛnica
+A11775,hernia umbilical intervenida
+A11776,etilismo 80-100g/diarios
+A11777,Pseutrombopenia por EDTA
+A11778,Catarata bilateral incipiente
+A11779,Cervicoartrosis grado III
+A11780,Legrado uterino
+A11781,intolerancia a tramadol
+A11782,Glaucoma no AMC
+A11783,coledocolitis y colelitiasis
+A11784,Poliartrosis
+A11785,prÛtesis rodilla
+A11786,Hipocausia
+A11787,Cifosis dorsal
+A11788,posible SAOS
+A11789,Isquemia arterial crÛnica (Bypass femoropoplÌteo a 3™ safena)
+A11790,Dupuytren intervenido
+A11791,Enolismo (1 litro diario)
+A11792,Par·lisis facial izquierda perifÈrica
+A11793,Policitemia
+A11794,pÛlipos colon con polipectomÌa
+A11795,intervenido perforaciÛn intestino delgado
+A11796,SAOS con CEPAP domiciliaria
+A11797,intervenido hernia de disco
+A11798,CoagulopatÌa con INR bajo
+A11799,"neumonÌa con atelectasia en 2014, resuelta"
+A11800,herpes zÛster en pared tor·cica izquierda en 2016
+A11801,intervenido de hernia umbilical
+A11802,PolipectomÌa en colon y angiodisplasia en 2016
+A11803,Hiperuricemia sintom·tica
+A11804,"ArtropatÌa tof·cea en manos, pies y rodillas"
+A11805,Insuficiencia venosa crÛnica de MMII
+A11806,Queratosis seborreica
+A11807,neumotÛrax de repeticiÛn intervenidos
+A11808,hematomas subungueales tratados
+A11809,Ictus isquÈmico con par·lisis facial
+A11810,Hernia abdominal
+A11811,Arterioesclerosis carotÌdea
+A11812,nÛdulos tiroideos
+A11813,enfermedad bullosa
+A11814,neumotÛrax de repeticiÛn
+A11815,AlÈrgico a penicilina
+A11816,miocardiopatÌa hipertensiva
+A11817,insuficiencia aÛrtica leve
+A11818,insuficiencia tricuspÌdea leve
+A11819,Artrosis. PrÛtesis ambas caderas
+A11820,intolerancia al tramadol
+A11821,"ACVA en 2005, secuelas pierna izqda"
+A11822,estenosis esof·gica severa
+A11823,Bronquitis sin OCD
+A11824,SÌndrome Guillain Barre
+A11825,Herniorrafia umbilical e inguinal
+A11826,hemorroidectomÌa
+A11827,pÛlipo adenomatovelloso con displasia de bajo grado
+A11828,episodios de inflamaciÛn en parÛtida derecha
+A11829,Disnea basal
+A11830,hernia discal intervenida
+A11831,hidrocele intervenido
+A11832,alergia al contraste iodado
+A11833,enolismo espor·dico
+A11834,intervenido artrodesis L3-S1
+A11835,intervenido insuficiencia venosa miembro inferior
+A11836,Paresia de cuerda vocal izquierda
+A11837,ArteriopatÌa miembro inferior
+A11838,Isquemia crÛnica IIa
+A11839,Esteatohepatitis alcohÛlica
+A11840,DiscopatÌa L4-L5
+A11841,Intervenido pÛlipos nasales
+A11842,Intervenido de fractura huesos nasales
+A11843,Intervenido vegetaciones
+A11844,Intervenido menisco rodilla izqda
+A11845,Cirrosis hepatica de origen enÛlico
+A11846,intervenido por ulcus g·strico perforado
+A11847,hipoacusia residual a intervenciÛn por otitis oido izquierdo
+A11848,intervenida basalioma
+A11849,Asma bronquial
+A11850,TPSV en 2009
+A11851,Ictus isquÈmico en oct 2017
+A11852,Hernias discales lumbares
+A11853,Isquemia crÛnica MMII
+A11854,PolipectomÌa endoscÛpica rectal
+A11855,IQ hernia discal L5-S1
+A11856,IQ hemorroides
+A11857,IQ tumor tiroides
+A11858,Hipoxemia
+A11859,IQ fractura de calc·neo
+A11860,sinusopatÌa crÛnica
+A11861,traumatismo craneoencef·lico por accidente en 1995
+A11862,quistes seb·ceos en tÛrax y brazo
+A11863,temblor intencional en miembros superiores
+A11864,dÈficit atenciÛn en relaciÛn a trastorno anÌmico
+A11865,deterioro cognitivo de origen vascular
+A11866,patologÌa cerebral de pequeÒo vaso. Infartos lacunares en centro semioval izquierdo
+A11867,coledocolitiasis
+A11868,colecistectomÌa+coledocotomÌa y Kher
+A11869,prÛtesis rodilla izquierda
+A11870,Cervicalgia
+A11871,Intervenido de hernia abdominal
+A11872,DilataciÛn de aorta ascendente en 2016
+A11873,I. renal hipertensiva
+A11874,SAOS con CPAP nocturna
+A11875,HisterectomÌa total+doble anexectomÌa
+A11876,cateterismo sin stent en 2017
+A11877,IQ fractura muÒeca izquierda
+A11878,Esplenectomizado
+A11879,Traumatismo ocular izquierdo por agresiÛn
+A11880,faringitis y laringitis crÛnica
+A11881,hemiparesia facial derecha
+A11882,hepatectomÌa parcial por colangitis autolimitada
+A11883,histerectomÌa y doble anexectomÌa
+A11884,intervenida de columna
+A11885,neoformaciÛn vesical intervenida
+A11886,hiperglucemia leve
+A11887,Trombosis arterial ojo izquierdo
+A11888,Artrosis generalizada. Gonartrosis bilateral
+A11889,Ictus isquÈmico en territorio de ACP izquierda
+A11890,Intervenido tercera falange 4∫ dedo MSD
+A11891,"bebedor leve, previamente moderado"
+A11892,"IQx: fractura fÈmur, fimosis"
+A11893,Poliposis nasal
+A11894,Bebedor ocasional
+A11895,MeniscopatÌa rodilla derecha
+A11896,hidrocele
+A11897,bebedor moderado
+A11898,enfermedad Marchiafava-Mignami
+A11899,estreÒimiento habitual (hemorroides+fisura)
+A11900,cardiopatÌa isquÈmica: stent coronario
+A11901,Infartos lacunares m˙ltiples
+A11902,cirugÌa vÌa lagrimal
+A11903,catarata ojo derecho intervenido 2015
+A11904,ACV 2008 con paresia residual leve de MII
+A11905,deterioro cognitivo leve por demencia secundaria a polineuritis alcohÛlica
+A11906,IQx: cataratas. Hallus valgus. Fractura pertrocantÈrea izq
+A11907,prÛtesis cadera izquierda
+A11908,Bebedor social
+A11909,Carcinoma basocelular nasal
+A11910,Enfermedad de Peyronie
+A11911,InserciÛn estimulador medular
+A11912,Ulcus duodenal en remisiÛn
+A11913,Fibromas cut·neos
+A11914,Litiasis vesÌcula
+A11915,ACV isquÈmico sin secuelas
+A11916,cardiopatÌa isquÈmica con IAM revascularizado con stent en DA.
+A11917,Gornartrosis bilateral
+A11918,Hipoacusia crÛnica habitual
+A11919,IQx: hernia umbilical
+A11920,laringitis roja paquidermia interaritenoidea
+A11921,Glucemia basal alterada
+A11922,Esteatosis hep·tica no alcohÛlica
+A11923,Esofagitis. Reflujo gastroesof·gico.
+A11924,Bloqueo AV 1er y 2∫ grado. Portador de marcapasos DDD
+A11925,NeumonÛa bilateral en 2010
+A11926,sepsis grave en 2016
+A11927,bocio endotor·cico
+A11928,espondiloartrosis dorsolumbar. Retrolistesis L5 grado 1
+A11929,Queilitis actÌnica
+A11930,DisfunciÛn erectil. PrÛtesis peneana
+A11931,Amigdalectomizada
+A11932,alÈrgica a penicilina
+A11933,"InfecciÛn VIH (htrsx), estadÌo B1 (psoriasis pustulosa)"
+A11934,Psoriasis. ArtropatÌa psori·sica
+A11935,Quiste Baker rodilla izquierda
+A11936,Necrosis avascular femoral izquierda
+A11937,Pancreatitis enÛlica
+A11938,Intervenido ulcus g·strico (gastroenteroanastomosis)
+A11939,ColecistectomÌa+eventrorrafia laparotÛmica
+A11940,rinoplastia
+A11941,polipectomÌas mayo y diciembre 2018
+A11942,intervenido cataratas OD
+A11943,NeumotÛrax derecho hace 20 aÒos
+A11944,IQ metatarsianos pie izquierdo
+A11945,ingresos de repeticiÛn por neumonÌas
+A11946,ces·rea por parto gemelar
+A11947,SCASEST con dos STENT en DA y DX
+A11948,Intervenido de amÌgdalas y cataratas
+A11949,Bebedor cerveza y vino diario
+A11950,TEP segmentario y subsegmentario
+A11951,"Intervenido de osteosÌntesis tobillo izquierdo y de columna, cataratas y pÛlipos larÌngeos"
+A11952,IAM hace 40 aÒos
+A11953,Desprendimiento de retina y cataratas
+A11954,Hernioplastia inguinal derecha estrangulada
+A11955,Hernioplastia epig·strica y umbilical
+A11956,Tendinitis crÛnica calcificante
+A11957,Miomas en ˙tero
+A11958,Bloqueo AV de 2∫ grado
+A11959,Bebedor de 4 cervezas al dÌa
+A11960,Hipotiroidismo yatrogÈnico
+A11961,desprendimiento de vÌtreo ojo derecho
+A11962,fractura de tobillo derecho intervenida
+A11963,portador de traqueostomÌa
+A11964,Fisuras anales intervenidas
+A11965,Colecistectomizado
+A11966,Hernioplastia crural
+A11967,Etilismo importante
+A11968,Epilepsia en su juventud
+A11969,neuritis Ûptica isquÈmica bilateral
+A11970,"estenosis aÛrtica severa, catererismo cardÌaco, valvuloplastia aÛrtica"
+A11971,"IQx: quiste hidatÌdico, catarata, prÌstata"
+A11972,Hemorroides intervenidas
+A11973,"PÈrdida de vision OD, perforaciÛn ocular intervenida"
+A11974,Poliglobulia secundaria
+A11975,ClaudicaciÛn intermitente en EEII
+A11976,Isquemia arterial en hemisferio izquierdo
+A11977,Ictus carotÌdeo derecho 2006
+A11978,Intervenido de hernia umbilical y de rodilla
+A11979,intervenido tumor benigno 3™ falange 4∫ dedo MSD
+A11980,Microadenoma de hipÛfisis
+A11981,IQx: hernia y herida por asta de toro
+A11982,Fractura pierna por accidente de coche
+A11983,Litotricia renal
+A11984,ApendicectomÌa de joven
+A11985,TEP (octubre 2011)
+A11986,Paquipleuritis residual
+A11987,⁄lcera bulbar
+A11988,FA/F Auricular
+A11989,Presenta un plomo en hemidiafragma derecho por accidente de caza
+A11990,Ex-bebedor de riesgo
+A11991,Hernia de hiato esof·gico
+A11992,SAHOS leve
+A11993,Isquemia crÛnica en MID
+A11994,Portador de clavo en tibia derecha
+A11995,tabique nasal intervenido
+A11996,neurinoma del ac˙stico
+A11997,seminoma testicular derecho intervenido y tratado con RT
+A11998,Intervenido de anginas y de fÌstula
+A11999,bebedor de 2-3 vasos pequeÒos de vino tinto/dÌa
+A12000,Ces·reas
+A12001,HisterectomÌa y doble anexectomÌa +TOT
+A12002,Gonartrosis (prÛtesis ambas rodillas)
+A12003,Adenoma tubular con displasia epitelial de bajo grado
+A12004,IQ: hernia discal
+A12005,Esofagitis por reflujo grado B
+A12006,hernia hiatal por deslizamiento
+A12007,hiperferritinemia secundaria
+A12008,aneurisma aorta abdominal en seguimiento por cirugÌa vascular
+A12009,bebedor de m·x. una cerveza al dÌa
+A12010,"IQx: hernia inguinal derecha, umbilical y apendicectomÌa"
+A12011,HBP en tratamiento
+A12012,PÛlipo colÛnico benigno
+A12013,bebedor de 2 o 3 cervezas al dÌa
+A12014,IntervenciÛn de revascularizaciÛn
+A12015,Insuficiencia renal crÛnica leve
+A12016,sÌndrome anÈmico
+A12017,Cataratas bilaterales intervenidas
+A12018,Bultos de grasa perioculares
+A12019,HemicolectomÌa derecha por CCR estadio IIIA
+A12020,Bebedor moderado hasta diagnÛstico
+A12021,bebedor de 1.5 L de cerveza al dÌa
+A12022,"IQx: vegetaciones nasales, pÛmulo izquierdo con colocaciÛn placa titanio, clavo medular h˙mero dcho"
+A12023,Intervenido de abdomen por navajazo
+A12024,enfermedad de columna sin precisar
+A12025,Artrosis cadera derecha
+A12026,Isquemia crÛnica de MMII
+A12027,Ligadura tub·rica
+A12028,AnticoagulaciÛn por fibrilaciÛn auricular crÛnica
+A12029,Bebedor de un litro de cerveza al dÌa
+A12030,aneurisma de aorta ascendente
+A12031,V·lvula bic˙spide e IAo leve.
+A12032,Angor con colocaciÛn de 2 stent
+A12033,Osteopenia. Poliartrosis
+A12034,Intervenido fractura tobillo izquierdo
+A12035,Hernia inguinal bilateral intervenida
+A12036,Fibromialgia y artrosis
+A12037,Intervenida de hernia umbilical
+A12038,HisterectomÌa total por prolapso
+A12039,Cervicoartrosis severa
+A12040,SÌndrome vana cava superior
+A12041,Intervenida de hernia inguinal y ligadura de trompas
+A12042,Incidentaloma suprarrenal
+A12043,Angioma hep·tico
+A12044,Estenosis lumbar L4-L5 intervenida (laminectomÌa descompresiva)
+A12045,Intervenido por hernia inguinal
+A12046,HisterectomÌa total en 2013
+A12047,Colon irritable con enfermedad diverticular
+A12048,Intolerancia a lactosa
+A12049,dolicocolon
+A12050,Intervenido cataratas
+A12051,Colesteatoma izquierdo
+A12052,Lipoma
+A12053,Bebedor de 1 cerveza/dÌa
+A12054,Arteriris de la temporal
+A12055,tromboembolismo pulmonar y trombosis venosa profunda de MID recurrente
+A12056,bebedor de4-5 cervezas y 4-5 copas vino diarias
+A12057,consumidor ocasional de cannabis y cocaÌna
+A12058,Grado funcional III-IV NYHA
+A12059,IQx: fracturas en brazos por accidento moto
+A12060,SAHS grave con CPAP
+A12061,Intervenida desprendimiento retina bilateral
+A12062,Intervenido fÌstula sacrococcÌgena
+A12063,disnea en fase estable grado II MRCm
+A12064,infarto en territorio de ACM izquierda con oclusiÛn completa
+A12065,Plaquipleuritis residual a traumatismo craneal y tor·cico con fracturas costales izquierdas
+A12066,Intervenido de hidrosadenitis izquierda
+A12067,"enfisema, bronquiectasias"
+A12068,Epilepsia focal secundariamente generalizada
+A12069,HPB grado II
+A12070,ExtirpaciÛn parÛtida
+A12071,HepatopatÌa etÌlica
+A12072,fractura pertrocantÈrea de cadera izqda
+A12073,fractura de meseta tibial izquierda con secuelas de flexo de rodilla
+A12074,Intervenido de Dupuytren izqdo
+A12075,RadiculopatÌa L4-S1 bilateral
+A12076,PolineuropatÌa axonal de origen tÛxico-metabÛlico
+A12077,rectificaciÛn lordosis lumbar
+A12078,laringuectomÌa total con disecciÛn radical cuello bilateral y hemitiroidectomÌa
+A12079,"diverticulosis, hemorroides"
+A12080,pÛlipo rectal extirpado
+A12081,Colecistectomizado en 12/2016
+A12082,Osterofito paravertebral dorsal alto derecho
+A12083,Disnea fase estable grado II MRCm
+A12084,accidente laboral con fracturas m˙ltiples
+A12085,"fÌstula anal intervenida, actualmente en curso otra"
+A12086,alergia a cloxaciclina
+A12087,Bebedor de 1L de cerveza al dÌa
+A12088,isquemia de miembros inferiores IIA
+A12089,portador de un tic ocular izqdo con desviaciÛn de comisura bucal
+A12090,"CardiopatÌa isquÈmica tipo IAMSEST con lesiones severas de CDp y Cx revascularizadas,implante stents"
+A12091,portador prÛtesis rodilla desde 2015
+A12092,FA paroxÌstica previa
+A12093,insuficiencia respiratoria parcial
+A12094,quiste de cavum con biopsia negativa
+A12095,apendicectomizado y amigdalectomizado
+A12096,exÈresis de quiste ceb·ceo en espalda
+A12097,neumopatÌa intersticial asociada a artritis reumatoide
+A12098,necrosis avascular de cadera izquierda-prÛtesis cadera
+A12099,alÈrgico a pirazolonas
+A12100,DÈficit de proteÌna C
+A12101,intervenido de apendicitis
+A12102,IAM con stent
+A12103,ColectomÌa en 2007 por colitis ulcerosa
+A12104,hernia discal L5-S1
+A12105,artrodesis tobillo derecho 2012
+A12106,intervenido tunel carpiano derecho
+A12107,retinopatÌa aterosclerÛtica
+A12108,alergia a augmentine
+A12109,trombosis venosa profunda MII
+A12110,hernia inguinal bilateral (hernioplastia bilateral)
+A12111,Porfiria cut·nea tarda
+A12112,"intervenido herniorrafia inguinal derecha, aqueratosis actincia"
+A12113,hipoacusia leve neurosensorial de predominio izquierdo
+A12114,Psoriasis palmo plantar
+A12115,Laringitis por RGE
+A12116,SAHS moderado con CPAP
+A12117,NefropatÌa diabÈtica
+A12118,Tratado por blefaroespasmo con toxina botulÌnica
+A12119,traumatismo craneal y hemorragia en 2016
+A12120,Ci·tica
+A12121,"Bebedor de m·s de 60g diarios, antes m·s"
+A12122,mastopatÌa
+A12123,histerectomizada
+A12124,BIRDHH
+A12125,NefrectomÌa izquierda por hipernefroma
+A12126,Microlitiasis biliar
+A12127,Gastritis crÛnica reagudizada erosiva
+A12128,Alergia a VoltarÈn
+A12129,Intervenido de fÌstula
+A12130,Bebedor importante (3/4 Litro vino al dÌa)
+A12131,Dupuytren intervenido en manos
+A12132,Esquizofrenia en tratamiento
+A12133,poliglobulia secundaria sometida a sangrÌas
+A12134,intervenido de fractura de tibia y peronÈ
+A12135,HisterectomÌa m·s doble anexectomÌa en 2002
+A12136,Amigdalectomizada a los 10 aÒos
+A12137,Hernioplastia umbilical
+A12138,Insuficiencia venosa perofÈrica crÛnica grado II
+A12139,intervenido de varices en MII
+A12140,portador de colostomÌa
+A12141,laparocele lÌnea media
+A12142,epigastralgia
+A12143,Alergia a aceclofenaco y diclofenaco
+A12144,Estenosis del canal medular a nivel lumbar
+A12145,Hipoacusia con audÌfonos
+A12146,Bebedor un vaso vino /dÌa aprox
+A12147,artritis psori·sica en tratamiento
+A12148,quiste renal derecho
+A12149,alÈrgico a fenilefrina
+A12150,Deterioro cognitivo leve de origen vascular/degenerativo
+A12151,Retraso mental
+A12152,Insuficiencia aÛrtica y disfunciÛn ventricular moderada
+A12153,"ACVA con hematoma en corona radiata, sin secuelas"
+A12154,liquen simple crÛnico
+A12155,colecistectomÌa en 2015
+A12156,intervenido pÛlipos benignos de laringe
+A12157,"infarto de miocardio en 2014, revascularizaciÛn percut·nea"
+A12158,insuficiencia cardÌaca grado I-II
+A12159,trombosis venosa profunda de MII
+A12160,FA desde 2014 antocoagulada
+A12161,fractura humeral derecha consolidada con fÈrula y RHB
+A12162,MiopÌa magna. Cataratas intervenidas.
+A12163,"Glaucoma, ceguera legal"
+A12164,hernioplastia por hernia umbilical
+A12165,Hepatitis B pasada
+A12166,Fisura anal crÛnica
+A12167,nefrolitiasis derecha tratada con litotricia
+A12168,intervenida de nefrolitiasis en ambos riÒoÒes. Doble J
+A12169,PÛlipo resecado en 2018
+A12170,Bebedor excesivo regular
+A12171,traumatismo con fractura de mandÌbula intervenida
+A12172,Laringuectomizado
+A12173,Probable tuberculosis en infancia
+A12174,papiloma schnederiano endofÌtico en fosa nasal izqda intervenido
+A12175,Sobrepeso grado II
+A12176,Varices MMII
+A12177,bronquitis leves
+A12178,Hipoacusia. SÌndrome de MeniËre
+A12179,Anticoagulado por arritmia
+A12180,Intervenido de apÈndice y varices
+A12181,˙lcera de duodeno
+A12182,DescompensaciÛn endotelial OI y cataratas en OD que condiciona ceguera limitante
+A12183,"TBC pulmonar tratada durante 7 meses, lesiones fibrÛticas residuales."
+A12184,FibrilaciÛn auricular permanente
+A12185,Insuficiencia venosa perifÈrica crÛnica
+A12186,"Bypass aortofemoral, Wolf Parkinson White ablacionado"
+A12187,CardiopatÌa isquÈmica crÛnica con enfermedad de un vaso y oclusiÛn crÛnica de CD
+A12188,CardiopatÌa isquÈmica de 3 vasos revascularizada
+A12189,M˙ltiples RTU
+A12190,Tinnitus habitual y pÈrdida de audiciÛn leve-moderada
+A12191,fisura del acet·bulo por accidente
+A12192,Intervenido de hernia inguinal
+A12193,VasectomÌa
+A12194,ResecciÛn intestinal por vÛlvulos intestinales
+A12195,"Hepatitis post-tranfusional, ya curado"
+A12196,Exbebedor ocasional de cerveza o vino
+A12197,AmputaciÛn tercer dedo mano izquierda
+A12198,"Enfisema, Insuficiencia respiratoria crÛnica"
+A12199,Consumo moderado alcohol
+A12200,"SÌndrome apnea-hipoapnea del sueÒo severo, CPAP nocturno"
+A12201,Fractura de troc·nter mayor de cadera derecha en 2014
+A12202,Fractura de epÌfisis radial distal derecha en 2018
+A12203,Osteocondromatosis sinovial en hombros
+A12204,Debilidad MID por patologÌa a nivel lumbar
+A12205,SAHS severo con buena respuesta a CPAP
+A12206,Intolerancia a clavul·nico
+A12207,SÌndrome de Sudeck
+A12208,Litiasis renal derecha
+A12209,MiocardiopatÌa hipertensiva diabÈtica con FEVI conservada
+A12210,IQ: politrauma por atropello
+A12211,SÌndrome de Tietze
+A12212,"IQx: Fisura anal, amigdalectomÌa"
+A12213,AIT con diplopia
+A12214,Gastritis crÛnica atrÛfica
+A12215,FibrilaciÛn auricular paroxÌstica en tratamiento con AAS
+A12216,Bebedor de 4 litros de cerveza/dÌa
+A12217,Cataratas intervenidas (OD)
+A12218,intervenido cuerda vocal derecha por carcinoma
+A12219,Taquicardia paroxÌstica supraventricular
+A12220,Artrosis cervical en tratamiento
+A12221,PÛlipo adenomatoso
+A12222,Stent carotÌdeo derecho
+A12223,traqueostomizado
+A12224,Gran hernia de hiato
+A12225,"Ulcus pÈptico, realizÛ tratamiento para H. Pylori"
+A12226,Diverticulos aislados de sigma y hemorroides internas
+A12227,Hipoacusia perceptiva
+A12228,Faringitis crÛnica foco D
+A12229,Epicondilitis derecha. Hombro doloroso izquierdo.
+A12230,CirugÌa hernia inguinal derecha
+A12231,Isquemia arterial de MMII (bypass femoropoplÌteo 2010)
+A12232,SCASEST con ICP y stent
+A12233,Portador homocigÛtico mutaciÛn MTHFR/C677T
+A12234,Insuficiencia renal ateroembÛlica
+A12235,ObstrucciÛn carotidea izquierda y stent permeable en carÛtida derecha
+A12236,Aneurisma aorta abdominal infrarrenal
+A12237,OclusiÛn vena temporal retina ojo derecho
+A12238,FA en tratamiento
+A12239,Espondiloartritis seronegativa
+A12240,Fiebre tifoidea en la infancia
+A12241,CirugÌa de hombro y codo
+A12242,Cataratas intervenidas ambos ojos
+A12243,"Ictus isquÈmico lacunar capsular izqdo, recuperado"
+A12244,Hipoacusia desde infancia atribuida a antibioterapia
+A12245,Bronquitis crÛnica. SAHS. Insuficiencia crÛnica respiratoria global
+A12246,Hernias disco L4-L5 y L5-S1
+A12247,Estenosis canal L4-L5 y protusiÛn discal
+A12248,Pancreatitis aguda edematosa liti·sica
+A12249,"Colelitiasis, cÛlico biliar"
+A12250,SAOS (CPAP nocturno)
+A12251,Espondiloartrosis dorsal
+A12252,Operado ˙lcera de estÛmago
+A12253,Fumador 4-5 puritos al dÌa
+A12254,Intervenido fractura de cadera derecha
+A12255,Taquicardia sinusal
+A12256,Condromalacia GIII en menisco rodilla derecha
+A12257,NeumonÌa bilateral en 2016 (consolidaciÛn derecha)
+A12258,IntervenciÛn hernia inguinal (aÒo 2000)
+A12259,Duodenitis erosiva
+A12260,Intervenido fracturas fÈmur y antebrazo derechos por accidente
+A12261,Insuficiencia renal crÛnica grado III
+A12262,Glaucoma intervenido
+A12263,Fractura esternal y costal bilateral
+A12264,"FibrilaciÛn auricular, en tratamiento antocoagulante con antivitamina K"
+A12265,"Deterioro cognitivo leve, asociado a dÈficit de B12, corregido"
+A12266,ApendicectomÌa laparoscÛpica
+A12267,Exbebedor de 2 litros de cerveza al dÌa
+A12268,"InfecciÛn por VIH desde 1995, estadÌo C2"
+A12269,Tuberculosis pulmonar y pleural conocida antes de infecciÛn por VIH
+A12270,HLA B5701 negativo (seguimiento por infecciosas)
+A12271,Virus hepatitis C positivo sin replicaciÛn viral
+A12272,Callos de fracturas costales bilaterales en PET
+A12273,Litiasis renal izquierda
+A12274,Adenoma tubulovelloso en seguimiento por Digestivo desde hace 30 aÒos
+A12275,EPOC enfisema. Bullas apicales LLSS. Bronquiectasias. LesiÛn cicatricial residual LSD
+A12276,VacunaciÛn antineumocÛcica hace 6 aÒos
+A12277,Melanoma preauricular izquierdo estadio I en 2006
+A12278,Hiperglucemia controlada con dieta
+A12279,Amigdalectomizado
+A12280,Intervenido de menisco
+A12281,intervenido hernia inguinal bilateral
+A12282,CardiopatÌa hipertensiva con disfunciÛn de VI
+A12283,"ArteriopatÌa perifÈrice, Stent carotÌdeo izquierdo, Stent femoral izquierdo"
+A12284,Intervenido por espondilolistesis
+A12285,Hernioplastia
+A12286,PrÛtesis rodilla derecha
+A12287,HÌgado graso
+A12288,SÌndrome hemorroidal
+A12289,Intervenido disecciÛn aÛrtica en 2011 y endoprotesis 2/2012
+A12290,Hipoacusia perceptiva crÛnica
+A12291,Intervenido menisco
+A12292,BullectomÌa abril 2010
+A12293,Hernia de niato
+A12294,OsteosÌntesis clavo humeral TRIGEN
+A12295,Obesidad previa
+A12296,Ictus hace 10 aÒos sin secuelas
+A12297,Anemia y Cuadro constitucional en seguimiento por digestivo
+A12298,Hiperglucemia por corticoides
+A12299,HepatopatÌa crÛnica con hipertensiÛn portal
+A12300,Ascitis
+A12301,Gastroduodenitis crÛnica
+A12302,taquicardia parox?stica supraventricular ablacionada
+A12303,Intervenido hernia umbilical y epig·strica
+A12304,Pseudotumor testicular inflamatorio sin signos de malignidad
+A12305,Sindrome de apnea-hipoapnea del sueÒo con CPAP nocturna.
+A12306,Psoriasis en placas en tratamiento por dermatologÌa
+A12307,Ex bebedor de riesgo
+A12308,Ex Adicto a drogas vÌa parenteral heroÌna y cocaÌna
+A12309,Cirrosis hep·tica por Virus hepatitis C genotipo 4
+A12310,Ictus en 2012 sin secuelas
+A12311,Intervenido de tabique nasal y oÌdos
+A12312,Hiperbilirrubinemia problable sÌndrome de Gilbert
+A12313,"Intervenido de apendicitis, cataratas, ulcus pÈptico y hernia inguinal"
+A12314,Infarto agudo de miocardio con enfermedad de 3 vasos revascularizados
+A12315,DisfunciÛn ventrÌculo derecho y FEVI deprimida
+A12316,Por cirrosis hep·tica enÛlica portador inactivo virus hepatitis B
+A12317,alÈrgico a paracetamol
+A12318,NeuropatÌa inguinal derecha tras herniorrafÌa
+A12319,Intervenida de ˙tero y ovarios por mioma (44 aÒos)
+A12320,Intervenida de rodilla en 2004
+A12321,"alergias a pirazolonas, penicilina y codeÌna"
+A12322,2 legrados por pÛlipo uterino
+A12323,Dispepsia g·strica
+A12324,accidente isquÈmico transitorio (AIT) en 2017
+A12325,bebedor de una cerveza al dÌa
+A12326,Intervenido de hallux valgus y hernias inguinales
+A12327,Accidente cerebro-vascular sin secuelas hace 10 aÒos
+A12328,Intervenido de fractura de muÒeca derecha y rodilla derecha
+A12329,Intervenido de hernia inguinal derecha
+A12330,Ingresos por neumonÌa en 2013 y 2018
+A12331,Hipoglobulia secundaria
+A12332,"SÌndrome de apnea del sueÒo/hipoventilaciÛn-obesidad, CPAP nocturna"
+A12333,Celulitis de miembros inferiores
+A12334,Lumboci·tica izquierda
+A12335,MeniscectomÌa artroscÛpica rodilla derecha en 2004
+A12336,Alergia a paracetamol
+A12337,RadiculopatÌa crÛnica y meralgia parestÈsica miembro inferior derecho
+A12338,BroncopatÌa crÛnica simple
+A12339,Hiperplasia benigna de prÛstata intervenida
+A12340,VÈrtigo de caracterÌsticas perifÈricas
+A12341,herniorrafÌa inguinal derecha
+A12342,Bebedor de dos latas de cerveza al dÌa
+A12343,"ArteriopatÌa perifÈrica, isquemia IIA"
+A12344,Intervenido de hernia estrangulada inguinal y quiste radicular mandibular
+A12345,Queratoplastia ojo derecho por queratitis herpÈtica
+A12346,Amaurosis de ojo derecho
+A12347,hipertensiÛn ocular en ojo izquierdo
+A12348,neuralgia dental
+A12349,epiglotitis en 2010
+A12350,colecistectomÌa en 2010 por litiasis biliar
+A12351,"cardiopatÌa isquÈmica, revascularizaciÛn con 1 stent"
+A12352,colitis pseudomembranosa con Augmentine
+A12353,reacciÛn extrapiramidal con Dogmatil
+A12354,infecciÛn del tracto urinario de repeticiÛn
+A12355,mastitis en ambas mamas en relaciÛn con prÛtesis
+A12356,intervenida de quistes de endometriosis
+A12357,histerectomÌa total simple por mioma uterino
+A12358,nÛdulo en mama izquierda en seguimiento desde hace aÒos
+A12359,pies cavos
+A12360,"intervenido de cataratas, ulcera y hernia g·strica"
+A12361,hipoacusia total pÌdo derecho y severa en el izquierdo (audÌfono)
+A12362,pÛlipo hiperpl·sico rectal intervenido
+A12363,desprendimiento de retina ojo izquierdo sin pÈrdida agudeza visual
+A12364,hematoma subdural fronto-parietal derecho traum·tico sin secuelas
+A12365,"bebedor de dos o tres cervezas al dÌa, antes m·s"
+A12366,fractura meseta tibial y peronÈ izquierdo
+A12367,"cistoprostatectomÌa radical, portador de urostomÌa de Bricke"
+A12368,insuficiencia renal moderada
+A12369,hemorroides internas grado II/IV
+A12370,intervenido de obstrucciÛn intestinal secundario a brida en oct 2019
+A12371,faringitis crÛnica atrÛfica
+A12372,hipotiroidismo primario autoinmune
+A12373,Exbebedor de 3 cervezas y dos cubalibres diarios
+A12374,"cardiopatÌa isquÈmica/SCASEST, stent farmacoactivo"
+A12375,trombosis venosa profunda (TVP)
+A12376,TVP distal de miembro inferior derecho y tromboflebitis superficial ipsilateral
+A12377,intervenido cataratas ojo izquierdo
+A12378,cirugÌa urgente por perforaciÛn intestinal por cuerpo extraÒo en 2017
+A12379,alergia a avispas
+A12380,hernia discal L5-L6
+A12381,hernia inguinal y umbilical
+A12382,intervenido por peritonitis tras perforaciÛn de pÌloro
+A12383,"neuropatÌa VI pc izquierdo de origen isquÈmico-metabÛlico, resuelto"
+A12384,alergia a penicilina y codeÌna
+A12385,Hernirrafia umbilical
+A12386,disnea grado IV seg˙n escala MRCm
+A12387,vÈrtigo posicional
+A12388,intervenido de rodilla derecha
+A12389,"pleuritis con tres aÒos, tratada con Penicilina"
+A12390,bebedor diario de 1 litro o m·s de vino al dÌa
+A12391,poliartralgia mixta
+A12392,protusiÛn discal L4-L5
+A12393,otitis media agudizada
+A12394,mingoplastia
+A12395,esponsiloartrosis lumbar
+A12396,"intervenido de tabique nasal, vesÌcula y cataratas"
+A12397,alergia a metamizol
+A12398,"pancreatitis crÛnica, portador de prÛtesis biliar met·lica"
+A12399,"HÌgado graso, posibles angiomas hep·ticos"
+A12400,litiasis calicial renal superior derecha. Quiste cortical
+A12401,"SÌndrome de Wolf-Parkinson-White, sin ablaciÛn"
+A12402,Profilaxis de endocarditis
+A12403,Bebedor habitual
+A12404,Intervenido de catarata ojo derecho
+A12405,Intervenido de Dupuytren mano derecha
+A12406,Intervenido ulcus gastroduodenal
+A12407,HemotÛrax en 2011
+A12408,Derrame pleural en 2011
+A12409,Enfermedad de Castleman
+A12410,Infarto esplÈnico
+A12411,intervenida de columna por traumatismo por caÌda
+A12412,intervenida tumor benigno de recto
+A12413,sÌndrome de Eaton-Lambert
+A12414,Osteopenia/osteoporosis del varÛn
+A12415,reumatismo palindrÛmico
+A12416,SPECT mioc·rdico sin isquemia inducible
+A12417,insuficiencia aÛrtica leve-moderada
+A12418,insuficiencia mitral leve
+A12419,derrame pleural derecho en 2019
+A12420,artritis reumatoide en tratamiento
+A12421,"antecedentes de pancreatitis, probable fibrosis de papila condicionando dilataciÛn de vÌa biliar principal"
+A12422,divertÌculo yuxtapapilar en segunda porciÛn duodenal
+A12423,"pÛlipos de colon, hemorroides internas"
+A12424,nÛdulo mama izquierda
+A12425,intervenida de colecistectomÌa
+A12426,Intervenido de fractura de clavÌcula con 20 aÒos
+A12427,duodenitis. Ulcus bulbar
+A12428,faringitis crÛnica. Edema de Reincke
+A12429,Intervenida edema de Reinke y hernia abdominal
+A12430,Lipoma en muslo derecho
+A12431,SÌndrome del t˙nel carpiano
+A12432,"Espondiloartrosis, discopatÌa cervical y lumbar"
+A12433,Urolitiasis intervenida
+A12434,"PÛlipos de colon, colitis inespecÌfica, hemorroides mixtas"
+A12435,Herpes zÛster hombro derecho en 2012
+A12436,NeuropatÌa Optica IsquÈmica no ArterÌtica
+A12437,Sd. de Dumping
+A12438,Accidente CerebroVascular (ACV)
+A12439,cirugÌa: amigdalectomÌa
+A12440,cirugÌa: fÌstula anal
+A12441,cirugÌa: hernia inguinal derecha
+A12442,hipoascusia
+A12443,hepatopatÌa vhc
+A12444,trastorno delirante
+A12445,HERNIA DE DISCO EN L5
+A12446,NEUMOT”RAX ESPONT¡NEO DCHO
+A12447,CIRUGÕA POR PR”TESIS MAMARIAS BILATERALES
+A12448,NEUMONÕA POR FIEBRE Q
+A12449,INFECCI”N RENAL EN 1985
+A12450,NEUMOT”RAX ESPONT¡NEO EN 1983
+A12451,C”LICO RENAL IZQUIERDO
+A12452,HIPERNEFROMA DERECHO
+A12453,hipertrofia benigna prost·tica
+A12454,flutter auricular paroxÌstico
+A12455,artrosis cadera
+A12456,cirugÌa de hernia inguinal dcha
+A12457,alcoholismo moderado
+A12458,CIRUGÕA PR”TESIS RODILLA IZQ
+A12459,CIRUGÕA P”LIPOS EN CUERDAS VOCALES
+A12460,quiste cervical en nervio hipogloso
+A12461,ACFA en tratamiento anticoagulante
+A12462,SÌndrome de apnea-hipopnea
+A12463,Lupus Eritematoso Discoide
+A12464,ArtropatÌa psori·sica
+A12465,IQ adenectomÌa
+A12466,IQ: septoplastia
+A12467,ICTUS ISQU…MICO DE ACM IZQUIERDO
+A12468,ENFERMEDAD HODGKIN ESTADÕO III
+A12469,ECZEMAS EN BRAZOS
+A12470,MENISCECTOMÕA RODILLA DERECHA
+A12471,ABSCESO PERIANAL INTERVENIDO
+A12472,CARCINOMA MICROINVASIVO DE ETMOIDES IZQUIERDO
+A12473,EPISODIO DE ANGIOEDEMA
+A12474,blefaroespasmo
+A12475,hernia de hiato y ulcus duodenal
+A12476,incontinencia urinaria de esfuerzo
+A12477,ROTURA DE ANEURISMA DE AORTA ABDOMINAL EN 2012
+A12478,DESVIACI”N DEL TABIQUE
+A12479,BEBEDORA IMPORTANTE
+A12480,ENFERMEDAD INFLAMATORIA P…LVICA
+A12481,ALERGIA AL FURACIN
+A12482,SAFENECTOMÕA BILATERAL
+A12483,CIRUGÕA DE FÕSTULA SACROCOXÕGEA
+A12484,CIRUGÕA HERNIA INGUINAL
+A12485,CIRUGÕA TUNEL CARPIANO
+A12486,CLAUDICACI”N INTERMITENTE DE EXTREMIDADES INFERIORES
+A12487,CIRUGÕA POR ULCUS G¡STRICO
+A12488,RESECCI”N TRANSURETRAL DE PR”STATA
+A12489,"ALERGIA A ESPIRAMICINA/METRONIDAZOL, ANISAKIS, PLANTAGO OVATA"
+A12490,retraso incipiente RDHH intermitente
+A12491,LuxaciÛn anterior del hombro izquierdo
+A12492,CIRUGÕA DE Levantamiento palpebral por blefarochalasis bilateral
+A12493,HIPOTIROIDISMO 2∫ A RT
+A12494,HEPATOPATÕA NO FILIADA
+A12495,CIRUGÕA DE CATARATAS
+A12496,INTERVENCI”N DE HERNIA INGUINAL IZQUIERDA
+A12497,ARTRISTIS REUMATOIDE
+A12498,ANEXECTOMÕA BILATERAL
+A12499,EPISODIO DE INSUFICIENCIA RENAL AGUDA
+A12500,HEPATOPATÕA DE ORIGEN EN”LICO
+A12501,ANEMIA CON D…FICIT DE ¡CIDO F”LICO
+A12502,BEBEDOR LEVE
+A12503,adenomas tubulares extirpados
+A12504,INFECCI”NES DE TRACTO URINARIO REPETIDAS
+A12505,V…RTIGO PAROXÕSTICO BENIGNO
+A12506,Cervicobraquialgia dcha
+A12507,CIRUGÕA DE hipermetropÌa
+A12508,ESTENOSIS DE ARTERIA CAROTÕDEA
+A12509,Espondiloartrosis lumbar
+A12510,herniorrafia inguinal bilateraL
+A12511,CIRUGÕA DE Menisco int. rodilla derecha
+A12512,CIRUGÕA DE OJO IZQUIERDO
+A12513,INTOLERANCIA A SYMBICORT
+A12514,SÌndrome de apnea e hipopnea obstructivas del sueÒo
+A12515,colecistitis crÛnica
+A12516,ColecistectomÌa laparoscÛpica
+A12517,MeniscectomÌa bilateral
+A12518,By-pass ileo-cÛlico por sÌndrome adherencial
+A12519,CirugÌa de rodilla
+A12520,cirugÌa de lipoma en regiÛn tor·cica anterior
+A12521,cirugÌa de rotura de triceps en brazo izquierdo
+A12522,fistulectomÌa perianal
+A12523,alÈrgico al polen y a las gramÌneas
+A12524,herpes Zoster
+A12525,neumotÛrax espont·neo
+A12526,traumatismo abdominal con hepatectomÌa parcial
+A12527,DÈficit crÛnico de vitamina B12
+A12528,AlÈrgico a contraste yodado
+A12529,EN SEGUIMIENTO POR PSIQUATRÕA POR CONSUMO DE T”XICOS
+A12530,polineuropatÌa mixta
+A12531,aneurisma de aorta infrarrenal con endoprÛtesis
+A12532,Dudosa alergia a Amoxicilina clavul·nico
+A12533,Accidente de tr·fico en el aÒo 1992 con lesiones en la cara
+A12534,Intervenciones quir˙rgicas: menisco
+A12535,CardiopatÌa isquÈmica con IAM anteroseptal
+A12536,Diverticulitis aguda
+A12537,alÈrgica a Betadine y metales
+A12538,Intervenciones quir˙rgicas : neuroma de Morton en 2001
+A12539,MicrocirugÌa larÌngea por pÛlipo de cuerda vocal izquierda
+A12540,leucoplasia de cuerda vocal derecha
+A12541,edema de Reinke bilat
+A12542,NeumotÛrax a los 23 y 39 aÒos
+A12543,Antes bebedor moderado
+A12544,Intervenciones quir˙rgicas: apendicitis
+A12545,Intervenciones quir˙rgicas: colecistitis gangrenosa en 2007
+A12546,Intervenciones quir˙rgicas: eventraciÛn en noviembre de 2012
+A12547,Intervenciones quir˙rgicas: epitelioma palpebral en 2013
+A12548,Intervenciones quir˙rgicas: catarata bilateral en 2014
+A12549,HemicolectomÌa derecha
+A12550,Estenosis de canal cervical medular
+A12551,By pass aorto bifemoral
+A12552,EventraciÛn intervenida dos veces
+A12553,Intervenciones quir˙rgicas: TendÛn de Aquiles
+A12554,cirugÌa por ˙lcera duodenal
+A12555,hernia de hiato con esofagitis
+A12556,radiculopatÌa C8-T1
+A12557,CARDIOPATÕA ISQU…MICA CON INFARTO AGUDO DE MIOCARDIO INFERIOR
+A12558,ANGIODISPLASIA ILEAL Y COL”NICA CON VARIOS SANGRADOS DIGESTIVOS CON ANEMIZACI”N
+A12559,CIRUGÕA DE AMBOS MENISCOS
+A12560,TROMBOCITOSIS SECUNDARIA A ANESPLENIA
+A12561,ESPLENECTOMÕA
+A12562,Espondilodiscartrosis L4-L5 y estenosis foraminal L5 con lumbalgia
+A12563,INFECCI”N TRACTO URINARIO DE REPETICI”N
+A12564,prÛtesis de rodilla derecha en 2008
+A12565,POLIMIALGIA REUM¡TICA con afectaciÛn de cintura escapular
+A12566,Intervenciones quir˙rgicas: Hernia discal de columna hasta en tres ocasiones
+A12567,CARDIOPATÕA ISQU…MICA:angina vasoesp·stica e infarto agudo suben
+A12568,Rinitis crÛnica no alergica
+A12569,Intervenciones quir˙rgicas: FÌstula anal
+A12570,Intervenciones quir˙rgicas: lipoma cervical
+A12571,EPOC
+A12572,Intervenciones quir˙rgicas: Ulcus g·strico por perforaciÛn
+A12573,prostatectomÌa
+A12574,queratodermia fisuraria en plantas de pies
+A12575,Ros·cea
+A12576,Herniorrafia inguinal derecha e izquierda
+A12577,IntervenciÛn quir˙rgica: Hernia umbilical
+A12578,artralgias en manos
+A12579,componente monoclonal IgM
+A12580,IQ: MicrocirugÌa endolarÌngea por laringitis crÛnica
+A12581,LaringuectomÌa Total con Vaciamiento Funcional drcho
+A12582,Enf de Graves-Basedow
+A12583,Intervenido de ulcus g·strico
+A12584,Intervenido apendicitis
+A12585,Isquemia crÛnica de MMII con by-pass de MII y claudicaciÛn a 500 m
+A12586,astenia crÛnica
+A12587,CuadrantectomÌa
+A12588,vejiga hiperactiva con ITUs de repeticioN
+A12589,Fibroadenoma de mama derecha
+A12590,leiomiomas uterinos y endometriosis ovarica
+A12591,Cefalea
+A12592,inestabilidad para la marcha de aÒos de evoluciÛn
+A12593,PatologÌa degenerativa a nivel de columna vertebral lumbar con neuropatÌa secundaria
+A12594,Hiperuricemia con episodios de gota
+A12595,TVP EII
+A12596,Fascitis plantar
+A12597,Bebedor de 2 copas de vino/dÌa
+A12598,PROBABLE ALERGIA A CONTRASTES YODADOS
+A12599,CIRUGÕA: QUISTE BARTOLINO
+A12600,ACFA paroxÌstico
+A12601,2 EPISODIOS DE ACCIDENTE ISQU…MICO TRANSITORIO
+A12602,IQ: Apendicectomizado
+A12603,IQ: hidrocele
+A12604,EX-BEBEDOR MODERADO
+A12605,HepatopatÌa crÛnica por virus de hepatitis B
+A12606,EsÛfago de Barrett sin displasia
+A12607,Hipertrofia prost·tica
+A12608,Intervenciones quir˙rgicas: hernioplastia inguinal
+A12609,Intervenciones quir˙rgicas: ojo izquierdo
+A12610,Intervenciones quir˙rgicas: fÈmur derecho por traumatismos previos
+A12611,Otitis de repeticiÛn con hipoacusia secundaria
+A12612,Hiperplasia epitelial de epiglotis sin atipias
+A12613,prostatectomÌa radical
+A12614,Radiofrecuencia por tumoraciÛn renal
+A12615,Hiperferritinemia 2∫ a hepatopatÌa alcohÛlica
+A12616,Trombopenia leve
+A12617,Intervenciones quir˙rgicas: Varices
+A12618,TROMBOSIS VENOSA PROFUNDA poplÌtea
+A12619,Probable alergia a Nolotil
+A12620,bebedora moDeRada
+A12621,IQ: cirugÌa suelo pÈlvico
+A12622,Artrosis de columna vertebral cervical y lumbar
+A12623,Trombosis ocular dcha y catarata izquierda
+A12624,Colecistitis
+A12625,Intervenciones quir˙rgicas: Hernia umbilical
+A12626,Pseudoquiste pancre·tico sobreinfectado
+A12627,Hemoptisis que requiriÛ embolizaciÛn bilateral
+A12628,Raynaud primario
+A12629,Intervenciones quir˙rgicas previas: ; resecciÛn de carcinoma basocelular de p·rpado en marzo/2009
+A12630,resecciÛn de carcinoma basocelular de hombro en octubre/2009
+A12631,resecciÛn de nevus azul en cara en octubre/ 2011
+A12632,resecciÛn: Lipomas en brazo y hombro derechos
+A12633,Blefaroplastia
+A12634,Intervenciones quir˙rgicas ligamentos del tobillo
+A12635,Intervenciones quir˙rgicas: traumatismo en mano
+A12636,Bocio multinodular endotor·cico
+A12637,HisterectomÌa total con anexectomÌa izquierda
+A12638,IQx: Catarata ojo derecho
+A12639,Fractura radio distal derecho
+A12640,Presbiacusia
+A12641,IQ: adenoma prÛstata
+A12642,IQ: cu·druple bypass coronario
+A12643,IQ: cataratas
+A12644,IQ: hernia inguinal bilateral
+A12645,meningitis
+A12646,vÈrtigos paroxÌsticos
+A12647,Bacteriemia por E Coli y pielonefritis aguda
+A12648,cÛlicos renales
+A12649,drenaje de seroma postqx en pared abdominal
+A12650,IQ previas: TiroidectomÌa subtotal
+A12651,par·lisis recurrencial izqda residual
+A12652,IQ previas: ColecistectomÌa por colelitiasis
+A12653,IQ: desprendimiento de retina
+A12654,EstreÒimiento habitual
+A12655,IQ: fÌstula anal
+A12656,SAOH leve
+A12657,cirugÌa de varices
+A12658,CIRUGÕA: ULCUS G¡STRICO Y PERFORACI”N
+A12659,CIRUGÕA: QUISTE HIDATÕDICO HEP¡TICO Y ADHERENCIAS INTESTINALES
+A12660,Espondiloartrosis de columna vertebral lumbar
+A12661,CIRUGÕA: catarata bilateral
+A12662,CIRUGÕA: histerectomÌa por mioma
+A12663,Posible reacciÛn alÈrgica a moxifloxacino
+A12664,BEBEDOR SEVERO
+A12665,CIRUGÕA: 1ER DEDO MANO IZQUIERDA
+A12666,InfecciÛn por virus hepatitis C crÛnica
+A12667,Adenoma tubular en colon
+A12668,Abuso de OH (refiere abstinencia desde noviembre 2017)
+A12669,Hepatitis virus C tratada hasta Dic 2016
+A12670,VHB (virus hepatitis B)
+A12671,Intervenciones quirurgicas: salpingooforectomÌa bilat por cistoadenoma seroso
+A12672,infarto cardÌaco de origen isquÈmico
+A12673,CIRUGÕA: ESTENOSIS DE CANAL LUMBAR
+A12674,ANGIOMAS HEP¡TICOS
+A12675,ACCIDENTES ISQU…MICOS TRANSITORIOS DE REPETICI”N
+A12676,ClaudicaciÛn intermitente- sd isquemia crÛnica en EEII
+A12677,divertÌculos EN COLON
+A12678,Drenaje absceso perineal
+A12679,IQ: ProstatectomÌa
+A12680,IQ: apendicectomÌa
+A12681,ACFA paroxÌstica anticoagulada
+A12682,SÌndrome facetario en niveles L3-L4; L4-L5 y L5-S1
+A12683,IQ: Columna lumbar
+A12684,"IQ: dupuytren,"
+A12685,IQ: meniscos
+A12686,Alergias a AINES
+A12687,PResbicia
+A12688,Melanoma in situ en 2005
+A12689,IQ: mioma uterino
+A12690,IQ: Nevus plantar derecho
+A12691,neumotÛrax izquierdo de repeticiÛn
+A12692,tuberculosis en infancia
+A12693,incontinencia urinaria con cistocele grado III
+A12694,prolapso uterino grado I
+A12695,Eritrocitosis EPO-dependiente probablemente secundaria a h·bito tab·quico
+A12696,Sd de t˙nel carpiano
+A12697,rotura del ligamento escafolunar tipo IV y condromalacia de ganchoso tipo II
+A12698,sÌncopes de repeticiÛn por posibles crisis generalizadas
+A12699,Intervenciones quir˙rgicas: PolipectomÌa histeroscÛpica
+A12700,HisterectomÌa simple + plastias
+A12701,MenisquectomÌa
+A12702,Artroscopia de muÒeca
+A12703,Coleliatisis
+A12704,colostomÌa terminal
+A12705,eventraciÛn paraestomal realiz·ndose eventroplastÌa con malla sugar baker
+A12706,IQ: Catarata Ojo derecho
+A12707,Dependencia de alcohol y cocaÌna en abstinencia desde hace tres aÒos
+A12708,Intervenciones quir˙rgicas: bursitis de codo izquierdo
+A12709,Intervenciones quir˙rgicas: traumatismo mano izquierda
+A12710,Intervenido de adenomas en colon
+A12711,IQ: oÌdo dcho
+A12712,Pancitopenia por dÈficit de B12 post gastrectomÌa
+A12713,gastrectomÌa total Y de Roux
+A12714,Epilepsia desde la infancia
+A12715,FasciotomÌa por dupuytren de mano izquierda en marzo 2017
+A12716,Neumotorax espontaneo en 1995 y 2009
+A12717,hemorragia digestiva alta por duodenitis severa en 2007
+A12718,RI—ON ESPONJOSO
+A12719,micosis pulmonar
+A12720,LITIASIS RENAL (CIRUGÕA)
+A12721,CIRUGÕA DE CODO
+A12722,CIRUGÕA POR HEMORROIDES
+A12723,ESTENOSIS DE CANAL L4-L5
+A12724,COLECISTECTOMÕA POR LITIASIS
+A12725,Hernia inguinal y vegetaciones
+A12726,ClaudicaciÛn de MMII en tratamiento con Adiro
+A12727,DiscopatÌa lumbar con hernia discal L5-S1
+A12728,Intervenciones quir˙rgicas: Catarata bilateral
+A12729,Intervenciones quir˙rgicas: Fractura de cr·neo-maxilar por traumatismo
+A12730,Poliquistosis hepatorenal tipo 2
+A12731,Hipercalciuria
+A12732,fractura de rÛtula derecha e intervenciÛn (noviembre/17)
+A12733,IntervenciÛn Quir˙rgica: ces·rea /fractura patelar derecha
+A12734,extrasÌstoles ventriculares
+A12735,Iqx: hernia inguinal
+A12736,"FEVI conservada, marzo 2018"
+A12737,AIT territorio vertebro basilar de etiologÌa aterotrombÛtica
+A12738,Hipotiroidismo secundario a radioterapia en cuello
+A12739,Coxartrosis bilateral
+A12740,Dupuytren bilateral
+A12741,Intervenciones quir˙rgicas: menisco bilateral
+A12742,Intervenciones quir˙rgicas: catarata ojo izquierdo
+A12743,Hiperuricemia crÛnica
+A12744,c·lculos renales
+A12745,Adenomas tubulares de colon
+A12746,Hernioplastia abdominal
+A12747,adenomas tubulares
+A12748,IQ: presbicia
+A12749,IQ: fimosis
+A12750,IQ: apendicitis
+A12751,LUMBAGO/LUMBALGIA
+A12752,OTOTUBARITIS NEOM
+A12753,PSORIASIS EN CODOS
+A12754,DUODENITIS
+A12755,LITIASIS RENAL IZDA
+A12756,TRAST AFECTIVO BIPOLAR-ESQUIZOFRENIA PARANOIDE
+A12757,Gonalgia
+A12758,⁄lcera duodenal por H.pylori
+A12759,Hipoacusia oÌdo izquierdo
+A12760,esteatosis hep·tica - HepatopatÌa difusa
+A12761,Intervenciones quir˙rgicas previas: hernia inguinal
+A12762,Asma desde la juventud
+A12763,IQ: mastoidectomÌa bilateral
+A12764,IQ: pÛlipos larÌngeos hace 10 aÒos
+A12765,IQ: herniorrafÌa inguinal
+A12766,Raynaud
+A12767,tumor glÛmico en mano derecha intervenido
+A12768,Osteopenia y osteoporosis
+A12769,IQ previas: apendicectomÌa
+A12770,paraparesia progresiva EE inf
+A12771,dolor cervical y lumbar
+A12772,incontencia urinaria progresiva
+A12773,Dificultad importante para la marcha con caÌdas frecuentes
+A12774,radiculopatÌa S1 izquierda de caracterÌsticas crÛnicas
+A12775,hernia discal L4-5
+A12776,Fractura de hombro derecho
+A12777,gonalgia izquierda
+A12778,Isquemia de EEII grado IIA en seguimiento
+A12779,IQ 2005:CE pilar amigdalino izdo
+A12780,Junio 2007: Leucoplasia paladar blando izdo. Displasia severa
+A12781,Historia de 2 neumonÌas
+A12782,Gonartrosis izquierda con artrosis cervical y lumbaR
+A12783,CardiopatÌa hipertensiva leve
+A12784,OclusiÛn rama arteriolar retina OD no isquÈmica
+A12785,Desgarro de tendÛn de Aquiles
+A12786,Consumo de cocaÌna hace m·s de 20 aÒos
+A12787,alÈrgica a la penicilina y sus derivados
+A12788,epiploiditis abscesificada
+A12789,neumotÛrax izquierdo yatrogÈnico
+A12790,Ìleo obstructivo por torsiÛn de asa
+A12791,pielonefritis aguda
+A12792,"paquipleuritis izda, posible 2∫ a trauma tx hace 20 aÒos"
+A12793,Atelectasia lÌngular
+A12794,ictus isquÈmico en territroio de ACM izquierdo
+A12795,gammapatÌa monoclonal de bajo riesgo
+A12796,SafenectomÌa
+A12797,AlÈrgico a ·cido acetil salicÌlico
+A12798,"bloqueo AV completo con implante de marcapsos VVI -R, Flutter Auricular, e hipertensiÛn auricular."
+A12799,apendicetomÌa
+A12800,hernioplastia inguinal bilateral
+A12801,CirugÌa de tendÛn en mano derecha
+A12802,cirugÌa del tabique nasal
+A12803,Alergia a AAS
+A12804,Alergia a nÌquel
+A12805,Herpes zÛster tor·cico 2016
+A12806,IQ: Varices bilaterales en EEII
+A12807,ColecistectomÌa en 2018
+A12808,CirugÌa dentaria por colmillo supernumerario
+A12809,Trasplante renal
+A12810,Hiperlipemia mixta
+A12811,"HepatopatÌa crÛnica OH, con esteatosis hep·tica"
+A12812,˙lcera duodenal hace m·s de 30 aÒos
+A12813,IQ: PÛlipo en CV hace m·s de 20 aÒos
+A12814,vagotomÌa
+A12815,IQ: hernia inguinal
+A12816,laringuectomÌa total y VFCB
+A12817,Episodio de angina inestable en abril de 2017
+A12818,implantaciÛn de stent en Cx proximal y 2 stents solapados en DA proximal-media.
+A12819,Posible pericarditis pericateterismo
+A12820,lumboci·tica en 2015
+A12821,Intervenido de colecistitis abscesificada en marzo 2018
+A12822,Controles por UrologÌa HBP con PSA elevado
+A12823,neumonÌa LID en 2011
+A12824,"CardiopatÌa isquÈmica con IAM inferior en 1990, 1995 y 2017"
+A12825,IQ: Ulcera g·strica y perforaciÛn duodenal con peritonitis en 2004
+A12826,Alergia a la Mercromina
+A12827,EPOC moderada con HBI
+A12828,Trastorno maniaco con sÌntomas psicÛticos
+A12829,I.Q.: Hernia inguinal
+A12830,I.Q.: Fisura anal
+A12831,RTU vesical
+A12832,Enfermedad de Meniere oÌdo derecho
+A12833,crisis de vÈrtigos ocasionales
+A12834,IQ: Apendicitis aguda
+A12835,2 ces·reas
+A12836,SAOS severo
+A12837,2003 cateterismo
+A12838,implantaciÛn de stent farmacoactivo en rama diagonal
+A12839,IQ: 2 Hernias discales
+A12840,IQ: Hemorroides
+A12841,ALERGICO al pelo de GATO y GRAMÕNEAS
+A12842,Contacto TBC 2∫ circulo hace 40 aÒos
+A12843,Estenosis aÛrtica moderada-severa
+A12844,cirrosis crÛnica
+A12845,esofagitis pÈptica
+A12846,test de ureasa + ( 2011
+A12847,adenoma tubular plano con displasia focal de alto grado
+A12848,PolineuropatÌa sensitiva axonal en EEII post quimioterapia
+A12849,cirugÌa nasal
+A12850,IQ: Apendicitis en infancia
+A12851,IQ: quiste pilonidal
+A12852,Alg˙n episodio de diverticulitis que ha requerido ingreso
+A12853,IQ: ColecistectomÌa
+A12854,Dolor neurop·tico tras cirugÌa resecciÛn parcial de p·ncreas
+A12855,"Enfermedad arterial coronaria de 1 vaso, DA + stent farmacoactivo a DA media."
+A12856,Hipertrofia de prÛstata
+A12857,Fractura-acuÒamiento L1 tras caÌda en diciembre 2018
+A12858,Estenosis severa IPI y oclusiÛn de IED. 3 stent cardiacos en 2001.
+A12859,Fractura costal antigua
+A12860,Diarrea no filiada: se achacÛ a la CEFIXIMA
+A12861,VHC tratado con Maviret con buena respuesta
+A12862,Lumbalgias
+A12863,divertÌculos
+A12864,Osteoporosis columna leve
+A12865,leve atrofia renal derecha con funciÛn renal normal
+A12866,Psoriasis en manos
+A12867,Rinoconjuntivitis alÈrgica
+A12868,IQ previas: Hernioplastia inguinal
+A12869,Soplo sistolico y BRDHH valorado por cardiologÌa sin cardiopatÌa estructural
+A12870,IQ previas: 3 ces·reas
+A12871,IQ previas: Fractura muÒeca derecha
+A12872,IQ previas: Artroplastia Cadera izquierda
+A12873,Hipotiroidismo secundario a RT
+A12874,Historia de neumonÌa en la juventud
+A12875,IQ: laringuectomÌa total
+A12876,IQ: HisterectomÌa por miomas
+A12877,IQ: safenectomÌa
+A12878,Policitemia Vera CALR
+A12879,PÈrdida de dos embarazos a los 7 meses de gestaciÛn
+A12880,Bebedor 8 vinos al dÌa
+A12881,NeumotÛrax yatrÛgeno izquierdo tras BAG
+A12882,Esteatosis hep·tica difusa
+A12883,Crisis epilÈpticas generalizadas en Marzo 2018 en tratamiento
+A12884,MCL (ligamento colateral medial) - exploraciÛn laringea el 5/12/18 por captaciÛn en PET a estudio
+A12885,"VHC en control, muy bien controlada"
+A12886,IQ: hernia disco y lumbar L5
+A12887,IQ: Menisco derecho
+A12888,OoforectomÌa bilateral por H™ de teratoma Ovario izquierdo
+A12889,"Carcinoma epidermoide de orofaringe T4N2cM0, estadio IV-A con RC en junio/2013"
+A12890,ReacciÛn alÈrgica con afectaciÛn cut·nea tras administraciÛn conjunta hace aÒos de NOLOTIL y atb que
+A12891,Consumo activo de heroÌna
+A12892,VHC desde hace 3 aÒos a seguimiento por el servicio de ADG;
+A12893,EPOC con datos de hiperreactividad bronquial
+A12894,·nimo depresivo
+A12895,NEUMONÕA
+A12896,En control CCEE C. vascular por ˙lceras varicosas
+A12897,IQ: criptorquidea
+A12898,IQ: NEUMOT”RAX
+A12899,IQ: menisco izdo
+A12900,Intervenido de varices de MII en dos ocasiones
+A12901,IQ: resutura de conjuntiva ojo izquierdo por extrusiÛn de implante XEN.
+A12902,IQ: Hernia inguinal derecha
+A12903,ADC DE PR”STATA EN 2014
+A12904,Accidente IsquÈmico transitorio (AIT)
+A12905,Sd Lyell
+A12906,AIT
+A12907,TDHA
+A12908,Litiasis
+A12909,S. prost·tico
+A12910,Virus de la Inmunodeficiencia Humana
+A12911,Accidente Vascular Cerebral
+A12912,ReparaciÛn hernia
+A12913,Lupus eritematoso
+A12914,Polineuropatia axonal difusa
+A12915,Talasemia Minor
+A12916,Bocio multinodular no funcionante
+A12917,Anemia megalobl·stica
+A12918,FLutter
+A12919,sÌndrome esquizo afectivo
+A12920,LES
+A12921,"vertigo, hipotiroidismo"
+A12922,reg
+A12923,BMSI IgM
+A12924,retinopatia diabÈtica y glaucoma
+A12925,meniscopatia
+A12926,"Hiperplasia Benigna de PrÛstata, RGE"
+A12927,apnea
+A12928,ADC prostata libre de enfermedad
+A12929,Valvulopatia aÛrtica
+A12930,psoariasis
+A12931,Neoplasia vesical pT1
+A12932,Ulcus duodenal por consumo de AINEs
+A12933,MinusvalÌa: PrÛtesis de cadera + Vertebroplastia
+A12934,AIT hace 14 aÒos
+A12935,TVP miembro inferior
+A12936,"depresion, poliposis intestinal"
+A12937,"Hernia de hiato,"
+A12938,Ictus hace 30 aÒos
+A12939,HDA por angiodisplasias bulbares
+A12940,"SÌndorme Apnea Obstructiva del SueÒo, Hiperplasia Benigna de PrÛstata, hiperuricemia"
+A12941,VIH A3
+A12942,VHB (seroconversiÛn)
+A12943,EX ADVP
+A12944,Osteomastoiditis derecha por pseudomona
+A12945,Endoftalmitis candidi·sica ojo izquierdo con desprendimiento de retina
+A12946,Bocio nodular endotor·cico
+A12947,ICTUS ESTABLECIDO: INFARTO CEREBRAL. INDETERMINADO.
+A12948,BAV 2∫
+A12949,Coleitiasis
+A12950,Hipotirodismo
+A12951,Hernia discales
+A12952,Nefroma multiquistico
+A12953,Linfocitosis clonal de LGG
+A12954,HIPERTIROIDISMO. BOCIO MULTINODULAR. ADENOMA PROST¡TICO
+A12955,EPILEPSA TEMPORAL IDIOPATICA
+A12956,Epilepsia post-traum·tica
+A12957,Hidrocefalia
+A12958,Neoplasia de prÛstata
+A12959,Neoplasia de vejiga
+A12960,Linfoma de Hodgkin predominio linfocÌtico
+A12961,trombocitosis esencial
+A12962,ataxia hereditaria
+A12963,Enfermedad de Whipple
+A12964,Ictus cardioembÛlico
+A12965,Adenocarcinoma g·strico
+A12966,ictus isquemico vertebro basilar secuelar
+A12967,papilomatosis laringea por VPH infeccion en canal de parto
+A12968,Macroglobulinemia de Waldestrˆm
+A12969,carcinoma papilar vesical de celulas transicionales de bajo grado (grado I de Mostofi)
+A12970,prolapso genital
+A12971,QX HERNIA
+A12972,aneurisma de aorta toracica
+A12973,Esclerodactilia con afectaciÛn pulmonar
+A12974,VERTIGO PAROXISITICO BENIGNO
+A12975,Aneurisma infrarrenal
+A12976,Hiperparatiroidismo normocalcÈmico
+A12977,enfermedad de Von Willebrand
+A12978,ictus lacunar vertebrobasilar en junio 2018
+A12979,Ictus isquÈmico 2003
+A12980,IAM 2006 PORTADOR DE DAI
+A12981,POLIPOS DE COLON
+A12982,colangitis esclerosante primaria vs hepatitis autoinmune
+A12983,HTP
+A12984,UVEITIS. COROIDITIS SERPIGINOSA AO
+A12985,Epilepsia idiop·toca bien controlada (Crisis TÛnico-clÛnicas)
+A12986,SAHS en tratamiento cn CPAP
+A12987,Hipoacusia neurosensorial desde los 25 aÒos
+A12988,InfecciÛn VHB no manifiesta. (en controles posteriores habÌa desaparecido)
+A12989,placas pleurales por exposiciÛn a amianto
+A12990,Hipotiroidismo quir˙rgico. Bocio multinodular previo
+A12991,Osteocondroma brazo derecho
+A12992,˙lcera duodenal intervenida
+A12993,DiscopatÌa crÛnica degenerativa C3-C6
+A12994,Colesteatoma OI
+A12995,Cirrosis hep·tica Child B-7
+A12996,Bebedor 100g alcohol/dia
+A12997,deprendimiento de retina ojo izquierdo
+A12998,polipectomia
+A12999,ictus isquemico en 2009
+A13000,Derrame cerebral en May/2014 tras HTA
+A13001,carcinoma basocelular en nariz intervenido
+A13002,Monorreno Febrero 2014
+A13003,Litiasis biliar
+A13004,alergia a sulfamidas
+A13005,uveitis anterior monocular
+A13006,hemicolectomia derecha por isquemia mesenterica
+A13007,encefalpatia isquemica
+A13008,blefaritis bilateral
+A13009,artrodesis lumbar
+A13010,micosis fungoides
+A13011,trombosis en ojo derecho
+A13012,pancreatitis aguda
+A13013,TSV paroxÌstica
+A13014,nefrectomia por tumor renal en 2002
+A13015,perdidas visuales ocasionales
+A13016,epigastralgias
+A13017,ictus 2007
+A13018,queratosis actinica nariz
+A13019,peritonitis intervenida en 1977
+A13020,lipoma abdominal intervenida
+A13021,ulcus y dilatacion de piloro
+A13022,alaergia AINES
+A13023,dolor oseo
+A13024,transtorno distimico
+A13025,alergia a amoxicilina
+A13026,enfermedad de paget perianal
+A13027,alargia a AAS y sulfamidas
+A13028,pleuritis en juventud
+A13029,implantes dentales
+A13030,isquemia intestinal segmentaria intervenido en septiembre 2005
+A13031,fractura pelvica 1987
+A13032,embolia cerebral hace en 1999
+A13033,hepatitis en la infancia
+A13034,espondilodiscartrosis
+A13035,ictus lacunar
+A13036,revascularizacion cardiaca 2007
+A13037,ictus 1990
+A13038,infarto agudo de miocardio 3 veces (7 by-pass)
+A13039,coxalgia derecha
+A13040,hernioplastia inguinal derecha
+A13041,alergia levofloxacino
+A13042,INTERVENIDO DE C. BASOCELULAR NODULAR ALA NASAL
+A13043,sarcoidosis pulmonar en 2006
+A13044,"alergia polen, gramineas , acaros, pelo de animales"
+A13045,isquemia arterial periferica
+A13046,leucemia linfocitica cronica B
+A13047,ACV hemorragico en 1986
+A13048,transplante renal en 2000
+A13049,anuerisma de aorta abdominal intervenido en 2008
+A13050,infarto agudo de miocardio con stemt
+A13051,Diverticulos en colon izquierdo
+A13052,pancreatitis biliar
+A13053,trastorno bipolar en tratamiento
+A13054,polipectomia intestinal
+A13055,osteomalacia con multples fracturas espntaneas
+A13056,fistulorrafia
+A13057,fibrolaciÛn auricular
+A13058,Angioplastia coronaria transluminal percut·nea
+A13059,aneurisma de aorta abdominal
+A13060,hiposmia
+A13061,hemamgioma hep·tico
+A13062,insquemia cerebral transitoria
+A13063,lumbociatica crÛnica
+A13064,arteriopatÌa perifÈrica Grado IV
+A13065,hiperuricemia asintom·tica
+A13066,HPB
+A13067,Encefalitis
+A13068,Ictus isquemicos
+A13069,Incapacidad permanente
+A13070,"MigraÒa, Psoriasis"
+A13071,Efisema pulmonar bulloso sin EPOC
+A13072,H·bitos tÛxicos
+A13073,Efisema
+A13074,Efisema pulmonar severo
+A13075,Quistes ov·ricos (histerectomizada)
+A13076,"MigraÒa, ojo seco"
+A13077,Efisema pulmonar sin EPOC
+A13078,Ex cocainomana
+A13079,poliartralgias (reumatologÌa)
+A13080,Coletitiasis
+A13081,"Policitemia, Hioeruricemia"
+A13082,desnutrido
+A13083,hopoacusia
+A13084,esclerosis mitroaÛrtica con insuficiencia mitral ligera
+A13085,"coledocolitiasis, colecistectomia"
+A13086,Gastritis atrofica
+A13087,aterosclerosis carotÌdea
+A13088,sindrome de piernas inquietas
+A13089,litiasis renales
+A13090,"Hipotiroidismo, Vitiligo"
+A13091,Arteropatia perifÈrica
+A13092,sÌndrome de Sweet
+A13093,Espondilolistesis GI L4-L5
+A13094,Listesis GI L5-S1
+A13095,Espondiloartropatia psoriasica
+A13096,TBC en 1958
+A13097,Ganmapatia monoclonal
+A13098,Infarto Agudo del Miocardio 2009
+A13099,SÌndrome apnea obstructiva
+A13100,C”LICOS NEFRÕTICOS OCASIONALES
+A13101,INTERVENCI”N HERNIA DISCAL S5-L1
+A13102,HIPOACUSIA DE MENIERE OÕDO DERECHO
+A13103,CEFALEAS OCASIONALES
+A13104,COLEASTOMA OÕDO DERECHO.
+A13105,TROMBOEMBOLISMO PULMONAR.
+A13106,CARCINOMA BASOCELULAR SUPRACILIAR RESECADO 5 A—OS ANTES.
+A13107,IntervenciÛn perforaciÛn g·strica hace 30 aÒos
+A13108,Ictus isquÈmico bilateral estenosis carotideas(Abril 2012)
+A13109,NeoptÛtesis carotidea derecha (Mayo 2012)
+A13110,Aterotrombosis (Octubre 2013)
+A13111,Fibromatosis peritoneal (18 aÒos antes diagnÛstico).
+A13112,Mioma intramural
+A13113,NeuropatÌa miembros inferiores
+A13114,NEOPLASIA CERVICAL INTRAEPITELIAL
+A13115,lumbociatalgia crÛnica
+A13116,"RAM: penicilina, ibuprofeno"
+A13117,POLIPOS COLORECTALES
+A13118,HERNIAS INGUINALES
+A13119,ABSCESO EPIGLOTICO Y PERIANALES
+A13120,Hidrosadenitis
+A13121,obesidad
+A13122,Espondiloartrosis dorsal.
+A13123,Quistes renales.
+A13124,GamMapatia monoclonal GMSI IgG Kapp
+A13125,SECUELAS POLIOMELITIS PIERNA IZQ
+A13126,HERNIORRAFIA UMBILICAR
+A13127,PROTESIS CADERA DRCHA
+A13128,INTERVENCION POR DISECCION AORTICA
+A13129,microcalcificaciones mama izquierda
+A13130,fibroadenoma mama derecha
+A13131,INTERVENCION DEDO MARTILLO
+A13132,LIPECTOMIA
+A13133,h·bitos enÛlicos
+A13134,Artrosis acromioclavicular drerecha.
+A13135,ProstatectomÌa (RTU).
+A13136,DISFUNCION DE CUERDAS VOCALES
+A13137,ALERGIA METOCARBAMOL
+A13138,RAM A FURACIN
+A13139,OOFERECTOMIA
+A13140,EPILEPSIA PARCIAL
+A13141,INFECCIONES URINARIAS DE REPETICION
+A13142,INTERVENIDA DE CATARATAS
+A13143,ULCERAS ESOFAGICAS
+A13144,DMAE seca OD
+A13145,RTU por HBP
+A13146,HIPERPLASIA BENIGNA DE PROSTA
+A13147,INFECCION CRONICA POR P.AERUGINOSA
+A13148,LIPOMA EN OMOPLATO
+A13149,MENISCECTOMIA
+A13150,HIPERTIRGLICERIDEMIA
+A13151,COLESCISTECTOMIA
+A13152,MICROADENOMA TUBULAR
+A13153,RAM A ASPIRINA
+A13154,5 CES¡REAS
+A13155,HIPOACUSIA IZQUIERDA
+A13156,EPILEPSIA FOCAL DERECHA
+A13157,RAM A BETALACTAMICOS
+A13158,GANGRENA DE FOURNIER
+A13159,TRASPLANTE HEPATICO POR CIRROSIS
+A13160,CORDECTOMIA POR LEUCOPLASIA CUERDAS VOCALES
+A13161,INTERVENCION HERNIA INGUINAL
+A13162,TRASPLANTE CARDIACO
+A13163,ISQUEMIA CRONICA
+A13164,2 ICTUS ESQUEMICOS
+A13165,EX-ADVP
+A13166,LITIASIS VESICAL
+A13167,HERNIA LUMBAR INTERVENIDA
+A13168,HISTECTOMIA
+A13169,EXERESIS DE UN OVARIO
+A13170,ICTUS EN 2018
+A13171,HEMORROIDETOMIA
+A13172,NEUROPATIA CUBITAL
+A13173,URTICARIA CRONIA
+A13174,FRACTURA DE EXTREMIDAD DISTAL DE RADIO
+A13175,RAM A NOLOTIL
+A13176,INTERVENIDO DE SINUSITIS Y AMIGDALAS
+A13177,CIRUGÕA FIMOSIS
+A13178,CIRUGÕA LIPOMA
+A13179,Estenosis arteria femoral izquierda
+A13180,ISQUEMIA CRONICA GRADO IIA MMII.
+A13181,radiculopatÌa intervenida derecha
+A13182,sindrome apnea obstructuva sueÒo
+A13183,eczemas
+A13184,ESTENOSIS DE CANAL
+A13185,TRASPLANTE HEPATICO POR HEMOCROMATOSIS
+A13186,INTOLERANCIA AL AUGMENTINE
+A13187,EMPIEMA PLEURAL
+A13188,C”LICO BILIAR
+A13189,ARTROSCOPIA RODILLA DERECHA
+A13190,AMIDALEGTOMÕA
+A13191,MIOPÕA MAGNA DE NACIMIENTO
+A13192,ALERGIA A BETALACTAMICOS
+A13193,REDUCCION MAMARIA
+A13194,HIPERPLASIA DE PROSTATA BENIGNA
+A13195,LENTIGO SOLAR
+A13196,EX…RESIS DE QUISTE EN LENGUA
+A13197,ARTERITIS DE LA TEMPORAL IZQUIERDA
+A13198,HERNIA DE HIATO
+A13199,NEOPLASIA BENIGNA DE PROSTATA
+A13200,"TIRIDECTOMIA, APENDICECTOMIA, AMIGDALECTOMIA"
+A13201,INTERVENCION EN CADERA Y RODILLA
+A13202,CIRUGIA EN MESETA TIBIAL Y ANTEBRAZO
+A13203,"INTERVENIDO DE PROSTATA, HERNIA INGUINAL. CATARATAS"
+A13204,INTERVENIDO DE CATARATAS Y MENISCO
+A13205,TRASPLANTE HEPATICO POR CIRROSIS DE ETIOLOGIA MIXTA
+A13206,jaquecas
+A13207,"APENDICECTOMIA, AMIGDALECTOMIA, HEMORROIDES"
+A13208,POLIGLOBULIA SECUNDARIA A SAOS
+A13209,RAM a penicilina
+A13210,intervenido de pterigion
+A13211,QUISTE DE OVARIO
+A13212,APERISTALSIS
+A13213,INTERVENCION HERNIA INGUINAL Y DISCAL
+A13214,FRACTURA DE TOBILLOS
+A13215,MELANOMA
+A13216,ITU
+A13217,CELULITIS EN MMII
+A13218,TIROIDECTOMÕA POR CARCINOMA TIROIDES
+A13219,TUBERCULOSIS EN LA INFANCIA TRATADA
+A13220,hemorragia disgestiva alta
+A13221,RTU EN 2003
+A13222,tuner carpiano
+A13223,"ALERGIA:PANTOMICINA, CLORANFENICOL"
+A13224,artralgias
+A13225,insuficiencia venosa crÛnica miembros inferiores
+A13226,POLIQUISTOSIS HEPATORENAL
+A13227,P”LIPOS COL”NICOS Y ANGIODISPLASIA DE COLON
+A13228,ESPLENECTOMÕA Y NEFRENECTOMIA IZQUIERDA
+A13229,FASCIOTOMÕA Y EVACUACI”N DE HEMATOMA MUSLO DERECHO
+A13230,Par·lisis cerebral infantil. SÌndrome distÛnico-miotÛnico
+A13231,lumbalgia por degeneracion discal
+A13232,VIH+
+A13233,"AMIGDALECTOMIA, HEMORROIDECTOMIA, CATARATAS"
+A13234,POLIARTRALGIAS
+A13235,ALERGIA AL NOLOTIL
+A13236,NEUMONIA POR LEGIONELLA EN 2006
+A13237,ASMA EN LA INFANCIA
+A13238,ANEMIA MICROCITICA HIPOCROMA
+A13239,"INTERVENIDA DE NODULOS MAMARIOS, QUISTES DE OVARIIOS, NODULOS EN CUERDAS VOCALES, NODULOS TIROIDEOS"
+A13240,FRACTURA VERTEBRAL POR OSTEOPOROSIS
+A13241,"HERNIAS INGUINALES, UMBILICAL"
+A13242,INGRESOS POR NEUMONIA
+A13243,PROTESIS EN CADERA
+A13244,QUISTES HIDATIDICOS EN PULMONES
+A13245,"HISTERECTOMIA, APENDICECTOMIA"
+A13246,intervenido de leiomioma de epididimo
+A13247,hiperucemia
+A13248,INTERVENIDO DE HERNIA INGUINAL Y CATARATAS
+A13249,INTERVENCION QUISTE PILONIDAL
+A13250,CEFALEA DE HORTON
+A13251,HERNIAS
+A13252,DISFUNCION ERECTIL
+A13253,LEUCOENCEFALOPATIA HIPOXIA ISQUEMICA
+A13254,ALERGIA A ACAROS
+A13255,GANGLION EN PIE
+A13256,intervencion de cataratas mismo ojo
+A13257,cirugia de fistula
+A13258,TOXOPLASMOSIS CEREBRAL
+A13259,ANGIOMA CAPILAR OREJA IZQUIERDA
+A13260,TROMBOSIS VENA RETINA OJO DERECHO
+A13261,ENFERMEDAD DE DUPUYTREN
+A13262,V…RTIGOS
+A13263,CIRUGÕA: FIMOSIS
+A13264,dermatitis pruriginosa
+A13265,Prostatectomia por adenoma
+A13266,Coleistectomia
+A13267,Portador neuroestimulador mÈdula espinal
+A13268,embolia retina ojo izquierdo
+A13269,INJERTO PIEL TRAS QUEMADURA
+A13270,INTERVENCI”N CUERDAS VOCALES
+A13271,APNEAS NO ASOCIADAS A SAHS
+A13272,PORTADOR OCD
+A13273,HEMATOMA SUBDURAL 2014
+A13274,PAR¡LISIS FACIAL IZQUIERDA
+A13275,ANTECEDENTES ANGINA PECHO
+A13276,CARCINOMA SUPERFICIAL RTU
+A13277,INTERVENIDO RAQUIS Y RODILLA
+A13278,RAM al clavulanico
+A13279,anemia hemolitica
+A13280,herpes zoster con ulcera corneal en 2015
+A13281,intervenido de hernia inguinal y calcaneos
+A13282,HERNIAS DISCALES C1-C3
+A13283,FISURA ANAL
+A13284,"QX: LIPECTOMIA, ABSCESO AMIDGALAR"
+A13285,"QX: CATARATAS, FRACTURAS VARIAS"
+A13286,CELULITIS
+A13287,TRASPLANTE HEPATICO
+A13288,glomus timp·nico
+A13289,eventroplastia
+A13290,"QX: HALLUS VALGUS, MENISCO, PERFORACION TIMPANO"
+A13291,"QX. POLIPOS NASALES, HERNIOPLASTIA, HEMORROIDES"
+A13292,ESTENOSIS DE MEATO URETERAL
+A13293,PAPILOMATOSIS DE MUCOSA VEJIGA
+A13294,ENFERMEDAD DE GRAVES-BASEDOW
+A13295,QX: HERNIA DISCAL L5
+A13296,alergia a antiinflamatorios
+A13297,hemitiroidectomia derecha
+A13298,infarto retiniano
+A13299,qx: varices y tabique nasal
+A13300,POSTMENOPAUSIA QUIRURGICA POR MIOMAS
+A13301,labio leporino
+A13302,hepatocarcinoma
+A13303,herniaplastia inguinal
+A13304,colostomia
+A13305,ictus en 2004
+A13306,ulces peptico
+A13307,iq: hernia inguinal y hemorroides
+A13308,monorrena
+A13309,osteopatia hipertrofica
+A13310,qx: vasectomÌa
+A13311,QX: DIVERTICULITIS
+A13312,QX: HERNIA INGUINAL
+A13313,QX: VARICES
+A13314,traumatismo cervical con secuelas sensitivas en mano izq
+A13315,qx: menisco
+A13316,Espondilodiscitis
+A13317,"qx: histerectomia, apendicectomia"
+A13318,RAM a penicilinas
+A13319,RAM AMOXIXILINA Y POVIDONA YODADA
+A13320,FRACTURA DE C⁄BITO Y OSTEOSÕNTESIS
+A13321,PÛlipos denomatosos
+A13322,qx: fimosis
+A13323,tiroditis autoinmune
+A13324,jemangioma hep·tico
+A13325,"alergias a betalactamicos, succinilcolina"
+A13326,anemia perniciosa
+A13327,alergia a cefuroxima
+A13328,iq: hernia inguinal y ˙lcera duodenal
+A13329,protesis de rodilla
+A13330,migdalectomizado
+A13331,diverticulitis sigmoide
+A13332,qx: hernia discal y humero
+A13333,ARTROSIS DEGENERATIVA
+A13334,RAM al contraste yodado
+A13335,"qx: menisco, amigdalectomia"
+A13336,LINFEDEMA PIERDA DERECHA
+A13337,NEFRECTOMIA DERECHA
+A13338,INTERVENCION DE HERNIA
+A13339,IntervenciÛn hidrocele
+A13340,Varicocele
+A13341,Acropaquias
+A13342,Pleuritis
+A13343,OsteosÌntesis placa h˙mero
+A13344,obesidad tipo 2
+A13345,neumonia instersticial NIU
+A13346,transplante pulmonar
+A13347,portador oxigeno domiciliario continuado
+A13348,orquiepidimiditis
+A13349,perforaciÛn timp·nica
+A13350,linfocitosis
+A13351,dÈficit ·cido fÛlico
+A13352,intervenciÛn seminoma
+A13353,intervenciÛn apÈndice
+A13354,intervenciÛn menisco derecho
+A13355,oidos
+A13356,SINDROME PIRAMIDAL
+A13357,Esclerosis Lateral AmiotrÛfica
+A13358,hipotiroidismo autoinme
+A13359,esteatosis
+A13360,tunel carpiano
+A13361,SAHOS (SÌndrome de Apnea e Hipoapnea Obstructivas del SueÒo)
+A13362,Aneurisma del septo interauricular con foramen oval permeable
+A13363,MIOMAS
+A13364,DUPUYTREN EN MANO DERECHA
+A13365,GASTRITIS CRONICA CON HELICOBACTER PILORII
+A13366,NEUMONITIS DE HIPERSENSIBILIDAD
+A13367,NEUMONIA EN ENERO 2015
+A13368,INTOLERANCIA A LEVOFLOXACINO
+A13369,CIRUGIA GLANDULA SALIVAL POR TUMOR BENIGNO
+A13370,DERRAME PLEURAL DERECHO EN 2016
+A13371,Astenia
+A13372,INTERVENCI”N DE HERNIA INGUINAL
+A13373,LEUCOPLASIA
+A13374,TENDINITIS DEL MANGUITO DEL ROTADOR
+A13375,LITIASIS RENAL EN 2009
+A13376,INTOLERANCIA AL ACIDO ACETIL SALICILICO
+A13377,FIEBRE DE MALTA EN LA INFANCIA
+A13378,CIRUGIA HEMORROIDES
+A13379,CIRUGIA APENDICITIS
+A13380,FEVI 50%
+A13381,IMPLANTACI”N DE 2 STENT EN 2001
+A13382,ALERGIA AL HUEVO
+A13383,TEP BILATERAL EN AGOSTO 2017
+A13384,CIATALGIA DERECHA
+A13385,FRACTURA DE PIERNA HACE 17 A—OS POR ACCIDENTE TRAFICO
+A13386,DOBLE ANEXECTOMIA
+A13387,HERNIA DISCAL 2013 Y 2016
+A13388,4 LIPOMAS EN MSI
+A13389,BEBEDOR DE 2 COPAS DE VINO AL DIA
+A13390,INTERVENCI”N VARICES PIERNA IZQUIERDA
+A13391,ULCERA GASTRICA EN 2007
+A13392,CRISIS COMICIAL
+A13393,COLANGITIS
+A13394,E.COLI EN 2015
+A13395,PORTADORA DE SONDA NASOGASTRICA
+A13396,HEPATOPATIA ENOLICA EN 1999
+A13397,HIPRTENSION PORTAL EN 1999
+A13398,NEUMONIA EN 1998
+A13399,ARTRITIS REUMATOIDE FR POSITIVO
+A13400,PERFORACI”N SECUNDARIA A DIVERTICULITIS EN 2012
+A13401,CARCINOMA LABIAL 1998
+A13402,FAQUECTOMIA EN OJO IZQUIERDO
+A13403,BULTOMA EN CODO DERECHO
+A13404,BOCIO MULTINODULAR SEGUIDO POR ENDOCRINO
+A13405,COLITIS ULCEROSA DESDE 1998
+A13406,OPERADO DE APENDCITIS
+A13407,OPERADO DE HALLUX VALGUS
+A13408,NEUMOCONIOSIS SIMPLE
+A13409,OPERADO DE BURSITIS
+A13410,SINDROME CORONARIO AGUDO EN 2009
+A13411,TRAUMATISMO CRANEOENCEF¡LICO CON CIRUGIA POR ACCIDENTE
+A13412,PROTESIS DE CADERA IZQUIERDA HACE 25A—OS
+A13413,INSUFICIENCIA RENAL CRONICA ESTADIO III
+A13414,COMPONENTE MONOCLONAL IgG Kappa
+A13415,CIRUGIA AMIGDALAS
+A13416,TUBERCULOSIS EN 2001
+A13417,ABSCESOS SUBCUTANEOS Y LESIONES INFILTRATIVAS EN PSOAS POSIBLES DE TUBERCULOSIS EXTRAPULMONAR
+A13418,FRACTURA DISTAL DE RADIO E 2003
+A13419,INTERVENIDO DE HERNIAS DISCALES
+A13420,POSIBLE TUBERCULOSIS EN LA INFANCIA
+A13421,ALERGIA AL AC. CLAVUL¡NICO
+A13422,INTOLERANCIA A NOLOTIL
+A13423,NEUMONIA ORGANIZADA CRIPTOGENETICA EN ABRIL 2009
+A13424,NODULO EN CUERDA VOCAL DERECHA 2012
+A13425,DIVERTICULITIS CON PERITONITIS CON CIRUGIA2011
+A13426,SIADH FEBRERO 2018
+A13427,BASILIOMA EN 1997
+A13428,ANEURISMA EN SEGUIMIENTO
+A13429,HERNIA INGUINAL BILATERAL 2011
+A13430,CIRUGIA COLECISTITIS AGUDA LITIASICA 2016
+A13431,COLICESTECTOMIA DICIEMBRE 2016
+A13432,SILICOSIS GRADO 2
+A13433,HEMORRAGIA DIGESTIVA BAJA POR P”LIPOS EN 2002
+A13434,NEUROPATIA ISU…MICA OCAR BILATERAL 2011
+A13435,HERNIA DISCAL C5-C6 CON MICRODISECTOMIA (MIELOPATIA CERVICAL)
+A13436,CIRUGIA MENISCO DERECHO
+A13437,HISTERECTOMIA TOTAL POR MIOMA UTERINO EN 1992
+A13438,ANEXECTOMIA IZQUIERDA POR MIOMA UTERINO 1992
+A13439,POSIBLE SARCOIDOSIS
+A13440,INFILTRACI”N ARTICULAR EN RODILLA DERECHA HACE 3 A—OS
+A13441,MANTOUX POSITIVO HACE 3 A—OS
+A13442,ALERGIA A BETA-LACTAMICOS
+A13443,ResecciÛn transuteral PROSTATA
+A13444,DUDOSA ALERGIA AL GRUPO PARA
+A13445,PANCREATITIS AGUDA EM ENERO 2018
+A13446,HIPOTIOIDISMO PRIMARIO 2017
+A13447,FA PAROXISTICA DESDE 2011
+A13448,"KLEBSIELLA, PSEUDOMONA AURUGINOSA y S.MALTOPHYLA POSITIVO EN BRONCOASPIRADO 2011"
+A13449,MICROCIRUGIA LARINGEA CUERDA VOCAL IZQUIERDA 2014
+A13450,NEUMONIA 2015
+A13451,ANEMIA MICROCITICA EN 2009
+A13452,HERNIA DE HIATO 2009
+A13453,GASTRITIS CRONICA DESDE 2009
+A13454,ANEURISMA ARTERIA CEREBRAL MEDIAEN 2016
+A13455,ALERGIA PENICILINAS Y DERIVADOS
+A13456,ARTRITIS REUMATOIDE SIN TRATAMIENTO
+A13457,EUPNEICO EN REPOSO
+A13458,COLOCACION STEM 2004
+A13459,TUBERCULOSIS EN LA JUVENTUD
+A13460,DUDOSA INTOLERANCIA A AINES
+A13461,INTERVENCI”N DE ULCUS G¡STRICO EN 1983
+A13462,QUEMADURA EN AMBOS BRAZOS 1999
+A13463,INTERVENIDA DE PATOLOGIA TENDINOSA NE RODILLA DERECHA Y HOMBRO IZQUIERDO
+A13464,PROTASTECTOMIA RADICAL
+A13465,POSIBLE ALERGIA A CONTRASTE YODADO
+A13466,INSUFICIENCIA VENOSA EN MMII
+A13467,HIPERLIPEMIA MIXTA DESDE 2006
+A13468,TROMBOSIS VENOSA PROFUNDA EN MID 1998
+A13469,TROMBOSIS VENOSA PROFUNDA EN MII 2006
+A13470,CIRUGIA FISTULA PERIANAL
+A13471,CIRUGIA HERNIORRAFIA INGUINAL BILATERAL
+A13472,NEUMONIA EN 1984
+A13473,BRONQUITIS CR”NICA CON DISNEA GRADO 1 DESDE 2016
+A13474,PROTESIS RODILLA DERECHA 2014
+A13475,CATARATAS CIRUGIA
+A13476,CIRUGIA POR TRAUMATISMO POR CLAVICULA DERECHA
+A13477,TIMPANOPLASTIA
+A13478,CIRUGIA DE HERNIA INGUINAL DERECHA
+A13479,PATOLOGIA VERTEBRAL( POSIBLE HERNIA DISCAL)
+A13480,CIRUGIA HERNIA INGUINAL SEPTIEMBRE 2015
+A13481,POLIPECTOMIA EN 1995 CON HEMORRAGIA SECUNDARIA
+A13482,TBC PLEURAL IZQUIERDA A LOS 18 A—OS
+A13483,GASTRECTOMIA PARCIAL POR ULCUS DUODENAL 1976
+A13484,POLIPOS ADENOMATOSOS CON DISPLASIA DE BAJO GRADO
+A13485,SINDROME PROTATICO
+A13486,CATARATA BILATERAL INTERVENIDA
+A13487,LAMINECTOMIA 1991 POR FRACTURA-LUXACION D11-D12
+A13488,FRACTURA COSTAL IZQUIERDA 2002 POR ACCIDENTE TRAFICO
+A13489,MALFORMACION DE CHIARI TIPO I CON SIRINGOMEGALIA
+A13490,FRACTURA RADIO DERECHO 2012
+A13491,INTERVENCION HOMBRO IZQUIERDO 2014
+A13492,PROTESIS DE RODILLA EN 2002
+A13493,INTERVENIDA DE QUISTE MAMA DERECHA EN 1985
+A13494,Bronqueolitis
+A13495,Cirugia de hernia inguinal
+A13496,Cirugia de Dupuytren bilateral
+A13497,P”LIPO COLON BENIGNO EXTIRPADO
+A13498,ENFISEMA CENTROACINAR
+A13499,NEUMOTORAX ESPONTANEO SECUNDARIO IZQUIERDO 2018
+A13500,FIEBRE REUMATICA INFANTIL
+A13501,PSIORASIS DESDE 2016
+A13502,ABCESO PERIANAL INTERVENIDO EN TRES OCASIONES EN 1990
+A13503,ARTRITIS REUMATOIDE 2008
+A13504,ALERGIA IBUPROFENO
+A13505,DERRAME PERIC¡RDICO
+A13506,FRACTURA CLAVICULA POR ACCIDENTE TRAFICO
+A13507,PARALISIS CUERDA VOCAL IZQUIERDA
+A13508,BEBEDOR ESPORADICO
+A13509,ACCIDENTE DE TRAFICO CON 17 A—OS CON TRAUMATISMO CRANEOENCEF¡LICO
+A13510,MIGRA—AS 1995
+A13511,COLICOS NEFRITICOS IZQUIERDOS 2014
+A13512,HELICOBACTER PYLORI 2010
+A13513,HEMORROIDES 2016
+A13514,INTERVENIDO DE FRACTURA DE CADERA BILATERAL
+A13515,INTERVENIDO DE CATARATAS EN OJO IZQUIERDO
+A13516,PATOLOGIA PROST¡TICA BENIGNA EN 2015
+A13517,INTERVENIDO HERNIA INGUINAL DERECHA
+A13518,COLICESTECTOMIA EN 2010
+A13519,LAPAROTOMIA MEDIA POR HERNIA UMBILICAL GIGANTE INCARCERADA 2016
+A13520,INFECCION DE LA HERIDA QUIRURGICA
+A13521,OBESIDAD MORBIDA
+A13522,ALERGIA A SEPTRIN
+A13523,INTOLERANCIA A INHIBIDORES DE LA ENZIMA CONVERSIVA DE ANGIOTENSINA (IECAS)
+A13524,ULCUS GASTRICO EN 1998
+A13525,NEUMONIA 2016
+A13526,INFARTO MIOCARDIO 2001
+A13527,INTERVENIDO DE GLAUCOMA DERECHO
+A13528,INTERVENCI”N DE QUISTE EN BOCA
+A13529,BEBEDOR DE UNA O DOS CERVEZAS AL DIA
+A13530,DISECTOMIA L4 y L6 2017
+A13531,SEPTOPLASIA
+A13532,MENISCO
+A13533,TROMBOSIS YUGULAR CIRUGIA
+A13534,FLEBITIS MIEMBRO INFERIOR DERECHO 2007
+A13535,"ALERGICO A SULFAMIDAS, GRUPO PARA Y COLIRIOS OFTALMOLOGICOS"
+A13536,PROTESIS CADERA BILATERAL
+A13537,FIBRILACION AURICULAR 2018
+A13538,CIRUGIA HERNIA INGUINAL DERECHA 2014
+A13539,PROTESIS TOTAL DE CADERA IZQUIERDA ENERO 2019
+A13540,HUPERURICEMIA
+A13541,COLECISTECTOMIA 2017
+A13542,FIEBRE TIFOIDEA EN INFANCIA
+A13543,SINDROME MALLORY WEISS EN 2011
+A13544,ENTEROPATIA POR AINES 2011
+A13545,HELICOBACTER PYLORI 2011
+A13546,PERFORACI”N TIMPANICA EN AMBOS OIDOS 1979
+A13547,HERNIORRAFIA INGUINAL Y UMBILICAL
+A13548,ANEMIA FERROPENICA 2019
+A13549,CIRUGIA CATARATAS
+A13550,NEMONIA 2013
+A13551,MIOCARDIOPATIA DILATADA CON DAI
+A13552,SINDROME T”XICO COLZA
+A13553,INTERVENIDO DE 2 HERNIAS INGUNALES
+A13554,SINDROME OBESIDAD/HIPOVENTILACI”N A BIPAP Y OXIGENO DOMICILIARIO
+A13555,INTERVENIDO DE FISTULA ANAL
+A13556,RETINOSIS PIGMENTARIA HACE 7 A—OS
+A13557,HIPOACUSIA CON AUDIFONO DESDE HACE UN A—O
+A13558,CONDROMALACIA ROTULIANA
+A13559,HERNIA INGUINAL PENDIENTE CIRUGIA
+A13560,DISCOPATIA L5-S1
+A13561,RTU DE VEJIGA
+A13562,DEFICIT DE ALFA-1 ANTITRIPSINA
+A13563,SOH POSITIVO
+A13564,INFECCIONES EL TRACTO URINARIO DE REPETECION
+A13565,BEBEDOR DE UN CHUPITO ORUJO/WISKY AL DIA
+A13566,BEBEDOR DE VASO VINO/CERVEZA AL DIA
+A13567,GRIPE A 2018
+A13568,NEUMONIA NECROTIZANTE 2007
+A13569,HIERURICEMIA
+A13570,HIDROCELOTOMIA DERECHA 2015
+A13571,PRIMER DEDO EN RESORTE
+A13572,CIRUGIA APENDICE
+A13573,POLIPECTOMIA ENDOMETRIAL 2016
+A13574,QUERATOSIS ACNEICA EN CARA 2017
+A13575,PINZAMIENTO DE SENO COSTOFRENICO IZQUIERDO
+A13576,CIRUGIA CUERPO EXTRA—O OJO DERECHO
+A13577,CIRUGIA HERNIA INGUINAL IZQUIERDA
+A13578,QUISTE MAMA IZQUIERDA
+A13579,POLIPO INTESTINAL
+A13580,DIVERTICULITIS AGUDA ABSCESIFICADA Y PERFORADA 10/02/2020
+A13581,Arritmia por F. auricular
+A13582,Chron fistulizante
+A13583,Poliartrititis cronica
+A13584,Aneurisma abdominal intervenido
+A13585,Arritmia cardÌaca por fibrilaciÛn auricular
+A13586,arritmia cardiaca por F.auricular
+A13587,Ictus hemorragico
+A13588,Angeitis Obliterante
+A13589,Enfermedad de Rayanaud
+A13590,Rabdomiolisis
+A13591,Hypertriglyceridemia
+A13592,sigma cancer
+A13593,Urothelial Papillary carcinoma
+A13594,hepatopatia cronica cirrosis
+A13595,hipertrofia prostata
+A13596,trombopenias fluctuantes
+A13597,episodios tromboticos
+A13598,sida
+A13599,colet°litiasis tratada con colecistectomia
+A13600,ciclotimia
+A13601,tmblor esencial
+A13602,Criterios de EPOC con disnea
+A13603,polipos colon
+A13604,orquioepididimitis
+A13605,artrosis con protesis rodilla
+A13606,abcesos cuello intervenidos
+A13607,MigraÒa crÛnica
+A13608,alergias a medicamentos
+A13609,Sindrome. Graves-Basedow
+A13610,espandiloartrosis
+A13611,ISQUEMIA INFEROPOSTERIOR-LATEROBASAL
+A13612,HESTEATOSIS HEPATICA
+A13613,pie diabÈtico con ˙lcera
+A13614,adenoma de prÛstata
+A13615,OSTEOMELITIS CRONICA DE HOMBRO Y ESCAPULA IZQUIERDA
+A13616,MENISCO RODILLA IZQUIERDA
+A13617,BRONQUITIS ASMATICA
+A13618,NEFRECTOMIA PARCIAL
+A13619,TIROIDECTOMIA + PARATIDECTOMIA
+A13620,MIOCARDIOPATIA HIPERTROFICA
+A13621,DIABETES INSIPIDA DE PROBABLE ORIGEN RENAL
+A13622,HIPOACUSIA BILATERAL NEUROSENSORIAL
+A13623,POLIPECTOMIA HITEROSCOPICA
+A13624,GANGLION PIE IZQUIERDO
+A13625,HERNIAS DISCALES CERVICALES Y LUMBARES
+A13626,PORTADOR DE UN TROZO DE HIERRO EN HIGADO
+A13627,ALERGIA CONTRASTE YODADO
+A13628,POLIPOSIS NASAL UNILATERAL OPERADOS
+A13629,APENDITIS
+A13630,FRAQUECTOMIA
+A13631,DISPLASIA MODERADA-SEVERA
+A13632,RESECCION TRASANAL
+A13633,SIGMOIDESTOMIA
+A13634,ALERGICO A AAS
+A13635,HIPOACUSIA NEUROSENSORIAL BILATERAL
+A13636,ALERGIA A AINES
+A13637,ALERGIA A DICLOFENACO
+A13638,ALERGIA AL YODO
+A13639,BOCIO COLOIDE EUTIROIDEO
+A13640,POLIPOS VESICALES
+A13641,ALERGIA A IBUPROFENO
+A13642,ISQUEMIA INFERO-POSTERIOR LEVE
+A13643,CA EPIDERMOIDE DE ALA NASAL EXTIRPADO
+A13644,CA ESPINOCELULAR SARCOMATOIDE EXTIRPADO EN CUERO CABELLUDO
+A13645,CARCINOMA BASOCELULAR NASAL INTERVENIDO
+A13646,ULCUS BULBAR
+A13647,HIPOTIROIDEA
+A13648,SINDROME CORONARIO AGUDO SIN ELEVACION DEL SEGMENTO ST
+A13649,CANCER DE RECTO INTERVENIDO EN 2011
+A13650,SINDROME DE APNEA-HIPOPNEA OBSTRUCTIVA DEL SUE—O
+A13651,MARCAPASOS IMPLANTADO EN 2017
+A13652,FILTROS DE VENA CAVA (TEP)
+A13653,TOS PRODUCIDA POR INHIBIDORES DE ENZIMA CONVERTASA
+A13654,ARTROSIS DE COLUMNA
+A13655,ALERGIA A ESPIROMICINA Y METRONIDAZOL
+A13656,QUISTE RENAL IZQUIERDO
+A13657,RETROLISTESIS L4
+A13658,RETINOPATIA ALCOHOLICA
+A13659,UCUS DUODRENAL CRONICA
+A13660,BURSITIS TROCANTERICA CADERA IZQUIERDA
+A13661,ESTENOSIS AORTICA DEGENERATIVA MODERADA/SEVERA
+A13662,INSUFICIENCIA MITRAL MODERADA
+A13663,INSUFICIENCIA CARDIACA CRONICA
+A13664,ANGIOPLASTIA SOBRE LESION DE CD
+A13665,REUMATISMO AURICULAR CRONICO
+A13666,VASCULITIS LEUCOCITOCLASTICA: PURPURA SCHOLEIN-HENOCH
+A13667,ARTRITIS GOTOSA TOFACEA
+A13668,FRACTURAS VERTEBRALES
+A13669,HIPOTIROIDISMO SUBLINICO
+A13670,ENFERMEDAD DUPUYTREN MANO DERECHA
+A13671,ESTENOSIS
+A13672,TROMBOPENIA
+A13673,INTOLERANCIA A MOXIFLOXACINO Y AMLODIPINO
+A13674,ATAQUE ISQUEMICO TRANSITORIO
+A13675,ANGOR EN EL 2000
+A13676,ALERGIA A NIQUEL Y OTROS METALES
+A13677,ALERGIA A AMPICILINA
+A13678,TAQUICARDIAS AURICULARES PAROXISTICAS
+A13679,EXTIRPACION CARCINOMA BASOCELULAR EN SIEN DERECHA
+A13680,TAQUICARDIA
+A13681,PURPURA DE SCH÷NLEIN HENOCH
+A13682,RESECCION TRANSURETRAL
+A13683,COLICO RENAL
+A13684,EPILEPSIA CRIPTOGENICA PARCIAL
+A13685,"ALERGIA A YODO, PENICILINA, AMPICILINA,ESTREPTOMICINA, TETRACICLINAS Y LINCOMICINA"
+A13686,OSTEONECROSIS TOBILLO DERECHO
+A13687,NECROSIS AVASCULAR DE CADERA IZQUIERDA
+A13688,"ALERGIA A CEMENTO, TIURAM Y CARBAS"
+A13689,HIPERREACTIVIDAD BRONQUIAL CATARRAL OCASIONAL
+A13690,ALERGIA A ASPIRINA Y AMOXICILINA
+A13691,FOTOTIPO III
+A13692,ALERGIAS A SULFAMIDAS
+A13693,CISTITIS INCRUSTANTE
+A13694,ARTROSIS RODILLAS
+A13695,FISTURA PERIANAL
+A13696,QUISTE ARACNOIDEO
+A13697,ESTEOPOROSIS
+A13698,HEMORRAGIA DIGESTIVA AGUDA
+A13699,HIPERTIGLICERIDEMIA
+A13700,ATEROSCLEROSIS
+A13701,SINDROME DE MENIERE
+A13702,TUMOR PAROTIDEO BENIGNO
+A13703,"TEMBLOR ESENCIAL, HERNIA DE HIATO"
+A13704,EX-ADVP (ADICCION A DROGAS VIA PARENTERAL)
+A13705,CIRROSIS HEPATICA MULTIFACTORIAL
+A13706,HEPATITIS ENOLICA
+A13707,MIELOLIPOMA SUPRARRENAL
+A13708,DERMATIRIS ATOPICA
+A13709,POLIPOS EN CUERDAS VOCALES
+A13710,ANEURISMA ABDOMINAL
+A13711,HEMACROMATOSIS
+A13712,EMOCROMATOSIS
+A13713,PARALISIS FACIAL DERECHA
+A13714,ARTRITIS REACTIVA
+A13715,HIGADO DE ESTASIS
+A13716,VALVULOPATIA REUMATICA
+A13717,"HEPATOPATIA POR VHC EN 2015, CURADA"
+A13718,EX-ADICTO A DROGAS POR VIA INHALATORIA (HEROINA Y COCAINA)
+A13719,HISTIOCITOMA FIBROSO BENIGNO
+A13720,SINDROME DE APNEA-HIPOPNEA DEL SUE—O
+A13721,PLEURITIS IZQUIERDA
+A13722,VASCULOPATIA ISQUEMICA CEREBRAL
+A13723,NEFROURETERECTOMIA IZQUIERDA
+A13724,Alergia a ·cido acetilsalicÌlico
+A13725,LUMBOARTROSIS CON HERNIA POSTEROMEDIAL L5-S1
+A13726,QUISTE HEPATICO
+A13727,CISTOCELE
+A13728,HERNIAS DISCALES A NIVEL CERVICAL
+A13729,ATROPATIA PSORIASICA
+A13730,INSUFICIENCIA VERTEBROBASILAR
+A13731,DORSARTROSIS
+A13732,LUMBALGIAS CRONICAS
+A13733,ENFERMEDAD ARTERIAL PERIFERICA REVASCULARIZADA CON CLAUDICACION INTERMITENTE
+A13734,ANEMIA MULTIFACTORIAL
+A13735,HERPES GENITAL
+A13736,EXERESIS DE TUMOR DE SNC EN LA INFANCIA
+A13737,ALERGIA A CONTRASTES YODADOS Y A AMOXICILINA/CLAVUL¡NICO
+A13738,OSTEOPOROSIS SEVERA
+A13739,INJERTO OSEO EN COLUMNA DORSAL POR APLASTAMIENTO VERTEBRAL
+A13740,ALERGIA A AMOXICILINA E INZITAN
+A13741,ARTROSIS DE CADERA
+A13742,ACCIDENTE CARDIOVASCULAR ISQUEMICO
+A13743,CONIZACION DE CUELLO DE UTERO
+A13744,INTERVENIDA DE FIBROMA EN MAMA IZQUIERDA
+A13745,SINDROME DE GILBERT
+A13746,ABLACION POR CRISIS DE TAQUIARRITMIAS
+A13747,TROMBOFLEBITIS EN MIEMBRO INFERIOR DERECHO
+A13748,TOS CRONICA
+A13749,ANGIOPLASTIA ARTERIA ILIACA EXTERNA BILATERAL
+A13750,PROTESIS DE RODILLA IZQUIERDA
+A13751,PROTESIS DE CADERA BILATERAL
+A13752,ALERGIA AL DICLOFENACO
+A13753,QUISTE BENIGNO DE MAMA
+A13754,AMAUROSIS OJO DERECHO
+A13755,FAQUEOTOMIA
+A13756,DUPUYTREN 4 Y 5∫ DEDOS MANO DERECHA
+A13757,LIPOMA CERVICAL
+A13758,BURSITIS TRONCANTEREA BILATERAL
+A13759,hepatopatia cronica enolica
+A13760,polipos vesiculares
+A13761,duodedinitis peptica helicobacter pylori positiva
+A13762,hernia hiata
+A13763,colesterolosis vesicular
+A13764,ALERGIA A INDOMETACINA
+A13765,EPICONDILITIS
+A13766,CIRUJIA MAXILOFACIAL
+A13767,ARTROPATIA DEGENERATIVA EN COLUMNA VERTEBRAL
+A13768,OSTEOSINTESIS CON TORNILLOS CON SECUELA DE ARTROSIS FEMOROTIBIAL
+A13769,DOLOR NEUROPATICO EN PIERNA DERECHA
+A13770,DISFAGIA
+A13771,GASTRITIS CR”NICA CON METAPLASIA INTESTINAL
+A13772,CRISIS HIPERTENSIVAS
+A13773,P”PILO CUERDAS VOCALES
+A13774,INSUFICIENCIA VENOSA DE MIEMBROS INFERIORES
+A13775,PERSONALIDAD BIPOLAR
+A13776,FRACTURAS COSTALES IZQUIERDAS
+A13777,GONARTROSIS DERECHA
+A13778,COLICO RENOURETERAL CON LITOTRICIA
+A13779,DESORDEN COMICIAL
+A13780,SÕNDROME METAB”LICO
+A13781,OXIGENOTERAPIA CRONICA DOMICILIARIA
+A13782,DISNEA BASAL GF III
+A13783,TROMBOEMBOLISMO PULMONAR BILATERAL
+A13784,POLIPO VESICAL
+A13785,ALERGIA A PIRAZOLONAS
+A13786,BYPAAS ILIOFEMORAL
+A13787,ACCIDENTE CARDIOVASCULAR ISQU…MICO LACUNAR EN GANGLIOS BASALES DERECHO
+A13788,PARESIA RESIDUAL EN MIEMBRO SUPERIOR IZQUIERDO
+A13789,INESTABILIDAD DE LA MARCHA
+A13790,ULCUS G¡STRICO FORREST III
+A13791,QUISTE DESMOIDE EN ZONA SACRA-COCCIGEA
+A13792,INSUFICIENCIA VENOSA CON EPISODIO DE TVP EN MII
+A13793,CELIAQUIA
+A13794,ANEXECTOMIA
+A13795,MAMOPLASTIA
+A13796,HERNIORRAFIA INGUINAL IZQUIERDA
+A13797,EXTRASISTOLIA VENTRICULAR
+A13798,POLIQUISTOSIS RENAL
+A13799,CISTOLITECTOMIA
+A13800,HEPATOPATIA CRONICA POR VIRUS C
+A13801,PROTESIS DE RODILLA DERECHA
+A13802,DSICOPATIA LUMBAR L3-L4-L5
+A13803,ARTERIOSCLEROSIS EN EXTREMIDADES INFERIORES
+A13804,TUNEL CARPIANO DERECHO
+A13805,OTITIS CRONICA SUPURATIVA
+A13806,UVULOPALATOFARINGOPLASTIA
+A13807,HIPOESTESIA EN MIEMBRO SUPERIOR IZQUIERDO
+A13808,DOBLE LESION AORTICA
+A13809,ISQUEMIA CR”NICA EN MIEMBROS INFERIORES
+A13810,OSTEOMA OCCIPITAL CENTRAL
+A13811,PARALISIS FACIAL PERIFERICA DERECHA
+A13812,TALIO SIN ISQUEMIA PERINECROTICA
+A13813,AMPUTACION ANTEPIE DERECHO
+A13814,SINCOPE TUSIGENO
+A13815,PARESIA FACIAL DERECHA
+A13816,LAPAROTOMIA (PERITONITIS)
+A13817,NEUROPATIA ISQUEMICA
+A13818,PSORISIS LEVE
+A13819,ENFISEMA PARASEPTAL Y CENTROLOBULILLAR
+A13820,CRU LITIASICOS
+A13821,RINITIS Y CONJUNTIVITIS ALERGICA
+A13822,ATOPICO
+A13823,TROMBOSIS VENOSA PROFUNDA EN MIEMBRO INFERIOR IZQUIERDO
+A13824,"ALERGIA A BETADINE, FORXIGA Y METFORMINA"
+A13825,BEBEDOR SEVERO ACTIVO
+A13826,POLIPEPTOMIA
+A13827,FAQUECTOMIA DERECHA
+A13828,ALERGIA A YODO
+A13829,PERFORACION TIMPANICA DERECHA
+A13830,MENISCECTOMIA EN MIEMBRO INFERIOR DERECHO
+A13831,COXARTROSIS
+A13832,CLAUDICACION INTERMITENTE DEL MIEMBRO INFERIOR DERECHO
+A13833,INTOLERANCIA A ENALAPRIL
+A13834,LARINGOCELE
+A13835,VIH POSITIVO
+A13836,HERNIA LUMBAR
+A13837,INTERVENIDA DE CDI DE MAMA DERECHA
+A13838,GONALGIA BILATERAL
+A13839,ESPONDILDICATROSIS MULTIPLE
+A13840,CORIORRETINOSIS MIOPICA ATROFICA EN OIDO IZQUIERDO
+A13841,DERMATOFIBROMA EN PIERNA IZQUIERDA
+A13842,SORDERA NEUROSENSORIAL
+A13843,ESTENOSIS DE CANAL CERVICAL SEVERA
+A13844,LUMBOCIATALGIA IZQUIERDA
+A13845,HERPES ZOSTER CERVICAL IZQUIERDO
+A13846,ALERGIA A DOLALGIAL
+A13847,INTERVENIDO DE UN LIPOMA EN EL CUELLO
+A13848,INTOLERANCIA A RAMIPRIL
+A13849,ESOFAGO DE BARRET CORTO
+A13850,MONOPARESIA EN MIEMBRO INFERIOR DERECHO
+A13851,LIPOMA EN HOMBRO
+A13852,DISFASIA EXPRESIVA MODERADA
+A13853,ASIMETRIA FACIAL DERECHA
+A13854,FUMADOR DE HEROINA
+A13855,FA CRONICA
+A13856,TEMBLOR FAMILIAR EN TTO CON ANTIPARKINSONIANO
+A13857,DISCRETA DEMENCIA VASCULAR
+A13858,ARTRODESIS LUMBAR L4-L5-S1
+A13859,ALERGIA A PREGABALINA
+A13860,CONSUMO MULTIPLE DROGAS (ABSTINENTE DESDE 2009)
+A13861,TRASTORNO ADAPTATIVO Y PREDELIRIUM
+A13862,ALERGIA A BUSCAPINA
+A13863,ALERGIA A AINES Y METAMIZOL
+A13864,INTOLERANCIA A HALOPERIDOL
+A13865,DIDPEPSIA
+A13866,POLIPO ANAL
+A13867,HEPATITIS C CURADA
+A13868,EXFUMADOR DE TOXICOS (CANABIS Y OTRAS DROGAS INHALADAS)
+A13869,ALERGIA A IODO INTRAVENOSO
+A13870,BRONQUITIS DE REPETICION
+A13871,TUMORECTOMIA MAMA DERECHA
+A13872,INTOLERANCIA A TETRAZEPAM
+A13873,METORRAGIAS POR MIOMA
+A13874,CEFALEAS
+A13875,SINDROME HIPOVENTILACION-OBESIDAD
+A13876,ISQUEMIA CRONICA GRADO IIB EN MID POR ESTENOSIS ILIOFEMORAL Y OCLUSION FEMOROPOPLITEA
+A13877,PIELONEFRITIS AGUDA EN 2015
+A13878,ENFERMEDAD ARTERIOESCLEROTICA GENERALIZADA
+A13879,HIPOACUSIA POR PERFORACION OD
+A13880,ACCIDENTE ISQUEMICO TRANSITORIO CAROTIDEO DERECHO
+A13881,DISPEPSIA CON SEROLOGIA POSITIVA A H. PYLORI
+A13882,SINDROME HIPOMANIACO-DEPRESIVO
+A13883,CONSUMO DE HEROINA Y COCAINA HASTA 2003
+A13884,MALFORMACION ARTERIO-VENOSA OCCIPITAL IZQUIERDA
+A13885,POLIPOS HIPERPLASICOS
+A13886,NEUMONIA ORGANIZADA CRIPTOGENICA
+A13887,MENINGIOMA ESTENOIDAL DERECO
+A13888,EPILEPSIA FOCAL
+A13889,ANEURISMA ACM IZQUIERDA
+A13890,GLOMERULONEFRITIS CRONICA
+A13891,INFECCION CRONICA POR VHC
+A13892,ESTENOSIS DE ARTERIA FEMORAL IZQUIERDA
+A13893,MARCAPASOS MEDTRONIC
+A13894,ASTEROSCLEROSIS GENERALIZADA
+A13895,ACV MULTIPLES BIHEMISFERICOS
+A13896,GASTRECTOMIA PARCIAL POR ULCUS
+A13897,NEUMONIA EN 2013
+A13898,DISPEPSIA FUNCIONAL
+A13899,DEFICIENCIA SEVERA VITAMINA D
+A13900,ALERGIA A METAMIZOL Y VENTOLIN
+A13901,HIPERLICEMIA
+A13902,GASTRITIS POR HELICOBACTER PYLORI
+A13903,DIVERTÕCULOS COL”NICOS
+A13904,EX-TOXIC”MANO
+A13905,GONARTROSIS SEVERA BILATERAL
+A13906,SINDROME DE COLON IRRITABLE
+A13907,LEIOMIOMA SUBMUCOSO Y POLIPOS ENDOMETRIALES
+A13908,PROSTATECTOMÕA RADICAL LAPAROSC”PICA
+A13909,ESTENOSIS URETROCERVICAL
+A13910,POLIPO HIPERPLASICO EN COLON
+A13911,Ictus isquÈmico protuberancial
+A13912,Gran quemadura previa
+A13913,Bullas apicales
+A13914,Colitis isquÈmica
+A13915,Monorrena tras nefrectomÌa
+A13916,Aneurisma poplÌteo
+A13917,sÌndrome antifosfolÌpido
+A13918,linfoma esplÈnico
+A13919,polio
+A13920,ex-adicta (drogas y alcohol)
+A13921,hipoacusia total
+A13922,edema macular diabÈtico
+A13923,n. prostata operada ilbre enfermedad
+A13924,sindrome prostatic
+A13925,MUSCULOESQUELETICAS
+A13926,gastritis HPilori
+A13927,Aneurima aorta abdominal infrarenal intervenido 2014
+A13928,"Aneurisme arteria femoral I, intervenido 2015"
+A13929,"Aneurisme arteria femoral D, intervenido 2015"
+A13930,Esteatosis hepatica.
+A13931,Hiperglucemia ocasional
+A13932,transaminitis
+A13933,paresias
+A13934,fractura de clavicula
+A13935,enfermedad tromboembolica
+A13936,polipos
+A13937,EPITELIOMA BASOCELULAR
+A13938,N. PROSTATA INTERVENIDA
+A13939,NEO DE MAMA OPERADA
+A13940,N.PROSTATA
+A13941,artropatia degenerativa lumar
+A13942,NEO VESICAL OPERADA 2016
+A13943,CARCINOMA ESCAMOSOS CUERDA VOCAL OPERADA 2017
+A13944,MICROALBUMINURIA
+A13945,carcinoma basocelular intervenido 2017
+A13946,osteoartrosis generalizada
+A13947,HIPERCALCEMIA
+A13948,Hipoglucemia
+A13949,aneurisma aortico intervenido 2012
+A13950,aneurisma toracico y abdominal no cir
+A13951,Sociopata
+A13952,alergia ambiental
+A13953,L˙es
+A13954,cir de vejiga 2011
+A13955,cir. quiste sacro 1990
+A13956,cir rotulas 1978
+A13957,RTU 2001
+A13958,PENUMONIA BACTERIANA
+A13959,infecciÛn respiratoria
+A13960,Insuficiencia respiratoria crÛnica normoc·pnica
+A13961,reumatismo
+A13962,TUMOR BENIGNO RODILLA INTERVENIDO
+A13963,hepatomegalia
+A13964,CRHON
+A13965,Eczema
+A13966,HEMANGIOMA CAVERNOSO
+A13967,HIPERPLASIA PROSTATA
+A13968,cirugia adenoca de sigma
+A13969,cirugÌa fÌstula sacra
+A13970,Orquiectomia I
+A13971,Poliposis g·strica crÛnica
+A13972,ANEMIA NORMOCÕTICA-NORMOCR”MICA
+A13973,INTOLERANCIA A AUGMENTINE
+A13974,GLUCEMIA BASAL LIGERAMENTE ALTERADA
+A13975,RESECCION DE POLIPO DE COLON
+A13976,DISCOPATIA L3-S1
+A13977,TAQUICARDIA AURICULAR MULTIFOCAL
+A13978,CUADRO DE RECTORRAGIAS
+A13979,TROMBOEMBOLISMO PULMONAR EN 2006
+A13980,ITU DE REPETICION
+A13981,NEUMONIA EN LA INFANCIA
+A13982,TETANOS CON 9 A—OS
+A13983,TEMBLOR DE CARACTERISTICAS PSIC”GENAS
+A13984,ISQUEMIA ARTERIAL EN MIEMBROS INFERIORES
+A13985,INSUFICIENCIA RENAL CRONICA OBSTRUCTIVA
+A13986,TEMBLOR EN REPOSO
+A13987,ALERGIA A PANTOMICINA Y AMOXICILINA
+A13988,DIVERTICULITIS AGUDA COMPLICADA CON ACSCESO PELVICO
+A13989,ULCERA CON H.PYLORI
+A13990,HERNIAS CON CAMBIOS DEGERATIVOS OSEOS Y DISCALES
+A13991,CIRROSIS CRIPTOG…NICA
+A13992,TRAUMATISMO TORACICO CERRADO CON FRACTURAS COSTALES BILATERALES
+A13993,OSTEOCONDROMA
+A13994,BRUCELLOSIS
+A13995,FIBRILACION AURICULAR PERSISTENTE
+A13996,ESPONDILOARTROSIS DORSOLUMBAR
+A13997,ALERGIA A TETRACICLINAS
+A13998,DUDOSA EPILEPSIA
+A13999,FRACTURAS COSTALES MULTIPLES
+A14000,COLECTOMIA PARCIAL
+A14001,INTERVENIDO DE PERFORACI”N INTESTINAL POR ULCUS P…PTICO
+A14002,LOBECTOMIA DE LOBULO INFERIOR IZQUIERDO
+A14003,PAQUIPLEURITIS IZQUIERDA
+A14004,AMPUTACION BRAZO IZQUIERDO
+A14005,INTERVENIDO DE ULCUS DUODENAL
+A14006,MALFORMACION ARTERIOVENOSA CEREBRAL
+A14007,ARTRITIS-COXALGIA
+A14008,ISQUEMIA CRONICA DE MIEMBROS INFERIORES
+A14009,ANGOR
+A14010,VARICES ESOFAGICAS GRADO II
+A14011,ACU—AMIENTO VERTEBRAL (D12)
+A14012,INTOLERANCIA A AMINOGLUCOSIDOS
+A14013,INTENTOS DE AUTOLISIS
+A14014,ENFERMEDAD DE DEPOSITO POR PIROFOSFATO C¡LCICO
+A14015,CLAUDICACION INTERMITENTE CON ARTERIOESCLEROSIS SEVERA DE PREDOMINIO DISTAL
+A14016,NEUROPATIA MOTORA MULTIFOCAL IDIOP¡TICA
+A14017,LITORICIA POR C¡LCULOS RENALES
+A14018,LINCIDENTALOMA SUPRARRENAL IZQUIERDA
+A14019,ALERGIAS A SULFAMIDAS Y A CONTRASTE YODADO
+A14020,MONORRENO
+A14021,NEFRECTOMIZADO POR OBSTRUCCION URETRERAL
+A14022,EXPOLITOXIC”MANO
+A14023,SINDROME CORONARIO AGUDO
+A14024,HEMANGIOMAS CAVERNOSOS CEREBRALES
+A14025,DEFORMIDAD CAJA TORACICA CONGENITA
+A14026,ESTENOSIS CANAL MEDULAR C3-C4
+A14027,RTU PROSTATICA
+A14028,HEMORRAGIA DIGESTIVA
+A14029,LIPOMA REGION CERVICAL
+A14030,ALERGIAS A PREGABALINA Y CODEINA
+A14031,MIOCLONIAS
+A14032,DISCOPATIA DEGENERATIVA LUMBAR
+A14033,MIGRA—A CON AURA
+A14034,NEUMOTORAX IZQUIERDO
+A14035,UROPATIA OBSTRUCTIVA
+A14036,DEGENERACION MACULAR ASOCIADA A EDAD
+A14037,DISFUNCION VENTRICULAR IZQUIERDA MODERADA
+A14038,NEUMONECTOMIA DERECHA
+A14039,FLEBITIS EN MIEMBRO INFERIOR DERECHO
+A14040,GONALGIA DERECHA POSTRAUMATICA
+A14041,QUISTE PARAPIELICO IZQUIERDO
+A14042,DUDOSA ALERGIA AL YODO
+A14043,DISCOPATIA L2-S1 CON ESTENOSIS DE CANAL
+A14044,ENFERMEDAD DE GROVER
+A14045,HEMATURIA CON COAGULOS
+A14046,ACCIDENTE CARDIOVASCULAR
+A14047,TROMBOANGEITIS OBLITERANTE
+A14048,ACCIDENTES CEREBROVASCULARES
+A14049,ALERGIA A CONTRASTE YODADO
+A14050,PROTESIS OCULAR IZQUIERDO
+A14051,CEGUERA OJO IZQUIERDO
+A14052,CANDIDIASIS ORAL
+A14053,VIH B-3
+A14054,INTOLERANCIA A HEPARINA
+A14055,CEFALEA TIPO MIGRA—OSO
+A14056,INTOLERANCIA A AMOXICILINA
+A14057,"EX-USUARIO DE DROGA POR VIA PARENTERAL (CANNABIS, HEROINA Y COCAINA)"
+A14058,GLOMERULONEFRITIS MEMBRANOPROLIFERATIVA
+A14059,HEPATOPATIA POR INFECCION VHB Y VHC
+A14060,ALERGIA A ANESTESICOS LOCALES
+A14061,SINDROME SUBACROMIAL
+A14062,ESTENOSIS CANAL LUMBAR L4-L5
+A14063,DISCOPATIA LUMBAR DEGENERATIVA
+A14064,ACCIDENTE VASCULAR CEREBRAL HEMORRAGICO
+A14065,FIBROSIS PULMONAR CON DISNEA
+A14066,SECUELAS POST-POLIO (DIFICULTAD DE LA MARCHA)
+A14067,ARTROFIA RENAL
+A14068,FIBROADENOMAS MAMARIOS
+A14069,ARTERIOPATIA PERIFERICA SEVERA
+A14070,ESPONDILITIS
+A14071,TEMBLOR FINO
+A14072,POLIPOS GASTRICOS
+A14073,POLIOMIELITIS CON SECUELA EN MMII
+A14074,QUISTES SEBACEOS
+A14075,ESCLEROSIS DEL PREPUCIO
+A14076,ETILISMO SEVERO
+A14077,PROTESIS PENEANA POR DISFUNCION ERECTIL SEVERA
+A14078,ADENOMAS SUPRARRENALES BILATERALES
+A14079,EX-ADICCION A DROGAS VIA PARENTERAL
+A14080,SINDROME VASOMOTOR
+A14081,"ALERGIA A CONTRASTE YODADO, MOXIFLOXACINO Y ENANTYUM"
+A14082,RINITIS POLINICA
+A14083,INTOLERANCIA A METFORMINA
+A14084,OBSTRUCCION INTESTINAL POR DIVERTICULOS EN SIGMA
+A14085,HIPEREACTIVIDAD BRONQUIAL
+A14086,NEUMONITIS RADICA GRAVE
+A14087,INTOLERANCIA A AAS
+A14088,SORDERA PARCIAL
+A14089,ISQUEMIA ILIACA EN MIEMBRO INFERIOR DERECHO
+A14090,ORQUIECTOMIA IZQUIERDA
+A14091,RTU POR POLIPOS VESICALES
+A14092,TROMBOSIS PARCIAL DE ILIACA PRIMITIVA DERECHA
+A14093,PANCOLITIS ULCEROSA
+A14094,DOLOR CRONICO EN MMII
+A14095,ALZHEIMER MODERADO
+A14096,ESOFAGITIS CRONICA
+A14097,DESGARRO RETINIANO
+A14098,GASTRITIS ANTIZAL EROSIVA
+A14099,POLIPOS COLON ADENOMATOSOS
+A14100,POLIARTROSIS/EDEMA EN MANOS Y RODILLAS
+A14101,ALERGIA A MOXIFLOXACINO
+A14102,ICTUS CEREBELOSO
+A14103,"ALERGIA A PENICILINA, METAMIZOL Y DIOSMINA"
+A14104,ISQUEMIA CRONICA IIB EN MII
+A14105,POLIPO EN CUERDA VOCAL
+A14106,LIQUEN PLANO
+A14107,ESPLENECTOMIA POSTRAUMATICA
+A14108,TEMBLOR
+A14109,MIOPATIA
+A14110,HEMORRAGIA DIGESTIVA SECUNDARIA A ANGIODISPLASIA GASTRICA
+A14111,ARTRITIS REUMATOIDE SEVERA
+A14112,VCH+ GENOTIPO3
+A14113,EX-ADICTO A DROGAS VIA PARENTERAL
+A14114,MENISCOPATIA IZQUIERDA
+A14115,FISTULA PERIANAL
+A14116,ARTERIOESCLEROSIS CORONARIA
+A14117,ALERGIA A ASPIRINA Y CODEINA
+A14118,ADENOPATIA INGUINAL EN LA INFANCIA
+A14119,ULCERA GASTRODUODENAL SANGRANTE
+A14120,INFARTO LACUNAR
+A14121,PROSTATECTOMIA POR HIPERTROFIA BENIGNA
+A14122,FLUTTER PAROXISTICO
+A14123,ALERGIA A PENICILINA Y CONTRASTE YODADO
+A14124,TENDIONOPATIA ROTADOR HOMBRO IZQUIERDO
+A14125,HIPOACUSIA NEUROSENSORIAL DE AMBOS OIDOS
+A14126,IMPLANTE COCLEAR BILATERAL
+A14127,DISNEA HABITUAL
+A14128,GASTROPATIA CRONICA
+A14129,Hernia lumbar y cervical.
+A14130,SafenectomÌa derecha
+A14131,PolipectomÌa endoscÛpica tras poliposis colÛnica.
+A14132,Neumonia LSD
+A14133,Ulcus
+A14134,Hipoacusia cronica
+A14135,Pulmonar
+A14136,Purpura tormbopenica
+A14137,Filtro en VCI
+A14138,Cor pulmonale- FA.Pulmonar
+A14139,VHC-
+A14140,Ex adicta DVP
+A14141,MiocardiopatÌa dilatada de origen enÛlico. Trasplante cardiaco (09/06/02) y retrasplante (21/ 03/200
+A14142,Ulcus g·strico con Enfermedad por Reflujo Gastroesof·gico
+A14143,Trasplante hepatico por VHC-
+A14144,Corea de Huntington
+A14145,Trasplante de cornea
+A14146,HepatÛpata
+A14147,FA. Enfermedad del seno
+A14148,LeucÈmia linfocÌtica crÛnica
+A14149,NeumonÌas de repeticiÛn.
+A14150,Antrectomia y Bilroth II (2006) por ulcera gastrica
+A14151,Meningioma lÛbulo temporal derecho
+A14152,PÛlipos laringeos en 2011
+A14153,Transplantado pulmonar
+A14154,Cerebral
+A14155,Parkinsonismo
+A14156,Fiebre botonosa mediterr·nea
+A14157,Fiebre Q
+A14158,Fiebre tifoidea
+A14159,"IQx: Hernias inguinales, fractura de brazo"
+A14160,"IQx: ApendicectomÌa, amigdalectomÌa, fimosis"
+A14161,Hemorragia digestiva alta por ˙lcera g·strica en 1992.
+A14162,FA- Hemiphipoestesia derecha
+A14163,HDA
+A14164,Billroth II
+A14165,Aneurisma Ao
+A14166,Anemia secundaria
+A14167,Encefalitis herpÈtica
+A14168,Demencia alzheimer
+A14169,Adenomas tubulovellosos
+A14170,Trasplante renal de cad·ver
+A14171,IRC secundaria a GNMP
+A14172,Hiperuricemia con crisis de podagra
+A14173,Ulcera duodenal con antritis y duodenitis
+A14174,Poliomielitis MID en la infancia
+A14175,Hemocromatosis en homocigosis
+A14176,Portador inactivo del VHB
+A14177,Hipoparatiroidismo primario
+A14178,SÌndrome apnea hipoapnea del sueÒo
+A14179,Sindrome de brugada
+A14180,HTP tromboembÛlica
+A14181,Reflujo gastroesof·gica
+A14182,Infarto de miocardio
+A14183,safenectomÌa izquierda
+A14184,gastrectomÌa por perforaciÛn
+A14185,hipertension pulmonar grave
+A14186,Hiperparatiroidismo por adenoma en paratiroides
+A14187,NeumonÌa bacteriana
+A14188,delirio
+A14189,psoriaris
+A14190,arteritis temporal
+A14191,estenosis tronco supraaÛrtico
+A14192,fibrosis pulmonar severa
+A14193,enfermedad degenerativa discal multisegmentaria
+A14194,enfermedad del seno
+A14195,neurosis obsesiva
+A14196,NeuropatÌa sensitiva
+A14197,CardiopatÌa isquÈmica portador de DAI
+A14198,Paresia de VI par y par·lisis recurrente izquierdo
+A14199,SÌndrome de Apnea Obstructiva del SueÒo con CPAP
+A14200,coxartrosis izquierda
+A14201,"artrosis, cefalea en racimos"
+A14202,Gangrena Fournier
+A14203,protrusion discal
+A14204,Estenosis del canal lumbar
+A14205,Neumonitis intersticial
+A14206,Hepatitis B crÛnica
+A14207,Ateromatosis aortoilÌaca
+A14208,Bocio normofuncionante
+A14209,Leiomioma esof·gico. operado 2000.
+A14210,Hernia de disco
+A14211,Epilpesia
+A14212,Cuadros de suboclusiÛn intestinal por bridas
+A14213,Hidrocele derecho
+A14214,UveÌtis anteriores recurrente
+A14215,PolineuropatÌa perifÈrica diabÈtica importante
+A14216,ACVA
+A14217,Trasplante pulmonar
+A14218,Inmunodeficiencia com˙n variable
+A14219,Trasplante pulmonar unilateral izquierdo por NIU el 16-05-2006.
+A14220,BMN
+A14221,L˙es(sÌfilis)
+A14222,Conducto hep·tico derecho aberrante.
+A14223,Esofagitis
+A14224,Artritis reum·tica.
+A14225,Uveitius con espondiloratropatÌa
+A14226,Hipertrofia prost·tica benigna.
+A14227,RadiculopatÌa C5-C6 derecha
+A14228,Nefrolitiasis izquierda con colocaciÛn de doble J en varias ocasiones
+A14229,litotricia y nefrolitotomÌa (actualmente sin cateter)
+A14230,Peritonitis por perforaciÛn apendicular hace m·s de 35 aÒos
+A14231,TVP poplitea de MID (Julio-2017).
+A14232,Crisis de ausencia
+A14233,Hiperuricemia con crisis gotosas
+A14234,HemitiroidectomÌa derecha por bocio multinodular
+A14235,Hamartoma pulmonar y nÛdulo pulmonar calcificado resecados en 1997
+A14236,Laringitis crÛnica hipertrÛfica.
+A14237,Hiperparatiroidismo 2∫ a dÈficit de VitD
+A14238,Esclerodermia con FPI y polimiositis. SituaciÛn de inmunodeficiencia
+A14239,Colitis pseudomembranosa de repeticiÛn.
+A14240,Anemia de trastornos crÛnicos.
+A14241,SituaciÛn de inmunodeficiencia
+A14242,Hipertiroidismo por enfermedad de Graves Basedow
+A14243,Hemangioma cavernoso hep·tico
+A14244,Enfermedad mixta del tejido conjuntivo
+A14245,Tetraparesia fl·ccida proximal
+A14246,Tiroiditis; ˙lcera g·strica
+A14247,Enfermedad Alzheimer
+A14248,Rotura espont·nea de bazo
+A14249,AR
+A14250,Artritis de tobillo y subastragalina
+A14251,ExposiciÛn laboral de riesgo(minerÌa- fundiciÛn...)
+A14252,Lupus Eritematoso SistÈmico (LES)
+A14253,TBC hace 30 aÒos.
+A14254,⁄lcera duodenal con HDA hace 12 aÒos
+A14255,PÛlipos colon.
+A14256,Fibrosis pulmonar idiop·tica.
+A14257,Talasemia.
+A14258,histerectomia y doble anexectomia por miomas
+A14259,linfoma histiocÌtico nodular 1979
+A14260,otitis
+A14261,FA cardiovertido 2006
+A14262,2006 ablaciÛn por flutter
+A14263,PatrÛn intersticial en estudio
+A14264,urinoma resecazo marzo 2006
+A14265,estenosis canal medular intervenido
+A14266,GammapatÌa monoclonal de significado incierto FA
+A14267,BASALIOMAS OPERADOS EN CARA
+A14268,ESCLERITIS OD
+A14269,TEP (ac l˙pico +)
+A14270,NOIA (NeurÌtis ”ptica IsquÈmica Anterior)
+A14271,trombocitopenia inmune primaria
+A14272,NECROSIS AVASCULAR CADERA DERECHA
+A14273,TEP MASIVO BILATERAL SEPTIEMBRE 2004
+A14274,acv con hemiplejia residual
+A14275,fx cadera 2006
+A14276,ceguera por glaucoma
+A14277,tosferina 5a
+A14278,trasplante hep·tico por hepatopatÌa enÛlica noviembre1997
+A14279,Traumatismo cervical por accidente de tr·fico operado quir˙rgicamente HepatopatÌa en posible relaciÛ
+A14280,TRASPLANTADA CARDIACA por miocardiopatÌa isquÈmica en junio 1999
+A14281,trombocitemia esencial
+A14282,absceso en relaciÛn con sepsis ingreso en UCI en 2002
+A14283,microcirugia endolaringea 1999 con extirpacion queratosis laringea
+A14284,hemorragia digestiva complicada alta
+A14285,11/1999: ACVA en ACMI probable origen embÛlico
+A14286,uveitis con ANA positivo en 2003
+A14287,ExposiciÛn laboral de riesgo(minerÌa-fundiciÛn...)
+A14288,FPI (Fibrosis Pulmonar Idiop·tica)
+A14289,acva cpn hemiparesia MSD residual y afasia hematoma intraparenquimatoso Temp-parietal con ingreso UC
+A14290,Ganglioneuroma paravertebral retroperitoneal
+A14291,hemorragia digestiva alta por ulcera duodenal
+A14292,ExposiciÛn laboral de riesgo(minerÌa-fundiciÛn...).
+A14293,Trasplante pulmonar unilateral derecho 2004
+A14294,intervenido protesis cadera derecha
+A14295,Insuficiencia venosa cronica.
+A14296,Enfermedad de Dupuytren en mano izquierda.
+A14297,TCE (Traumatismo craneoencef·lico)
+A14298,Insuficiencia renal crÛnica por nefroangioesclerosis
+A14299,ClaudicaciÛn intermitente izquierda
+A14300,poliartrosis.
+A14301,toxoplasmosis
+A14302,HPB (Hiperplasia Benigna de PrÛstata)
+A14303,NeumonÌa intersticial difusa por ingesta de aceite tÛxico
+A14304,ExposiciÛn laboral de riesgo(minerÌa- fundiciÛn...). Silicosis
+A14305,Estenosis conducto raquÌdeo lumbar
+A14306,hematoma subdural agudo frontoparietal bilateral intervenido 1985
+A14307,Hepatitis por VHA
+A14308,Asbestosis
+A14309,protesis aortica
+A14310,SituaciÛn de inmunodeficiencia: trasplante cardiaco 08-12-1992
+A14311,Amiloidosis pulmonar
+A14312,Trasplante cardiaco 2000 por miocardiopatia dilatada de probable origen enÛlico
+A14313,alergia yodo
+A14314,ulcera gastrica con dos episodios hemorragia digestiva alta
+A14315,herniorragia bilateral
+A14316,ACVA 1987 con hemiparesia derecha recuperada
+A14317,Bronconeumopatia mixta predominio restrictiva
+A14318,protesis aortica 1985
+A14319,Insuficiencia Ao severa
+A14320,celulitis periorbitaria izquierda
+A14321,leucoplasia laringea
+A14322,"sindrome nefrotico, posible asociaciÛn a ca riÒon"
+A14323,2 episodios TEP
+A14324,episodio flutter auricular
+A14325,Episodios reiterados de TVP y TEP
+A14326,ait hace 15 aÒos
+A14327,PolineuropatÌa sensitivo-motora
+A14328,PolineuropatÌa sensitivo-motora Hipotiroidismo
+A14329,Esclerodermia
+A14330,EsplenectomÌa 2002 (SituaciÛn de inmunodeficiencia)
+A14331,RTU por HBP enero 2002
+A14332,SituaciÛn de inmunodeficiencia por trasplante cardiaco (por miocardiopatÌa dilatada idiop·tica)
+A14333,miocardiopatia dilatada origen enÛlico
+A14334,sÌndrome Mallory-weiss
+A14335,bacteriemia campylobacter
+A14336,Contacto con productos quÌmicos (limpieza de pelucas)
+A14337,trastorno maniaco
+A14338,ProstatectomÌa por HBP
+A14339,Paquepleuritis izquierda
+A14340,HepatopatÌa crÛnica de probable origen enÛlico
+A14341,FPI
+A14342,infancia polipo nasal
+A14343,LLC (Leucemia Linf·tica CrÛnica)
+A14344,Ex-UDVP-
+A14345,CCR A LOS 40a EN REMISI”N COMPLETA TRAS QX Y RT.
+A14346,estenosis pilorica
+A14347,ulcera gaastroduodenal
+A14348,disfonia aÒos de evoluciÛn
+A14349,SituaciÛn de inmunodeficiencia (VIH)
+A14350,Bypass aorto-femoral
+A14351,hepatopatia con htp y varices esofagicas no
+A14352,"filiadomasa pulmonar LSD desde 2003. PAAF no concluyente, no continuo estudio"
+A14353,polineuropatÌa enÛlica
+A14354,Basalioma extirpado en 2002
+A14355,ulcera g·striaca
+A14356,bocio tiroideo.
+A14357,dos diverticulitis aguda.
+A14358,leucoplasia cuerda vocal.
+A14359,LOE angulo pontocerebeloso (meningioma vs neurinoma)
+A14360,anemia ferrropenica
+A14361,Portadora de factor V de Leiden
+A14362,VAGOTOMIA TRONCULAR
+A14363,Hemorragia digestiva alta por ulcus pÈptido
+A14364,varicosis esencial hereditaria
+A14365,pericarditis 1985
+A14366,pleuritis a los 7 aÒos
+A14367,brucelosis infancia
+A14368,enf Addison
+A14369,irenal leve por nefroangioesclerosis
+A14370,HSA
+A14371,CCR
+A14372,polipos nasales
+A14373,simus pilonidal
+A14374,neumotÛrax en 1978
+A14375,CIRUGIA BASALIOMA PARPADO SUPERIOR 2004
+A14376,hipoparatiodismo
+A14377,protesis aortica desde 1993
+A14378,Nodulo benigno mama izquierda
+A14379,BRD
+A14380,Uveitis idiop·tica
+A14381,Atrosis lumbar
+A14382,Tromboflebitis postparto
+A14383,IR
+A14384,FibrilaciÛn Auricular (FA)
+A14385,HDA por ulcera duodenal
+A14386,ACV isquemico abril 2008
+A14387,Trastorno afectivo
+A14388,queratitis seborreica
+A14389,enfermedad crohn
+A14390,protesis de pene
+A14391,cor pulmonare
+A14392,TVP x 2 en MMII
+A14393,"fibrilacion auricular,"
+A14394,valvulopatÌa aÛrtica mixta
+A14395,alergias a Penicilina y contrastes yodados
+A14396,colitis r·dica
+A14397,Leucemia MielomonocÌtica CrÛnica
+A14398,macroadenoma de hipÛfisis
+A14399,rectorragia
+A14400,Bocio eutiroideo
+A14401,Enfermedad de Crohn (2 IQ)
+A14402,Colitis eosinofÌlica
+A14403,Hipertrofia hemorroidal
+A14404,bocio intrator·cico
+A14405,Sindrome de la apnea obstructiva del sueÒo con presiÛn positiva continua de la vÌa aerea
+A14406,Fibrilacion ventricular ligeramente disminuida
+A14407,PolineuropatÌa diabÈtica complicada (DE)
+A14408,amnesia transitoria
+A14409,HipoventilaciÛn
+A14410,adicto a las drogas no via venosa (cocaina y speed)
+A14411,AlÈrgica a pirazolonas
+A14412,colecistitis aguda necronizante
+A14413,diplopia
+A14414,amaurosis fugax
+A14415,temblor esencial;
+A14417,arteriosclerosis
+A14418,Esofagitis crÛnica de Barrett
+A14419,Poliposis naso-sinusal
+A14420,Adenoma de hipÛfisis
+A14421,GammapatÌa monoclonal significado incierto
+A14422,Colangitis esclerosante
+A14423,ColonizaciÛn bronquial por MRSA
+A14424,gastropatÌa
+A14425,Osteomielitis crÛnica
+A14426,PsicopatÌa
+A14427,colitis ulcerosis
+A14428,Osteoporosis esteroidea
+A14429,"Sd de Down, Oligofrenia"
+A14430,Asma grave
+A14431,Distrofia neuromuscular
+A14432,TBC
+A14433,VIH-SIDA
+A14434,PolitoxicomanÌa - UDVP
+A14435,GammapatÌa policlonal
+A14436,P˙rpura trombopÈnica
+A14437,SÌndrome de Wiskott-Aldrich
+A14438,Lupus discoide
+A14439,Sd Klinefelter
+A14440,TEP crÛnico
+A14441,Espina bÌfida
+A14442,UveÌtis
+A14443,Enf parkinson
+A14444,Ex-UDVP
+A14445,Retinitis pigmentaria
+A14446,DÈficit F.VII
+A14447,RadiculopatÌa
+A14448,Poliglobulia microcÌtica compatible con talasemia minor.
+A14449,Poliposis nasosinusal
+A14450,Episodio de edema de glotis no filiado
+A14451,Cifosis
+A14452,Fibroadenoma de mama derecha resecado
+A14453,ExtirpaciÛn de epitelioma
+A14454,colocaciÛn v·lvula derivaciÛn ventriculoperitoneal
+A14455,silicosis.Pulmonar
+A14456,Poliposis colÛnica (pÛlipos hiperpl·sicos).
+A14457,Enfermedad pulmonar intersticial difusa con patrÛn radiolÛgico de certeza de NIU
+A14458,Insuficiencia respiratoria parcial crÛnica.
+A14459,Adenoma paratiroideo
+A14460,Monorreno secundario a donaciÛn de riÒÛn
+A14461,Enfermedad de Perthes
+A14462,"Carcinoma basocelular, tipo sÛlido micronodular en regiÛn frontal"
+A14463,degeneracion maculae
+A14464,fiebre tifoidea e en la infancia
+A14465,hipoacusia tras cirugÌa por perforaciÛn timp·nica secundaria a otitis de repeticiÛn.
+A14466,Adenocarcinoma macinar prost·tico
+A14467,Espondiloartrosis L5-S1
+A14468,Osteonecrosis del condigo femoral interno
+A14469,"IAM anterior en 1999, ACTP con balÛn a CD."
+A14470,"SCASEST en 11/2016, bypassaortocoronario con safenectomia."
+A14471,psoriasis sin tratamiento sistÈmico
+A14472,PÛlipos en cuerda vocal.
+A14473,sepsis grave respiratorio que preciso UCI.
+A14474,neumonÌa adquirida en la comunidad con criterios de gravedad
+A14475,"tumoraciÛn ovario, probable cistoadenoma"
+A14476,neumonÌas de repeticiÛn. Absceso pulmunar cavitado en segm 6 izquierdo.
+A14477,"Herpes zoster, c·ncer de piel en espalda."
+A14478,duplicidad ureteral
+A14479,SILICOSIS PULMONAR
+A14480,transplantada renal
+A14481,paciente dependiente para todo
+A14482,Osteoporosis en tto farmacologico
+A14483,DMAE (DegeneraciÛn Macular Asociada a la Edad)
+A14484,anemia normo-normo
+A14485,pseudomona
+A14486,fractura con aplastamiento vertebral l2
+A14487,anorexia nerviosa
+A14488,pancreatitis aguda en 2016
+A14489,distrofia de cÛrnea
+A14490,poliomielitis miembro izquierdo
+A14491,DisecciÛn aÛrtica
+A14492,anemia normocrÛnica
+A14493,crioglobulinemia mixta
+A14494,poliglobulia multifactorial
+A14495,transplante unilateral de pulmÛn (complicaciones post transplante)
+A14496,factor V leiden heterocigoto
+A14497,insuficiencia suprarrenal
+A14498,arterioesclerosis
+A14499,hernias lumbares
+A14500,fibrosis pulmonar progresiva
+A14501,DORSALGIA
+A14502,aplasia pura de celulas rojas
+A14503,fractura no traumatica de t9
+A14504,"Amebiasis en Ojo derecho 2008, cirugÌas oculares en varias ocasiones con amaurosis total secundaria"
+A14505,LeucoencefalopatÌa vascular leve con fallos amnÈsicos sin repercusiÛn funcional
+A14506,ANILLO DE SCHATZKI NO ESTENOTICO
+A14507,dermatitis cronica superficial
+A14508,psoriasis guttata activa generalizada
+A14509,espondiloartrosis lumbar degenerativa
+A14510,polineuropatia sensitiva de tipo desmielinizante leve en MMII
+A14511,diverticulitosis sigmoidea
+A14512,COLANGIOPANCREATITIS AGUDA LEVE
+A14513,DISARTRIA Y HEMIPARESIA RESIDUAL
+A14514,SMP TIPO POLICITEMIA VERA
+A14515,"EICH (ENFERMEDAD DE INJERTO CONTRA HUESPED, CR”NICO CON AFECTACION PULMONAR)"
+A14516,HEMATOMA SUBDURAL DERECHO
+A14517,"⁄LCERA P…PTICA,( OPERADA)"
+A14518,ENCEFALITIS AGUDA CON PATR”N SUGESTIVO DE ENCEFALITIS AUTOINMUNE PARANEOPL¡SICA
+A14519,cataratas congÈnitas
+A14520,rinofaringolaringitis crÛnica
+A14521,desviacion septal parcialmente obstructiva
+A14522,gastritis crÛnica (H.pylori positivo)
+A14523,poliposas colonia (revisiones cada 2 aÒos)
+A14524,Colitis pseudomembranosa por Clostridium difficile
+A14525,⁄lcera en rodilla duodenal superficial (Forrest III)
+A14526,Bloqueo bifascicular asintom·tico
+A14527,RetinopatÌa hipertensiva
+A14528,Hernia inguinal bilateral intervenidas
+A14529,Sifilis latente
+A14530,Hepatitis por VHC
+A14531,PÛlipo colÛnico maligno.
+A14532,Anemia megalob·stica
+A14533,Artrosis acromio-clavicular
+A14534,Litiasis de repeticiÛn
+A14535,FA anticoagulada con Sintrom
+A14536,CIS vesical
+A14537,Guillain BarrÈ en 2014
+A14538,Fiebre reum·tica
+A14539,SÌndrome del t˙nel del carpo derecho.
+A14540,SÌndrome seco
+A14541,Enfermedad mixta del tejido conectivo
+A14542,Fx aplastamiento de L1.
+A14543,Hiperuricemia. Gota
+A14544,Hipotiroidismo subclÌnico autoinmune
+A14545,Carcinoma basocelular en cuello extirpado
+A14546,Carcinoma basocelular en espalda extirpado
+A14547,Tumor de Warthin (benigno)
+A14548,Epilepsia-crisis parciales complejas
+A14549,Orquitis
+A14550,CÛlicos renoureterales
+A14551,Episodio de diverticulitis aguda
+A14552,CalcificaciÛn en Aorta y carÛtidas
+A14553,Hiperpotasemia
+A14554,Monorreno congÈnito
+A14555,Trombopenia moderada
+A14556,Sd apnea-hipopnea
+A14557,Hipereactividad bronquial inespecÌfica
+A14558,IRC cronica
+A14559,Esteatohepatitis no alcohÛlica
+A14560,Quistes renales simples
+A14561,Hipercalcemia tumoral moderada
+A14562,Espasmo esof·gico
+A14563,CRU
+A14564,Glaucoma de ·ngulo abierto
+A14565,Glaucoma crÛnico
+A14566,Mielitis
+A14567,estenosis mitral
+A14568,"HTP, FA paroxÌstica."
+A14569,Hemiparesia derecha
+A14570,Disartria residual.
+A14571,⁄lcera duodenog·strica
+A14572,PatologÌa prost·tica
+A14573,IRC
+A14574,Demencia incipiente
+A14575,LesiÛn quÌstica en cola pancre·tica
+A14576,Episodios aislados de rinoconjuntivitis polinica
+A14577,Cardiomegalia ligera
+A14578,Estenosis carotÌdea bilateral
+A14579,Aneurisma de Ao Abdominal
+A14580,RTU de prÛstata
+A14581,Diverticulosis y colon descendente
+A14582,SÌndorme mielodispl·sico
+A14583,DÈficit leve de factor XII
+A14584,Anemia de trastornos crÛnicos
+A14585,Herniorrafia inguinal bilateral.
+A14586,Hidrocele recidivado.
+A14587,Herniorrafias inguinales
+A14588,Estenosis esof·gica
+A14589,Deterioro cognitivo leve multidominio
+A14590,Posible sÌndrome de WPW
+A14591,Bebedor 1-2 vasos de whisky al dÌa.
+A14592,esquizofrenia residual
+A14593,Oclusion de iliaca comun derecha
+A14594,Estenosis crÌtica
+A14595,PatologÌa crÛnica pulmonar
+A14596,Estenosis aortica leve
+A14597,Trastorno de personalidad
+A14598,"Osteoporosis,"
+A14599,Artrosis.
+A14600,Psoriasis.
+A14601,Artritis reumatoide.
+A14602,Bronquitis crÛnica.
+A14603,Morfea generalizada
+A14604,Etilismo
+A14605,Tendinitis de supraespinoso izquierdo de repeticiÛn
+A14606,Arteritis de cÈlulas gigantes + polimialgia reum·tica
+A14607,SAOS con CPAP.Pulmonar
+A14608,Neumotorax izq con DET
+A14609,Posible cuadro de TBC
+A14610,Hipertiroidismo primario
+A14611,SÌndrome de Mallory-Weiss
+A14612,IT moderada
+A14613,Neurinoma cervical
+A14614,Trasplante hepa·tico
+A14615,ConizaciÛn cervical
+A14616,AmputaciÛn pierna
+A14617,Hemocromatosis con H63D heterozigoto
+A14618,PolineuropatÌa.
+A14619,Plaudismo
+A14620,Purpura trombocitopÈnica autoinmune
+A14621,SAHS+SOH severo
+A14622,Leucodisplasia de cuerda vocal
+A14623,Leucopenia
+A14624,Distrofia muscular Becker
+A14625,Trombosis yugular derecha
+A14626,2-3 cervezas/dÌa
+A14627,#NAME?
+A14628,Hipergammaglobulinemia monoclonal
+A14629,Esofagitis erosiva
+A14630,Gastriris eritematosa
+A14631,Angiodisplasia
+A14632,Gastritis crÛnica antral
+A14633,RGE-EsÛfago de Barret
+A14634,HDA de repeticiÛn
+A14635,Enfermedad pÈptica
+A14636,Leismaniosis
+A14637,"Enfermedad de Cacci-Ricci (espongilosis medular renal, hereditaria)"
+A14638,Enfermedad de Hashimoto
+A14639,Hiperlipemia .
+A14640,Trastorno genÈtico que le produce hipercoagulabilidad
+A14641,Miomas uterinos y calcificaciones mamarias en seguimiento.
+A14642,Hipotirodismo secundario
+A14643,Bursitis cadera
+A14644,Hipoacusia bilateral mitocondrial
+A14645,Epilepsia postquir˙rgica meningioma.
+A14646,Hemocromatosis homocigota para HFE H63D
+A14647,Psoriasis invertida
+A14648,Ateromatosis femoropoplitea
+A14649,SAHS severo.
+A14650,MigraÒa retiniana.
+A14651,Hipoacusia neurosensoria
+A14652,Hiperhomocisteinemia
+A14653,Polineuritis
+A14654,Bebedora 2L de cerveza/dÌa
+A14655,Ex consumidora de cocaÌna
+A14656,SÌndrome del t˙nel del carpo bilateral
+A14657,Colico nefrÌtico de repeticiÛn
+A14658,Probable fibromialgia.
+A14659,Infarto frontal derecho
+A14660,⁄lcera duodena
+A14661,Aneurisma aorta ascendente
+A14662,Sd apnea
+A14663,Hipopnea del sueÒo
+A14664,Desconocido
+A14665,Espondiloartritis psori·sica .
+A14666,Hiperostosis anquilosante difusa.
+A14667,Psoriasis cut·nea (solo tto tÛpico).
+A14668,BroncopatÌa alÈrgica.
+A14669,Reflujo gastro-esof·gico.
+A14670,Anillo de Schastzky.
+A14671,Duodenitis erosiva.
+A14672,Espondilolistesis L5.
+A14673,Hipertirodisimo
+A14674,Enfermedad Indiferenciada del tejido ConectivoArtrosis de manos
+A14675,Infarto cerebral con secuela leve oftalmolÛgica
+A14676,Hiperuricemia asintom·tica.
+A14677,AfonÌa espasmÛdica crÛnica.
+A14678,Hernia de hiato.
+A14679,Espondiloartritis axial no radiogr·fica
+A14680,SAOS grave.
+A14681,CPAP
+A14682,HisterectomÌa subtotal por miomas
+A14683,Hernia de hiatal
+A14684,Hipovitaminosis D.
+A14685,OsteoartropatÌa hipertrÛfica.
+A14686,Portador del gen MTHFR.
+A14687,Pancreatitis crÛnica.
+A14688,Neuralgia del trigÈmino.
+A14689,Monorreno funcional
+A14690,HepatopatÌa crÛnica estable
+A14691,V·rices esof·gicas leves.
+A14692,Gota.
+A14693,Hiperferritinemia.
+A14694,EsÛfago de Barret.
+A14695,PÛlipos adenomatosos de bajo grado.
+A14696,SÌndrome linfoproliferativo crÛnico T variedad LGL
+A14697,VPH16+
+A14698,LMC
+A14699,CPAP.
+A14700,Ceguera
+A14701,Oligoartritis crÛnica seronegativa
+A14702,CRU de repeticiÛn
+A14703,Hiperaldosteronismo primario
+A14704,Fiebre tifoidea en la infancia.
+A14705,SÌndrome mieloproliferativo crÛnico
+A14706,NeumonÌa por Legionella 1989.
+A14708,ITUs de repeticiÛn
+A14709,Psoriasis ungueal
+A14710,MutaciÛn de gen de hemocromatosis
+A14711,Hirsutismo
+A14712,VPH a los 30 aÒos
+A14713,ConizaciÛn del cÈrvix
+A14714,Embolia arteria central de la retina.
+A14715,Accidente cerebrovascular izquierdo con alteraciÛn del lenguaje.
+A14716,Endocarditis
+A14717,Fibrosis pulmonar tipo NIU
+A14718,glaucoma ocular
+A14719,Sialoadenitis parotÌdea izquierda crÛnica
+A14720,Glaucoma crÛnico simple
+A14721,Glaucoma congÈnito AO
+A14722,⁄tero polimiomatoso (alta de GinecologÌa Nov 2.017)
+A14723,VÈrtigo posicional benigno estudiada en ORL hace 2 aÒos
+A14724,Hipertiroidismo tras la gestaciÛn
+A14725,Vitiligio
+A14726,Dos episodios de TEP
+A14727,DiscopatÌa lumbar.
+A14728,Temblor esencial (no parkinsonismo).
+A14729,Ateromatosis aÛrtica.
+A14730,Poliartritis ANA +
+A14731,Estenosis valvular
+A14732,SÌndrome del t˙nel carpiano bilateral de predominio izquierdo
+A14733,DisfunciÛn temporo-mandibular
+A14734,Tendinitis
+A14735,Dismenorrea
+A14736,T.Warthin.
+A14737,Factor V Leiden.
+A14738,ETT. Isquemia arterial crÛnica. Hernia discal lumbar
+A14739,Basedow
+A14740,Hiperplasia benigna de prÛstata.
+A14741,NeumonÌa basal derecha
+A14742,Osteopenia.
+A14743,Sindrome de fatiga crÛnica
+A14744,Esofagitis segmentaria proximal
+A14745,Isquemia crÛnica grado 2 B MII.
+A14746,Isquemia crÛnica grado 2 B MID .
+A14747,Eutiroidea
+A14748,Portadora de medio tiroides de manera congÈnita
+A14749,Sinus pilonidal
+A14750,Diverticulosis sigma
+A14751,Polipectomia en 2013 con estirpaciÛn de 3 pÛlipos.
+A14752,Desprendimiento citreo octubre 2016
+A14753,PrÛtesis en la aorta
+A14754,AfectaciÛn isquÈmica cerebral subaguda m˙ltiple
+A14755,ERC con proteinuria
+A14756,Artritis degenerativa
+A14757,CaliaquÌa
+A14758,sÌndrome de Heyde
+A14759,Enfermedad Celiaca
+A14760,DMAE
+A14761,Desprendimiento de retina y degeneraciÛn macular bilateral
+A14762,ProtrusiÛn discal con lumbociatalgia
+A14763,ObstrucciÛn carotidea interna
+A14764,Faringitis y rinitis crÛnica
+A14765,PolipectomÌas colÛnicas.
+A14766,ALERGIA AL POLEN
+A14767,Pancreatitis liti·sica
+A14768,Diverticulosis colÛnica.
+A14769,SAHS moderado
+A14770,Anemia crÛnica multifactorial
+A14771,PatologÌa discal degenerativa
+A14772,Meningioma en seguimiento
+A14773,Hiperuricemia/gota
+A14774,Capsulitis hombro izquierdo
+A14775,Monoartritis gotosa 1∫ dedo pie derecho
+A14776,Higado graso.
+A14777,Hiperuricemia con gota.
+A14778,Arteritis de cÈlulas gigantes corticodependiente
+A14779,Deterioro cognitivo moderado
+A14780,Estenosis carotÌdea izquierda
+A14781,Infecciones respiratorias de repeticiÛn
+A14782,Hiponatremia leve
+A14783,Hipercalemia
+A14784,Anemia normocÌtica hipocrÛmica
+A14785,Poliposis colÛnica.
+A14786,Taquicardias
+A14787,PÛlipo colon resecado
+A14788,NeumonÌa por Legionella
+A14789,Itus frecuentes
+A14790,1-2 episodios anuales de bronquitis
+A14791,Hipotiroidismo primario por tiroiditis linfocitaria
+A14792,Hemorroides externas
+A14793,Anemia megalobl·stica de origen autoinmune
+A14794,FaquectomÌa ojo derecho
+A14795,Hemorroides internas grado IV
+A14796,Utero miomatoso
+A14797,Polipo hemorroidal
+A14798,SÌndrome del t˙nel carpiano.
+A14799,fractura fÈmur izquierdo y tibia y peronÈ derecho
+A14800,catarros ocasionales
+A14801,dolor torax
+A14802,Alergia antiinflamatorios
+A14803,intervenida de apendicitis a los 30aÒos
+A14804,angiodema palpebral
+A14805,intervenciÛn menisco rodilla izquierda
+A14806,Apnea-hipopnea del sueÒo en tto
+A14807,meningioma (intervenido)
+A14808,EPISODIOS DE COLICOS NEFRITICOS
+A14809,Velopalatina y papiloma de ˙vula
+A14810,intervenciones de rodilla
+A14811,patologÌa osea degenerativa
+A14812,colicistectomÌa
+A14813,Estatosis hep·tica enÛlica
+A14814,cirugia : Hemorroides
+A14815,Dolor extremidades inferiores
+A14816,CIRUGIA ACROMIOPLASTIA
+A14817,Estonosis de Uretra
+A14818,Neumonia 2003
+A14819,Neumonia 1989
+A14820,Artrosis mediotarsina y tobillos
+A14821,neumonia 2017
+A14822,Deficit Folato
+A14823,Atrofia genital
+A14824,AlÈrgica antagonista del calcio
+A14825,Eritema nodoso desde 2002
+A14826,Mantux en el 2002
+A14827,TEP enero 2018
+A14828,NÛdulos pulmonares
+A14829,Herpes
+A14830,consumo de 1L cerveza diario
+A14831,NAC bilateral 2016
+A14832,cirugÌa menisco
+A14833,Disnea leve
+A14834,Tos crÛnica los ˙ltimos 20 aÒos
+A14835,"HBP, controloes por urologia"
+A14836,Dolor
+A14837,TEP Dic. 2014
+A14838,CirugÌ Hernia inguinal 2011
+A14839,Allergic peniciline
+A14840,Alcohol moderado habitual
+A14841,Hipotiroidesmo
+A14842,Radiculopatia (MSD) miembro Sup Dcho
+A14843,Enfermedad cerebrovascualr controlada
+A14844,Infarto Renal
+A14845,Tos y expectoraciÛn
+A14846,Tumor Whartin bilateral (intervenido)
+A14847,Ginecomastia (mastectomia) 1997
+A14848,diverticulitis de colon
+A14849,antritis crÛnica superficial
+A14850,erosiones g·stricas
+A14851,pÌloro incompetente
+A14852,ulcus 1984
+A14853,CATARROS FRECUENTES
+A14854,HB de Prostata
+A14855,Hidrocele 2012
+A14856,Neuropatia espalda 2010
+A14857,Trombosis venosa profunda1997
+A14858,Hieterectomia y anexectomia 1999
+A14859,psoriasis cut·nea y ungueal
+A14860,mononeuritis desmielinizante
+A14861,"esofagitis, ˙lcera pilÛrica"
+A14862,carcinoma orofaringe
+A14863,SINCOPES OCASIONALES
+A14864,INGUINAL HERNIAL
+A14865,SÌndrome de Dress
+A14866,Artritis rodilla (˙ltimos 50 aÒos)
+A14867,Ictus cerebral 2009
+A14868,Criptorquidia infancia
+A14869,Traumatismo tor·cico 2000
+A14870,Turbinoplastia
+A14871,Meniscopatia bilateral
+A14872,Lipomas en brazos y espalda
+A14873,Poliuria nocturna
+A14874,Cervicalgia intervertebral
+A14875,Neumonia 1990
+A14876,psoriasis leve
+A14877,colelitiasis y coledocolitiasis
+A14878,colecistectomia 2006
+A14879,Ulcus perforado
+A14880,cirugias cataratas y estrabismo
+A14881,cirugia papilomas
+A14882,Fractura escafoide
+A14883,Estenosis medula
+A14884,Arnold-chiari
+A14885,TEP 2013
+A14886,COLECISTECTOMY
+A14887,Fumador hachis 12 aÒos
+A14888,HeroÌna en papel de aluminio 12aÒos
+A14889,cirugia quistes ovarios
+A14890,somnolencia
+A14891,sindrome VCS
+A14892,TEP pulmonar
+A14893,Afasia motora
+A14894,Bradipsiquia
+A14895,Colicistectomia 2007
+A14896,Hemorroides y polipos en colon
+A14897,"Sindrome ansioso, depresivo"
+A14898,CIRUGIA DE N”DULOS CUERDAS VOCALES
+A14899,HERNIA INGUINAL 1980
+A14900,TVP 2014
+A14901,COLECISTECTOMY 1986
+A14902,Ulcus intervenido 1974
+A14903,gota (·cido urico)
+A14904,infecctiÛn por anisakis
+A14905,DisfunciÛn satÈlite
+A14906,Esofaguitis G4
+A14907,hemoptisis anemizante
+A14908,diverticulosis colÛnica y pÛlipos colÛnicos
+A14909,Candidiasis esof·gica
+A14910,Hiperplasia prostatica benigna moderada
+A14911,Litiasis grupo pielocalicial derecha
+A14912,Lumboci·tica derecha
+A14913,rinitis perenne
+A14914,exostosis de la porciÛn profunda del CAE izquierdo
+A14915,Hemorragia digestiva duodenitis erosiva
+A14916,FRCV
+A14917,Siringomielia
+A14918,isquemia CrÛnica grado IV de Miembro Inferior Derecho
+A14919,ulcera g·strica Intervenida
+A14920,hernia inguinal derecha intervenida
+A14921,Fractura clavÌcula en infancia
+A14922,"gastritis, hemorragia digestiva"
+A14923,hernia inguinoescrotal izquierda
+A14924,Poliposos colonica
+A14925,Malformacion cerebral intervenida con radiocirugia y embolizacion
+A14926,Cuadros vertiginosos de caracter perifÈrico
+A14927,ResecciÛn de adenoma de colon (recto) de 15 mm en 2015
+A14928,Atrofia renal izquierda
+A14929,Trombosis porta izquierda sobre hepatopatia con datos de HT portal
+A14930,Lumbartrosis lumbar
+A14931,NefropatÌa con proteinuria
+A14932,"IQ: apendicectomÌa, herniorrafia umbilical.Amigdalect, herniorrafia umbilical.Amigdalectomizado"
+A14933,SAOS/HVA
+A14934,Lumboci·tica ocasional
+A14935,DisfunciÛn VI severa residual (FE 15%
+A14936,Trasplantado de corazÛn
+A14937,Mastopatia fibroquisitca
+A14938,Hepatitis B en la infancia curada
+A14939,FA paroxÌstica con fibroesclerosis
+A14940,rticular derecha congÈnita. Pie zambo bilateral. Subluxacion de codo derecho
+A14941,ANTRAX en la infancia
+A14942,AVC transitorios
+A14943,Glaucoma crÛnico ·ngulo estrecho
+A14944,Colelitiaisis
+A14945,Quiste seb·ceo en gluteo
+A14946,NeumotÛrax derechos (2) e izquierdo (1
+A14947,Timpanoplastia de OI hace unos 20 aÒosce unos 20 aÒos
+A14948,bocio difuso
+A14949,Tromboflebitis
+A14950,Implante de peronÈ en cadera en la infancia
+A14951,"Alergica al augmentine, Herniorrafia inguinal derecha, Apendicectomizada."
+A14952,"Ulcera duodenal , Hipogonadismo"
+A14953,S. de Gilbert
+A14954,Osteoartrosis dorsolumbar
+A14955,"SÌndrome isquÈmico crÛnico de mmii, grado IIa MIDcho."
+A14956,Ototubaritis
+A14957,Ulcera en borde derecho lingual
+A14958,artritis rodilla
+A14959,ADENOMAS TUBULARES Y TUBULOVELLOSOS DE INTESTINO GRUESO
+A14960,Hernia de Hiato Colon irritable Adenomectomia prostatica Polipectomia colon Hernias discal
+A14961,⁄lcera duodeno
+A14962,Litiasis parotÌdea
+A14963,DivertÌculo de esÛfago inferior
+A14964,AITs hemisfÈricos izquierdos
+A14965,Neuralgia amiotrÛfica bilateral
+A14966,Prolapso Hemorroidal grado IV
+A14967,Lipomas en mama derecha
+A14968,DisfunciÛn tiroidea
+A14969,"Hiperuricemia, Esofagitis"
+A14970,"Cervicoartrosis, MigraÒa"
+A14971,alergia alcontraste yodado y penicilina
+A14972,cefaleas y temblores no estudiados
+A14973,"anemia ferropÈnica, mioma uterino"
+A14974,"hiperuricemia, hipertrigliceridemia"
+A14975,"hernia de hiato, alergia a cefalosporinas"
+A14976,"hiperuricemia, celÌaco, alergia a estreptomicina"
+A14977,"temblor esencial, pÈrdida de memoria"
+A14978,polipos edematosos
+A14979,enfisema pulmonar y bullas pulmonares
+A14980,"hiperuricemia, ictiosis"
+A14981,difteria
+A14982,"estreÒimiento crÛnico, talasemia minor"
+A14983,"hipotiroidismo, arteriopatÌa"
+A14984,sindrome de Hashimoto
+A14985,alergia al ibuprofeno
+A14986,alergia al cromo
+A14987,alergia anestesia local
+A14988,cefaleas tusÌgenas
+A14989,alergia a AINE y metamizol
+A14990,"alergia a ASS, intolerancia al ac. clavul·nico"
+A14991,alergia a sulfamida
+A14992,"urticaria colinergica, glaucoma"
+A14993,trastorno de la coagulaciÛn
+A14994,"glaucoma, alergia a acetilcisteina y algunos antibiÛticos"
+A14995,"hipotiroidismo, psoriasis, anemia"
+A14996,hernias de discos
+A14997,"estreÒimiento, hiperparatiroidismo, osteoporosis"
+A14998,"ulcus duodenal, intolerancia al cilostazol"
+A14999,Sd cervicobraquial por compresiÛn tumoral.
+A15000,Arteriosclerosis. OclusiÛn y repermeabilizaciÛn con stent de la arteria iliaca derecha
+A15001,Trastorno Delirante Obsesivo
+A15002,ex consumidora de cannabis a diario
+A15003,ex consumidora cocaÌna puntual
+A15004,estridor agudo- traqueotomÌa
+A15005,Angina inestable
+A15006,tiroiditis linfocitaria
+A15007,enfermedad de Graves-basedows
+A15008,Urticaria por frÌo
+A15009,Desprendimiento de vÌtreo
+A15010,Hipotiroidismo hipoparatiroidismo postquirurgico
+A15011,prolapso de v·lvula mitral leve
+A15012,bulla pulmonar diagnostico 2013
+A15013,enfisema por dÈficit de A1AT
+A15014,TVP en miembro inferior derecho
+A15015,hernia discal lumbo sacra
+A15016,varices en MID
+A15017,"endometriosis , fibromialgia"
+A15018,radiculopatÌa cervical C5
+A15019,ulcera uretral
+A15020,edemas cronicos en MMII
+A15021,SIADH
+A15022,AVC hace 2 aÒos con recuperaciÛn completa
+A15023,Rinitis al∑lËrgica
+A15024,Sondatge vesical permanent
+A15025,meningioma
+A15026,colitis
+A15027,ESQUIZOFRENIA SIMPLE
+A15028,ADENOMA TUBULAR CIEGO DISPLASA
+A15029,TRAUMA CERVICAL-TORACICO
+A15030,PARALISIS CVI
+A15031,Artritis inespecifica
+A15032,SÌndrome Tunel Carpiano
+A15033,Ex ADVP (AdicciÛn a drogas vÌa parenteral)
+A15034,Epilepsia postraum·tica con daÒo cerebral
+A15035,Epididimitis
+A15036,colitis ulcverosa
+A15037,neumotorax espomtameo
+A15038,Tiroiditis subaguda
+A15039,colecistitis litiasica
+A15040,ENFERMEDAD DE MADELUNG
+A15041,ENCEFALOPATIA DE WERNIKE
+A15042,ADENOCARCINOMA COLON T2N0M0
+A15043,CATARATAS OI
+A15044,Angioedema facial
+A15045,NEUMONITIS
+A15046,ulcera orl
+A15047,dolor toracico
+A15048,TUMOR MIXTO APOCRINO(OJO)
+A15049,ADENOPATIA BILIAR DCHA Y SUBCARINAL
+A15050,NODULO CALCIFICADO HEPATICO
+A15051,OBSESION HIPOCONDRIACA
+A15052,INSUF RESP PARCIAL
+A15053,LEGRADOS
+A15054,POLIPO COLON ADENOMATOSO
+A15055,INFECCION RESPIRATORIA/NEUMONIA
+A15056,SINDROME INTESTINO IRRITABLE
+A15057,ESPONDILOSIS CERVICAL
+A15058,TRAUMA OCULAR INFANTIL CEGUERA OI
+A15059,HERNIORRAFIA INGUINOESCROTAL DCHA
+A15060,AFONIA
+A15061,FIBROADENOMA MAMARIO
+A15062,Hipertrigliceridos
+A15063,HEMORRAGIA INGUINAL BILATERAL
+A15064,CANCER EPIDERMOIDE LENGUA
+A15065,LOBECTOMIA
+A15066,POLOPOSIS
+A15067,ISQUEMIA ARTERIAL
+A15068,BYPASS
+A15069,APLASTAMIENTO VERTEBRAL
+A15070,CATARRO
+A15071,DISMINUCION AGUDEZA VISUAL
+A15072,INFECCION BUCAL
+A15073,TRAQUEITIS
+A15074,ORQUIEPIDIDIMITIS
+A15075,ANEURISMA AORTA INFRARRENAL
+A15076,LIPOMA EN ANTRO GASTRICO
+A15077,RONCOPATIA SIMPLE
+A15078,IQ TABIQUE NASAL
+A15079,ADC PROSTATA
+A15080,TROCANTERITIS IZQUIERDA
+A15081,LEUCEMIA MIELOIDE CRONICA
+A15082,CANCER PROSTATA
+A15083,CANCER UROTELIAL VESICAL
+A15084,FIEBRE DE MALTA
+A15085,INSUFICIENCIA SUPRARENAL
+A15086,HIPOPITUITARISMO
+A15087,SOP
+A15088,HALLUX VALGUS INTERVENIDO
+A15089,PORTADORA PROTESIS CADERA BILATERAL
+A15090,ansieda
+A15091,anemia por dÈficit de a.folico
+A15092,COXOARTOSIS BILATERAL
+A15093,ARTROSIS CADERA IZQUIERDA
+A15094,POLIPO LARINGEO
+A15095,MICOSIS EN PENE
+A15096,sindreome constitucional
+A15097,palpitaciones
+A15098,sindrome constitucional
+A15099,ht ocular
+A15100,miopia y astigmatismo
+A15101,estenosis en fibroScan
+A15102,micosis oral
+A15103,CANCER EPIDERMOIDE 2004
+A15104,NEVUS PIGMENTADO CELULAR 2002
+A15105,HERNIA DISCAL L4L5
+A15106,neo renal hace 4 aÒos
+A15107,EXTRASISTOLES VENTRICULARES ASINTOMATICO SIN CARDIOPATIA ESTRUCTURAL EN ECOCARDIO
+A15108,"miopia, astigmatismo"
+A15109,ANGINA DE PRIZMETAL EN 2007
+A15110,"espondilitis anquilosante, cifosis"
+A15111,ictus/acv
+A15112,altraciones de la ventilacion mixta
+A15113,FA CRONICA/PAROXISTICA
+A15114,OSTEOPOROSIS COLUMNA VERTEBRAL
+A15115,NEOPLASIA GASTRICA 1976
+A15116,ULCUS ULCEROSO
+A15117,EXTIRPACION DEL PABELLON AURICULAR DERECHO POR LESION MALIGNA NO ESPECIFICADA
+A15118,tuberculosis??
+A15119,enfermedad de graves con oftalmopatia
+A15120,HIPOTIROIDISMO IATROGENO
+A15121,tendinitis articulacion codo
+A15122,fibroenfisema e insuficiencia respiratoria
+A15123,neumopatia intersticial fibrosante
+A15124,APENDICTECTOMIA
+A15125,ISQUEMIA ARTERIAL CRONICA
+A15126,hipotiriodismo
+A15127,"TRASTORNO FOBICO SOCIAL,PSICOTICO"
+A15128,ANGINA DE ESFUERZO
+A15129,ULCUS ESTOMAGO
+A15130,FIEBRE REUMATICA FEB/16
+A15131,brucelosis-1989
+A15132,endermedad de wegener
+A15133,GASTRITIS POR H.PYLORI-ERRADICADO
+A15134,BRONQUILITIS
+A15135,COMPRESION MEDULAR C6-C7
+A15136,HEPATITIS C POSTTRANSFUSIONAL
+A15137,ANEURISMA AORTA TORACICA
+A15138,ENF DE DUYUYTREN
+A15139,"GONARTROSIS, COXARTROSIS"
+A15140,ANGIODISPLASIA DE COLON
+A15141,ESOFAGITIS GRASO D
+A15142,PARALISIS MANO DERECHA DESDE NACIMIENTO
+A15143,DUDOSO ANTECEDENTE TUBERCULOSIS
+A15144,BROTE PSICOTICO
+A15145,ENFERMEDAD DE BIRDSHOT
+A15146,NEUROPATIA DIABETICA
+A15147,SIND TUNEL CARPIANO
+A15148,TUBERCULOSIS 1985
+A15149,DIVERCULOSIS COLONICA
+A15150,ARTROSIS GOTOSA
+A15151,CRISIS EPILEPTICA HACE 40 A—OS
+A15152,HT pulmonar
+A15153,ALTERACIONES COGNITIVAS DESDE HACE 3 A—OS
+A15154,COR PULMONARE CRONICO
+A15155,CPAP NOCTURNA
+A15156,TVP Y TEP(FACTOR V LEIDEN POSITIVO)
+A15157,ARTRITIS REUMAROIDE
+A15158,ESTENOSIS HEPATICA
+A15159,HERNIA L4-L5
+A15160,incidentalomas suprarrenales bilaterales
+A15161,lesiones en raquis lumbar
+A15162,SINDROME CHIARI TIPO I
+A15163,ESPASMOS ESOFAGICOS
+A15164,PARALISIS RADIAL DERECHA
+A15165,ISQUEMIA CRONICA DE EID GRADO IIB
+A15166,ULCUS GASTRICO CON HDA
+A15167,GONOCUTROSIS
+A15168,sindrome de trouseau
+A15169,TROMBOFLEBITIS MIEMBRO INFERIOR IZQUIERDO
+A15170,DIVERTICULITIS COLONICA
+A15171,DEFICIT HIERRO Y VIT B12
+A15172,HERNIAS DISCALES L2-L5
+A15173,ANGIODISPLASIA GASTRICA
+A15174,ANTRACOSIS
+A15175,ICTUS 2013
+A15176,COLON ESPASTICO
+A15177,REFLUJO CON ESOFAGITIS
+A15178,GONARTROSIS RODILLA DERECHA
+A15179,DOLOR INGUINAL
+A15180,HIPERTOROIDISMO SUBCLINICO
+A15181,INCONTENENCIA URINARIA
+A15182,ENFERMEDAD DE GILBERT
+A15183,PURPURA TROMBOCITOPENICA INMUNE
+A15184,INFARTO PULMONAR
+A15185,DESPRENDIMIENTO RETINA OJO IZQUIERDO
+A15186,TRASTORNO BIPOLAR ESTABLE
+A15187,HERNIA POSTQUIRURGICA
+A15188,CUADROSSUBOCLUSIVOS POR BRIDAS
+A15189,POLIPOSIS COLON
+A15190,NEURORRETINITIS
+A15191,SINDROME DE VENA CAVA
+A15192,QUERATITIS HERPETICA OD
+A15193,HERNIA DISCAL LUMBARES
+A15194,TEMBLORES MANO DERECHA
+A15195,OTITIS CRONICA
+A15196,INFECCION H. PYLORI
+A15197,CIRROSIS ALCOHOLICA
+A15198,PLEURITIS EN LA ADOLESCENCIA
+A15199,HIPOACUSIA GRAVE
+A15200,PARALISIS CUERDAS VOCALES AGOSTO 2018
+A15201,"DISCAPACIDAD INTELECTUAL, INSTITUCIONALIZADO"
+A15202,CEGUERA POR TRAUMATISMO
+A15203,TRASTORNO ADAPTATIVO MIXTO
+A15204,EPITELIOMA BASOCELULAR CARA Y OREJA
+A15205,TIFUS EN LA JUVENTUD
+A15206,SILICISIS
+A15207,ARTROSIS RODILLA DCHA
+A15208,ESTENOSIS URETRA
+A15209,Quemadura en zona escapular derecha. Accidente de tr·fico: fractura tibial intervenida.
+A15210,Portador VHB
+A15211,Diverticulosis en sigma
+A15212,2 neumonÌas anteriores
+A15213,antecedente de parada cardiorrespiratoria
+A15214,hepatitis crÛnica VHC
+A15215,SAOS (Sindrome de Apnea Obstructiva del SueÒo)
+A15216,heterocigoto para la mutaciÛn de homocisteÌna
+A15217,2 episodios de neumonÌa hace aÒos
+A15218,ISQUEMIA CR”NICA ARTERIAL
+A15219,cirrosis hep·tica enÛlica
+A15220,probable EPOC
+A15221,2006 venus melanocÌtico (extirpado)
+A15222,Protesis de cadera en 2003
+A15223,NefrectomÌa parcial en2013 por cancer renal
+A15224,Tromboembolia pulmonar durante quimioterapia
+A15225,Gastritis y RGE
+A15226,Trombosis venosa profunda en cuello y extremidad superior derecha
+A15227,polipos en el colon
+A15228,aneurisma aortica
+A15229,SÌndrome de CREST
+A15230,firbosis pulmonar; trasplante bipulmonar
+A15231,GammapatÌa monoclonal IgM
+A15232,Leucemia Linf·tica CrÛnica LLC-B.
+A15233,BMN tÛxico con tiroidectomÌa total.
+A15234,Aneurisma de la aorta abdominal reparado quirurgicamente.
+A15235,Hemorragia Subaracnoidea.
+A15236,Incidentaloma Suprarrenal derecho.
+A15237,ValvulopatÌa. PVM con IM ligera.
+A15238,Miomatosis Uterina.
+A15239,Carcinoma de Recto
+A15240,Aplastamiento vertebrales
+A15241,cistocele operado
+A15242,insuficiencia valvular aÛrtica
+A15243,Carcinoma basocelular nodular
+A15244,Crohn
+A15245,MaculopatÌa congÈnita
+A15246,Alcoholismo crÛnico activo
+A15247,cA bASOCELULAR
+A15248,PoLIO INFANCIA
+A15249,osteogenesis imperfecta
+A15250,Miomatosis uterina
+A15251,Intervenido aneurisma aorta
+A15252,NIU
+A15253,XEROSTOMIA
+A15254,D…FICIT FACTOR 12
+A15255,oclusiÛn intestinal
+A15256,mioma
+A15257,Cancer de prÛstata tratado en 2007 con RT
+A15258,neoplasia de colon
+A15259,FA ACO con ribaroxaban
+A15260,bocio multiforme
+A15261,Alergia anisakis
+A15262,Diastasis de rectos
+A15263,ICTUS TRANSITORIO
+A15264,CARCINOMA SUPRAGLOTICO
+A15265,colicos renales de repeticion
+A15266,Trombioembolismo pulmonar
+A15267,DERMATOMIOSITIS
+A15268,ca renal T1 operado
+A15269,Crisis parciales complejas sintom·ticas
+A15270,trasplante pulmonar 2015
+A15271,"IAM 2003, 2 stents"
+A15272,"IAM 2014, 2 stents"
+A15273,Sindrome de Marfan
+A15274,Diseccion aorta toracica intrervenida
+A15275,vasculitis de Churg Strauss
+A15276,ictus isquÈmico lacunar
+A15277,MiocardiopatÌa hipertensiva
+A15278,Hidroneumotorax izq
+A15279,Adc de prÛstata 2003
+A15280,Indigente
+A15281,Artrosis axial y perifÈrica
+A15282,Vertebroplastia
+A15283,Mistenia gravis clase IV
+A15284,bradisiquia
+A15285,oarestesias en MMII
+A15286,Arteroesclerosis generalizada
+A15287,Meningioma frontal derecha
+A15288,Enf renal crÛnica
+A15289,Sindrome de isquemia crÛnica g1
+A15290,fractura vertebral L1 (2012)
+A15291,Ictus lacunar (2006)
+A15292,SCASEST KILLIP I
+A15293,Herpes ocular (2007)
+A15294,hiperllipemia
+A15295,Fibromilagia
+A15296,estrabismo
+A15297,gonalgia derecha
+A15298,Epidimitis
+A15299,Sindrome Wolf-Parkinson-White
+A15300,miocardiopatÌa hipertensiva con disfunciÛn diastÛlica VI
+A15301,HipertensiÛn pulmonar modereda
+A15302,TVP en MMII
+A15303,ACVA carotideo
+A15304,Portadora sana de VHB
+A15305,hemorragia subaracnoidea en 2012
+A15306,mononeuropatÌa m˙ltiple
+A15307,Hidrocefalia normotensiva
+A15308,SÌndrome Parkinsoniano
+A15309,Transplantado renal
+A15310,Histerectomia + Anexectomia
+A15311,Sd Sjogren
+A15312,Sd Raynaud
+A15313,Vasculitis
+A15314,Espondiloartosis degenerativa
+A15315,alcholismo activo
+A15316,Esclerosis multiple primariamente progresiva
+A15317,Sindrome de intestino corto
+A15318,PTI
+A15319,enfermedad de Wilson
+A15320,ISQUEMIA CARDÕACA
+A15321,HIPERURICIEMIA
+A15322,SACROILEITIS BILATERAL
+A15323,INSUFICIENCIA RESPIRATORIA NASAL
+A15324,V…RTIGO PERIF…RICO.
+A15325,DICOPATÕA CERVIACAL Y LUMBAR
+A15326,ADENOMA T⁄BULOVELLOSO
+A15327,CEFALEAS JAQUECOSAS
+A15328,SINDROME POLIMI¡LGICO
+A15329,MUTACI”N FACTOR V DE LEIDEN
+A15330,OSTEOARTRITIS
+A15331,fatiga crÛnica
+A15332,INFARTO DE ARTERIA CEREBRAL MEDIA IZQUIERDA
+A15333,gastritis crÛnica.
+A15334,HEPATOPATÕA CR”NICA POR VHC
+A15335,lupus eritematoide discoide
+A15336,cardiopatÌa congÈnita
+A15337,vÈrtigos de meniere
+A15338,Disnea grado 1-2 de la mMRC
+A15339,LeucoencefalopatÌa vasculodegenerativa
+A15340,TRASTORNO ADAPTACI”N
+A15341,HIPERHIDROSIS
+A15342,ISQUEMIA CR”NICA PIERNA
+A15343,"trastorno bipolar, bronquitis de repeticiÛn"
+A15344,parotiditis bilateral de repeticiÛn
+A15345,ingesta enÛlica
+A15346,Trombopenia probable SMD
+A15347,Hiperplasia suprarrenal bilateral no funcionante
+A15348,Probable sdme de Cushing
+A15349,Gastrtis con ulcera gastrica
+A15350,Insuficiencia respiratoria global
+A15351,EXTRASISTOLES VENTRICULARES SIN CARDIOPATIA ESTRUCTURAL
+A15352,vasculitis linfocitica
+A15353,Ca papilar de tiroides
+A15354,poliposis intestinal
+A15355,Ca epidermoide de laringe
+A15356,INSUFICIENCIA RESPIRATORIA GLOBAL SEVERA
+A15357,MACROADENOMA HIPOFISARIO
+A15358,trastorno de la marcha por ictus
+A15359,trombosis vena yugular
+A15360,amputacion MID
+A15361,nodulo de cuerda vocal
+A15362,enfermedad motoneurona probable polineuropatia
+A15363,arteriopatia isquemica
+A15364,minusvalia psiquica
+A15365,hepatopatia cronica por enolismo
+A15366,Leucemia LGL con TCR +
+A15367,BNCO
+A15368,insuficiencia venosa MMII
+A15369,disnea basal de grado I NYHA
+A15370,malformacion de chiari
+A15371,fracaso renal agudo
+A15372,pancolectomia
+A15373,encefalitis virica 2016
+A15374,paralisis cuerda vocal
+A15375,Neo de vejiga
+A15376,Bocio multinodular con afectaciÛn endotor·cica
+A15377,elevciÛn de la CPK por estatinas
+A15378,SASH grave
+A15379,Queratosis seborreica pigmentada
+A15380,Enfermedad cerebrovascular de pequeÒo vaso
+A15381,NeuropatÌa trigeminal
+A15382,MAV cerebral
+A15383,Par·lisis de Bell.
+A15384,Bocio eutiroideo.
+A15385,Insf mitral leve-moderada. Insf aÛrtica leve.
+A15386,DÈficit de vit b12
+A15387,Quiste hidatidico pulmÛn
+A15388,Neoplaria papilar vesical bajo grado no infiltrante
+A15389,esteatosis hepatica grado I
+A15390,hiperuricemia y gota
+A15391,artritis seronegativa en tto con MTX
+A15392,Osteopenia con fractura dorsal
+A15393,"Cervialgia, artrosis, osteoporosis"
+A15394,Hiperpatirodismo primario normocalcÈmico
+A15395,Quistes sinusales renales
+A15396,SÌncopes tusÌgenos
+A15397,Anemia normocÌtica normocrÛmica
+A15398,SAOS grave
+A15399,Hematoma intraparenquimatoso temporal izquierdo de etiologÌa postraum·tica
+A15400,"Polimialgia reum·tica, artrosis de manos y de hombro derecho"
+A15401,Pacreatitis aguda grado D no liti·sica
+A15402,HDA x 2 por ulcus pÈptico
+A15403,SAHS + SHO graves
+A15404,Pseudotrombopenia
+A15405,⁄lcera perforada
+A15406,Incidentaloma suprarrenal no funcionante
+A15407,Temblor de extremidades de varios meses de evoluciÛn
+A15408,Consumidor de alcohol con comidas y una copa con el cafÈ.
+A15409,Mielitis cervical compresiva
+A15410,Ca laringe
+A15411,Carcinoma de vejiga
+A15412,Timoma estadio II de Masaoka
+A15413,dÈficit de Vit D
+A15414,SalpinguectomÌa izquierda por embarazo ectÛpico. Apendicitis. PÛlipos endocervicales.
+A15415,Trombosis central de retina bilteral
+A15416,sindr sjˆgren
+A15417,AIT SIN INFARTO CEREBRAL ASOCIADO
+A15418,PolineuropatÌa diabÈtica y carencial (B12 corregido)
+A15419,insomnio de conciliaciÛn
+A15420,Quemaduras de alto grado en brazos y tÛrax
+A15421,Fibroadenoma de mama izquierda en seguimiento hace aÒos por GinecologÌa
+A15422,EHCNI
+A15423,RTU por tumor vesical ( no A-P por muestra mÌnima)
+A15424,hiperplasia suprerrenal
+A15425,ceguera por miopÌa magna
+A15426,episodio ˙nico de glomÈrulonefritis aguda
+A15427,artritis migratoria crÛnica
+A15428,Accidente cerebro-vascular
+A15429,Cirrosis enÛlica Child A
+A15430,Coagulopatia por mutaciÛn factor V de Leiden
+A15431,otoesclerosis oido izquierdo con pÈrdida de audiciÛn secundaria
+A15432,AVC isquemico por estenosis carotidea. EndarterectomÌa en 2012
+A15433,Rabdomiolisis por Atorvastatina
+A15434,GMSI
+A15435,aerteriopatia perifÈrica diabÈtica con amputacion dedo del pie
+A15436,hipertrigliciridemia
+A15437,intervenido de neoplasia via urinaria
+A15438,cirrosis hepatica de probable origen enÛlico
+A15439,hepatitis C negativizada en seguimiento
+A15440,mobilidad reducida secundaria a POLIO en la infancia
+A15441,extrasistoles en tratameinto y seguimiento por cardiologÌa
+A15442,AIT en 2017
+A15443,pericarditis en 2013
+A15444,hepatopatia crÛnica con fibrosis e HTP por VHB
+A15445,enfermedad de crhon
+A15446,intervenido en 3 ocasiones por oclusiÛn intestinal ultima complicada y es portador de fistula entero
+A14707,"- Meningitis en el nacimiento, sin secuelas"
