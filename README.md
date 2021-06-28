@@ -1,1 +1,1 @@
-# GenoKG
+# FunMap2.0
