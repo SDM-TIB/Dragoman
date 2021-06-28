@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 from .functions import *
 import pandas as pd
 from mysql import connector
+from .connection import *
 
 try:
 	from triples_map import TriplesMap as tm
@@ -326,12 +327,12 @@ def translate(config_path):
 									if triples_map_element.triples_map_id == po.object_map.value:
 										if triples_map_element.triples_map_id not in function_dic:
 											dic = create_dictionary(triples_map_element)
-											current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i),
-															"output_file": config["datasets"]["output_folder"] + "/OUTPUT" + str(i) + ".csv", 
-															"inputs":dic["inputs"], 
-															"function":dic["executes"],
-															"func_par":dic,
-															"termType":True}
+											current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
+															"output_file": config["datasets"]["output_folder"] + "/OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
+															"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
+															"function":dic["executes"], ## name of the function
+															"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
+															"termType":True} ## if needed or not
 											no_inner_func = True
 											for inputs in dic["inputs"]:
 												if "reference function" in inputs:
@@ -340,25 +341,15 @@ def translate(config_path):
 												if po.object_map.term is not None:
 													if "IRI" in po.object_map.term:
 														function_dic[triples_map_element.triples_map_id] = current_func
-														join_csv_URI(triples_map.data_source, current_func, config["datasets"]["output_folder"])
+														join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 												else:
 													current_func["termType"] = False
 													function_dic[triples_map_element.triples_map_id] = current_func
 													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 												i += 1
-										if "variantIdentifier" in current_func["function"]:
-											fields[current_func["func_par"]["column1"]] = "object"
-											fields[current_func["func_par"]["column2"]] = "object"
-										elif "concat" in current_func["function"] or "match_pFormat" in current_func["function"] or "replaceValue" in current_func["function"]:
-											for inputs in current_func["inputs"]:
-												if "reference function" not in inputs and "constant" not in inputs: 
-													fields[inputs[0]] = "object"
-										elif "replaceRegex" in  current_func["function"]:
-											pass
-										elif "match_exon" in current_func["function"] or "match_aa" in current_func["function"]:
-											fields[current_func["func_par"]["combinedValue"]] = "object"
-										else:
-											fields[current_func["func_par"]["value"]] = "object"
+										for inputs in current_func["inputs"]:
+											if "reference function" not in inputs and "constant" not in inputs: 
+												fields[inputs[0]] = "object"
 							else:
 								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
 									if po.object_map.mapping_type == "parent triples map":
@@ -458,7 +449,7 @@ def translate(config_path):
 									line_values = {}
 									for row in reader:
 										temp_lines = {}
-										i = 0
+										k = 0
 										line = []
 										string_values = ""
 										string_line_values = ""
@@ -475,24 +466,24 @@ def translate(config_path):
 											if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
 												value = inner_function(row,temp_dic,triples_map_list)
 												if temp_lines:
-													i = 0
+													k = 0
 													for temp in temp_lines:
 														temp_temp_lines = {}
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_temp_lines[i] = temp_lines[temp] + [v]
-																	i += 1
+																	temp_temp_lines[k] = temp_lines[temp] + [v]
+																	k += 1
 														else:
-															temp_temp_lines[i] =  temp_lines[temp] + [value]
-															i += 1
+															temp_temp_lines[k] =  temp_lines[temp] + [value]
+															k += 1
 													temp_lines = temp_temp_lines
 												else:
 													if isinstance(value, list):
 														for v in value:
 															if non_none:
-																temp_lines[i] = line + [v]
-																i += 1
+																temp_lines[k] = line + [v]
+																k += 1
 														list_input = False
 													else:
 														line.append(value)
@@ -502,24 +493,24 @@ def translate(config_path):
 												if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
 													value = inner_function(row,temp_dic,triples_map_list)
 													if temp_lines:
-														i = 0
+														k = 0
 														for temp in temp_lines:
 															temp_temp_lines = {}
 															if isinstance(value, list):
 																for v in value:
 																	if non_none:
-																		temp_temp_lines[i] = temp_lines[temp] + [v]
+																		temp_temp_lines[k] = temp_lines[temp] + [v]
 																		i += 1
 															else:
-																temp_temp_lines[i] =  temp_lines[temp] + [value]
-																i += 1
+																temp_temp_lines[k] =  temp_lines[temp] + [value]
+																k += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_lines[i] = line + [v]
-																	i += 1
+																	temp_lines[k] = line + [v]
+																	k += 1
 															list_input = False
 														else:
 															line.append(value)
@@ -528,24 +519,24 @@ def translate(config_path):
 												else:
 													value = temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values]
 													if temp_lines:
-														i = 0
+														k = 0
 														for temp in temp_lines:
 															temp_temp_lines = {}
 															if isinstance(value, list):
 																for v in value:
 																	if non_none:
-																		temp_temp_lines[i] = temp_lines[temp] + [v]
-																		i += 1
+																		temp_temp_lines[k] = temp_lines[temp] + [v]
+																		k += 1
 															else:
-																temp_temp_lines[i] =  temp_lines[temp] + [value]
-																i += 1
+																temp_temp_lines[k] =  temp_lines[temp] + [value]
+																k += 1
 														temp_lines = temp_temp_lines
 													else:
 														if isinstance(value, list):
 															for v in value:
 																if non_none:
-																	temp_lines[i] = line + [v]
-																	i += 1
+																	temp_lines[k] = line + [v]
+																	k += 1
 															list_input = False
 														else:
 															line.append(value)
