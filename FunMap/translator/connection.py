@@ -10,6 +10,7 @@ columns = {}
 global prefixes
 prefixes = {}
 
+
 def dic_builder(keys,values):
     dic = {}
     for key in keys:
@@ -797,3 +798,63 @@ def count_characters(string):
         if s == "{":
             count += 1
     return count
+
+def inner_function(row,dic,triples_map_list):
+
+    functions = []
+    keys = []
+    for attr in dic["inputs"]:
+        if ("reference function" in attr[1]):
+            functions.append(attr[0])
+        elif "constant" not in attr[1]:
+            keys.append(attr[0])
+    if functions:
+        temp_dics = {}
+        for function in functions:
+            for tp in triples_map_list:
+                if tp.triples_map_id == function:
+                    temp_dic = create_dictionary(tp)
+                    current_func = {"inputs":temp_dic["inputs"], 
+                                    "function":temp_dic["executes"],
+                                    "func_par":temp_dic,
+                                    "termType":True}
+                    temp_dics[function] = current_func
+        temp_row = {}
+        for dics in temp_dics:
+            value = inner_function(row,temp_dics[dics],triples_map_list)
+            temp_row[dics] = value
+        for key in keys:
+            temp_row[key] = row[key]
+        return execute_function(temp_row,None,dic)
+    else:
+        return execute_function(row,None,dic)
+
+def create_dictionary(triple_map):
+    dic = {}
+    inputs = []
+    for tp in triple_map.predicate_object_maps_list:
+        if "#" in tp.predicate_map.value:
+            key = tp.predicate_map.value.split("#")[1]
+            tp_type = tp.predicate_map.mapping_type
+        elif "/" in tp.predicate_map.value:
+            key = tp.predicate_map.value.split("/")[len(tp.predicate_map.value.split("/"))-1]
+            tp_type = tp.predicate_map.mapping_type
+        if "constant" in tp.object_map.mapping_type:
+            value = tp.object_map.value
+            tp_type = tp.object_map.mapping_type
+        elif "#" in tp.object_map.value:
+            value = tp.object_map.value.split("#")[1]
+            tp_type = tp.object_map.mapping_type
+        elif "/" in tp.object_map.value:
+            value = tp.object_map.value.split("/")[len(tp.object_map.value.split("/"))-1]
+            tp_type = tp.object_map.mapping_type
+        else:
+            value = tp.object_map.value
+            tp_type = tp.object_map.mapping_type
+
+        dic.update({key : value})
+        if (key != "executes") and ([value,tp_type] not in inputs):
+            inputs.append([value,tp_type])
+
+    dic["inputs"] = inputs
+    return dic
