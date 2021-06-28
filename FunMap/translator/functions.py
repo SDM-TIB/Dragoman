@@ -42,7 +42,7 @@ def chomp():
 
 #return the substring (index2 can be null, index2 can be negative value)
 def substring():
-    value = global_dic["func_par"]["value"]
+    value = global_dic["value"]
     if "index2" is global_dic:
         return value[int(global_dic["index1"]):]
     else:
@@ -58,7 +58,7 @@ def replaceValue():
 #returns the first appearance of the regex in value
 def match():
     value = global_dic["value"]
-    return re.match(global_dic["func_par"]["regex"], value)[0]
+    return re.match(global_dic["regex"], value)[0]
 
 
 def variantIdentifier():
