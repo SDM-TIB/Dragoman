@@ -854,8 +854,8 @@ def create_dictionary(triple_map):
             tp_type = tp.object_map.mapping_type
 
         dic.update({key : value})
-        if (key != "executes") and ([value,tp_type] not in inputs):
-            inputs.append([value,tp_type])
+        if (key != "executes") and ([value,tp_type,key] not in inputs):
+            inputs.append([value,tp_type,key])
 
     dic["inputs"] = inputs
     return dic

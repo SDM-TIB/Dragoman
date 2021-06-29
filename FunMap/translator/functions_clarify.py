@@ -141,13 +141,11 @@ def execute_function(row,header,dic):
 def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
-        for value in dic["func_par"]:
-            if dic["func_par"][value] in inputs:
-                if "constant" not in inputs: 
-                    if isinstance(row,dict):
-                        output[value] = row[inputs[0]]
-                    elif isinstance(global_row,list):
-                        output[value] = row[header.index(global_dic["func_par"][value])]
-                else:
-                    output[value] = inputs[0]
+        if "constant" not in inputs: 
+            if isinstance(row,dict):
+                output[inputs[2]] = row[inputs[0]]
+            elif isinstance(global_row,list):
+                output[inputs[2]] = row[header.index(global_dic["func_par"][inputs[2]])]
+        else:
+            output[inputs[2]] = inputs[0]
     return output
