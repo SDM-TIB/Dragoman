@@ -328,7 +328,7 @@ def translate(config_path):
 										if triples_map_element.triples_map_id not in function_dic:
 											dic = create_dictionary(triples_map_element)
 											current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
-															"output_file": config["datasets"]["output_folder"] + "/OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
+															"output_file": config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
 															"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
 															"function":dic["executes"], ## name of the function
 															"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
@@ -394,7 +394,7 @@ def translate(config_path):
 												fields[po.object_map.value] = "object"
 
 						if (config["datasets"]["enrichment"].lower() == "yes" or triples_map.subject_map.subject_mapping_type == "function") and triples_map.triples_map_id not in file_projection:
-							with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
+							with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								temp_dics = []
 								for po in triples_map.predicate_object_maps_list:
@@ -554,7 +554,7 @@ def translate(config_path):
 												writer.writerow(line)
 												line_values[string_values] = line
 
-									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_PROJECT" + str(j) + ".csv"
 								else:
 									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
 									reader = reader.where(pd.notnull(reader), None)
@@ -563,7 +563,7 @@ def translate(config_path):
 									writer.writerow(reader[0].keys())
 									for row in reader:
 										writer.writerow(row.values())	
-									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_PROJECT" + str(j) + ".csv"
 								
 							j += 1
 
@@ -598,7 +598,7 @@ def translate(config_path):
 															temp_dics.append(temp_dic)
 														
 
-									with open(config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv", "w") as temp_csv:
+									with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
 										writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 										reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
 										reader = reader.where(pd.notnull(reader), None)
@@ -658,7 +658,7 @@ def translate(config_path):
 																string_values += value
 												if list_input:
 													writer.writerow(line)
-									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split(".")[0].split("/")[len(config[dataset_i]["mapping"].split(".")[0].split("/"))-1] + "_PROJECT" + str(j) + ".csv"
 									j += 1
 
 
