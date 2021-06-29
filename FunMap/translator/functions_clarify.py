@@ -3,11 +3,16 @@ import csv
 import sys
 import os
 import pandas as pd
+from pathlib import Path
 
 global global_dic
 global_dic = {}
 global functions_pool
 functions_pool = {"findSemantic":"","findComorbidity":"","UMLS_CUI_function":""}
+global semantic_dict
+semantic_dict = dict()
+global comprbidity_dict
+comprbidity_dict = dict()
 
 ########################################################
 ############### Pre-preprocessing Functions ############
@@ -15,7 +20,7 @@ functions_pool = {"findSemantic":"","findComorbidity":"","UMLS_CUI_function":""}
 
 def semanticDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"../Sources/all_tables_except_comorbidity.csv", low_memory=False)
+    semantic_df = pd.read_csv(str(directory)+"/Sources/all_tables_except_comorbidity.csv", low_memory=False)
     for i in semantic_df.index:
         key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
                                                 + "_" + str(semantic_df["value"][i])
@@ -54,7 +59,7 @@ def findSemantic():
 
 def comorbidityDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    com_df = pd.read_csv(str(directory)+"../Sources/comorbidity_id_text.csv", low_memory=False)
+    com_df = pd.read_csv(str(directory)+"/Sources/comorbidity_id_text.csv", low_memory=False)
     for i in com_df.index:
         key_name = str(com_df["TEXT"][i])
         replacedValue = com_df["TEXT_ID"][i]
@@ -96,6 +101,7 @@ def findComorbidity():
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
 def UMLS_CUI_function(value):
+    value = global_dic["value"]
     output = ""
     url = 'http://node1.research.tib.eu:9002/umlsmatching?type=cui'
     text = str(value).replace("_"," ")
@@ -108,7 +114,9 @@ def UMLS_CUI_function(value):
         output = ""
     return output
 
-def concat2(value1,value2):
+def concat2():
+    value1 = global_dic["value1"]
+    value2 = global_dic["value2"]
     if bool(value1) and bool(value2):
         result = str(str(value1)+str(value2))
     else:
