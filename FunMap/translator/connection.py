@@ -302,7 +302,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
     prefix_string += "\n"
     prefix_string += mapping
 
-    mapping_file = open(output + "/transfered_mapping.ttl","w")
+    mapping_file = open(output + "/" + original.split(".")[0].split("/")[len(original.split(".")[0].split("/"))-1] + "_transferred_mapping.ttl","w")
     mapping_file.write(prefix_string)
     mapping_file.close()
 
@@ -475,7 +475,7 @@ def update_mapping_rdb(triple_maps, dic, output, original, join, data_source):
 
     prefix_string += db_source 
     
-    mapping_file = open(output + "/transfered_mapping.ttl","w")
+    mapping_file = open(output + "/" + original.split(".")[0].split("/")[len(original.split(".")[0].split("/"))-1] + "_transferred_mapping.ttl","w")
     mapping_file.write(prefix_string)
     mapping_file.close()
 
