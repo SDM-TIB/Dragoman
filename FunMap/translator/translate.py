@@ -7,7 +7,8 @@ from rdflib.plugins.sparql import prepareQuery
 from configparser import ConfigParser, ExtendedInterpolation
 import traceback
 from concurrent.futures import ThreadPoolExecutor
-from .functions import *
+#from .functions import *
+from .functions_clarify import *
 import pandas as pd
 from mysql import connector
 from .connection import *
