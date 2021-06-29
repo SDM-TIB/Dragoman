@@ -35,12 +35,11 @@ semanticDictionaryCreation()
 def findSemantic():
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
-    resource = global_dic["resource"]
-    columnValue = global_dic["columnValue"]
-    print (columnName.replace(".0",""))
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","")
     result = str()
-    if bool(tableName) and bool(columnName) and bool(str(columnValue)) and type(columnValue) == float:
-        key = str(tableName) + "_" + str(columnName) + "_" + str(round(columnValue))
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
         if key in semantic_dict:
             if str(semantic_dict[key]) != "nan":
                 result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
@@ -48,14 +47,6 @@ def findSemantic():
                 result = ""
         else:
             result = ""
-    elif bool(tableName) and bool(columnName) and bool(str(columnValue)) and type(columnValue) != float:
-        key = str(tableName) + "_" + str(columnName) + "_" + str(columnValue)
-        if key in semantic_dict:
-            result = str(resource + str(semantic_dict[key]).replace(" ","_"))
-        else:
-            result = ""
-    else:
-        result = ""
     return result
 
 def comorbidityDictionaryCreation():
