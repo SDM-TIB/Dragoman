@@ -4,11 +4,12 @@ import sys
 import os
 import pandas as pd
 from pathlib import Path
+import requests
 
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findSemantic":"","findComorbidity":"","UMLS_CUI_function":""}
+functions_pool = {"findSemantic":"","findComorbidity":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -92,7 +93,7 @@ def findComorbidity():
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
-def UMLS_CUI_function(value):
+def falcon_UMLS_CUI_function():
     value = global_dic["value"]
     output = ""
     url = 'http://node1.research.tib.eu:9002/umlsmatching?type=cui'
