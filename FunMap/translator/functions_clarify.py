@@ -33,10 +33,11 @@ def semanticDictionaryCreation():
 semanticDictionaryCreation()
 
 def findSemantic():
-    tableName = global_dic["tableName"]
-    columnName = global_dic["columnName"]
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
     resource = global_dic["resource"]
     columnValue = global_dic["columnValue"]
+    print (columnName.replace(".0",""))
     result = str()
     if bool(tableName) and bool(columnName) and bool(str(columnValue)) and type(columnValue) == float:
         key = str(tableName) + "_" + str(columnName) + "_" + str(round(columnValue))
