@@ -1,0 +1,46 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix clarifyFun: <http://clarify2020.eu/function/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix clarify: <http://clarify2020.eu/vocab/> .
+
+<file:///mnt/e/GitHub/FunMap2.0/example/EntityLabels1>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/mnt/e/GitHub/FunMap2.0/example/output/FunMap2_PROJECT1.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://clarify2020.eu/entity/{CUI}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate clarify:hasCUIAnnotation;
+        rr:objectMap [
+        rml:reference "concat2_ub1bL48C24";
+        rr:termType rr:IRI
+        ]
+    ].
+
+<file:///mnt/e/GitHub/FunMap2.0/example/UMLS1>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/mnt/e/GitHub/FunMap2.0/example/output/FunMap2_PROJECT2.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rml:reference "concat2_ub1bL48C24";
+        rr:termType rr:IRI
+    ];
+    rr:predicateObjectMap [
+        rr:predicate clarifyFun:value;
+        rr:objectMap [
+        rml:reference "CUI"
+        ]
+    ].
+

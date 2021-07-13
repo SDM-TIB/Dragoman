@@ -18,7 +18,7 @@
 						rml:referenceFormulation ql:CSV;
 						];
 	rr:subjectMap [
-		rr:template "http://clarify2020.eu/entity/{ID}";
+		rr:template "http://clarify2020.eu/entity/{CUI}";
 	];
 	rr:predicateObjectMap [
 		rr:predicate clarify:hasCUIAnnotation;
@@ -37,7 +37,7 @@
     rr:predicateObjectMap [
         rr:predicate clarifyFun:value;
         rr:objectMap [ 
-            rml:reference "ID" 
+            rml:reference "CUI" 
         ] 
     ].
 
