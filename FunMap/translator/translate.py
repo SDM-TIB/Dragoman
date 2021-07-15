@@ -552,7 +552,7 @@ def translate(config_path):
 												writer.writerow(line)
 												line_values[string_values] = line
 
-									file_projection[triples_map.triples_map_id] = config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
 								else:
 									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
 									reader = reader.where(pd.notnull(reader), None)
@@ -561,7 +561,7 @@ def translate(config_path):
 									writer.writerow(reader[0].keys())
 									for row in reader:
 										writer.writerow(row.values())	
-									file_projection[triples_map.triples_map_id] = config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
 								
 							j += 1
 
