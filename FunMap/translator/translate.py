@@ -392,7 +392,7 @@ def translate(config_path):
 												fields[po.object_map.value] = "object"
 
 						if (config["datasets"]["enrichment"].lower() == "yes" or triples_map.subject_map.subject_mapping_type == "function") and triples_map.triples_map_id not in file_projection:
-							with open(config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
+							with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								temp_dics = []
 								for po in triples_map.predicate_object_maps_list:
@@ -596,7 +596,7 @@ def translate(config_path):
 															temp_dics.append(temp_dic)
 														
 
-									with open(config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
+									with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
 										writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 										reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
 										reader = reader.where(pd.notnull(reader), None)
@@ -656,7 +656,7 @@ def translate(config_path):
 																string_values += value
 												if list_input:
 													writer.writerow(line)
-									file_projection[triples_map.triples_map_id] = config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
+									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
 									j += 1
 
 
