@@ -326,7 +326,7 @@ def translate(config_path):
 										if triples_map_element.triples_map_id not in function_dic:
 											dic = create_dictionary(triples_map_element)
 											current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
-															"output_file": config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
+															"output_file": config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
 															"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
 															"function":dic["executes"], ## name of the function
 															"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
