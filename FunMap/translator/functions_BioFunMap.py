@@ -3,13 +3,15 @@ import csv
 import sys
 import os
 import pandas as pd
+from pathlib import Path
+import requests
 
 global global_dic
 global_dic = {}
 global functions_pool
 functions_pool = {"falcon_wikipedia_function":"","falcon_dbpedia_function":"","falcon_UMLS_CUI_function":"",
                 "falcon_wikipedia_description_function":"","falcon_dbpedia_description_function":"",
-                "falcon_UMLS_CUI_description_function":""}
+                "falcon_UMLS_CUI_description_function":"","concat2":""}
 
 
 ########################################################
@@ -18,7 +20,8 @@ functions_pool = {"falcon_wikipedia_function":"","falcon_dbpedia_function":"","f
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
-def falcon_wikipedia_function(value):
+def falcon_wikipedia_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node3.research.tib.eu:5005/falcon2/api?mode=short'
     entities=[]
@@ -40,7 +43,8 @@ def falcon_wikipedia_function(value):
     else:
         return ""           
 
-def falcon_dbpedia_function(value):
+def falcon_dbpedia_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node3.research.tib.eu:5005/api?mode=short'
     entities=[]
@@ -62,7 +66,8 @@ def falcon_dbpedia_function(value):
     else:
         return ""          
 
-def falcon_UMLS_CUI_function(value):
+def falcon_UMLS_CUI_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node1.research.tib.eu:9002/umlsmatching?type=cui'
     text = str(value).replace("_"," ")
@@ -74,7 +79,8 @@ def falcon_UMLS_CUI_function(value):
     else:
         return ""
 
-def falcon_wikipedia_description_function(value):
+def falcon_wikipedia_description_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node3.research.tib.eu:5005/falcon2/api?mode=long'
     entities=[]
@@ -96,7 +102,8 @@ def falcon_wikipedia_description_function(value):
     else:
         return ""           
 
-def falcon_dbpedia_description_function(value):
+def falcon_dbpedia_description_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node3.research.tib.eu:5005/api?mode=long'
     entities=[]
@@ -118,7 +125,8 @@ def falcon_dbpedia_description_function(value):
     else:
         return ""            
 
-def falcon_UMLS_CUI_description_function(value):
+def falcon_UMLS_CUI_description_function():
+    value = global_dic["value"]
     output = ""
     url = 'http://node3.research.tib.eu:5005/api_umls?mode=long&type=cui'
     text = str(value).replace("_"," ")
@@ -157,3 +165,14 @@ def execution_dic(row,header,dic):
         else:
             output[inputs[2]] = inputs[0]
     return output
+
+########################################################
+
+def concat2():
+    value1 = global_dic["value1"]
+    value2 = global_dic["value2"]
+    if bool(value1) and bool(value2):
+        result = str(str(value1)+str(value2))
+    else:
+        result = ""  
+    return(result)
