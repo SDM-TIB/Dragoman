@@ -9,11 +9,13 @@ import requests
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findSemantic":"","findComorbidity":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
 comprbidity_dict = dict()
+global familyDegree_dict
+familyDegree_dict = dict()
 
 ########################################################
 ############### Pre-preprocessing Functions ############
@@ -85,6 +87,37 @@ def findComorbidity():
             result = ""
     else:
         result = ""
+    return result
+
+def familyRelationDegreeDictionaryCreation():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    family_df = pd.read_csv(str(directory)+"/Sources/family_antecedents_degree.csv", low_memory=False)
+    for i in family_df.index:
+        key_name = str(family_df["table_name"][i]) + "_" + str(family_df["column_name"][i]) \
+                                                + "_" + str(family_df["value"][i])
+        replacedValue = family_df["replacement"][i]
+        if type(replacedValue) == float:
+            familyDegree_dict.update({key_name:replacedValue})
+        else:
+            familyDegree_dict.update({key_name:str(replacedValue)})        
+            
+familyRelationDegreeDictionaryCreation()
+
+def findFamilyRelationDegree():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","")
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in familyDegree_dict:
+            if str(familyDegree_dict[key]) != "nan":
+                result = str(resource + str(familyDegree_dict[key]).replace(" ","_")) 
+            else:
+                result = ""
+        else:
+            result = ""
     return result
 
 ############################################################
