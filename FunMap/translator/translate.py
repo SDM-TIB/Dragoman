@@ -321,33 +321,34 @@ def translate(config_path):
 							subject_function = True
 						for po in triples_map.predicate_object_maps_list:
 							if po.object_map.mapping_type == "reference function":
-								for triples_map_element in triples_map_list:
-									if triples_map_element.triples_map_id == po.object_map.value:
-										if triples_map_element.triples_map_id not in function_dic:
-											dic = create_dictionary(triples_map_element)
-											current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
-															"output_file": config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
-															"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
-															"function":dic["executes"], ## name of the function
-															"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
-															"termType":True} ## if needed or not
-											no_inner_func = True
-											for inputs in dic["inputs"]:
-												if "reference function" in inputs:
-													no_inner_func = False
-											if no_inner_func:
-												if po.object_map.term is not None:
-													if "IRI" in po.object_map.term:
+								if config["datasets"]["strategy"] == "1":
+									for triples_map_element in triples_map_list:
+										if triples_map_element.triples_map_id == po.object_map.value:
+											if triples_map_element.triples_map_id not in function_dic:
+												dic = create_dictionary(triples_map_element)
+												current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
+																"output_file": config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
+																"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
+																"function":dic["executes"], ## name of the function
+																"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
+																"termType":True} ## if needed or not
+												no_inner_func = True
+												for inputs in dic["inputs"]:
+													if "reference function" in inputs:
+														no_inner_func = False
+												if no_inner_func:
+													if po.object_map.term is not None:
+														if "IRI" in po.object_map.term:
+															function_dic[triples_map_element.triples_map_id] = current_func
+															join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
+													else:
+														current_func["termType"] = False
 														function_dic[triples_map_element.triples_map_id] = current_func
 														join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
-												else:
-													current_func["termType"] = False
-													function_dic[triples_map_element.triples_map_id] = current_func
-													join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
-												i += 1
-										for inputs in current_func["inputs"]:
-											if "reference function" not in inputs and "constant" not in inputs: 
-												fields[inputs[0]] = "object"
+													i += 1
+											for inputs in current_func["inputs"]:
+												if "reference function" not in inputs and "constant" not in inputs: 
+													fields[inputs[0]] = "object"
 							else:
 								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
 									if po.object_map.mapping_type == "parent triples map":
@@ -401,14 +402,22 @@ def translate(config_path):
 										for triples_map_element in triples_map_list:
 											if triples_map_element.triples_map_id == po.object_map.value:
 												dic = create_dictionary(triples_map_element)
-												for inputs in dic["inputs"]:
-													if "reference function" in inputs:
-														temp_dic = {"inputs":dic["inputs"], 
-																		"function":dic["executes"],
-																		"func_par":dic,
-																		"id":triples_map_element.triples_map_id}
-														if inner_function_exists(temp_dic, temp_dics):
-															temp_dics.append(temp_dic)
+												if config["datasets"]["strategy"] == "1":
+													for inputs in dic["inputs"]:
+														if "reference function" in inputs:
+															temp_dic = {"inputs":dic["inputs"], 
+																			"function":dic["executes"],
+																			"func_par":dic,
+																			"id":triples_map_element.triples_map_id}
+															if inner_function_exists(temp_dic, temp_dics):
+																temp_dics.append(temp_dic)
+												elif config["datasets"]["strategy"] == "2":
+													temp_dic = {"inputs":dic["inputs"], 
+																"function":dic["executes"],
+																"func_par":dic,
+																"id":triples_map_element.triples_map_id}
+													if inner_function_exists(temp_dic, temp_dics):
+														temp_dics.append(temp_dic)
 									elif po.object_map.mapping_type == "parent triples map":
 										for triples_map_element in triples_map_list:
 											if triples_map_element.triples_map_id == po.object_map.value:
@@ -779,10 +788,7 @@ def translate(config_path):
 					print("Aborting...")
 					sys.exit(1)
 
-			if str(triples_map.file_format).lower() == "csv" and triples_map.query == "None":
-				update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
-			else:
-				update_mapping_rdb(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection)
+			update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection, config["datasets"]["strategy"])
 
 
 			print("Successfully executed the functions in {}\n".format(config[dataset_i]["name"]))
