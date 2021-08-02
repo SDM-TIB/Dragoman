@@ -23,7 +23,7 @@ def credibilityScore():
     elif bool(cScore) and cScore < 0.5:
         credibilityClass = "NotCredible"
     else:
-        credibilityClass = "NotVerifiable"
+        credibilityClass = ""
     return credibilityClass
 
 
