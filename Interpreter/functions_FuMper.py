@@ -17,11 +17,11 @@ functions_pool = {"tolower":"","exact_match":"","falcon_UMLS_CUI_function":""}
 
 
 ### Non-injective, surjective 
-def tolower(): 
+def toLower(): 
     return global_dic["value"].lower()
 
 ### bijective
-def exact_match():    
+def exactMatch():    
     value = global_dic["value"]      
     exactMatchDic = {1:"A", 2:"R", 3:"N", 4:"D", 5:"B", 6:"C", 7:"E", 8:"Q", 9:"Z", 10:"G"}               
     if value != "":
