@@ -17,9 +17,9 @@ comprbidity_dict = dict()
 global familyDegree_dict
 familyDegree_dict = dict()
 
-########################################################
-############### Pre-preprocessing Functions ############
-########################################################
+#######################################################################
+############### *****SLCG***** Pre-preprocessing Functions ############
+#######################################################################
 
 def semanticDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
@@ -119,6 +119,12 @@ def findFamilyRelationDegree():
         else:
             result = ""
     return result
+
+################################################################################
+############### *****Breast Cancer***** Pre-preprocessing Functions ############
+################################################################################
+
+
 
 ############################################################
 ################ Entity-Linking Functions ##################
