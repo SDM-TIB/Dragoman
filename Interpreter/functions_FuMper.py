@@ -3,6 +3,8 @@ import csv
 import sys
 import os
 import pandas as pd
+from pathlib import Path
+import requests
 
 global global_dic
 global_dic = {}
