@@ -15,7 +15,7 @@ global functions_pool
 #####################################################################################################
 
 ## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
-functions_pool = {"tolower":"","exact_match":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"tolower":"","replaceExactMatch":"","falcon_UMLS_CUI_function":""}
 
 
 ### Non-injective, surjective 
@@ -23,9 +23,17 @@ def toLower():
     return global_dic["value"].lower()
 
 ### bijective
-def exactMatch():    
-    value = global_dic["value"]      
-    exactMatchDic = {1:"A", 2:"R", 3:"N", 4:"D", 5:"B", 6:"C", 7:"E", 8:"Q", 9:"Z", 10:"G"}               
+def dictionaryCreation():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    label_cui_df = pd.read_csv(str(directory)+"/Sources/label_cui_dictionary.csv", low_memory=False)
+    for i in semantic_df.index:
+        key_value = str(label_cui_df["SampleOriginLabel"][i])
+        replacedValue = label_cui_df["CUI"][i]
+        exactMatchDic.update({key_value:replacedValue})     
+dictionaryCreation()
+
+def replaceExactMatch():    
+    value = global_dic["value"]                   
     if value != "":
         replacedValue = exactMatchDic[value]
     else:
