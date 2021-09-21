@@ -3,8 +3,9 @@ import csv
 import sys
 import os
 import pandas as pd 
-from .functions_NoBIAS import * 
-#from .functions import * 
+#from .functions import *
+from .functions_Dragoman import * 
+#from .functions_NoBIAS import *  
 #from .functions_GenoKG import *
 #from .functions_CLARIFY import *
 #from .functions_BioFunMap import *

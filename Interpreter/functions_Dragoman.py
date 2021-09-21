@@ -9,6 +9,8 @@ import requests
 global global_dic
 global_dic = {}
 global functions_pool
+global exactMatchDic
+exactMatchDic = dict()
 
 #####################################################################################################
 ########### ADD THE IMPLEMENTATION OF YOUR FUNCTIONS HERE FOLLOWING THE EXAMPLES ####################
@@ -26,7 +28,7 @@ def toLower():
 def dictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     label_cui_df = pd.read_csv(str(directory)+"/Sources/label_cui_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
+    for i in label_cui_df.index:
         key_value = str(label_cui_df["SampleOriginLabel"][i])
         replacedValue = label_cui_df["CUI"][i]
         exactMatchDic.update({key_value:replacedValue})     
