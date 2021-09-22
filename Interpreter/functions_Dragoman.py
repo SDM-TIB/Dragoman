@@ -17,7 +17,7 @@ exactMatchDic = dict()
 #####################################################################################################
 
 ## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
-functions_pool = {"tolower":"","replaceExactMatch":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function":""}
 
 
 ### Non-injective, surjective 
