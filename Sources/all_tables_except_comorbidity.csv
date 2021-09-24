@@ -1045,10 +1045,11 @@
 "monitoring_iterations","second_neoplasm_type","22","Ovarian"
 "monitoring_iterations","second_neoplasm_type","888","second_neoplasm_type_others"
 "monitoring_iterations","second_neoplasm_type","-1",
-"monitoring_iterations","situation","1","0"
-"monitoring_iterations","situation","2","1"
-"monitoring_iterations","situation","3","2"
-"monitoring_iterations","situation","4","3"
+"monitoring_iterations","situation","0","Dead"
+"monitoring_iterations","situation","1","Alive without disease"
+"monitoring_iterations","situation","2","Alive with disease"
+"monitoring_iterations","situation","3","Lost follow-up"
+"monitoring_iterations","situation","4",
 "monitoring_iterations","situation","5",
 "monitoring_iterations","situation","6",
 "monitoring_iterations","situation","7",
