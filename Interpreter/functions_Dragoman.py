@@ -44,7 +44,8 @@ def replaceExactMatch():
 '''
 
 ### bijective
-with open("/mnt/e/GitHub/Dragoman/Sources/label_cui_dictionary.json") as dictionary_file:
+directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+with open(str(directory)+"/Sources/label_cui_dictionary.json") as dictionary_file:
     exactMatchDic = json.load(dictionary_file)
 
 def replaceExactMatch():
