@@ -5,6 +5,7 @@ import os
 import pandas as pd
 from pathlib import Path
 import requests
+import json
 
 global global_dic
 global_dic = {}
@@ -23,8 +24,7 @@ functions_pool = {"toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function"
 ### Non-injective, surjective 
 def toLower(): 
     return global_dic["value"].lower()
-
-### bijective
+'''
 def dictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     label_cui_df = pd.read_csv(str(directory)+"/Sources/label_cui_dictionary.csv", low_memory=False)
@@ -41,6 +41,20 @@ def replaceExactMatch():
     else:
         replacedValue = "" 
     return(replacedValue)
+'''
+
+### bijective
+with open("/mnt/e/GitHub/Dragoman/Sources/label_cui_dictionary.json") as dictionary_file:
+    exactMatchDic = json.load(dictionary_file)
+
+def replaceExactMatch():
+    value = global_dic["value"]                   
+    if value != "":
+        replacedValue = exactMatchDic[value]
+    else:
+        replacedValue = "" 
+    return(replacedValue)
+
 
 ### non-injective, non-surjective
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
