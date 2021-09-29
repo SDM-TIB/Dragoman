@@ -42,21 +42,6 @@ def replaceExactMatch():
         replacedValue = "" 
     return(replacedValue)
 
-'''
-### bijective
-directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-with open(str(directory)+"/Sources/label_cui_dictionary.json") as dictionary_file:
-    exactMatchDic = json.load(dictionary_file)
-
-def replaceExactMatch():
-    value = global_dic["value"]                   
-    if value != "":
-        replacedValue = exactMatchDic[value]
-    else:
-        replacedValue = "" 
-    return(replacedValue)
-'''
-
 ### non-injective, non-surjective
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 def falcon_UMLS_CUI_function():
