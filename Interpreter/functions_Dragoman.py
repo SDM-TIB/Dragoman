@@ -25,6 +25,8 @@ functions_pool = {"toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function"
 def toLower(): 
     return global_dic["value"].lower()
 
+
+### Bijective
 def dictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     label_cui_df = pd.read_csv(str(directory)+"/Sources/label_cui_dictionary.csv", low_memory=False)
