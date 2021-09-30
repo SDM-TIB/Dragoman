@@ -25,7 +25,15 @@ functions_pool = {"toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function"
 def toLower(): 
     return global_dic["value"].lower()
 
+### Bijective
+def dictionaryCreation():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    with open(str(directory)+"/Sources/label_cui_dictionary.csv",'r') as data:
+        for row in csv.DictReader(data):
+            exactMatchDic.update({row['SampleOriginLabel']:row['CUI']}) 
+dictionaryCreation()
 
+'''
 ### Bijective
 def dictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
@@ -35,7 +43,7 @@ def dictionaryCreation():
         replacedValue = label_cui_df["CUI"][i]
         exactMatchDic.update({key_value:replacedValue})     
 dictionaryCreation()
-
+'''
 def replaceExactMatch():    
     value = global_dic["value"]                   
     if value != "":
