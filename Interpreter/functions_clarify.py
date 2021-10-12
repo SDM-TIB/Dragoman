@@ -23,7 +23,7 @@ familyDegree_dict = dict()
 
 def semanticDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/all_tables_except_comorbidity.csv", low_memory=False)
+    semantic_df = pd.read_csv(str(directory)+"/Sources/SLCG_all_tables_except_comorbidity.csv", low_memory=False)
     for i in semantic_df.index:
         key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
                                                 + "_" + str(semantic_df["value"][i])
@@ -114,6 +114,37 @@ def findFamilyRelationDegree():
         if key in familyDegree_dict:
             if str(familyDegree_dict[key]) != "nan":
                 result = str(resource + str(familyDegree_dict[key]).replace(" ","_")) 
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def semanticDictionaryCreation_HUPHM():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_df = pd.read_csv(str(directory)+"/Sources/HUPHM_specific_dictionary.csv", low_memory=False)
+    for i in semantic_df.index:
+        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
+                                                + "_" + str(semantic_df["value"][i])
+        replacedValue = semantic_df["replacement"][i]
+        if type(replacedValue) == float:
+            semantic_dict.update({key_name:replacedValue})
+        else:
+            semantic_dict.update({key_name:str(replacedValue)})        
+            
+semanticDictionaryCreation_HUPHM()
+
+def findSemantic_HUPHM():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","")
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
