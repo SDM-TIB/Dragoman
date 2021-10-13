@@ -1101,6 +1101,7 @@
 "patient","race","3","African"
 "patient","race","4","race_others"
 "patient","race","-1",
+"performance_status","scale","0-5","ecog"
 "pdl1_expression","result","0",
 "pdl1_expression","result","1","Positive"
 "pdl1_expression","result","-1",
@@ -1244,9 +1245,10 @@
 "surgery","surgery_class","-1",
 "surgery","surgery_type","1","Diagnostic"
 "surgery","surgery_type","2","Curative"
-"surgery","surgery_type","3","Paliative"
+"surgery","surgery_type","3","Palliative"
 "surgery","surgery_type","4","Rebiopsy"
 "surgery","surgery_type","-1",
+"surgery","surgery_type","-","surgery_type_unknown"
 "surgery_subtype","surgery_subtype","30","Superior Bilobectomy"
 "surgery_subtype","surgery_subtype","31","Inferior Bilobectomy"
 "surgery_subtype","surgery_subtype","32","Right superior lobectomy"
