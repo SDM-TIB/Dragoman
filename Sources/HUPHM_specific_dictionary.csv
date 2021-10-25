@@ -19,9 +19,20 @@
 "diagnosis","synchronous_tumours","1","Yes"
 "family_antecedents","af","1","Yes"
 "family_antecedents","N1","1","Yes"
-"monitoring","death_cause","Lung cancer","Lung cancer"
-"monitoring","death_cause","Cancer","Lung cancer"
-"monitoring","death_cause","Others","Others"
+"her2_mutation","result_her2_ihq","1+","?"
+"her2_mutation","result_her2_ihq","0","?"
+"her2_mutation","result_her2_ihq","2+","?"
+"her2_mutation","result_her2_ihq","3+","?"
+"LC_monitoring","death_cause","Lung cancer","Lung Cancer"
+"LC_monitoring","death_cause","Cancer","Lung Cancer"
+"LC_monitoring","death_cause","Others","Others"
+"BC_monitoring","death_cause","Breast cancer","Breast Cancer"
+"BC_monitoring","death_cause","Cancer","Breast Cancer"
+"BC_monitoring","death_cause","Others","Others"
+"oncological_history","has_previous_cancers","1.0","Has_previous_cancers"
+"oncological_history","has_previous_cancers","1","Has_previous_cancers"
+"oncological_history","previous_cancer_type","Breast cancer","Breast"
+"oncological_history","previous_cancer_type","Other cancer","previous_cancer_type_others"
 "smoker_information","smoking_habit","No smoker","NonSmoker"
 "smoker_information","smoking_habit","Ex smoker","PreviousSmoker"
 "smoker_information","smoking_habit","Current smoker","CurrentSmoker"
@@ -38,3 +49,16 @@
 "tumor_histology","type","Neuroendocrine large cell carcinoma","NSCLC"
 "tumor_histology","type","Carcinoid tumor","NSCLC"
 "tumor_histology","type","Adenosquamous","NSCLC"
+"reproductive_information","unknown_contraceptive","Yes","unknown_contraceptive"
+"reproductive_information","unknown_contraceptive","No",
+"reproductive_information","oral_contraceptive","Yes","oral_contraceptive"
+"reproductive_information","oral_contraceptive","No",
+"reproductive_information","hormone_therapy_contraceptive","Yes","hormone_therapy_contraceptive"
+"reproductive_information","hormone_therapy_contraceptive","No",
+"reproductive_information","no_contraceptive","Yes","no_contraceptive"
+"reproductive_information","no_contraceptive","No",
+"reproductive_information","other_contraceptive","Yes","other_contraceptive"
+"reproductive_information","other_contraceptive","No",
+
+
+
