@@ -9,7 +9,7 @@ import requests
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
