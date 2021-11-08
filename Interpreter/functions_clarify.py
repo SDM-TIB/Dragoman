@@ -23,7 +23,7 @@ familyDegree_dict = dict()
 
 def semanticDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/SLCG_all_tables_except_comorbidity.csv", low_memory=False)
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/SLCG_all_tables_except_comorbidity.csv", low_memory=False)
     for i in semantic_df.index:
         key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
                                                 + "_" + str(semantic_df["value"][i])
@@ -54,7 +54,7 @@ def findSemantic():
 
 def comorbidityDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    com_df = pd.read_csv(str(directory)+"/Sources/comorbidity_id_text.csv", low_memory=False)
+    com_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/comorbidity_id_text.csv", low_memory=False)
     for i in com_df.index:
         key_name = str(com_df["TEXT"][i])
         replacedValue = com_df["TEXT_ID"][i]
@@ -91,7 +91,7 @@ def findComorbidity():
 
 def familyRelationDegreeDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    family_df = pd.read_csv(str(directory)+"/Sources/family_antecedents_degree.csv", low_memory=False)
+    family_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/family_antecedents_degree.csv", low_memory=False)
     for i in family_df.index:
         key_name = str(family_df["table_name"][i]) + "_" + str(family_df["column_name"][i]) \
                                                 + "_" + str(family_df["value"][i])
@@ -122,7 +122,7 @@ def findFamilyRelationDegree():
 
 def semanticDictionaryCreation_HUPHM():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/HUPHM_specific_dictionary.csv", low_memory=False)
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/HUPHM_specific_dictionary.csv", low_memory=False)
     for i in semantic_df.index:
         key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
                                                 + "_" + str(semantic_df["value"][i])
