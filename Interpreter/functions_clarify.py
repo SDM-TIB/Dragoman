@@ -145,6 +145,7 @@ def findSemantic_HUPHM():
         if key in semantic_dict:
             if str(semantic_dict[key]) != "nan":
                 result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+                print (result)
             else:
                 result = ""
         else:
