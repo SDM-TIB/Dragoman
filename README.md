@@ -1,4 +1,4 @@
-# ![Dragoman](https://github.com/SDM-TIB/Dragoman/blob/master/images/dragoman_logo.png "Dragoman")
+# ![Dragoman](https://github.com/SDM-TIB/Dragoman/blob/master/images/dragoman.png "Dragoman")
 An Optimized, RML-engine-agnostic Interpreter for Functional Mappings. It planns the optimized execution of FnO functions integrated in RML mapping rules and interprets and transforms them efficiently. Since Dragoman is engine-agnostic it can be adopted by any RML-compliant Knowledge Graph creation framework.
 
 ## You can use Dragoman with your own library of functions! Here is how:
