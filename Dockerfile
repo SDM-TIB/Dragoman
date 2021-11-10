@@ -1,20 +1,20 @@
 # Use an official Python runtime as a parent image
-FROM python:3
+FROM python:3.5
 
-RUN apt-get update && apt-get install -y htop vim bc unzip
-RUN mkdir /results
-RUN mkdir /data
-RUN mkdir /mappings
-RUN mkdir /sql
+# Set the working directory to /app
+WORKDIR /data
 
-# Set the working directory to /funmap
-WORKDIR /funmap
-
-# Copy the current directory contents into the container at /funmap
-COPY . /funmap
+# Copy the current directory contents into the container at /app
+ADD . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r /funmap/requirements.txt
+RUN cd /app && pip3 install --trusted-host pypi.python.org -r requirements.txt && cd /data
+
+# Make port 80 available to the world outside this container
+EXPOSE 4000
+
+# Define environment variable
+ENV NAME Dragoman
 
 # Run app.py when the container launches
-CMD ["tail", "-f", "/dev/null"]
+CMD ["python3", "/app/app.py"]
