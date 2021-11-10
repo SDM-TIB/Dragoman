@@ -8,6 +8,13 @@ An Optimized, RML-engine-agnostic Interpreter for Functional Mappings. It planns
 
 That's it! You are ready to go :)
 
+# Installing and Running the Dragoman 
+From PyPI (https://pypi.org/project/dragoman-tool/):
+```
+python3 -m pip install dragoman-tool
+python3 -m Interpreter -c /path/to/config/file
+```
+
 ## Version 
 ```
 1.0
