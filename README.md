@@ -17,9 +17,13 @@ python3 -m Interpreter -c /path/to/config/file
 From Docker (https://hub.docker.com/repository/docker/sdmtib/dragoman):
 ```
 docker run -d -p 4000:4000 -v /path/to/yourdata:/data dragoman
-Send a GET request with the configuration file to Dragoman container.
 
+Send a GET request with the configuration file to Dragoman container.
 curl localhost:4000/mapping_transformation/data/your-config-file.ini
+
+
+Get the results from the container (if output folder is inside data folder, results are already in your host)
+docker cp CONTAINER_ID:/app/path/to/output .
 ```
 
 ## Version 
