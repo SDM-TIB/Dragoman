@@ -14,7 +14,7 @@ From PyPI (https://pypi.org/project/dragoman-tool/):
 python3 -m pip install dragoman-tool
 python3 -m Interpreter -c /path/to/config/file
 ```
-From Docker (sdmtib/dragoman):
+From Docker (https://hub.docker.com/repository/docker/sdmtib/dragoman):
 ```
 docker run -d -p 4000:4000 -v /path/to/yourdata:/data dragoman
 Send a GET request with the configuration file to Dragoman container.
