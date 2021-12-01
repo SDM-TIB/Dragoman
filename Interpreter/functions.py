@@ -13,7 +13,7 @@ global functions_pool
 #####################################################################################################
 
 ## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
-functions_pool = {"tolower":"","chomp":""}
+functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function":""}
 
 
 ## Define your functions here following examples below, the column "names" from the csv files 
@@ -24,6 +24,33 @@ def tolower():
 
 def chomp():
     return global_dic["value"].replace(global_dic["toremove"], '')
+
+
+
+headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+
+def falcon_UMLS_CUI_function():
+    value = global_dic["value"]
+    output = ""
+    url = 'http://node1.research.tib.eu:9002/umlsmatching?type=cui'
+    text = str(value).replace("_"," ")
+    payload = '{"data":"'+text+'"}'
+    r = requests.post(url, data=payload.encode('utf-8'), headers=headers)
+    if r.status_code == 200:
+        response=r.json()
+        output = response['cui']
+    else:
+        output = ""
+    return output
+
+def concat2():
+    value1 = global_dic["value1"]
+    value2 = global_dic["value2"]
+    if bool(value1) and bool(value2):
+        result = str(str(value1)+str(value2))
+    else:
+        result = ""  
+    return(result)
 
 
 
