@@ -2,3 +2,4 @@ pandas
 rdflib==4.2.2
 pyparsing==2.2.0
 mysql-connector-python==8.0.21
+requests
