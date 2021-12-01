@@ -3,6 +3,7 @@ import csv
 import sys
 import os
 import pandas as pd
+import requests
 
 global global_dic
 global_dic = {}
