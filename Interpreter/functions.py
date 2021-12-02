@@ -33,7 +33,7 @@ headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 def falcon_UMLS_CUI_function():
     value = global_dic["value"]
     output = ""
-    url = 'https://labs.tib.eu/sdm/umlsmatching/umlsmatching'
+    url = 'https://labs.tib.eu/sdm/umlsmatching/umlsmatching?type=cui'
     text = str(value).replace("_"," ")
     payload = '{"data":"'+text+'"}'
     r = requests.post(url, data=payload.encode('utf-8'), headers=headers)
