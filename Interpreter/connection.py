@@ -156,6 +156,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                     if "constant" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
                         mapping += "        rr:constant \"" + predicate_object.object_map.value + "\"\n"
+                        if  predicate_object.object_map.datatype != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                            mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
                         mapping += "        ]\n"
                     elif "template" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -164,6 +169,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                     elif "reference" == predicate_object.object_map.mapping_type:
                         mapping += "[\n"
                         mapping += "        rml:reference \"" + predicate_object.object_map.value + "\"\n"
+                        if  predicate_object.object_map.datatype != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                            mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
                         mapping += "        ]\n"
                     elif "parent triples map function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -312,9 +322,9 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
     f = open(original,"r")
     original_mapping = f.readlines()
     for prefix in original_mapping:
-        if "prefix;" in prefix or "d2rq:Database;" in prefix:
+        if "@prefix;" in prefix or "d2rq:Database;" in prefix:
             pass
-        elif ("prefix" in prefix) or ("base" in prefix):
+        elif ("@prefix" in prefix) or ("@base" in prefix):
            prefix_string += prefix
         elif "jdbcDSN" in prefix:
             db_source +=  prefix 
@@ -535,19 +545,74 @@ def join_csv_URI(source, dic, output):
                 columns[dic["func_par"]["value"]] = projection
 
 def join_mysql(data, header, dic, db):
+    keys = []
+    for attr in dic["inputs"]:
+        if (attr[1] != "constant") and (attr[1] != "reference function"):
+            keys.append(attr[0])
+
     values = {}
-    cursor = db.cursor(buffered=True)
-    create = "CREATE TABLE " + dic["output_file"] + " ( "
-    if "variantIdentifier" in dic["function"]:
-        create += "`" + dic["func_par"]["column1"] + "` varchar(300),\n"
-        create += "`" + dic["func_par"]["column2"] + "` varchar(300),\n"
-    else:
-        create += "`" + dic["func_par"]["value"] + "` varchar(300),\n"
-    create += "`" + dic["output_name"] + "` varchar(300));"
-    cursor.execute(create)
-    if "variantIdentifier" in dic["function"]:
+
+    function = ""
+    functions = []
+    outer_keys = []
+    for attr in dic["inputs"]:
+        if ("reference function" in attr[1]):
+            functions.append(attr[0])
+        elif "constant" not in attr[1]:
+            outer_keys.append(attr[0])
+
+    if functions:
+        for function in functions:
+            for tp in triples_map_list:
+                if tp.triples_map_id == function:
+                    temp_dic = create_dictionary(tp)
+                    current_func = {"inputs":temp_dic["inputs"], 
+                                    "function":temp_dic["executes"],
+                                    "func_par":temp_dic,
+                                    "termType":True}
+                    keys.append(current_func["function"].split("/")[len(current_func["function"].split("/"))-1])
+                    temp_dics[function] = current_func
+
+        cursor = db.cursor(buffered=True)
+        create = "CREATE TABLE " + dic["output_file"] + " ( "
+        for key in keys:
+            create += "`" + key + "` varchar(300),\n"
+        create += "`" + dic["output_name"] + "` varchar(300));"
+        cursor.execute(create)
         for row in data:
-            if (row[header.index(dic["func_par"]["column1"])]+row[header.index(dic["func_par"]["column2"])] not in values) and (row[header.index(dic["func_par"]["column1"])]+row[header.index(dic["func_par"]["column2"])] is not None):
+            temp_string = ""
+            temp_values = {}
+            for current_func in temp_dics:
+                temp_value = inner_function(row,temp_dics[current_func],triples_map_list)
+                temp_values[current_func] = temp_value
+                temp_string += temp_value
+            if (temp_string not in values) and (temp_string is not ""):
+                temp_row = []
+                for key in outer_keys:
+                    temp_row.append(row[key.index(attr[0])])
+                for temp_value in temp_values:
+                    temp_row.append(temp_values[temp_value])
+                value = execute_function(row,header,dic)
+                line = "INSERT INTO " + dic["output_file"] + "\n"  
+                line += "VALUES ("
+                for attr in dic["inputs"]:
+                    if attr[1] != "constant" and "reference function" != attr[1]:
+                        line += "'" + row[header.index(attr[0])] + "', "
+                for temp_value in temp_values:
+                    line += "'" + temp_values[temp_value] + "', "
+                line += "'" + value + "');"
+                cursor.execute(line)
+                values[temp_string] = value
+    else:
+        cursor = db.cursor(buffered=True)
+        create = "CREATE TABLE " + dic["output_file"] + " ( "
+        for key in keys:
+            create += "`" + key + "` varchar(300),\n"
+        create += "`" + dic["output_name"] + "` varchar(300));"
+        cursor.execute(create)
+        for row in data:
+            string_values = inner_values(row,dic,triples_map_list)
+            if (string_values not in values) and (string_values is not None):
                 value = execute_function(row,header,dic)
                 line = "INSERT INTO " + dic["output_file"] + "\n"  
                 line += "VALUES ("
@@ -556,19 +621,7 @@ def join_mysql(data, header, dic, db):
                         line += "'" + row[header.index(attr[0])] + "', "
                 line += "'" + value + "');"
                 cursor.execute(line)
-                values[row[header.index(dic["func_par"]["column1"])]+row[header.index(dic["func_par"]["column2"])]] = value
-    else:
-        for row in data:
-            if (row[header.index(dic["func_par"]["value"])] not in values) and (row[header.index(dic["func_par"]["value"])] is not None):
-                value = execute_function(row,header,dic)
-                line = "INSERT INTO " + dic["output_file"] + "\n"  
-                line += "VALUES ("
-                for attr in dic["inputs"]:
-                    if attr[1] is not "constant":
-                        line += "'" + row[header.index(attr[0])] + "', "
-                line += "'" + value + "');"
-                cursor.execute(line)
-                values[row[header.index(dic["func_par"]["value"])]] = value
+                values[string_values] = value
 
 
 def translate_sql(triples_map):
@@ -598,37 +651,38 @@ def translate_sql(triples_map):
                         proyections.append(subject)
 
     for po in triples_map.predicate_object_maps_list:
-        if "{" in po.object_map.value:
-            count = count_characters(po.object_map.value)
-            if 0 < count <= 1 :
-                predicate = po.object_map.value.split("{")[1].split("}")[0]
+        if po.object_map.mapping_type != "constant":
+            if "{" in po.object_map.value:
+                count = count_characters(po.object_map.value)
+                if 0 < count <= 1 :
+                    predicate = po.object_map.value.split("{")[1].split("}")[0]
+                    if "[" in predicate:
+                        predicate = predicate.split("[")[0]
+                    if predicate not in proyections:
+                        proyections.append(predicate)
+
+                elif 1 < count:
+                    predicate = po.object_map.value.split("{")
+                    for po_e in predicate:
+                        if "}" in po_e:
+                            pre = po_e.split("}")[0]
+                            if "[" in pre:
+                                pre = pre.split("[")
+                            if pre not in proyections:
+                                proyections.append(pre)
+            elif "#" in po.object_map.value:
+                pass
+            elif "/" in po.object_map.value:
+                pass
+            else:
+                predicate = po.object_map.value 
                 if "[" in predicate:
                     predicate = predicate.split("[")[0]
                 if predicate not in proyections:
-                    proyections.append(predicate)
-
-            elif 1 < count:
-                predicate = po.object_map.value.split("{")
-                for po_e in predicate:
-                    if "}" in po_e:
-                        pre = po_e.split("}")[0]
-                        if "[" in pre:
-                            pre = pre.split("[")
-                        if pre not in proyections:
-                            proyections.append(pre)
-        elif "#" in po.object_map.value:
-            pass
-        elif "/" in po.object_map.value:
-            pass
-        else:
-            predicate = po.object_map.value 
-            if "[" in predicate:
-                predicate = predicate.split("[")[0]
-            if predicate not in proyections:
-                    proyections.append(predicate)
-        if po.object_map.child != None:
-            if po.object_map.child not in proyections:
-                    proyections.append(po.object_map.child)
+                        proyections.append(predicate)
+            if po.object_map.child != None:
+                if po.object_map.child not in proyections:
+                        proyections.append(po.object_map.child)
 
     temp_query = "SELECT DISTINCT "
     for p in proyections:

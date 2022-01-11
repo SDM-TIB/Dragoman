@@ -694,19 +694,17 @@ def translate(config_path):
 														"function":dic["executes"],
 														"func_par":dic,
 														"termType":False}
+										print(current_func)
+										sys.exit(1)
 										if config["datasets"]["enrichment"].lower() == "yes":
 											if triples_map.query == "None":
 												for query in query_list:
 
-													if "variantIdentifier" in current_func["function"]:
-														if current_func["func_par"]["column1"] not in query and current_func["func_par"]["column2"] in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column1"] + "`")
-														elif current_func["func_par"]["column1"] in query and current_func["func_par"]["column2"] not in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column2"] + "`")
-														elif current_func["func_par"]["column1"] not in query and current_func["func_par"]["column2"] not in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column1"]+"`, `"+current_func["func_par"]["column2"]+ "`")
-													else:
-														query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["value"] + "`")
+													attributes = ""
+													for attr in current_func["inputs"]:
+														if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
+															attributes += "`" + attr[2] + "`, "
+													query = query.replace("`" + po.object_map.value + "`",attributes[:-2])
 
 													create_table = "CREATE TABLE PROJECT" + str(j) + " ("
 													insert = "INSERT INTO PROJECT" + str(j) + " SELECT DISTINCT "
@@ -720,13 +718,12 @@ def translate(config_path):
 													cursor.execute(create_table)
 													cursor.execute(insert)
 													file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
-													if "variantIdentifier" in current_func["function"]:
-														index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
-														index += " (`" + current_func["func_par"]["column1"] + "` , `"
-														index += current_func["func_par"]["column2"] + "`);" 
-													else:
-														index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
-														index += " (`" + current_func["func_par"]["column1"] + "`);"
+													index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
+													index += " ("
+													for attr in current_func["inputs"]:
+														if attr[1] != "constant" and "reference function" != attr[1]:
+															index += "`" + attr[2] + "`, "
+													index[:-2] = "`);" 
 													cursor.execute(index)
 													j += 1
 											else:
@@ -745,29 +742,23 @@ def translate(config_path):
 												cursor.execute(create_table)
 												cursor.execute(insert)
 												file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
-												if "variantIdentifier" in current_func["function"]:
-													index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
-													index += " (`" + current_func["func_par"]["column1"] + "` , `"
-													index += current_func["func_par"]["column2"] + "`);" 
-												else:
-													index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
-													index += " (`" + current_func["func_par"]["column1"] + "`);"
+												index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
+												index += " ("
+												for attr in current_func["inputs"]:
+													if attr[1] != "constant" and "reference function" != attr[1]:
+														index += "`" + attr[2] + "`, "
+												index[:-2] = "`);" 
 												cursor.execute(index)
-											j += 1
+												j += 1
 
 										if triples_map_element.triples_map_id not in function_dic:
 											if triples_map.query == "None":	
 												for query in query_list:
-													if "variantIdentifier" in current_func["function"]:
-														if current_func["func_par"]["column1"] not in query and current_func["func_par"]["column2"] in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column1"] + "`")
-														elif current_func["func_par"]["column1"] in query and current_func["func_par"]["column2"] not in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column2"] + "`")
-														elif current_func["func_par"]["column1"] not in query and current_func["func_par"]["column2"] not in query:
-															query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["column1"]+"`, `"+current_func["func_par"]["column2"]+ "`")
-													else:
-														query = query.replace("`" + po.object_map.value + "`","`" + current_func["func_par"]["value"] + "`")
-
+													attributes = ""
+													for attr in current_func["inputs"]:
+														if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
+															attributes += "`" + attr[2] + "`, "
+													query = query.replace("`" + po.object_map.value + "`",attributes[:-2])
 
 													cursor.execute("DROP TABLE IF EXISTS " + current_func["output_file"] + ";")
 													cursor.execute(query)
