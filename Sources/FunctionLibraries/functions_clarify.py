@@ -194,6 +194,54 @@ def findFamilyRelationDegreeNewCategory():
             result = ""
     return result
 
+
+
+def biomarkerDictionaryCreation():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_biomarkers.csv", low_memory=False)
+    for i in semantic_df.index:
+        #print (str(semantic_df["value"][i]))
+        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
+                                                + "_" + str(semantic_df["biomarker"][i]) \
+                                                + "_" + str(semantic_df["value"][i])
+        replacedValue = semantic_df["replacement"][i]
+        if type(replacedValue) == float:
+            semantic_dict.update({key_name:replacedValue})
+        else:
+            semantic_dict.update({key_name:str(replacedValue)})        
+            
+biomarkerDictionaryCreation()
+
+
+def findBiomarkerTestResult():
+    #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    #semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/family_antecedents_treatment_line.csv", low_memory=False)
+    #for i in range(0, len(semantic_df["family_member"])):
+    #    if "Tío" in str(semantic_df["family_member"][i]):
+    #        #print (semantic_dict.keys())
+    #        print (semantic_dict["family_antecedents_treatment_line_family_member_Tío"])
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    biomarkerName = str(global_dic["conditionColumn"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","")
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue + "_" + biomarkerName
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+
+
+
+
+
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
 ################################################################################
