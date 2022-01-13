@@ -225,7 +225,7 @@ def findBiomarkerTestResult():
     columnValue = str(global_dic["columnValue"]).replace(".0","")
     result = str()
     if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue + "_" + biomarkerName
+        key = tableName + "_" + columnName + "_" + biomarkerName + "_" + columnValue
         if key in semantic_dict:
             if str(semantic_dict[key]) != "nan":
                 result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
