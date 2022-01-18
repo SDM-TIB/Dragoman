@@ -10,7 +10,7 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findSemanticStringOutput":"","concat5":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -256,13 +256,13 @@ def concat2():
         result = ""  
     return(result)
 
-def concat5():
+def concat6():
     if bool(global_dic["value1"]) and bool(global_dic["value2"]) and bool(global_dic["value3"]) and\
-       bool(global_dic["value4"]) and bool(global_dic["value5"]):
+       bool(global_dic["value4"]) and bool(global_dic["value5"]) and bool(global_dic["value6"]):
         result = str(str(global_dic["value1"])+str(global_dic["value2"])+str(global_dic["value3"])+\
-                 str(global_dic["value4"])+str(global_dic["value5"]))
+                 str(global_dic["value4"])+str(global_dic["value5"])+str(global_dic["value6"]))
     else:
-        result = ""  
+        result = "" 
     return(result)
 
 ############################################################
