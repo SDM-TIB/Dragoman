@@ -10,7 +10,7 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"concat5":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"findSemanticStringOutput":"","concat5":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -222,7 +222,21 @@ def findBiomarkerTestResult():
             result = ""
     return result
 
-
+def findSemanticStringOutput():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(semantic_dict[key]).replace(" ","_") 
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
 
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
