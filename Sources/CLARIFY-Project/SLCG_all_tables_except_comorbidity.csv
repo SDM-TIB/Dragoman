@@ -731,7 +731,7 @@
 "family_antecedents_treatment_line","cancer_type","-1","UNK"
 "family_antecedents_treatment_line","family_member",,
 "family_antecedents_treatment_line","family_member","Padre","Father"
-"family_antecedents_treatment_line","family_member","Hermano","Bother"
+"family_antecedents_treatment_line","family_member","Hermano","Brother"
 "family_antecedents_treatment_line","family_member","Tío","Uncle"
 "family_antecedents_treatment_line","family_member","tío paterno","Uncle"
 "family_antecedents_treatment_line","family_member","hermana","Sister"
