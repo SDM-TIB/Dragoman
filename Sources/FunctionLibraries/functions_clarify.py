@@ -10,7 +10,7 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"concat5":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -28,7 +28,6 @@ def semanticDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_all_tables_except_comorbidity.csv", low_memory=False)
     for i in semantic_df.index:
-        #print (str(semantic_df["value"][i]))
         key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
                                                 + "_" + unidecode.unidecode(str(semantic_df["value"][i])).lower()
         replacedValue = semantic_df["replacement"][i]
@@ -41,12 +40,6 @@ semanticDictionaryCreation()
 
 
 def findSemantic():
-    #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    #semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/family_antecedents_treatment_line.csv", low_memory=False)
-    #for i in range(0, len(semantic_df["family_member"])):
-    #    if "Tío" in str(semantic_df["family_member"][i]):
-    #        #print (semantic_dict.keys())
-    #        print (semantic_dict["family_antecedents_treatment_line_family_member_Tío"])
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
     resource = str(global_dic["resource"])
@@ -212,12 +205,6 @@ biomarkerDictionaryCreation()
 
 
 def findBiomarkerTestResult():
-    #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    #semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/family_antecedents_treatment_line.csv", low_memory=False)
-    #for i in range(0, len(semantic_df["family_member"])):
-    #    if "Tío" in str(semantic_df["family_member"][i]):
-    #        #print (semantic_dict.keys())
-    #        print (semantic_dict["family_antecedents_treatment_line_family_member_Tío"])
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
     biomarkerName = str(global_dic["conditionColumn"])
@@ -237,14 +224,32 @@ def findBiomarkerTestResult():
 
 
 
-
-
-
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
 ################################################################################
 
 
+############################################################
+######### General String processing Functions ##############
+############################################################
+
+def concat2():
+    value1 = global_dic["value1"]
+    value2 = global_dic["value2"]
+    if bool(value1) and bool(value2):
+        result = str(str(value1)+str(value2))
+    else:
+        result = ""  
+    return(result)
+
+def concat5():
+    if bool(global_dic["value1"]) and bool(global_dic["value2"]) and bool(global_dic["value3"]) and\
+       bool(global_dic["value4"]) and bool(global_dic["value5"]):
+        result = str(str(global_dic["value1"])+str(global_dic["value2"])+str(global_dic["value3"])+\
+                 str(global_dic["value4"])+str(global_dic["value5"]))
+    else:
+        result = ""  
+    return(result)
 
 ############################################################
 ################ Entity-Linking Functions ##################
@@ -265,16 +270,6 @@ def falcon_UMLS_CUI_function():
     else:
         output = ""
     return output
-
-def concat2():
-    value1 = global_dic["value1"]
-    value2 = global_dic["value2"]
-    if bool(value1) and bool(value2):
-        result = str(str(value1)+str(value2))
-    else:
-        result = ""  
-    return(result)
-
 
 ###############################################################################################
 ################################## Static (Do NOT change) #####################################
