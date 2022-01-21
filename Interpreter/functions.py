@@ -4,17 +4,19 @@ import sys
 import os
 import pandas as pd
 import requests
+import unidecode
 
 global global_dic
 global_dic = {}
 global functions_pool
-
+global semantic_dict
+semantic_dict = dict()
 #####################################################################################################
 ########### ADD THE IMPLEMENTATION OF YOUR FUNCTIONS HERE FOLLOWING THE EXAMPLES ####################
 #####################################################################################################
 
 ## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
-functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function":"","findSemantic":""}
 
 
 ## Define your functions here following examples below, the column "names" from the csv files 
@@ -55,6 +57,31 @@ def concat2():
         result = ""  
     return(result)
 
+def findSemantic():
+    #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    #semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/family_antecedents_treatment_line.csv", low_memory=False)
+    #for i in range(0, len(semantic_df["family_member"])):
+    #    if "Tío" in str(semantic_df["family_member"][i]):
+    #        #print (semantic_dict.keys())
+    #        print (semantic_dict["family_antecedents_treatment_line_family_member_Tío"])
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
+    #if "tío" in columnValue:
+    print (columnValue)
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
 
 
 ################################################################################################
@@ -62,7 +89,10 @@ def concat2():
 ################################################################################################
 
 def execute_function(row,header,dic):
-    func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
+    if "#" in dic["function"]:
+        func = dic["function"].split("#")[1]
+    else:
+        func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
     if func in functions_pool:
         global global_dic
         global_dic = execution_dic(row,header,dic)
@@ -75,11 +105,11 @@ def execute_function(row,header,dic):
 def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
-        if "constant" not in inputs: 
+        if "constant" not in inputs:
             if isinstance(row,dict):
                 output[inputs[2]] = row[inputs[0]]
-            elif isinstance(global_row,list):
-                output[inputs[2]] = row[header.index(global_dic["func_par"][inputs[2]])]
+            else:
+                output[inputs[2]] = row[header.index(inputs[0])]
         else:
             output[inputs[2]] = inputs[0]
     return output

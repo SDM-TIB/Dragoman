@@ -673,7 +673,7 @@ def translate(config_path):
 					if triples_map.function:
 						pass
 					else:
-						database, query_list = translate_sql(triples_map)
+						database, query_list = translate_sql(triples_map,triples_map_list)
 						db = connector.connect(host = config[dataset_i]["host"], port = int(config[dataset_i]["port"]), user = config[dataset_i]["user"], password = config[dataset_i]["password"])
 						cursor = db.cursor(buffered=True)
 
@@ -682,7 +682,41 @@ def translate(config_path):
 						else:
 							if config[dataset_i]["db"].lower() != "none":
 								cursor.execute("use " + config[dataset_i]["db"])
-						
+
+						subject_function = True
+						if triples_map.subject_map.subject_mapping_type == "function":
+							for triples_map_element in triples_map_list:
+								if triples_map_element.triples_map_id == triples_map.subject_map.value:
+									dic = create_dictionary(triples_map_element)
+									current_func = {"output_name": "OUTPUT" + str(i),
+													"output_file": triples_map_element.triples_map_id + "_OUTPUT" + str(i), 
+													"inputs":dic["inputs"], 
+													"function":dic["executes"],
+													"func_par":dic,
+													"termType":False}
+									if triples_map.query == "None":	
+										for query in query_list:
+											attributes = ""
+											for attr in current_func["inputs"]:
+												if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
+													attributes += "`" + attr[0] + "`, "
+											temp_query = query.split("FROM")
+											query = temp_query[0] + ", " + attributes[:-2] + " FROM " + temp_query[1]
+											cursor.execute("DROP TABLE IF EXISTS " + current_func["output_file"] + ";")
+											cursor.execute(query)
+											row_headers=[x[0] for x in cursor.description]
+											function_dic[triples_map_element.triples_map_id] = current_func
+											join_mysql(cursor, row_headers, current_func, db, triples_map_list)
+
+									else:
+										cursor.execute("DROP TABLE IF EXISTS " + current_func["output_file"] + ";")
+										cursor.execute(triples_map.query)
+										row_headers=[x[0] for x in cursor.description]
+										function_dic[triples_map_element.triples_map_id] = current_func
+										join_mysql(cursor, row_headers, current_func, db, triples_map_list)
+									i += 1
+							subject_function = False
+
 						for po in triples_map.predicate_object_maps_list:
 							if po.object_map.mapping_type == "reference function":
 								for triples_map_element in triples_map_list:
@@ -694,18 +728,18 @@ def translate(config_path):
 														"function":dic["executes"],
 														"func_par":dic,
 														"termType":False}
-										print(current_func)
-										sys.exit(1)
-										if config["datasets"]["enrichment"].lower() == "yes":
+										no_inner_func = True
+										for inputs in dic["inputs"]:
+											if "reference function" in inputs:
+												no_inner_func = False
+										if config["datasets"]["enrichment"].lower() == "yes" and triples_map.triples_map_id not in file_projection:
 											if triples_map.query == "None":
 												for query in query_list:
-
 													attributes = ""
 													for attr in current_func["inputs"]:
 														if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
 															attributes += "`" + attr[2] + "`, "
 													query = query.replace("`" + po.object_map.value + "`",attributes[:-2])
-
 													create_table = "CREATE TABLE PROJECT" + str(j) + " ("
 													insert = "INSERT INTO PROJECT" + str(j) + " SELECT DISTINCT "
 													fields = query.split("SELECT DISTINCT")[1].split("FROM")[0].split(",")
@@ -722,9 +756,10 @@ def translate(config_path):
 													index += " ("
 													for attr in current_func["inputs"]:
 														if attr[1] != "constant" and "reference function" != attr[1]:
-															index += "`" + attr[2] + "`, "
-													index[:-2] = "`);" 
+															index += "`" + attr[0] + "`,"
+													index = index[:-2] + "`);"
 													cursor.execute(index)
+													file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
 													j += 1
 											else:
 												cursor.execute("DROP TABLE IF EXISTS PROJECT" + str(j) + ";")
@@ -746,9 +781,10 @@ def translate(config_path):
 												index += " ("
 												for attr in current_func["inputs"]:
 													if attr[1] != "constant" and "reference function" != attr[1]:
-														index += "`" + attr[2] + "`, "
-												index[:-2] = "`);" 
+														index += "`" + attr[0] + "`,"
+												index = index[:-2] + "`);"
 												cursor.execute(index)
+												file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
 												j += 1
 
 										if triples_map_element.triples_map_id not in function_dic:
@@ -757,28 +793,28 @@ def translate(config_path):
 													attributes = ""
 													for attr in current_func["inputs"]:
 														if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
-															attributes += "`" + attr[2] + "`, "
-													query = query.replace("`" + po.object_map.value + "`",attributes[:-2])
+															attributes += "`" + attr[0] + "`, "
+													temp_query = query.split("FROM")
+													query = temp_query[0] + ", " + attributes[:-2] + " FROM " + temp_query[1]
 
 													cursor.execute("DROP TABLE IF EXISTS " + current_func["output_file"] + ";")
 													cursor.execute(query)
 													row_headers=[x[0] for x in cursor.description]
 													function_dic[triples_map_element.triples_map_id] = current_func
-													join_mysql(cursor, row_headers, current_func, db)
+													join_mysql(cursor, row_headers, current_func, db, triples_map_list)
 		
 											else:
 												cursor.execute("DROP TABLE IF EXISTS " + current_func["output_file"] + ";")
 												cursor.execute(triples_map.query)
 												row_headers=[x[0] for x in cursor.description]
 												function_dic[triples_map_element.triples_map_id] = current_func
-												join_mysql(cursor, row_headers, current_func, db)
+												join_mysql(cursor, row_headers, current_func, db, triples_map_list)
 
 											i += 1
 				else:
 					print("Invalid reference formulation or format")
 					print("Aborting...")
 					sys.exit(1)
-
 			update_mapping(triples_map_list, function_dic, config["datasets"]["output_folder"], config[dataset_i]["mapping"],True,file_projection, config["datasets"]["strategy"])
 
 

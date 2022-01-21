@@ -11,11 +11,68 @@ columns = {}
 global prefixes
 prefixes = {}
 
+def output_query(triples_map, function_dic, data_source):
+    query = "SELECT DISTINCT `output." + function_dic["output_name"] + "` AS " + function_dic["output_name"] + ", "
+    proyections = []
+    for po in triples_map.predicate_object_maps_list:
+        if po.object_map.mapping_type != "constant" and po.object_map.mapping_type != "reference function":
+            if "{" in po.object_map.value:
+                count = count_characters(po.object_map.value)
+                if 0 < count <= 1 :
+                    predicate = po.object_map.value.split("{")[1].split("}")[0]
+                    if "[" in predicate:
+                        predicate = predicate.split("[")[0]
+                    if predicate not in proyections:
+                        proyections.append(predicate)
+
+                elif 1 < count:
+                    predicate = po.object_map.value.split("{")
+                    for po_e in predicate:
+                        if "}" in po_e:
+                            pre = po_e.split("}")[0]
+                            if "[" in pre:
+                                pre = pre.split("[")
+                            if pre not in proyections:
+                                proyections.append(pre)
+            elif "#" in po.object_map.value:
+                pass
+            elif "/" in po.object_map.value:
+                pass
+            else:
+                predicate = po.object_map.value 
+                if "[" in predicate:
+                    predicate = predicate.split("[")[0]
+                if predicate not in proyections:
+                        proyections.append(predicate)
+            if po.object_map.child != None:
+                if po.object_map.child not in proyections:
+                        proyections.append(po.object_map.child)
+    for p in proyections:
+        if p != "None":
+            query += "`source." + p + "` AS " + p + ", " 
+
+    for attr in function_dic["inputs"]:
+        if (attr[1] != "constant") and (attr[1] != "reference function"):
+            if attr == function_dic["inputs"][len(function_dic["inputs"])-1]:
+                query += "`source." + attr[0] + "` AS " + attr[0]
+            else:
+                query += "`source." + attr[0] + "` AS " + attr[0] + ", " 
+    if triples_map.triples_map_id in data_source:
+        from_tables = "\n                                   FROM " + data_source[triples_map.triples_map_id] + " AS source, " + function_dic["output_file"] + " AS output \n"
+    else:
+        from_tables = "\n                                   FROM " + triples_map.tablename + " AS source, " + function_dic["output_file"] + " AS output \n"
+    where = "                                   WHERE "
+    for attr in function_dic["inputs"]:
+        if (attr[1] != "constant") and (attr[1] != "reference function"):
+            where += "source." + attr[0] + " = output." + attr[0] + ", "
+    where = where[:-2] + ";"
+    query += from_tables + where
+    return query
 
 def dic_builder(keys,values):
     dic = {}
     for key in keys:
-        if (key[1] is not "constant") and ("reference function" not in key[1]):
+        if (key[1] != "constant") and ("reference function" not in key[1]):
             dic[key[0]] = values[key[0]]
     return dic
 
@@ -105,9 +162,13 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
             else:
                 if triples_map.triples_map_id in data_source:
                     mapping += "    rml:logicalSource [ rml:source <DB_source>;\n"
+                    if triples_map.subject_map.subject_mapping_type == "function":
+                        mapping += "                        rml:query \"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\";\n"
                     mapping += "                        rr:tableName \"" + data_source[triples_map.triples_map_id] + "\";\n"
                 else:
                     mapping += "    rml:logicalSource [ rml:source <DB_source>;\n"
+                    if triples_map.subject_map.subject_mapping_type == "function":
+                        mapping += "                        rml:query \"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\";\n"
                     mapping += "                        rr:tableName \"" + triples_map.tablename + "\";\n"
                 if triples_map.query != "None": 
                     mapping += "                rml:query \"" + triples_map.query +"\"\n" 
@@ -115,27 +176,35 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
 
             
             mapping += "    rr:subjectMap [\n"
-            if triples_map.subject_map.subject_mapping_type is "template":
+            if triples_map.subject_map.subject_mapping_type == "template":
                 mapping += "        rr:template \"" + triples_map.subject_map.value + "\";\n"
-            elif triples_map.subject_map.subject_mapping_type is "reference":
+            elif triples_map.subject_map.subject_mapping_type == "reference":
                 mapping += "        rml:reference \"" + triples_map.subject_map.value + "\";\n"
                 mapping += "        rr:termType rr:IRI\n"
-            elif triples_map.subject_map.subject_mapping_type is "constant":
+            elif triples_map.subject_map.subject_mapping_type == "constant":
                 mapping += "        rr:constant \"" + triples_map.subject_map.value + "\";\n"
                 mapping += "        rr:termType rr:IRI\n"
-            elif triples_map.subject_map.subject_mapping_type is "function":
-                for tp in triple_maps:
-                    if tp.triples_map_id == triples_map.subject_map.value:
-                        temp_dic = create_dictionary(tp)
-                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_"+ tp.triples_map_id + "\";\n"
-                        mapping += "        rr:termType rr:IRI\n"
-            if triples_map.subject_map.rdf_class is not None:
+            elif triples_map.subject_map.subject_mapping_type == "function":
+                if str(triples_map.file_format).lower() == "csv":
+                    for tp in triple_maps:
+                        if tp.triples_map_id == triples_map.subject_map.value:
+                            temp_dic = create_dictionary(tp)
+                            if "#" in temp_dic["executes"]:
+                                value = temp_dic["executes"].split("#")[1]
+                            else:
+                                value = temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1]
+                            mapping += "        rml:reference \"" + value + "_"+ tp.triples_map_id + "\";\n"
+                            mapping += "        rr:termType rr:IRI\n"
+                else:
+                    mapping += "        rml:reference \"" + dic[triples_map.subject_map.value]["output_name"] + "\";\n"
+                    mapping += "        rr:termType rr:IRI\n"
+            if triples_map.subject_map.rdf_class != None:
                 prefix, url, value = prefix_extraction(original, triples_map.subject_map.rdf_class)
                 mapping += "        rr:class " + prefix + ":" + value  + "\n"
             mapping += "    ];\n"
 
             for predicate_object in triples_map.predicate_object_maps_list:
-                if predicate_object.predicate_map.mapping_type is not "None":
+                if predicate_object.predicate_map.mapping_type != "None":
                     mapping += "    rr:predicateObjectMap [\n"
                     if "constant" in predicate_object.predicate_map.mapping_type :
                         prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
@@ -198,7 +267,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                         mapping += "        ]\n"
                     elif "parent triples map" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
-                        if (predicate_object.object_map.child is not None) and (predicate_object.object_map.parent is not None):
+                        if (predicate_object.object_map.child != None) and (predicate_object.object_map.parent != None):
                             mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">\n"
                             mapping = mapping[:-1]
                             mapping += ";\n"
@@ -271,7 +340,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                                                     mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
                                                     mapping += "            ];\n"
                                                     break
-                                        elif (attr[1] is not "constant"):
+                                        elif (attr[1] != "constant"):
                                             mapping += "        rr:joinCondition [\n"
                                             mapping += "            rr:child \"" + attr[0] + "\";\n"
                                             mapping += "            rr:parent \"" + attr[0] +"\";\n"
@@ -307,9 +376,12 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
         for function in dic.keys():
             mapping += "<" + dic[function]["output_name"] + ">\n"
             mapping += "    a rr:TriplesMap;\n"
-            mapping += "    rml:logicalSource [ rml:source \"" + dic[function]["output_file"] +"\";\n"
             if "csv" in dic[function]["output_file"]:
-                mapping += "                rml:referenceFormulation ql:CSV\n" 
+                mapping += "    rml:logicalSource [ rml:source \"" + dic[function]["output_file"] +"\";\n"
+                mapping += "                rml:referenceFormulation ql:CSV\n"
+            else:
+                mapping += "    rml:logicalSource [ rml:source <DB_source>;\n"
+                mapping += "                        rr:tableName \"" + dic[function]["output_file"] + "\";\n"
             mapping += "            ];\n"
             mapping += "    rr:subjectMap [\n"
             mapping += "        rml:reference \"" + dic[function]["output_name"] + "\";\n"
@@ -390,7 +462,7 @@ def join_csv(source, dic, output,triples_map_list):
                     temp_value = inner_function(row,temp_dics[current_func],triples_map_list)
                     temp_values[current_func] = temp_value
                     temp_string += temp_value
-                if (temp_string not in values) and (temp_string is not ""):
+                if (temp_string not in values) and (temp_string != ""):
                     temp_row = {}
                     line = []
                     for key in outer_keys:
@@ -417,11 +489,11 @@ def join_csv(source, dic, output,triples_map_list):
 
                 for row in columns[reference]:
                     string_values = inner_values(row,dic,triples_map_list)
-                    if (string_values not in values) and (string_values is not None):
+                    if (string_values not in values) and (string_values != None):
                         value = execute_function(row,None,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                            if (attr[1] != "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -438,11 +510,11 @@ def join_csv(source, dic, output,triples_map_list):
 
                 for row in reader:
                     string_values = inner_values(row,dic,triples_map_list)
-                    if (string_values not in values) and (string_values is not None):
+                    if (string_values not in values) and (string_values != None):
                         value = execute_function(row,None,dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if (attr[1] is not "constant") and ("reference function" not in attr[1]):
+                            if (attr[1] != "constant") and ("reference function" not in attr[1]):
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -459,7 +531,7 @@ def join_csv_URI(source, dic, output):
 
         keys = []
         for attr in dic["inputs"]:
-            if attr[1] is not "constant":
+            if attr[1] != "constant":
                 keys.append(attr[0])
 
         values = {}
@@ -473,11 +545,11 @@ def join_csv_URI(source, dic, output):
                 writer.writerow(keys)
 
                 for row in columns[dic["func_par"]["column1"]+dic["func_par"]["column2"]]:
-                    if (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] not in values) and (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] is not None):
+                    if (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] not in values) and (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] != None):
                         value = execute_function(row, None, dic) 
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if attr[1] != "constant":
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -492,11 +564,11 @@ def join_csv_URI(source, dic, output):
                 projection = []
 
                 for row in reader:                   
-                    if (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] not in values) and (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] is not None):
+                    if (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] not in values) and (row[dic["func_par"]["column1"]]+row[dic["func_par"]["column2"]] != None):
                         value = execute_function(row, None, dic) 
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if attr[1] != "constant":
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -511,11 +583,11 @@ def join_csv_URI(source, dic, output):
                 writer.writerow(keys)
 
                 for row in columns[dic["func_par"]["value"]]:
-                    if (row[dic["func_par"]["value"]] not in values) and (row[dic["func_par"]["value"]] is not None):
+                    if (row[dic["func_par"]["value"]] not in values) and (row[dic["func_par"]["value"]] != None):
                         value = execute_function(row, None, dic) 
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if attr[1] != "constant":
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -531,11 +603,11 @@ def join_csv_URI(source, dic, output):
                 projection = []
 
                 for row in reader:
-                    if (row[dic["func_par"]["value"]] not in values) and (row[dic["func_par"]["value"]] is not None):
+                    if (row[dic["func_par"]["value"]] not in values) and (row[dic["func_par"]["value"]] != None):
                         value = execute_function(row, None, dic)
                         line = []
                         for attr in dic["inputs"]:
-                            if attr[1] is not "constant":
+                            if attr[1] != "constant":
                                 line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
@@ -544,7 +616,7 @@ def join_csv_URI(source, dic, output):
 
                 columns[dic["func_par"]["value"]] = projection
 
-def join_mysql(data, header, dic, db):
+def join_mysql(data, header, dic, db, triples_map_list):
     keys = []
     for attr in dic["inputs"]:
         if (attr[1] != "constant") and (attr[1] != "reference function"):
@@ -574,10 +646,14 @@ def join_mysql(data, header, dic, db):
                     temp_dics[function] = current_func
 
         cursor = db.cursor(buffered=True)
+        val = []
+        sql = "INSERT INTO " + dic["output_file"] + " VALUES ("
         create = "CREATE TABLE " + dic["output_file"] + " ( "
         for key in keys:
             create += "`" + key + "` varchar(300),\n"
+            sql += "%s, "
         create += "`" + dic["output_name"] + "` varchar(300));"
+        sql += "%s)"
         cursor.execute(create)
         for row in data:
             temp_string = ""
@@ -586,72 +662,87 @@ def join_mysql(data, header, dic, db):
                 temp_value = inner_function(row,temp_dics[current_func],triples_map_list)
                 temp_values[current_func] = temp_value
                 temp_string += temp_value
-            if (temp_string not in values) and (temp_string is not ""):
+            if (temp_string not in values) and (temp_string != ""):
                 temp_row = []
                 for key in outer_keys:
                     temp_row.append(row[key.index(attr[0])])
                 for temp_value in temp_values:
                     temp_row.append(temp_values[temp_value])
-                value = execute_function(row,header,dic)
-                line = "INSERT INTO " + dic["output_file"] + "\n"  
-                line += "VALUES ("
+                value = execute_function(row,header,dic) 
+                line = []
                 for attr in dic["inputs"]:
                     if attr[1] != "constant" and "reference function" != attr[1]:
-                        line += "'" + row[header.index(attr[0])] + "', "
+                        line.append(row[header.index(attr[0])])
                 for temp_value in temp_values:
-                    line += "'" + temp_values[temp_value] + "', "
-                line += "'" + value + "');"
-                cursor.execute(line)
+                    line.append(temp_values[temp_value])
+                line.append(value)
+                val.append(line)
                 values[temp_string] = value
     else:
         cursor = db.cursor(buffered=True)
+        val = []
+        sql = "INSERT INTO " + dic["output_file"] + " VALUES ("
         create = "CREATE TABLE " + dic["output_file"] + " ( "
         for key in keys:
             create += "`" + key + "` varchar(300),\n"
+            sql += "%s, "
         create += "`" + dic["output_name"] + "` varchar(300));"
+        sql += "%s)"
         cursor.execute(create)
         for row in data:
-            string_values = inner_values(row,dic,triples_map_list)
-            if (string_values not in values) and (string_values is not None):
+            temp_row = {}
+            for key in header:
+                temp_row[key] = row[header.index(key)]
+            string_values = inner_values(temp_row,dic,triples_map_list)
+            if (string_values not in values) and (string_values != None):
                 value = execute_function(row,header,dic)
-                line = "INSERT INTO " + dic["output_file"] + "\n"  
-                line += "VALUES ("
+                line = []
                 for attr in dic["inputs"]:
-                    if attr[1] is not "constant":
-                        line += "'" + row[header.index(attr[0])] + "', "
-                line += "'" + value + "');"
-                cursor.execute(line)
+                    if attr[1] != "constant":
+                        line.append(row[header.index(attr[0])])
+                line.append(value)
+                val.append(line)
                 values[string_values] = value
+    cursor.executemany(sql,val)
+    db.commit()
 
 
-def translate_sql(triples_map):
+def translate_sql(triples_map,triples_map_list):
 
     query_list = []
     
     
     proyections = []
 
-        
-    if "{" in triples_map.subject_map.value:
-        subject = triples_map.subject_map.value
-        count = count_characters(subject)
-        if (count == 1) and (subject.split("{")[1].split("}")[0] not in proyections):
-            subject = subject.split("{")[1].split("}")[0]
-            if "[" in subject:
-                subject = subject.split("[")[0]
-            proyections.append(subject)
-        elif count > 1:
-            subject_list = subject.split("{")
-            for s in subject_list:
-                if "}" in s:
-                    subject = s.split("}")[0]
-                    if "[" in subject:
-                        subject = subject.split("[")
-                    if subject not in proyections:
-                        proyections.append(subject)
+    if triples_map.subject_map.subject_mapping_type == "template":    
+        if "{" in triples_map.subject_map.value:
+            subject = triples_map.subject_map.value
+            count = count_characters(subject)
+            if (count == 1) and (subject.split("{")[1].split("}")[0] not in proyections):
+                subject = subject.split("{")[1].split("}")[0]
+                if "[" in subject:
+                    subject = subject.split("[")[0]
+                proyections.append(subject)
+            elif count > 1:
+                subject_list = subject.split("{")
+                for s in subject_list:
+                    if "}" in s:
+                        subject = s.split("}")[0]
+                        if "[" in subject:
+                            subject = subject.split("[")
+                        if subject not in proyections:
+                            proyections.append(subject)
+    elif triples_map.subject_map.subject_mapping_type == "function":
+        for tp in triples_map_list:
+            if tp.triples_map_id == triples_map.subject_map.value:
+                temp_dic = create_dictionary(tp)
+                for inputs in temp_dic["inputs"]:
+                    if "constant" not in inputs and "reference function" not in inputs:
+                        if inputs[0] not in proyections:
+                            proyections.append(inputs[0])
 
     for po in triples_map.predicate_object_maps_list:
-        if po.object_map.mapping_type != "constant":
+        if po.object_map.mapping_type != "constant" and po.object_map.mapping_type != "reference function":
             if "{" in po.object_map.value:
                 count = count_characters(po.object_map.value)
                 if 0 < count <= 1 :
@@ -683,10 +774,18 @@ def translate_sql(triples_map):
             if po.object_map.child != None:
                 if po.object_map.child not in proyections:
                         proyections.append(po.object_map.child)
+        elif po.object_map.mapping_type != "reference function":
+            for tp in triples_map_list:
+                if tp.triples_map_id == po.object_map.value:
+                    temp_dic = create_dictionary(tp)
+                    for inputs in temp_dic["inputs"]:
+                        if "constant" not in inputs and "reference function" not in inputs:
+                            if inputs[0] not in proyections:
+                                proyections.append(inputs[0])
 
     temp_query = "SELECT DISTINCT "
     for p in proyections:
-        if p is not "None":
+        if p != "None":
             if p == proyections[len(proyections)-1]:
                 temp_query += "`" + p + "`"
             else:
