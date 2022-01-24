@@ -46,13 +46,13 @@
 "oncological_history","has_previous_cancers","1.0","Has_previous_cancers"
 "oncological_history","has_previous_cancers","1","Has_previous_cancers"
 "oncological_history","previous_cancer_type","Breast cancer","Breast"
-"oncological_history","previous_cancer_type","Other cancer","previous_cancer_type_others"
+"oncological_history","previous_cancer_type","Other cancer","Others"
 "smoker_information","smoking_habit","No smoker","NonSmoker"
 "smoker_information","smoking_habit","Ex smoker","PreviousSmoker"
 "smoker_information","smoking_habit","Current smoker","CurrentSmoker"
 "surgery","surgery_class","Open surgery","Open_surgery"
 "surgery","surgery_class","Torachoscopy","Torachoscopy"
-"surgery","surgery_class","Others","surgery_class_others"
+"surgery","surgery_class","Others","Others"
 "LC_tumor_histology","type","Adenocarcinoma","Adenocarcinoma"
 "LC_tumor_histology","type","Small cell lung cancer (microcytic)","Small_cell_lung_cancer_(microcytic)"
 "LC_tumor_histology","type","NOS/Undifferentiated","NOS/Undifferentiated"
@@ -68,7 +68,7 @@
 "BC_tumor_histology","type","Tubular","Tubular"
 "BC_tumor_histology","type","Papillary","Papillary"
 "BC_tumor_histology","type","Medullary","Medullary"
-"reproductive_information","unknown_contraceptive","Yes","unknown_contraceptive"
+"reproductive_information","unknown_contraceptive","Yes","UNK"
 "reproductive_information","unknown_contraceptive","No",
 "reproductive_information","oral_contraceptive","Yes","oral_contraceptive"
 "reproductive_information","oral_contraceptive","No",
@@ -78,3 +78,17 @@
 "reproductive_information","no_contraceptive","No",
 "reproductive_information","other_contraceptive","Yes","other_contraceptive"
 "reproductive_information","other_contraceptive","No",
+"alk_mutation","result_alk_fish","traslocated","Traslocated"
+"alk_mutation","result_alk_fish","not traslocated","Non_Traslocated"
+"alk_mutation","result_alk_fish","-1","UNK"
+"alk_mutation","result_alk_ihq","positive","Positive"
+"alk_mutation","result_alk_ihq","negative","Negative"
+"alk_mutation","result_alk_ihq","-1","UNK"
+"alk_mutation","result_alk_rna","detected","Detected"
+"alk_mutation","result_alk_rna","Not detected","Non_detected"
+"alk_mutation","result_alk_rna","-1","UNK"
+
+
+
+
+
