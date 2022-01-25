@@ -32,7 +32,9 @@
 "family_antecedents","family_member","grandparent","Grandparent"
 "family_antecedents","family_member","NULL",
 "family_antecedents","N1","1","Yes"
-"family_antecedents","N1","1","Yes"
+"family_antecedents","N1","0","No"
+"family_antecedents","af","1","Yes"
+"family_antecedents","af","0","No"
 "her2_mutation","result_her2_ihq","1+","1_equivalent_is_not_provided"
 "her2_mutation","result_her2_ihq","0","0_equivalent_is_not_provided"
 "her2_mutation","result_her2_ihq","2+","2_equivalent_is_not_provided"
