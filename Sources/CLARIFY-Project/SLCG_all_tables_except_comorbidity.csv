@@ -1180,10 +1180,10 @@
 "ros1_mutation","study_performed","1","Yes"
 "smoker_information","has_lived_with_smokers","1","Previous_Secondhand_Smoker"
 "smoker_information","has_lived_with_smokers","0","Not_a_Secondhand_Smoker"
-"smoker_information","has_lived_with_smokers","-1","UNK"
+"smoker_information","has_lived_with_smokers","-1",
 "smoker_information","lives_with_smokers","1","Secondhand_Smoker"
 "smoker_information","lives_with_smokers","0","Not_a_Secondhand_Smoker"
-"smoker_information","lives_with_smokers","-1","UNK"
+"smoker_information","lives_with_smokers","-1",
 "smoker_information","smoking_habit","0","NonSmoker"
 "smoker_information","smoking_habit","1","PreviousSmoker"
 "smoker_information","smoking_habit","2","CurrentSmoker"
