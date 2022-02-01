@@ -10,7 +10,7 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"replace_unwanted_characters":"","findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -263,6 +263,14 @@ def concat6():
                  str(global_dic["value4"])+str(global_dic["value5"])+str(global_dic["value6"]))
     else:
         result = "" 
+    return(result)
+
+def replace_unwanted_characters():  ## this functions falls in replace() function subcategory; developed specifically for UMLS dictionary
+    value1 = global_dic["value1"]
+    if bool(value1):
+        result = str(str(value1).replace(", ","_").replace(",","_").replace(" ","_"))
+    else:
+        result = ""  
     return(result)
 
 ############################################################
