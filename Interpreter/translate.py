@@ -694,6 +694,61 @@ def translate(config_path):
 													"function":dic["executes"],
 													"func_par":dic,
 													"termType":False}
+									if config["datasets"]["enrichment"].lower() == "yes" and triples_map.triples_map_id not in file_projection:
+										if triples_map.query == "None":
+											for query in query_list:
+												attributes = ""
+												for attr in current_func["inputs"]:
+													if attr[1] != "constant" and "reference function" != attr[1] and attr[1] not in query :
+														attributes += "`" + attr[2] + "`, "
+												query = query.replace("`" + po.object_map.value + "`",attributes[:-2])
+												create_table = "CREATE TABLE PROJECT" + str(j) + " ("
+												insert = "INSERT INTO PROJECT" + str(j) + " SELECT DISTINCT "
+												fields = query.split("SELECT DISTINCT")[1].split("FROM")[0].split(",")
+												for f in fields:
+													create_table += f + " varchar(300),\n"
+													insert += f + ", "
+												create_table = create_table[:-2] + ");"
+												insert = insert[:-2] + "FROM " + query.split("FROM")[1]
+												cursor.execute("DROP TABLE IF EXISTS PROJECT" + str(j) + ";")
+												cursor.execute(create_table)
+												cursor.execute(insert)
+												file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
+												index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
+												index += " ("
+												for attr in current_func["inputs"]:
+													if attr[1] != "constant" and "reference function" != attr[1]:
+														index += "`" + attr[0] + "`,"
+												index = index[:-2] + "`);"
+												cursor.execute(index)
+												file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
+												j += 1
+										else:
+											cursor.execute("DROP TABLE IF EXISTS PROJECT" + str(j) + ";")
+											if "DISTINCT" in triples_map.query:
+												fields = triples_map.query.split("DISTINCT")[1].split("FROM")[0].split(",")
+											else:
+												fields = triples_map.query.split("SELECT")[1].split("FROM")[0].split(",")
+											create_table = "CREATE TABLE PROJECT" + str(j) + " ( "
+											insert = "INSERT INTO PROJECT" + str(j) + " SELECT DISTINCT "
+											for f in fields:
+												create_table += f + " varchar(300),\n"
+												insert += f + ", "
+											create_table = create_table[:-2] + ");"
+											insert = insert[:-2] + "FROM " + triples_map.query.split("FROM")[1]
+											cursor.execute(create_table)
+											cursor.execute(insert)
+											file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
+											index = "CREATE index p" + str(j) + " on PROJECT" + str(j)
+											index += " ("
+											for attr in current_func["inputs"]:
+												if attr[1] != "constant" and "reference function" != attr[1]:
+													index += "`" + attr[0] + "`,"
+											index = index[:-2] + "`);"
+											cursor.execute(index)
+											file_projection[triples_map.triples_map_id] = "PROJECT" + str(j)
+											j += 1
+
 									if triples_map.query == "None":	
 										for query in query_list:
 											attributes = ""
@@ -764,7 +819,7 @@ def translate(config_path):
 											else:
 												cursor.execute("DROP TABLE IF EXISTS PROJECT" + str(j) + ";")
 												if "DISTINCT" in triples_map.query:
-													fields = triples_map.query.split("SELECT DISTINCT")[1].split("FROM")[0].split(",")
+													fields = triples_map.query.split("DISTINCT")[1].split("FROM")[0].split(",")
 												else:
 													fields = triples_map.query.split("SELECT")[1].split("FROM")[0].split(",")
 												create_table = "CREATE TABLE PROJECT" + str(j) + " ( "

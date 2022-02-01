@@ -646,6 +646,7 @@ def join_mysql(data, header, dic, db, triples_map_list):
                     temp_dics[function] = current_func
 
         cursor = db.cursor(buffered=True)
+        cursor.execute("DROP TABLE IF EXISTS " + dic["output_file"] + ";")
         val = []
         sql = "INSERT INTO " + dic["output_file"] + " VALUES ("
         create = "CREATE TABLE " + dic["output_file"] + " ( "
@@ -680,6 +681,7 @@ def join_mysql(data, header, dic, db, triples_map_list):
                 values[temp_string] = value
     else:
         cursor = db.cursor(buffered=True)
+        cursor.execute("DROP TABLE IF EXISTS " + dic["output_file"] + ";")
         val = []
         sql = "INSERT INTO " + dic["output_file"] + " VALUES ("
         create = "CREATE TABLE " + dic["output_file"] + " ( "

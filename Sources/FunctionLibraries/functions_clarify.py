@@ -297,7 +297,10 @@ def falcon_UMLS_CUI_function():
 ################################## Static (Do NOT change) #####################################
 
 def execute_function(row,header,dic):
-    func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
+    if "#" in dic["function"]:
+        func = dic["function"].split("#")[1]
+    else:
+        func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
     if func in functions_pool:
         global global_dic
         global_dic = execution_dic(row,header,dic)
@@ -310,11 +313,12 @@ def execute_function(row,header,dic):
 def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
-        if "constant" not in inputs: 
+        if "constant" not in inputs:
             if isinstance(row,dict):
                 output[inputs[2]] = row[inputs[0]]
-            elif isinstance(global_row,list):
-                output[inputs[2]] = row[header.index(global_dic["func_par"][inputs[2]])]
+            else:
+                output[inputs[2]] = row[header.index(inputs[0])]
         else:
             output[inputs[2]] = inputs[0]
     return output
+
