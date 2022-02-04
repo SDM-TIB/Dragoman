@@ -12,7 +12,7 @@ global prefixes
 prefixes = {}
 
 def output_query(triples_map, function_dic, data_source):
-    query = "SELECT DISTINCT `output." + function_dic["output_name"] + "` AS " + function_dic["output_name"] + ", "
+    query = "SELECT DISTINCT output." + function_dic["output_name"] + " AS " + function_dic["output_name"] + ", "
     proyections = []
     for po in triples_map.predicate_object_maps_list:
         if po.object_map.mapping_type != "constant" and po.object_map.mapping_type != "reference function":
@@ -49,14 +49,14 @@ def output_query(triples_map, function_dic, data_source):
                         proyections.append(po.object_map.child)
     for p in proyections:
         if p != "None":
-            query += "`source." + p + "` AS " + p + ", " 
+            query += "source." + p + " AS " + p + ", " 
 
     for attr in function_dic["inputs"]:
         if (attr[1] != "constant") and (attr[1] != "reference function"):
             if attr == function_dic["inputs"][len(function_dic["inputs"])-1]:
-                query += "`source." + attr[0] + "` AS " + attr[0]
+                query += "source." + attr[0] + " AS " + attr[0]
             else:
-                query += "`source." + attr[0] + "` AS " + attr[0] + ", " 
+                query += "source." + attr[0] + " AS " + attr[0] + ", " 
     if triples_map.triples_map_id in data_source:
         from_tables = "\n                                   FROM " + data_source[triples_map.triples_map_id] + " AS source, " + function_dic["output_file"] + " AS output \n"
     else:
@@ -163,14 +163,14 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                 if triples_map.triples_map_id in data_source:
                     mapping += "    rml:logicalSource [ rml:source <DB_source>;\n"
                     if triples_map.subject_map.subject_mapping_type == "function":
-                        mapping += "                        rml:query \"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\";\n"
+                        mapping += "                        rml:query \"\"\"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\"\"\";\n"
                     mapping += "                        rr:tableName \"" + data_source[triples_map.triples_map_id] + "\";\n"
                 else:
                     mapping += "    rml:logicalSource [ rml:source <DB_source>;\n"
                     if triples_map.subject_map.subject_mapping_type == "function":
-                        mapping += "                        rml:query \"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\";\n"
+                        mapping += "                        rml:query \"\"\"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\"\"\";\n"
                     mapping += "                        rr:tableName \"" + triples_map.tablename + "\";\n"
-                if triples_map.query != "None": 
+                if triples_map.query != "None" and triples_map.subject_map.subject_mapping_type == "function": 
                     mapping += "                rml:query \"" + triples_map.query +"\"\n" 
             mapping += "                ];\n"
 
