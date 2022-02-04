@@ -170,7 +170,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                     if triples_map.subject_map.subject_mapping_type == "function":
                         mapping += "                        rml:query \"\"\"" + output_query(triples_map,dic[triples_map.subject_map.value], data_source) + "\"\"\";\n"
                     mapping += "                        rr:tableName \"" + triples_map.tablename + "\";\n"
-                if triples_map.query != "None" and triples_map.subject_map.subject_mapping_type == "function": 
+                if triples_map.query != "None" and triples_map.subject_map.subject_mapping_type != "function": 
                     mapping += "                rml:query \"" + triples_map.query +"\"\n" 
             mapping += "                ];\n"
 
