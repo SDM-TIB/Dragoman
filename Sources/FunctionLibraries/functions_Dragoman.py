@@ -57,13 +57,13 @@ headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 def falcon_UMLS_CUI_function():
     value = global_dic["value"]
     output = ""
-    url = 'http://node1.research.tib.eu:9002/umlsmatching?type=cui'
+    url = 'https://labs.tib.eu/sdm/biofalcon/api?mode=short'
     text = str(value).replace("_"," ")
-    payload = '{"data":"'+text+'"}'
+    payload = '{"text":"'+text+'"}'
     r = requests.post(url, data=payload.encode('utf-8'), headers=headers)
     if r.status_code == 200:
         response=r.json()
-        return response['cui'][0]
+        return response['entities'][1][0]
     else:
         return ""
 
