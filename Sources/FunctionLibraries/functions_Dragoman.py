@@ -63,7 +63,10 @@ def falcon_UMLS_CUI_function():
     r = requests.post(url, data=payload.encode('utf-8'), headers=headers)
     if r.status_code == 200:
         response=r.json()
-        return response['entities'][1][0]
+        if len(response['entities'][1])>0:
+            return response['entities'][1][0]
+        else:
+            return ""
     else:
         return ""
 
