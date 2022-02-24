@@ -246,21 +246,33 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                         mapping += "        ]\n"
                     elif "parent triples map function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
-                        mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">;\n"
+                        if "#" in predicate_object.object_map.value:
+                            parent_id =  predicate_object.object_map.value.split("#")[1] 
+                        else: 
+                            parent_id = predicate_object.object_map.value 
+                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
                         mapping += "        rr:joinCondition [\n"
                         mapping += "            rr:child <" + predicate_object.object_map.child + ">;\n"
                         mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
                         mapping += "        ]\n"
                     elif "parent triples map parent function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
-                        mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">;\n"
+                        if "#" in predicate_object.object_map.value:
+                            parent_id =  predicate_object.object_map.value.split("#")[1] 
+                        else: 
+                            parent_id = predicate_object.object_map.value 
+                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
                         mapping += "        rr:joinCondition [\n"
                         mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
                         mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
                         mapping += "        ]\n"
                     elif "parent triples map child function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
-                        mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">;\n"
+                        if "#" in predicate_object.object_map.value:
+                            parent_id =  predicate_object.object_map.value.split("#")[1] 
+                        else: 
+                            parent_id = predicate_object.object_map.value 
+                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
                         mapping += "        rr:joinCondition [\n"
                         mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
                         mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
@@ -268,7 +280,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                     elif "parent triples map" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
                         if (predicate_object.object_map.child != None) and (predicate_object.object_map.parent != None):
-                            mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">\n"
+                            if "#" in predicate_object.object_map.value:
+                                parent_id =  predicate_object.object_map.value.split("#")[1] 
+                            else: 
+                                parent_id = predicate_object.object_map.value 
+                            mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
                             mapping = mapping[:-1]
                             mapping += ";\n"
                             mapping += "        rr:joinCondition [\n"
@@ -291,7 +307,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                                                     mapping += "        rr:termType rr:IRI\n"
                                         else:
                                             mapping += "\n"
-                                            mapping += "        rr:parentTriplesMap <" + predicate_object.object_map.value + ">;\n"
+                                            if "#" in predicate_object.object_map.value:
+                                                parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                            else: 
+                                                parent_id = predicate_object.object_map.value 
+                                            mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
                                             if tm.subject_map.subject_mapping_type == "function":
                                                 for func in triple_maps:
                                                     if tm.subject_map.value == func.triples_map_id:
