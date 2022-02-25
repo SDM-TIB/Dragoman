@@ -42,7 +42,7 @@ def replaceExactMatch():
     return(replacedValue)
 
 def reverseString():    
-    value = global_dic["value"]
+    value = str(global_dic["value"])
     if value != "":
         output = value[::-1]
     else:
