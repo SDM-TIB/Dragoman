@@ -18,7 +18,7 @@ exactMatchDic = dict()
 #####################################################################################################
 
 ## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
-functions_pool = {"toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"reverseString":"","toLower":"","replaceExactMatch":"","falcon_UMLS_CUI_function":""}
 
 
 ### Non-injective, surjective 
@@ -33,17 +33,6 @@ def dictionaryCreation():
             exactMatchDic.update({row['SampleOriginLabel']:row['CUI']}) 
 dictionaryCreation()
 
-'''
-### Bijective
-def dictionaryCreation():
-    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    label_cui_df = pd.read_csv(str(directory)+"/Sources/label_cui_dictionary.csv", low_memory=False)
-    for i in label_cui_df.index:
-        key_value = str(label_cui_df["SampleOriginLabel"][i])
-        replacedValue = label_cui_df["CUI"][i]
-        exactMatchDic.update({key_value:replacedValue})     
-dictionaryCreation()
-'''
 def replaceExactMatch():    
     value = global_dic["value"]                   
     if value != "":
@@ -51,6 +40,15 @@ def replaceExactMatch():
     else:
         replacedValue = "" 
     return(replacedValue)
+
+def reverseString():    
+    value = global_dic["value"]
+    if value != "":
+        output = value[::-1]
+    else:
+        output = ""
+    return(output) 
+
 
 ### non-injective, non-surjective
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
