@@ -418,7 +418,7 @@ def translate(config_path):
 																"id":triples_map_element.triples_map_id}
 													if inner_function_exists(temp_dic, temp_dics):
 														temp_dics.append(temp_dic)
-									elif po.object_map.mapping_type == "parent triples map":
+									"""elif po.object_map.mapping_type == "parent triples map":
 										for triples_map_element in triples_map_list:
 											if triples_map_element.triples_map_id == po.object_map.value:
 												if triples_map_element.subject_map.subject_mapping_type == "function":
@@ -431,7 +431,7 @@ def translate(config_path):
 																				"func_par":dic,
 																				"id":func.triples_map_id}
 																if inner_function_exists(temp_dic, temp_dics):
-																	temp_dics.append(temp_dic)
+																	temp_dics.append(temp_dic)"""
 								if temp_dics or triples_map.subject_map.subject_mapping_type == "function":
 									if triples_map.subject_map.subject_mapping_type == "function":
 										for triples_map_element in triples_map_list:
