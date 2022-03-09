@@ -11,6 +11,20 @@ columns = {}
 global prefixes
 prefixes = {}
 
+def parent_child_relation(triples_map_list):
+    parent_child_list = {}
+    for tm in triples_map_list:
+        for po in tm.predicate_object_maps_list:
+            if "parent triples map" in po.object_map.mapping_type and po.object_map.parent != None:
+                for parent in triples_map_list:
+                    if parent.triples_map_id == po.object_map.value:
+                        if parent.triples_map_id in parent_child_list:
+                            if po.object_map.parent not in parent_child_list[parent.triples_map_id]:
+                                parent_child_list[parent.triples_map_id].append(po.object_map.parent)
+                        else:
+                            parent_child_list[parent.triples_map_id] = [po.object_map.parent]
+    return parent_child_list
+
 def output_query(triples_map, function_dic, data_source):
     query = "SELECT DISTINCT output." + function_dic["output_name"] + " AS " + function_dic["output_name"] + ", "
     proyections = []

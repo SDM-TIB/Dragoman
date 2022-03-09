@@ -298,6 +298,7 @@ def translate(config_path):
 			print("Executing {}...".format(config[dataset_i]["name"]))
 			function_dic = {}
 			file_projection = {}
+			parent_child_list = parent_child_relation(triples_map_list)
 			i = 1
 			j = 1
 			for triples_map in triples_map_list:
@@ -418,7 +419,7 @@ def translate(config_path):
 																"id":triples_map_element.triples_map_id}
 													if inner_function_exists(temp_dic, temp_dics):
 														temp_dics.append(temp_dic)
-									"""elif po.object_map.mapping_type == "parent triples map":
+									elif po.object_map.mapping_type == "parent triples map" and po.object_map.child == None:
 										for triples_map_element in triples_map_list:
 											if triples_map_element.triples_map_id == po.object_map.value:
 												if triples_map_element.subject_map.subject_mapping_type == "function":
@@ -431,7 +432,7 @@ def translate(config_path):
 																				"func_par":dic,
 																				"id":func.triples_map_id}
 																if inner_function_exists(temp_dic, temp_dics):
-																	temp_dics.append(temp_dic)"""
+																	temp_dics.append(temp_dic)
 								if temp_dics or triples_map.subject_map.subject_mapping_type == "function":
 									if triples_map.subject_map.subject_mapping_type == "function":
 										for triples_map_element in triples_map_list:
@@ -450,6 +451,9 @@ def translate(config_path):
 									projection_keys = []
 									for pk in fields:
 										projection_keys.append(pk)
+									if triples_map.triples_map_id in parent_child_list:
+										for parent in parent_child_list[triples_map.triples_map_id]:
+											projection_keys.append(parent)
 									for temp in temp_dics:
 										projection_keys.append(temp["function"].split("/")[len(temp["function"].split("/"))-1] + "_" + temp["id"])
 									writer.writerow(projection_keys)
@@ -467,6 +471,13 @@ def translate(config_path):
 												pass
 											else:
 												string_values += str(row[key])
+										if triples_map.triples_map_id in parent_child_list:
+											for parent in parent_child_list[triples_map.triples_map_id]:
+												line.append(row[parent])
+												if row[parent] is None:
+													pass
+												else:
+													string_values += str(row[parent])
 										list_input = True
 										for temp_dic in temp_dics:
 											string_line_values = inner_values(row,temp_dic,triples_map_list)
