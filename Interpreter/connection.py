@@ -244,6 +244,10 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                             mapping += ";\n"
                             prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
                             mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
+                        elif  predicate_object.object_map.language != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
                         mapping += "        ]\n"
                     elif "template" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -257,6 +261,10 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                             mapping += ";\n"
                             prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
                             mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
+                        elif  predicate_object.object_map.language != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
                         mapping += "        ]\n"
                     elif "parent triples map function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
