@@ -153,7 +153,7 @@ def prefix_extraction(original, uri):
             url = temp
     return prefixes[url], url, value
 
-def update_mapping(triple_maps, dic, output, original, join, data_source, strategy):
+def update_mapping(triple_maps, dic, output, original, join, data_source):
     mapping = ""
     for triples_map in triple_maps:
 
@@ -367,7 +367,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                         mapping += "        rr:constant \"" + predicate_object.object_map.value + "\"\n"
                         mapping += "        ]\n"
                     elif "reference function" in predicate_object.object_map.mapping_type:
-                        if strategy == "1":
+                        if predicate_object.object_map.term == None:
                             if join:
                                 mapping += "[\n"
                                 if predicate_object.object_map.value in dic:
@@ -393,28 +393,59 @@ def update_mapping(triple_maps, dic, output, original, join, data_source, strate
                                         if tp.triples_map_id == predicate_object.object_map.value:
                                             temp_dic = create_dictionary(tp)
                                             mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
-                                            mapping += "        rr:termType rr:IRI\n"
                                             mapping += "        ];\n"
                             else:
                                 mapping += "[\n"
                                 mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
                                 mapping += "        rr:termType rr:IRI\n"
                                 mapping += "        ];\n"
-                        elif strategy == "2":
-                            for tp in triple_maps:
-                                if tp.triples_map_id == predicate_object.object_map.value:
-                                    temp_dic = create_dictionary(tp)
+                        else:
+                            if "Literal" not in predicate_object.object_map.term:
+                                if join:
                                     mapping += "[\n"
-                                    mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                    if predicate_object.object_map.value in dic:
+                                        mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
+                                        for attr in dic[predicate_object.object_map.value]["inputs"]:
+                                            if ("reference function" in attr[1]):
+                                                for tp in triple_maps:
+                                                    if tp.triples_map_id == attr[0]:
+                                                        temp_dic = create_dictionary(tp)
+                                                        mapping += "        rr:joinCondition [\n"
+                                                        mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
+                                                        mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
+                                                        mapping += "            ];\n"
+                                                        break
+                                            elif (attr[1] != "constant"):
+                                                mapping += "        rr:joinCondition [\n"
+                                                mapping += "            rr:child \"" + attr[0] + "\";\n"
+                                                mapping += "            rr:parent \"" + attr[0] +"\";\n"
+                                                mapping += "            ];\n"
+                                        mapping += "        ];\n"
+                                    else:
+                                        for tp in triple_maps:
+                                            if tp.triples_map_id == predicate_object.object_map.value:
+                                                temp_dic = create_dictionary(tp)
+                                                mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                                mapping += "        ];\n"
+                                else:
+                                    mapping += "[\n"
+                                    mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
                                     mapping += "        rr:termType rr:IRI\n"
                                     mapping += "        ];\n"
+                            elif "Literal" in predicate_object.object_map.term:
+                                for tp in triple_maps:
+                                    if tp.triples_map_id == predicate_object.object_map.value:
+                                        temp_dic = create_dictionary(tp)
+                                        mapping += "[\n"
+                                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                        mapping += "        ];\n"
                     mapping += "    ];\n"
             if triples_map.function:
                 pass
             else:
                 mapping = mapping[:-2]
                 mapping += ".\n\n"
-    if join and strategy == "1":
+    if join:
         for function in dic.keys():
             mapping += "<" + dic[function]["output_name"] + ">\n"
             mapping += "    a rr:TriplesMap;\n"
