@@ -10,7 +10,7 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"replace_unwanted_characters":"","findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {"toLower":"","replace_unwanted_characters":"","findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -272,6 +272,9 @@ def replace_unwanted_characters():  ## this functions falls in replace() functio
     else:
         result = ""  
     return(result)
+
+def toLower(): 
+    return global_dic["value"].lower()
 
 ############################################################
 ################ Entity-Linking Functions ##################
