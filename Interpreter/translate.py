@@ -322,35 +322,7 @@ def translate(config_path):
 							subject_function = True
 						for po in triples_map.predicate_object_maps_list:
 							if po.object_map.mapping_type == "reference function":
-								if po.object_map.term == None:
-									for triples_map_element in triples_map_list:
-										if triples_map_element.triples_map_id == po.object_map.value:
-											if triples_map_element.triples_map_id not in function_dic:
-												dic = create_dictionary(triples_map_element)
-												current_func = {"output_name": dic["executes"].split("/")[len(dic["executes"].split("/"))-1] + "_output" + str(i), ## output_name: output column name in output file
-																"output_file": config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_OUTPUT" + str(i) + ".csv", ## output_file: path to the output file + file name
-																"inputs":dic["inputs"], ## input parameters and cooresponding type (keys to be the parameter names and the values to be the type of the parameter)
-																"function":dic["executes"], ## name of the function
-																"func_par":dic, ## value of the input parameters (keys are the parameter names and the values are the input parameter value) 
-																"termType":True} ## if needed or not
-												no_inner_func = True
-												for inputs in dic["inputs"]:
-													if "reference function" in inputs:
-														no_inner_func = False
-												if no_inner_func:
-													if po.object_map.term is not None:
-														if "IRI" in po.object_map.term:
-															function_dic[triples_map_element.triples_map_id] = current_func
-															join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
-													else:
-														current_func["termType"] = False
-														function_dic[triples_map_element.triples_map_id] = current_func
-														join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
-													i += 1
-											for inputs in current_func["inputs"]:
-												if "reference function" not in inputs and "constant" not in inputs: 
-													fields[inputs[0]] = "object"
-								else:
+								if po.object_map.term != None:
 									if "Literal" not in po.object_map.term:
 										for triples_map_element in triples_map_list:
 											if triples_map_element.triples_map_id == po.object_map.value:
@@ -433,14 +405,12 @@ def translate(config_path):
 											if triples_map_element.triples_map_id == po.object_map.value:
 												dic = create_dictionary(triples_map_element)
 												if po.object_map.term == None:
-													for inputs in dic["inputs"]:
-														if "reference function" in inputs:
-															temp_dic = {"inputs":dic["inputs"], 
-																			"function":dic["executes"],
-																			"func_par":dic,
-																			"id":triples_map_element.triples_map_id}
-															if inner_function_exists(temp_dic, temp_dics):
-																temp_dics.append(temp_dic)
+													temp_dic = {"inputs":dic["inputs"], 
+																"function":dic["executes"],
+																"func_par":dic,
+																"id":triples_map_element.triples_map_id}
+													if inner_function_exists(temp_dic, temp_dics):
+														temp_dics.append(temp_dic)
 												else:
 													if "Literal" not in po.object_map.term:
 														for inputs in dic["inputs"]:
