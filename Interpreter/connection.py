@@ -192,6 +192,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
             mapping += "    rr:subjectMap [\n"
             if triples_map.subject_map.subject_mapping_type == "template":
                 mapping += "        rr:template \"" + triples_map.subject_map.value + "\";\n"
+                if  triples_map.subject_map.term_type != None:
+                    mapping = mapping[:-1]
+                    mapping += ";\n"
+                    prefix, url, value = prefix_extraction(original, triples_map.subject_map.term_type)
+                    mapping += "        rr:termType " + prefix + ":" + value + ";\n"
             elif triples_map.subject_map.subject_mapping_type == "reference":
                 mapping += "        rml:reference \"" + triples_map.subject_map.value + "\";\n"
                 mapping += "        rr:termType rr:IRI\n"
@@ -252,6 +257,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                     elif "template" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
                         mapping += "        rr:template  \"" + predicate_object.object_map.value + "\"\n"
+                        if  predicate_object.object_map.term != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                            mapping += "        rr:termType " + prefix + ":" + value + ";\n"
                         mapping += "        ]\n"
                     elif "reference" == predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -265,6 +275,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                             mapping = mapping[:-1]
                             mapping += ";\n"
                             mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
+                        elif  predicate_object.object_map.term != None:
+                            mapping = mapping[:-1]
+                            mapping += ";\n"
+                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                            mapping += "        rr:termType " + prefix + ":" + value + ";\n"
                         mapping += "        ]\n"
                     elif "parent triples map function" in predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -307,7 +322,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                             else: 
                                 parent_id = predicate_object.object_map.value 
                             mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                            mapping = mapping[:-1]
+                            mapping = mapping[:-2]
                             mapping += ";\n"
                             mapping += "        rr:joinCondition [\n"
                             mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
@@ -465,7 +480,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
     mapping_file.close()
 
 def join_csv(source, dic, output,triples_map_list):
-    with open(dic["output_file"], "w") as temp_csv:
+    with open(dic["output_file"], "w", encoding="utf-8") as temp_csv:
         writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 
         keys = []
@@ -574,7 +589,7 @@ def join_csv(source, dic, output,triples_map_list):
         
 
 def join_csv_URI(source, dic, output):
-    with open(dic["output_file"], "w") as temp_csv:
+    with open(dic["output_file"], "w", encoding="utf-8") as temp_csv:
         writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
 
         keys = []

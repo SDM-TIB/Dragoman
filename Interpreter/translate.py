@@ -311,13 +311,16 @@ def translate(config_path):
 						if triples_map.subject_map.subject_mapping_type == "template":
 							subject_field = triples_map.subject_map.value.split("{")
 							if len(subject_field) == 2:
-								fields[subject_field[1].split("}")[0]] = "subject"
+								if subject_field[1].split("}")[0] not in fields:
+									fields[subject_field[1].split("}")[0]] = "subject"
 							elif len(subject_field) == 1:
-								fields[subject_field[0]] = "subject"
+								if subject_field[0] not in fields:
+									fields[subject_field[0]] = "subject"
 							else:
 								for sf in subject_field:
 									if "}" in sf:
-										fields[sf.split("}")[0]] = "subject"
+										if sf.split("}")[0] not in fields:
+											fields[sf.split("}")[0]] = "subject"
 						elif triples_map.subject_map.subject_mapping_type == "function":
 							subject_function = True
 						for po in triples_map.predicate_object_maps_list:
@@ -355,18 +358,21 @@ def translate(config_path):
 								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
 									if po.object_map.mapping_type == "parent triples map":
 										if po.object_map.child is not None:
-											fields[po.object_map.child] = "object"
+											if po.object_map.child not in fields:
+												fields[po.object_map.child] = "object"
 										else:
 											for tp in triples_map_list:
 												if tp.triples_map_id == po.object_map.value:
 													if "{" in tp.subject_map.value:
 														object_field = tp.subject_map.value.split("{")
 														if len(object_field) == 2:
-															fields[object_field[1].split("}")[0]] = "object"
+															if object_field[1].split("}")[0] not in fields:
+																fields[object_field[1].split("}")[0]] = "object"
 														else:
 															for of in object_field:
 																if "}" in of:
-																	fields[of.split("}")[0]] = "object"
+																	if sf.split("}")[0] not in fields:
+																		fields[of.split("}")[0]] = "object"
 													else:
 														if tp.subject_map.subject_mapping_type == "function":
 															for func in triples_map_list:
@@ -377,25 +383,39 @@ def translate(config_path):
 																				"func_par":temp}
 																	for attr in temp_dic["inputs"]:
 																		if "reference function" not in attr[1] and "constant" not in attr[1]:
-																			fields[attr[0]] = "object" 
+																			if attr[0] not in fields:
+																				fields[attr[0]] = "object" 
 														elif tp.subject_map.subject_mapping_type != "constant":
-															fields[tp.subject_map.value] = "object"
+															if tp.subject_map.value not in fields:
+																fields[tp.subject_map.value] = "object"
 									else:
 										if "{" in po.object_map.value:
 											object_field = po.object_map.value.split("{")
 											if len(object_field) == 2:
-												fields[object_field[1].split("}")[0]] = "object"
+												if object_field[1].split("}")[0] not in fields:
+													fields[object_field[1].split("}")[0]] = "object"
 
 											else:
 												for of in object_field:
 													if "}" in of:
-														fields[of.split("}")[0]] = "object"
+														if of.split("}")[0] not in fields:
+															fields[of.split("}")[0]] = "object"
 										else:
 											if po.object_map.mapping_type != "template":
-												fields[po.object_map.value] = "object"
+												if po.object_map.value not in fields:
+													fields[po.object_map.value] = "object"
+
+						for tp in triples_map_list:
+							if tp.triples_map_id != triples_map.triples_map_id:
+								for po in tp.predicate_object_maps_list:
+									if po.object_map.mapping_type == "parent triples map":
+										if triples_map.triples_map_id == po.object_map.value:
+											if po.object_map.parent != None:
+												if po.object_map.parent not in fields:
+													fields[po.object_map.parent] = "object"
 
 						if (config["datasets"]["enrichment"].lower() == "yes" or triples_map.subject_map.subject_mapping_type == "function") and triples_map.triples_map_id not in file_projection:
-							with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
+							with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w", encoding="utf-8") as temp_csv:
 								writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL) 
 								temp_dics = []
 								for po in triples_map.predicate_object_maps_list:
@@ -453,7 +473,7 @@ def translate(config_path):
 															"id":triples_map_element.triples_map_id}
 												if inner_function_exists(temp_dic, temp_dics):
 													temp_dics.append(temp_dic)
-									reader = pd.read_csv(triples_map.data_source)
+									reader = pd.read_csv(triples_map.data_source,encoding = "utf-8")
 									reader = reader.where(pd.notnull(reader), None)
 									reader = reader.drop_duplicates(keep='first')
 									reader = reader.to_dict(orient='records')
@@ -462,7 +482,8 @@ def translate(config_path):
 										projection_keys.append(pk)
 									if triples_map.triples_map_id in parent_child_list:
 										for parent in parent_child_list[triples_map.triples_map_id]:
-											projection_keys.append(parent)
+											if parent not in projection_keys:
+												projection_keys.append(parent)
 									for temp in temp_dics:
 										projection_keys.append(temp["function"].split("/")[len(temp["function"].split("/"))-1] + "_" + temp["id"])
 									writer.writerow(projection_keys)
@@ -514,7 +535,7 @@ def translate(config_path):
 														list_input = False
 													else:
 														line.append(value)
-														string_values += value
+														string_values += str(value)
 												temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]] = {string_line_values : value}
 											else:
 												if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
@@ -541,7 +562,7 @@ def translate(config_path):
 															list_input = False
 														else:
 															line.append(value)
-															string_values += value
+															string_values += str(value)
 													temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values] = value
 												else:
 													value = temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]][string_line_values]
@@ -567,7 +588,7 @@ def translate(config_path):
 															list_input = False
 														else:
 															line.append(value)
-															string_values += value
+															string_values += str(value)
 										if temp_lines:
 											for temp in temp_lines:
 												string_values = ""
@@ -583,7 +604,7 @@ def translate(config_path):
 
 									file_projection[triples_map.triples_map_id] = config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv"
 								else:
-									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
+									reader = pd.read_csv(triples_map.data_source, usecols=fields.keys(),encoding = "utf-8")
 									reader = reader.where(pd.notnull(reader), None)
 									reader = reader.drop_duplicates(keep='first')
 									reader = reader.to_dict(orient='records')							
@@ -625,9 +646,9 @@ def translate(config_path):
 															temp_dics.append(temp_dic)
 														
 
-									with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w") as temp_csv:
+									with open(config["datasets"]["output_folder"] + "/" + config[dataset_i]["mapping"].split("/")[len(config[dataset_i]["mapping"].split("/"))-1].split(".")[0] + "_PROJECT" + str(j) + ".csv", "w",encoding = "utf-8") as temp_csv:
 										writer = csv.writer(temp_csv, quoting=csv.QUOTE_ALL)
-										reader = pd.read_csv(triples_map.data_source, usecols=fields.keys())
+										reader = pd.read_csv(triples_map.data_source, usecols=fields.keys(),encoding = "utf-8")
 										reader = reader.where(pd.notnull(reader), None)
 										reader = reader.to_dict(orient='records')
 										projection_keys = []
