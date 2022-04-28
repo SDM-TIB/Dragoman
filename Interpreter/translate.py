@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 from mysql import connector
 from .connection import *
+import math
 
 try:
 	from triples_map import TriplesMap as tm
@@ -513,6 +514,11 @@ def translate(config_path):
 											string_line_values = inner_values(row,temp_dic,triples_map_list)
 											if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
 												value = inner_function(row,temp_dic,triples_map_list)
+												if isinstance(value, float):
+													if math.isnan(value):
+														value = ""
+												elif value == "nan":
+													value = ""
 												if temp_lines:
 													k = 0
 													for temp in temp_lines:
@@ -540,6 +546,11 @@ def translate(config_path):
 											else:
 												if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
 													value = inner_function(row,temp_dic,triples_map_list)
+													if isinstance(value, float):
+														if math.isnan(value):
+															value = ""
+													elif value == "nan":
+														value = ""
 													if temp_lines:
 														k = 0
 														for temp in temp_lines:
@@ -670,6 +681,11 @@ def translate(config_path):
 													string_line_values = inner_values(row,temp_dic,triples_map_list)
 													if temp_dic["func_par"]["executes"] + "_" + temp_dic["id"] not in temp_dics_values:
 														value = inner_function(row,temp_dic,triples_map_list)
+														if isinstance(value, float):
+															if math.isnan(value):
+																value = ""
+														elif value == "nan":
+															value = ""
 														if isinstance(value, list):
 															for v in value:
 																if non_none and (string_values + v) not in line_values:
@@ -683,6 +699,11 @@ def translate(config_path):
 													else:
 														if string_line_values not in temp_dics_values[temp_dic["func_par"]["executes"] + "_" + temp_dic["id"]]:
 															value = inner_function(row,temp_dic,triples_map_list)
+															if isinstance(value, float):
+																if math.isnan(value):
+																	value = ""
+															elif value == "nan":
+																value = ""
 															if isinstance(value, list):
 																for v in value:
 																	if non_none and (string_values + v) not in line_values:

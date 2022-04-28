@@ -4,6 +4,7 @@ import sys
 import os
 import pandas as pd 
 from .functions import *
+import math
 #from .new_function_script import * 
 
 global columns
@@ -262,6 +263,12 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                             mapping += ";\n"
                             prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
                             mapping += "        rr:termType " + prefix + ":" + value + ";\n"
+                            if "Literal" in predicate_object.object_map.term:
+                                if  predicate_object.object_map.datatype != None:
+                                    mapping = mapping[:-2]
+                                    mapping += ";\n"
+                                    prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                    mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
                         mapping += "        ]\n"
                     elif "reference" == predicate_object.object_map.mapping_type:
                         mapping += "[\n"
@@ -388,6 +395,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                     temp_dic = create_dictionary(tp)
                                     mapping += "[\n"
                                     mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                    if  predicate_object.object_map.datatype != None:
+                                        mapping = mapping[:-1]
+                                        mapping += ";\n"
+                                        prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                        mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
                                     mapping += "        ];\n"
                         else:
                             if "Literal" not in predicate_object.object_map.term:
@@ -428,6 +440,11 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                                         temp_dic = create_dictionary(tp)
                                         mapping += "[\n"
                                         mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                        if  predicate_object.object_map.datatype != None:
+                                            mapping = mapping[:-1]
+                                            mapping += ";\n"
+                                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                            mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
                                         mapping += "        ];\n"
                     mapping += "    ];\n"
             if triples_map.function:
@@ -523,6 +540,11 @@ def join_csv(source, dic, output,triples_map_list):
                 temp_values = {}
                 for current_func in temp_dics:
                     temp_value = inner_function(row,temp_dics[current_func],triples_map_list)
+                    if isinstance(temp_value, float):
+                        if math.isnan(temp_value):
+                            temp_value = ""
+                    elif temp_value == "nan":
+                            temp_value = ""
                     temp_values[current_func] = temp_value
                     temp_string += temp_value
                 if (temp_string not in values) and (temp_string != ""):
@@ -554,6 +576,11 @@ def join_csv(source, dic, output,triples_map_list):
                     string_values = inner_values(row,dic,triples_map_list)
                     if (string_values not in values) and (string_values != None):
                         value = execute_function(row,None,dic)
+                        if isinstance(value, float):
+                            if math.isnan(value):
+                                value = ""
+                        elif value == "nan":
+                            value = ""
                         line = []
                         for attr in dic["inputs"]:
                             if (attr[1] != "constant") and ("reference function" not in attr[1]):
@@ -575,6 +602,11 @@ def join_csv(source, dic, output,triples_map_list):
                     string_values = inner_values(row,dic,triples_map_list)
                     if (string_values not in values) and (string_values != None):
                         value = execute_function(row,None,dic)
+                        if isinstance(value, float):
+                            if math.isnan(value):
+                                value = ""
+                        elif value == "nan":
+                            value = ""
                         line = []
                         for attr in dic["inputs"]:
                             if (attr[1] != "constant") and ("reference function" not in attr[1]):
