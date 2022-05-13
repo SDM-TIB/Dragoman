@@ -353,10 +353,15 @@ def translate(config_path):
 															join_csv(triples_map.data_source, current_func, config["datasets"]["output_folder"],triples_map_list)
 														i += 1
 												for inputs in current_func["inputs"]:
-													if "reference function" not in inputs and "constant" not in inputs: 
+													if "template" in inputs:
+														for value in inputs[0].split("{"):
+															if "}" in value:
+																if value.split("}")[0] not in fields:
+																	fields[value.split("}")[0]] = "object"
+													elif "reference function" not in inputs and "constant" not in inputs: 
 														fields[inputs[0]] = "object"
 							else:
-								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant":
+								if po.object_map.mapping_type != "None" and po.object_map.mapping_type != "constant" and po.object_map.mapping_type != "constant shortcut":
 									if po.object_map.mapping_type == "parent triples map":
 										if po.object_map.child is not None:
 											if po.object_map.child not in fields:
@@ -383,7 +388,12 @@ def translate(config_path):
 																				"function":temp["executes"],
 																				"func_par":temp}
 																	for attr in temp_dic["inputs"]:
-																		if "reference function" not in attr[1] and "constant" not in attr[1]:
+																		if "template" in inputs:
+																			for value in inputs[0].split("{"):
+																				if "}" in value:
+																					if value.split("}")[0] not in fields:
+																						fields[value.split("}")[0]] = "object"
+																		elif "reference function" not in attr[1] and "constant" not in attr[1]:
 																			if attr[0] not in fields:
 																				fields[attr[0]] = "object" 
 														elif tp.subject_map.subject_mapping_type != "constant":
@@ -485,6 +495,7 @@ def translate(config_path):
 										for parent in parent_child_list[triples_map.triples_map_id]:
 											if parent not in projection_keys:
 												projection_keys.append(parent)
+												fields[parent] = "join"
 									for temp in temp_dics:
 										projection_keys.append(temp["function"].split("/")[len(temp["function"].split("/"))-1] + "_" + temp["id"])
 									writer.writerow(projection_keys)
@@ -502,13 +513,6 @@ def translate(config_path):
 												pass
 											else:
 												string_values += str(row[key])
-										if triples_map.triples_map_id in parent_child_list:
-											for parent in parent_child_list[triples_map.triples_map_id]:
-												line.append(row[parent])
-												if row[parent] is None:
-													pass
-												else:
-													string_values += str(row[parent])
 										list_input = True
 										for temp_dic in temp_dics:
 											string_line_values = inner_values(row,temp_dic,triples_map_list)

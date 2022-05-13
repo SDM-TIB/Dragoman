@@ -2,6 +2,11 @@ import re
 import csv
 import sys
 import os
+from .string_subs import *
+################################################################################################
+############################ Static (Do NOT change this code) ##################################
+################################################################################################
+
 import pandas as pd
 import requests
 import unidecode
@@ -11,11 +16,11 @@ global_dic = {}
 global functions_pool
 global semantic_dict
 semantic_dict = dict()
+
 #####################################################################################################
 ########### ADD THE IMPLEMENTATION OF YOUR FUNCTIONS HERE FOLLOWING THE EXAMPLES ####################
 #####################################################################################################
 
-## For each new function that you define, add an entry as "function_name":"" to the dictionary below 
 functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function":"","findSemantic":""}
 
 
@@ -106,10 +111,16 @@ def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
         if "constant" not in inputs:
-            if isinstance(row,dict):
-                output[inputs[2]] = row[inputs[0]]
-            else:
-                output[inputs[2]] = row[header.index(inputs[0])]
+            if "reference" in inputs:
+                if isinstance(row,dict):
+                    output[inputs[2]] = row[inputs[0]]
+                else:
+                    output[inputs[2]] = row[header.index(inputs[0])]
+            elif "template" in inputs:
+                if isinstance(row,dict):
+                    output[inputs[2]] = string_substitution(inputs[0], "{(.+?)}", row, "subject", "yes", "None")
+                else:
+                    output[inputs[2]] = string_substitution_array(inputs[0], "{(.+?)}", row, header, "subject", "yes")
         else:
             output[inputs[2]] = inputs[0]
     return output

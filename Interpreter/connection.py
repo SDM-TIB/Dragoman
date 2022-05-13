@@ -96,6 +96,10 @@ def inner_values(row,dic,triples_map_list):
     for inputs in dic["inputs"]:
         if "reference" == inputs[1]:
             values += str(row[inputs[0]])
+        elif "template" == inputs[1]:
+            for string in inputs[0].split("{"):
+                if "}" in string:
+                    values += str(row[string.split("}")[0]])
         elif "reference function" == inputs[1]:
             temp_dics = {}
             for tp in triples_map_list:
@@ -195,7 +199,7 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 mapping += "        rr:template \"" + triples_map.subject_map.value + "\";\n"
                 if  triples_map.subject_map.term_type != None:
                     mapping = mapping[:-1]
-                    mapping += ";\n"
+                    mapping += "\n"
                     prefix, url, value = prefix_extraction(original, triples_map.subject_map.term_type)
                     mapping += "        rr:termType " + prefix + ":" + value + ";\n"
             elif triples_map.subject_map.subject_mapping_type == "reference":
@@ -223,230 +227,244 @@ def update_mapping(triple_maps, dic, output, original, join, data_source):
                 mapping += "        rr:class " + prefix + ":" + value  + "\n"
             mapping += "    ];\n"
 
+            predicate_list = {}
             for predicate_object in triples_map.predicate_object_maps_list:
-                if predicate_object.predicate_map.mapping_type != "None":
-                    mapping += "    rr:predicateObjectMap [\n"
-                    if "constant" in predicate_object.predicate_map.mapping_type :
-                        prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
-                        mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
-                    elif "constant shortcut" in predicate_object.predicate_map.mapping_type:
-                        prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
-                        mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
-                    elif "template" in predicate_object.predicate_map.mapping_type:
-                        mapping += "        rr:predicateMap[\n"
-                        mapping += "            rr:template \"" + predicate_object.predicate_map.value + "\"\n"  
-                        mapping += "        ];\n"
-                    elif "reference" in predicate_object.predicate_map.mapping_type:
-                        mapping += "        rr:predicateMap[\n"
-                        mapping += "            rml:reference \"" + predicate_object.predicate_map.value + "\"\n" 
-                        mapping += "        ];\n"
+                if predicate_object.predicate_map.value not in predicate_list:
+                    predicate_list[predicate_object.predicate_map.value] = ""
+                    if predicate_object.predicate_map.mapping_type != "None":
+                        mapping += "    rr:predicateObjectMap [\n"
+                        if "constant" == predicate_object.predicate_map.mapping_type :
+                            prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
+                            mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
+                        elif "constant shortcut" in predicate_object.predicate_map.mapping_type:
+                            prefix, url, value = prefix_extraction(original, predicate_object.predicate_map.value)
+                            mapping += "        rr:predicate " + prefix + ":" + value + ";\n"
+                        elif "template" in predicate_object.predicate_map.mapping_type:
+                            mapping += "        rr:predicateMap[\n"
+                            mapping += "            rr:template \"" + predicate_object.predicate_map.value + "\"\n"  
+                            mapping += "        ];\n"
+                        elif "reference" in predicate_object.predicate_map.mapping_type:
+                            mapping += "        rr:predicateMap[\n"
+                            mapping += "            rml:reference \"" + predicate_object.predicate_map.value + "\"\n" 
+                            mapping += "        ];\n"
 
-                    mapping += "        rr:objectMap "
-                    if "constant" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        mapping += "        rr:constant \"" + predicate_object.object_map.value + "\"\n"
-                        if  predicate_object.object_map.datatype != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
-                            mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
-                        elif  predicate_object.object_map.language != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
-                        mapping += "        ]\n"
-                    elif "template" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        mapping += "        rr:template  \"" + predicate_object.object_map.value + "\"\n"
-                        if  predicate_object.object_map.term != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
-                            mapping += "        rr:termType " + prefix + ":" + value + ";\n"
-                            if "Literal" in predicate_object.object_map.term:
+                        if "constant shortcut" in predicate_object.object_map.mapping_type:
+                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.value)
+                            mapping += "        rr:object " + prefix + ":" + value + ";\n"
+                        else:
+                            mapping += "        rr:objectMap "
+                            if "constant" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                mapping += "        rr:constant \"" + predicate_object.object_map.value + "\"\n"
                                 if  predicate_object.object_map.datatype != None:
-                                    mapping = mapping[:-2]
-                                    mapping += ";\n"
+                                    mapping = mapping[:-1]
+                                    mapping += "\n"
                                     prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
                                     mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
-                        mapping += "        ]\n"
-                    elif "reference" == predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        mapping += "        rml:reference \"" + predicate_object.object_map.value + "\"\n"
-                        if  predicate_object.object_map.datatype != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
-                            mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
-                        elif  predicate_object.object_map.language != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
-                        elif  predicate_object.object_map.term != None:
-                            mapping = mapping[:-1]
-                            mapping += ";\n"
-                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
-                            mapping += "        rr:termType " + prefix + ":" + value + ";\n"
-                        mapping += "        ]\n"
-                    elif "parent triples map function" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        if "#" in predicate_object.object_map.value:
-                            parent_id =  predicate_object.object_map.value.split("#")[1] 
-                        else: 
-                            parent_id = predicate_object.object_map.value 
-                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                        mapping += "        rr:joinCondition [\n"
-                        mapping += "            rr:child <" + predicate_object.object_map.child + ">;\n"
-                        mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
-                        mapping += "        ]\n"
-                    elif "parent triples map parent function" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        if "#" in predicate_object.object_map.value:
-                            parent_id =  predicate_object.object_map.value.split("#")[1] 
-                        else: 
-                            parent_id = predicate_object.object_map.value 
-                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                        mapping += "        rr:joinCondition [\n"
-                        mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
-                        mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
-                        mapping += "        ]\n"
-                    elif "parent triples map child function" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        if "#" in predicate_object.object_map.value:
-                            parent_id =  predicate_object.object_map.value.split("#")[1] 
-                        else: 
-                            parent_id = predicate_object.object_map.value 
-                        mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                        mapping += "        rr:joinCondition [\n"
-                        mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
-                        mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
-                        mapping += "        ]\n"
-                    elif "parent triples map" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        if (predicate_object.object_map.child != None) and (predicate_object.object_map.parent != None):
-                            if "#" in predicate_object.object_map.value:
-                                parent_id =  predicate_object.object_map.value.split("#")[1] 
-                            else: 
-                                parent_id = predicate_object.object_map.value 
-                            mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                            mapping = mapping[:-2]
-                            mapping += ";\n"
-                            mapping += "        rr:joinCondition [\n"
-                            mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
-                            mapping += "            rr:parent \"" + predicate_object.object_map.parent + "\";\n"
-                            mapping += "        ]\n"
-                        else:
-                            if triples_map.triples_map_id in data_source:
-                                mapping = mapping[:-1]
-                                for tm in triple_maps:
-                                    if tm.triples_map_id == predicate_object.object_map.value:
-                                        if tm.subject_map.subject_mapping_type == "constant":
-                                            mapping += "\n            rr:constant \"" + tm.subject_map.value + "\";\n"
-                                            mapping += "            rr:termType rr:IRI\n"
-                                        elif tm.subject_map.subject_mapping_type == "function":
-                                            for func in triple_maps:
-                                                if tm.subject_map.value == func.triples_map_id:
-                                                    temp_dic = create_dictionary(func)
-                                                    mapping += "\n        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + func.triples_map_id + "\";\n"
-                                                    mapping += "        rr:termType rr:IRI\n"
-                                        else:
-                                            mapping += "\n"
-                                            if "#" in predicate_object.object_map.value:
-                                                parent_id =  predicate_object.object_map.value.split("#")[1] 
-                                            else: 
-                                                parent_id = predicate_object.object_map.value 
-                                            mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
-                                            if tm.subject_map.subject_mapping_type == "function":
-                                                for func in triple_maps:
-                                                    if tm.subject_map.value == func.triples_map_id:
-                                                        temp = create_dictionary(func)
-                                                        temp_dic = {"inputs":temp["inputs"], 
-                                                                    "function":temp["executes"],
-                                                                    "func_par":temp}
-                                                        for attr in temp_dic["inputs"]:
-                                                            if "reference function" not in attr[1] and "constant" not in attr[1]:
-                                                                mapping += "        rr:joinCondition [\n"
-                                                                mapping += "            rr:child \"" + attr[0] + "\";\n"
-                                                                mapping += "            rr:parent \"" + attr[0] +"\";\n"
-                                                                mapping += "            ];\n"
-                                            else:    
-                                                if "{" in tm.subject_map.value:
-                                                    for string in tm.subject_map.value.split("{"):
-                                                        if "}" in string:
-                                                            subject_value = string.split("}")[0]
-                                                            mapping += "        rr:joinCondition [\n" 
-                                                            mapping += "            rr:child \"" + subject_value  + "\";\n"
-                                                            mapping += "            rr:parent \"" + subject_value + "\";\n"
-                                                            mapping += "        ];\n"
-                                                else:
-                                                    mapping += "        rr:joinCondition [\n" 
-                                                    mapping += "            rr:child \"" + tm.subject_map.value  + "\";\n"
-                                                    mapping += "            rr:parent \"" + tm.subject_map.value + "\";\n"
-                                                    mapping += "        ];\n"
-                        mapping += "        ]\n"
-                    elif "constant shortcut" in predicate_object.object_map.mapping_type:
-                        mapping += "[\n"
-                        mapping += "        rr:constant \"" + predicate_object.object_map.value + "\"\n"
-                        mapping += "        ]\n"
-                    elif "reference function" in predicate_object.object_map.mapping_type:
-                        if predicate_object.object_map.term == None:
-                            for tp in triple_maps:
-                                if tp.triples_map_id == predicate_object.object_map.value:
-                                    temp_dic = create_dictionary(tp)
-                                    mapping += "[\n"
-                                    mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
-                                    if  predicate_object.object_map.datatype != None:
-                                        mapping = mapping[:-1]
-                                        mapping += ";\n"
-                                        prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
-                                        mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
-                                    mapping += "        ];\n"
-                        else:
-                            if "Literal" not in predicate_object.object_map.term:
-                                if join:
-                                    mapping += "[\n"
-                                    if predicate_object.object_map.value in dic:
-                                        mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
-                                        for attr in dic[predicate_object.object_map.value]["inputs"]:
-                                            if ("reference function" in attr[1]):
-                                                for tp in triple_maps:
-                                                    if tp.triples_map_id == attr[0]:
-                                                        temp_dic = create_dictionary(tp)
-                                                        mapping += "        rr:joinCondition [\n"
-                                                        mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
-                                                        mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
-                                                        mapping += "            ];\n"
-                                                        break
-                                            elif (attr[1] != "constant"):
-                                                mapping += "        rr:joinCondition [\n"
-                                                mapping += "            rr:child \"" + attr[0] + "\";\n"
-                                                mapping += "            rr:parent \"" + attr[0] +"\";\n"
-                                                mapping += "            ];\n"
-                                        mapping += "        ];\n"
-                                    else:
-                                        for tp in triple_maps:
-                                            if tp.triples_map_id == predicate_object.object_map.value:
-                                                temp_dic = create_dictionary(tp)
-                                                mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
-                                                mapping += "        ];\n"
-                                else:
-                                    mapping += "[\n"
-                                    mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
-                                    mapping += "        rr:termType rr:IRI\n"
-                                    mapping += "        ];\n"
-                            elif "Literal" in predicate_object.object_map.term:
-                                for tp in triple_maps:
-                                    if tp.triples_map_id == predicate_object.object_map.value:
-                                        temp_dic = create_dictionary(tp)
-                                        mapping += "[\n"
-                                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                elif  predicate_object.object_map.language != None:
+                                    mapping = mapping[:-1]
+                                    mapping += "\n"
+                                    mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
+                                mapping += "        ]\n"
+                            elif "template" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                mapping += "        rr:template  \"" + predicate_object.object_map.value + "\"\n"
+                                if  predicate_object.object_map.term != None:
+                                    mapping = mapping[:-1]
+                                    mapping += ";\n"
+                                    prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                                    mapping += "        rr:termType " + prefix + ":" + value + ";\n"
+                                    if "Literal" in predicate_object.object_map.term:
                                         if  predicate_object.object_map.datatype != None:
-                                            mapping = mapping[:-1]
+                                            mapping = mapping[:-2]
                                             mapping += ";\n"
                                             prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
                                             mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
-                                        mapping += "        ];\n"
-                    mapping += "    ];\n"
+                                mapping += "        ]\n"
+                            elif "reference" == predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                mapping += "        rml:reference \"" + predicate_object.object_map.value + "\"\n"
+                                if  predicate_object.object_map.datatype != None:
+                                    mapping = mapping[:-1]
+                                    mapping += ";\n"
+                                    prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                    mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
+                                elif  predicate_object.object_map.language != None:
+                                    mapping = mapping[:-1]
+                                    mapping += ";\n"
+                                    mapping += "        rr:language \"" + predicate_object.object_map.language + "\";\n"
+                                elif  predicate_object.object_map.term != None:
+                                    mapping = mapping[:-1]
+                                    mapping += ";\n"
+                                    prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                                    mapping += "        rr:termType " + prefix + ":" + value + ";\n"
+                                mapping += "        ]\n"
+                            elif "parent triples map function" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                if "#" in predicate_object.object_map.value:
+                                    parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                else: 
+                                    parent_id = predicate_object.object_map.value 
+                                mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
+                                mapping += "        rr:joinCondition [\n"
+                                mapping += "            rr:child <" + predicate_object.object_map.child + ">;\n"
+                                mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
+                                mapping += "        ]\n"
+                            elif "parent triples map parent function" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                if "#" in predicate_object.object_map.value:
+                                    parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                else: 
+                                    parent_id = predicate_object.object_map.value 
+                                mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
+                                mapping += "        rr:joinCondition [\n"
+                                mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
+                                mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
+                                mapping += "        ]\n"
+                            elif "parent triples map child function" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                if "#" in predicate_object.object_map.value:
+                                    parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                else: 
+                                    parent_id = predicate_object.object_map.value 
+                                mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
+                                mapping += "        rr:joinCondition [\n"
+                                mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
+                                mapping += "            rr:parent <" + predicate_object.object_map.parent + ">;\n"
+                                mapping += "        ]\n"
+                            elif "parent triples map" in predicate_object.object_map.mapping_type:
+                                mapping += "[\n"
+                                if (predicate_object.object_map.child != None) and (predicate_object.object_map.parent != None):
+                                    if "#" in predicate_object.object_map.value:
+                                        parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                    else: 
+                                        parent_id = predicate_object.object_map.value 
+                                    mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
+                                    mapping = mapping[:-2]
+                                    mapping += ";\n"
+                                    mapping += "        rr:joinCondition [\n"
+                                    mapping += "            rr:child \"" + predicate_object.object_map.child + "\";\n"
+                                    mapping += "            rr:parent \"" + predicate_object.object_map.parent + "\";\n"
+                                    mapping += "        ]\n"
+                                else:
+                                    if triples_map.triples_map_id in data_source:
+                                        mapping = mapping[:-1]
+                                        for tm in triple_maps:
+                                            if tm.triples_map_id == predicate_object.object_map.value:
+                                                if tm.subject_map.subject_mapping_type == "constant":
+                                                    mapping += "\n            rr:constant \"" + tm.subject_map.value + "\";\n"
+                                                    mapping += "            rr:termType rr:IRI\n"
+                                                elif tm.subject_map.subject_mapping_type == "function":
+                                                    for func in triple_maps:
+                                                        if tm.subject_map.value == func.triples_map_id:
+                                                            temp_dic = create_dictionary(func)
+                                                            mapping += "\n        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + func.triples_map_id + "\";\n"
+                                                            mapping += "        rr:termType rr:IRI\n"
+                                                else:
+                                                    mapping += "\n"
+                                                    if "#" in predicate_object.object_map.value:
+                                                        parent_id =  predicate_object.object_map.value.split("#")[1] 
+                                                    else: 
+                                                        parent_id = predicate_object.object_map.value 
+                                                    mapping += "        rr:parentTriplesMap <" + parent_id + ">;\n"
+                                                    if tm.subject_map.subject_mapping_type == "function":
+                                                        for func in triple_maps:
+                                                            if tm.subject_map.value == func.triples_map_id:
+                                                                temp = create_dictionary(func)
+                                                                temp_dic = {"inputs":temp["inputs"], 
+                                                                            "function":temp["executes"],
+                                                                            "func_par":temp}
+                                                                for attr in temp_dic["inputs"]:
+                                                                    if "reference function" not in attr[1] and "constant" not in attr[1]:
+                                                                        mapping += "        rr:joinCondition [\n"
+                                                                        mapping += "            rr:child \"" + attr[0] + "\";\n"
+                                                                        mapping += "            rr:parent \"" + attr[0] +"\";\n"
+                                                                        mapping += "            ];\n"
+                                                    else:    
+                                                        if "{" in tm.subject_map.value:
+                                                            for string in tm.subject_map.value.split("{"):
+                                                                if "}" in string:
+                                                                    subject_value = string.split("}")[0]
+                                                                    mapping += "        rr:joinCondition [\n" 
+                                                                    mapping += "            rr:child \"" + subject_value  + "\";\n"
+                                                                    mapping += "            rr:parent \"" + subject_value + "\";\n"
+                                                                    mapping += "        ];\n"
+                                                        else:
+                                                            mapping += "        rr:joinCondition [\n" 
+                                                            mapping += "            rr:child \"" + tm.subject_map.value  + "\";\n"
+                                                            mapping += "            rr:parent \"" + tm.subject_map.value + "\";\n"
+                                                            mapping += "        ];\n"
+                                mapping += "        ]\n"
+                            elif "reference function" in predicate_object.object_map.mapping_type:
+                                if predicate_object.object_map.term == None:
+                                    for tp in triple_maps:
+                                        if tp.triples_map_id == predicate_object.object_map.value:
+                                            temp_dic = create_dictionary(tp)
+                                            mapping += "[\n"
+                                            mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                            if  predicate_object.object_map.datatype != None:
+                                                mapping = mapping[:-1]
+                                                mapping += "\n"
+                                                prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                                mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
+                                            mapping += "        ];\n"
+                                else:
+                                    if "Literal" not in predicate_object.object_map.term:
+                                        if join:
+                                            mapping += "[\n"
+                                            if predicate_object.object_map.value in dic:
+                                                mapping += "        rr:parentTriplesMap <" + dic[predicate_object.object_map.value]["output_name"] + ">;\n"
+                                                for attr in dic[predicate_object.object_map.value]["inputs"]:
+                                                    if ("reference function" in attr[1]):
+                                                        for tp in triple_maps:
+                                                            if tp.triples_map_id == attr[0]:
+                                                                temp_dic = create_dictionary(tp)
+                                                                mapping += "        rr:joinCondition [\n"
+                                                                mapping += "            rr:child \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "\";\n"
+                                                                mapping += "            rr:parent \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] +"\";\n"
+                                                                mapping += "            ];\n"
+                                                                break
+                                                    elif (attr[1] != "constant"):
+                                                        if attr[1] == "template":
+                                                            for value in attr[0].split("{"):
+                                                                if "}" in value:
+                                                                    mapping += "        rr:joinCondition [\n"
+                                                                    mapping += "            rr:child \"" + value.split("}")[0] + "\";\n"
+                                                                    mapping += "            rr:parent \"" +  value.split("}")[0] +"\";\n"
+                                                                    mapping += "            ];\n"
+                                                        else:
+                                                            mapping += "        rr:joinCondition [\n"
+                                                            mapping += "            rr:child \"" + attr[0] + "\";\n"
+                                                            mapping += "            rr:parent \"" + attr[0] +"\";\n"
+                                                            mapping += "            ];\n"
+                                                mapping += "        ];\n"
+                                            else:
+                                                for tp in triple_maps:
+                                                    if tp.triples_map_id == predicate_object.object_map.value:
+                                                        temp_dic = create_dictionary(tp)
+                                                        mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                                        prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                                                        mapping += "        rr:termType " + prefix + ":" + value + ";\n"
+                                                        mapping += "        ];\n"
+                                        else:
+                                            mapping += "[\n"
+                                            mapping += "        rml:reference \"" + dic[predicate_object.object_map.value]["output_name"] + "\";\n"
+                                            prefix, url, value = prefix_extraction(original, predicate_object.object_map.term)
+                                            mapping += "        rr:termType " + prefix + ":" + value + ";\n"
+                                            mapping += "        ];\n"
+                                    elif "Literal" in predicate_object.object_map.term:
+                                        for tp in triple_maps:
+                                            if tp.triples_map_id == predicate_object.object_map.value:
+                                                temp_dic = create_dictionary(tp)
+                                                mapping += "[\n"
+                                                mapping += "        rml:reference \"" + temp_dic["executes"].split("/")[len(temp_dic["executes"].split("/"))-1] + "_" + tp.triples_map_id + "\";\n"
+                                                if  predicate_object.object_map.datatype != None:
+                                                    mapping = mapping[:-1]
+                                                    mapping += ";\n"
+                                                    prefix, url, value = prefix_extraction(original, predicate_object.object_map.datatype)
+                                                    mapping += "        rr:datatype " + prefix + ":" + value + ";\n"
+                                                mapping += "        ];\n"
+                        mapping += "    ];\n"
             if triples_map.function:
                 pass
             else:
@@ -503,7 +521,12 @@ def join_csv(source, dic, output,triples_map_list):
         keys = []
         for attr in dic["inputs"]:
             if (attr[1] != "constant") and (attr[1] != "reference function"):
-                keys.append(attr[0])
+                if attr[1] == "template":
+                    for value in attr[0].split("{"):
+                        if "}" in value:
+                            keys.append(value.split("}")[0])
+                else:
+                    keys.append(attr[0])
 
         values = {}
         global columns
@@ -514,6 +537,10 @@ def join_csv(source, dic, output,triples_map_list):
         for attr in dic["inputs"]:
             if ("reference function" in attr[1]):
                 functions.append(attr[0])
+            elif attr[1] == "template":
+                for value in attr[0].split("{"):
+                    if "}" in value:
+                        outer_keys.append(value.split("}")[0])
             elif "constant" not in attr[1]:
                 outer_keys.append(attr[0])
         if functions:
@@ -564,8 +591,13 @@ def join_csv(source, dic, output,triples_map_list):
         else:
             reference = ""
             for inputs in dic["inputs"]:
-                if "reference function" not in inputs and "constant" not in inputs: 
-                    reference += inputs[0] + "_"
+                if "reference function" not in inputs and "constant" not in inputs:
+                    if "template" in inputs:
+                        for value in inputs[0].split("{"):
+                            if "}" in value:
+                              reference += value.split("}")[0] + "_"  
+                    else:
+                        reference += inputs[0] + "_"
 
             if reference in columns:
 
@@ -610,7 +642,12 @@ def join_csv(source, dic, output,triples_map_list):
                         line = []
                         for attr in dic["inputs"]:
                             if (attr[1] != "constant") and ("reference function" not in attr[1]):
-                                line.append(row[attr[0]])
+                                if "template" == attr[1]:
+                                    for value in attr[0].split("{"):
+                                        if "}" in value:
+                                           line.append(row[value.split("}")[0]]) 
+                                else:
+                                    line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
                         values[reference] = value
@@ -911,6 +948,10 @@ def inner_function(row,dic,triples_map_list):
     for attr in dic["inputs"]:
         if ("reference function" in attr[1]):
             functions.append(attr[0])
+        elif "template" in attr[1]:
+            for value in attr[0].split("{"):
+                if "}" in value:
+                   keys.append(value.split("}")[0]) 
         elif "constant" not in attr[1]:
             keys.append(attr[0])
     if functions:
@@ -945,6 +986,9 @@ def create_dictionary(triple_map):
             key = tp.predicate_map.value.split("/")[len(tp.predicate_map.value.split("/"))-1]
             tp_type = tp.predicate_map.mapping_type
         if "constant" in tp.object_map.mapping_type:
+            value = tp.object_map.value
+            tp_type = tp.object_map.mapping_type
+        if "template" in tp.object_map.mapping_type:
             value = tp.object_map.value
             tp_type = tp.object_map.mapping_type
         elif "#" in tp.object_map.value:
