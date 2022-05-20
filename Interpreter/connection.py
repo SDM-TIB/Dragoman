@@ -87,7 +87,11 @@ def output_query(triples_map, function_dic, data_source):
 def dic_builder(keys,values):
     dic = {}
     for key in keys:
-        if (key[1] != "constant") and ("reference function" not in key[1]):
+        if "template" == key[1]:
+            for string in key[0].split("{"):
+                if "}" in string:
+                    dic[string.split("}")[0]] = str(values[string.split("}")[0]])
+        elif (key[1] != "constant") and ("reference function" not in key[1]):
             dic[key[0]] = values[key[0]]
     return dic
 
@@ -616,7 +620,12 @@ def join_csv(source, dic, output,triples_map_list):
                         line = []
                         for attr in dic["inputs"]:
                             if (attr[1] != "constant") and ("reference function" not in attr[1]):
-                                line.append(row[attr[0]])
+                                if "template" == attr[1]:
+                                    for val in attr[0].split("{"):
+                                        if "}" in val:
+                                           line.append(row[val.split("}")[0]]) 
+                                else:
+                                    line.append(row[attr[0]])
                         line.append(value)
                         writer.writerow(line)
                         values[string_values] = value
@@ -643,9 +652,9 @@ def join_csv(source, dic, output,triples_map_list):
                         for attr in dic["inputs"]:
                             if (attr[1] != "constant") and ("reference function" not in attr[1]):
                                 if "template" == attr[1]:
-                                    for value in attr[0].split("{"):
-                                        if "}" in value:
-                                           line.append(row[value.split("}")[0]]) 
+                                    for val in attr[0].split("{"):
+                                        if "}" in val:
+                                           line.append(row[val.split("}")[0]]) 
                                 else:
                                     line.append(row[attr[0]])
                         line.append(value)
