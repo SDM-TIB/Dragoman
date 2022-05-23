@@ -7,9 +7,8 @@ import pandas as pd
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"tolower":"","toupper":"","totitle":"","trim":"","chomp":"","substring":"","replaceValue":"","variantIdentifier":"",
-                "concat2":"","concat3":"","concat4":"","concat5":"","concat6":"","match_gdna":"","match_aa":"",
-                "match_exon":"","rearrange_cds":"","match_pFormat":"","match":"","replaceRegex":"","split":""}
+functions_pool = {"tolower":"","toupper":"","totitle":"","trim":"","chomp":"","substring":"","replaceValue":"",
+                "concat2":"","concat3":"","concat4":"","concat5":"","concat6":"","match":"","replaceRegex":"","split":""}
 
 ## row: the current record of the datasource that is being provided to the function including all the columns/attributes
 ## dic["func_par"]: is a dictionary itself; the keys are the name of the input parameter and the value of each key is the column/attribute of the datasource which is the input value of the input parameter(key)
@@ -61,19 +60,6 @@ def match():
     return re.match(global_dic["regex"], value)[0]
 
 
-def variantIdentifier():
-    value = ""
-    column1 = global_dic["column1"]
-    column2 = global_dic["column2"]
-    if (str(column1) != "nan"):
-        value = re.sub('_.*','',str(column2))+"_"+str(column1).replace("c.","").replace(">", "~")
-        value = global_dic["prefix"]+value
-    return value
-
-################################################################################################################
-############################################## new functions for GenoKGC #######################################
-################################################################################################################
-
 def concat2():
     if bool(global_dic["value1"]) and bool(global_dic["value2"]):
         result = str(str(global_dic["value1"])+str(global_dic["value2"]))
@@ -112,90 +98,6 @@ def concat6():
     else:
         result = "" 
     return(result)
-
-def match_gdna():
-    combinedValue = global_dic["combinedValue"]
-    if bool(combinedValue):
-        expressionsList = combinedValue.split(":")
-        gdna = ""
-        for j in range(0,len(expressionsList)):
-            if "g." in expressionsList[j]:
-                gdna = expressionsList[j]
-    else:
-        gdna = ""
-    return(gdna)
-
-def match_cdna():
-    combinedValue = global_dic["combinedValue"]
-    if bool(combinedValue):
-        expressionsList = combinedValue.split(":")
-        cdna = ""
-        for j in range(0,len(expressionsList)):
-            if "c." in expressionsList[j]: 
-                cdna = expressionsList[j] 
-    else:
-        cdna = ""                
-    return(cdna)
-
-def match_aa():
-    combinedValue = global_dic["combinedValue"]
-    if bool(combinedValue):
-        expressionsList = combinedValue.split(":")
-        aa = ""
-        for j in range(0,len(expressionsList)):
-            if "p." in expressionsList[j]:
-                aa = expressionsList[j]
-    else:
-        aa = ""             
-    return (aa)  
-
-def match_exon():
-    combinedValue = global_dic["combinedValue"]
-    if bool(combinedValue):
-        expressionsList = combinedValue.split(":")
-        exon = ""
-        for j in range(0,len(expressionsList)):
-            if "exon" in expressionsList[j]:  
-                exon = expressionsList[j]  
-    else:
-        exon = ""                
-    return(exon)
-           
-def match_pFormat():    
-    threeLetters = global_dic["threeLetters"]
-    gene = global_dic["gene"]       
-    aminoAcidsDic = {
-    "ala":"A", "arg":"R", "asn":"N", "asp":"D", "asx":"B", "cys":"C", "glu":"E", "gln":"Q", "glx":"Z", "gly":"G", "his":"H", "ile":"I", "leu":"L", "lys":"K", 
-    "met":"M", "phe":"F", "pro":"P", "ser":"S", "thr":"T", "trp":"W", "tyr":"Y", "val":"V"}               
-    if threeLetters != "":
-        first = threeLetters.split(".")[1][0:3]
-        second = threeLetters.split(".")[1][-3:]
-        middle = threeLetters.split(".")[1][3:-3]
-        if first in aminoAcidsDic.keys() and second in aminoAcidsDic.keys():
-            pFormat = gene + "~p." + aminoAcidsDic[first] + middle + aminoAcidsDic[second]
-        else:
-            pFormat = ""
-    else:
-        pFormat = ""    
-    return(pFormat)
-
-def rearrange_cds():
-    cds = global_dic["cds"]
-    if bool(cds):
-        if "del" not in cds and "ins" not in cds:
-            if not cds.split(".")[1][0].isdigit():
-                firstN = cds.split(".")[1][0]
-                gp = cds.split(".")[1][1:-1]
-                secondN = cds.split(".")[1][-1]  
-                new_cds = gp + firstN + "~" + secondN                                                          
-            else:
-                new_cds = cds.split(".")[1][:-1] + "~" + cds.split(".")[1][-1]
-        else:
-            new_cds = cds.split(".")[1]    
-    else:
-        new_cds = ""                
-    return(new_cds)
-
 
 # returns the regex match with the replvalue in the column
 def replaceRegex():
