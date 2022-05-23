@@ -28,13 +28,13 @@ functions_pool = {"tolower":"","replaceValue":"","concat2":"","falcon_UMLS_CUI_f
 ## that you aim to use as the input parameters of functions are only required to be provided 
 ## as the keys of "global_dic"
 def tolower(): 
-    return global_dic["value"].lower()
+    return str(global_dic["value"]).lower()
 
 #replace value2 by value3
 def replaceValue():
     value = global_dic["value"]
     return str(value).replace(global_dic["value2"], global_dic["value3"])
-
+    print (str(value).replace(global_dic["value2"], global_dic["value3"]))
 
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
