@@ -143,8 +143,11 @@ def prefix_extraction(original, uri):
         original_mapping = f.readlines()
         for prefix in original_mapping:
             if ("prefix" in prefix) or ("base" in prefix):
-               elements = prefix.split(" ")
-               prefixes[elements[2][1:-1]] = elements[1][:-1]
+                elements = prefix.split(" ")
+                if ">" in elements[2][:-1]:
+                    prefixes[elements[2][1:-1].split(">")[0]] = elements[1][:-1]
+                else:
+                    prefixes[elements[2][1:-1]] = elements[1][:-1]
             else:
                 break
         f.close()
