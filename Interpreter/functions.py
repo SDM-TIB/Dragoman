@@ -2,6 +2,7 @@ import re
 import csv
 import sys
 import os
+import unidecode
 from .string_subs import *
 ################################################################################################
 ############################ Static (Do NOT change this code) ##################################
@@ -32,9 +33,8 @@ def tolower():
 
 #replace value2 by value3
 def replaceValue():
-    value = global_dic["value"]
-    return str(value).replace(global_dic["value2"], global_dic["value3"])
-    print (str(value).replace(global_dic["value2"], global_dic["value3"]))
+    value = unidecode.unidecode(str(global_dic["value"]))
+    return value.replace(global_dic["value2"], global_dic["value3"])
 
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
