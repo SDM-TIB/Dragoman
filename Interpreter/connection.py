@@ -1000,12 +1000,13 @@ def create_dictionary(triple_map):
         if "template" in tp.object_map.mapping_type:
             value = tp.object_map.value
             tp_type = tp.object_map.mapping_type
-        elif "#" in tp.object_map.value:
-            value = tp.object_map.value.split("#")[1]
-            tp_type = tp.object_map.mapping_type
-        elif "/" in tp.object_map.value:
-            value = tp.object_map.value.split("/")[len(tp.object_map.value.split("/"))-1]
-            tp_type = tp.object_map.mapping_type
+        elif "executes" in tp.predicate_map.value:
+            if "#" in tp.object_map.value:
+                value = tp.object_map.value.split("#")[1]
+                tp_type = tp.object_map.mapping_type
+            elif "/" in tp.object_map.value:
+                value = tp.object_map.value.split("/")[len(tp.object_map.value.split("/"))-1]
+                tp_type = tp.object_map.mapping_type
         else:
             value = tp.object_map.value
             tp_type = tp.object_map.mapping_type

@@ -58,6 +58,7 @@ def falcon_UMLS_CUI_function():
 def concat2():
     value1 = global_dic["value1"]
     value2 = global_dic["value2"]
+    #print(value1 + " " + value2)
     if bool(value1) and bool(value2):
         result = str(str(value1)+str(value2))
     else:
@@ -76,6 +77,7 @@ def execute_function(row,header,dic):
         func = dic["function"].split("#")[1]
     else:
         func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
+    #print(dic)
     if func in functions_pool:
         global global_dic
         global_dic = execution_dic(row,header,dic)
@@ -89,7 +91,7 @@ def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
         if "constant" not in inputs:
-            if "reference" in inputs:
+            if "reference" in inputs[1]:
                 if isinstance(row,dict):
                     output[inputs[2]] = row[inputs[0]]
                 else:
