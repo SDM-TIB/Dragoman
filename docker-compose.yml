@@ -1,8 +1,8 @@
 version: "2"
 services:
-  funmap:
-    container_name: funmap
-    image: funmap:latest
+  dragoman:
+    container_name: dragoman
+    image: dragoman:latest
     shm_size: '50gb'
     volumes:
       - ./data:/data

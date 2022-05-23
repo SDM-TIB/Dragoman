@@ -206,14 +206,16 @@ def split():
     return str(global_dic["column"]).split(global_dic["separator"])[int(global_dic["index"])]
 
 
-###############################################################################################
-################################## Static (Do NOT change) #####################################
+################################################################################################
+############################ Static (Do NOT change this code) ##################################
+################################################################################################
 
 def execute_function(row,header,dic):
     if "#" in dic["function"]:
         func = dic["function"].split("#")[1]
     else:
         func = dic["function"].split("/")[len(dic["function"].split("/"))-1]
+    #print(dic)
     if func in functions_pool:
         global global_dic
         global_dic = execution_dic(row,header,dic)
@@ -227,10 +229,16 @@ def execution_dic(row,header,dic):
     output = {}
     for inputs in dic["inputs"]:
         if "constant" not in inputs:
-            if isinstance(row,dict):
-                output[inputs[2]] = row[inputs[0]]
-            else:
-                output[inputs[2]] = row[header.index(inputs[0])]
+            if "reference" in inputs[1]:
+                if isinstance(row,dict):
+                    output[inputs[2]] = row[inputs[0]]
+                else:
+                    output[inputs[2]] = row[header.index(inputs[0])]
+            elif "template" in inputs:
+                if isinstance(row,dict):
+                    output[inputs[2]] = string_substitution(inputs[0], "{(.+?)}", row, "subject", "yes", "None")
+                else:
+                    output[inputs[2]] = string_substitution_array(inputs[0], "{(.+?)}", row, header, "subject", "yes")
         else:
             output[inputs[2]] = inputs[0]
     return output
