@@ -21,7 +21,7 @@ semantic_dict = dict()
 ########### ADD THE IMPLEMENTATION OF YOUR FUNCTIONS HERE FOLLOWING THE EXAMPLES ####################
 #####################################################################################################
 
-functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function":"","findSemantic":""}
+functions_pool = {"tolower":"","replaceValue":"","concat2":"","falcon_UMLS_CUI_function":""}
 
 
 ## Define your functions here following examples below, the column "names" from the csv files 
@@ -30,8 +30,10 @@ functions_pool = {"tolower":"","chomp":"","concat2":"","falcon_UMLS_CUI_function
 def tolower(): 
     return global_dic["value"].lower()
 
-def chomp():
-    return global_dic["value"].replace(global_dic["toremove"], '')
+#replace value2 by value3
+def replaceValue():
+    value = global_dic["value"]
+    return str(value).replace(global_dic["value2"], global_dic["value3"])
 
 
 
@@ -62,30 +64,6 @@ def concat2():
         result = ""  
     return(result)
 
-def findSemantic():
-    #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    #semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-sources/family_antecedents_treatment_line.csv", low_memory=False)
-    #for i in range(0, len(semantic_df["family_member"])):
-    #    if "Tío" in str(semantic_df["family_member"][i]):
-    #        #print (semantic_dict.keys())
-    #        print (semantic_dict["family_antecedents_treatment_line_family_member_Tío"])
-    tableName = str(global_dic["tableName"])
-    columnName = str(global_dic["columnName"])
-    resource = str(global_dic["resource"])
-    columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
-    #if "tío" in columnValue:
-    print (columnValue)
-    result = str()
-    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
-            else:
-                result = ""
-        else:
-            result = ""
-    return result
 
 
 
