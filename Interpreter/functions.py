@@ -36,25 +36,6 @@ def replaceValue():
     value = unidecode.unidecode(str(global_dic["value"]))
     return value.replace(global_dic["value2"], global_dic["value3"])
 
-
-headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-
-def falcon_UMLS_CUI_function():
-    value = global_dic["value"]
-    output = ""
-    url = 'https://labs.tib.eu/sdm/umlsmatching/umlsmatching?type=cui'
-    text = str(value).replace("_"," ")
-    payload = '{"data":"'+text+'"}'
-    r = requests.post(url, data=payload.encode('utf-8'), headers=headers)
-    if r.status_code == 200:
-        response=r.json()
-        if response['cui'] != "":
-            return response['cui'][0]
-        else:
-            return ""
-    else:
-        return ""
-
 def concat2():
     value1 = global_dic["value1"]
     value2 = global_dic["value2"]
