@@ -5,4 +5,3 @@ mysql-connector-python==8.0.21
 requests
 flask
 unidecode
-re
