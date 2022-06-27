@@ -13,9 +13,9 @@
 "comorbidity","name","Tuberculosis","Tuberculosis"
 "comorbidity","name","Obesity","Obesity"
 "comorbidity","name","Obstructive sleep Apnea","Obstructive_sleep_apnea"
-"comorbidity","name","Chronic obstructive pulmonary disease","chronic_obstructive_pulmonary_disease_clinic"
-"comorbidity","name","Hepatitis / Liver disease","liver_diseases"
-"comorbidity","name","Renal disease","renal_disease_uncharacterized"
+"comorbidity","name","Chronic obstructive pulmonary disease","Chronic_obstructive_pulmonary_disease_clinic"
+"comorbidity","name","Hepatitis / Liver disease","Liver_diseases"
+"comorbidity","name","Renal disease","Renal_disease_uncharacterized"
 "comorbidity","name","Vascular disease","vascular_diseases"
 "comorbidity","name","Others","Other"
 "diagnosis","synchronous_tumours","0",
