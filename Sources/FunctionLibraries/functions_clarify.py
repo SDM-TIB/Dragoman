@@ -238,6 +238,71 @@ def findSemanticStringOutput():
             result = ""
     return result
 
+def semanticDictionaryCreation_DrugMixture_HUPHM_BreastCancer():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_df.index:
+        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
+                                                + "_" + str(semantic_df["value"][i]).lower()
+        replacedValue = semantic_df["replacement"][i]
+        if type(replacedValue) == float:
+            semantic_dict.update({key_name:replacedValue})
+        else:
+            semantic_dict.update({key_name:str(replacedValue)})        
+            
+semanticDictionaryCreation_DrugMixture_HUPHM_BreastCancer()
+
+def findSemantic_DrugMixture_HUPHM_BreastCancer():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                valueList = str(semantic_dict[key]).split(" + ")
+                result = list(str(resource + valueList[0]),str(resource + valueList[1]))
+                print (result)
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def semanticDictionaryCreation_HUPHM_BreastCancer():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_df.index:
+        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
+                                                + "_" + str(semantic_df["value"][i]).lower()
+        replacedValue = semantic_df["replacement"][i]
+        if type(replacedValue) == float:
+            semantic_dict.update({key_name:replacedValue})
+        else:
+            semantic_dict.update({key_name:str(replacedValue)})        
+            
+semanticDictionaryCreation_HUPHM_BreastCancer()
+
+def findSemantic_HUPHM_BreastCancer():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+                print (result)
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
 ################################################################################
