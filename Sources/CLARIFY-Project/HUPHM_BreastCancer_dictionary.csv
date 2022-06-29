@@ -83,10 +83,40 @@
 "comorbidity","comorbidity","autoimmune disease","Autoimmune_diseases"
 "comorbidity","comorbidity","lung disease","Lung_diseases"
 "comorbidity","comorbidity","transplant","Transplantation"
-"comorbidity","negated","1","No"
-"comorbidity","negated","si","No"
-"comorbidity","negated","0","Yes"
-"comorbidity","negated","no","Yes"
+"comorbidity","negated","1","NoComorbidity"
+"comorbidity","negated","si","NoComorbidity"
+"comorbidity","negated","0","WithComorbidity"
+"comorbidity","negated","no","WithComorbidity"
+"family_history","cancer_cui","C0007113","Rectal_carcinoma"
+"family_history","cancer_cui","C0023418","Leukemia"
+"family_history","cancer_cui","C0024299","Lymphoma"
+"family_history","cancer_cui","C0025202","Melanoma"
+"family_history","cancer_cui","C0026764","Multiple_myeloma"
+"family_history","cancer_cui","C0029925","Ovarian_carcinoma"
+"family_history","cancer_cui","C0151546","Oral_cavity_carcinoma"
+"family_history","cancer_cui","C0153437","Malignant_neoplasm_of_cecum"
+"family_history","cancer_cui","C0153567","Uterine_cancer"
+"family_history","cancer_cui","C0153601","Malignant_neoplasm_of_penis"
+"family_history","cancer_cui","C0205699","Carcinomatosis"
+"family_history","cancer_cui","C0235974","Pancreatic_carcinoma"
+"family_history","cancer_cui","C0279530","Malignant_bone_neoplasm"
+"family_history","cancer_cui","C0346627","Intestinal_cancer"
+"family_history","cancer_cui","C0476089","Endometrial_carcinoma"
+"family_history","cancer_cui","C0549473","Thyroid_carcinoma"
+"family_history","cancer_cui","C0595989","Carcinoma_of_larynx"
+"family_history","cancer_cui","C0600139","Prostate_carcinoma"
+"family_history","cancer_cui","C0677483","Carcinoma_testes"
+"family_history","cancer_cui","C0678222","Breast_carcinoma"
+"family_history","cancer_cui","C0684249","Carcinoma_of_lung"
+"family_history","cancer_cui","C0699790","Colon_carcinoma"
+"family_history","cancer_cui","C0699791","Stomach_carcinoma"
+"family_history","cancer_cui","C0699885","Carcinoma_of_bladder"
+"family_history","cancer_cui","C0699893","Skin carcinoma"
+"family_history","cancer_cui","C0740339","Throat_cancer"
+"family_history","cancer_cui","C0751177","Cancer_of_head"
+"family_history","cancer_cui","C1261473","Sarcoma"
+"family_history","cancer_cui","C1378703","Renal_carcinoma"
+"family_history","cancer_cui","C2239176","Liver_carcinoma"
 "patient","neoadjuvant","no but no treatment","No"
 "patient","neoadjuvant","no but no tratment","No"
 "patient","neoadjuvant","no","No"
@@ -192,16 +222,3 @@ Tumor_tnm","stage_after_neo","0","0"
 "oral_drug","drug","everolimus","Everolimus"
 "oral_drug","drug","alpelisib","Alpelisib"
 "oral_drug","drug","megestrol acetate","Megestrol_acetate"
-
-Hormonal treatment:
-
-- acetato de megestrol (this is the same as the next one, it seems that I didn't translate all the occurrences into English, so you can substitute this for "megestrol acetate", sorry for the inconvenience)
-- megestrol acetate
-
-Targeted drug:
-- ribociclib
-- olaparib
-- palbociclib
-- abemaciclib
-- everolimus
-- alpelisib

@@ -264,7 +264,34 @@ def findSemantic_DrugMixture_HUPHM_BreastCancer():
             if str(semantic_dict[key]) != "nan":
                 valueList = str(semantic_dict[key]).split(" + ")
                 result = list(str(resource + valueList[0]),str(resource + valueList[1]))
-                print (result)
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def semanticDictionaryCreation_OralDrugType_HUPHM_BreastCancer():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/OralDrugType_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_df.index:
+        key_name = str(semantic_df["OralDrug"][i]).lower()
+        replacedValue = semantic_df["TherapyType"][i]
+        if type(replacedValue) == float:
+            semantic_dict.update({key_name:replacedValue})
+        else:
+            semantic_dict.update({key_name:str(replacedValue)})        
+            
+semanticDictionaryCreation_OralDrugType_HUPHM_BreastCancer()
+
+def findSemantic_OralDrugType_HUPHM_BreastCancer():
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["OralDrug"]).lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_dict:
+            if str(semantic_dict[key]) != "nan":
+                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
@@ -296,12 +323,12 @@ def findSemantic_HUPHM_BreastCancer():
         if key in semantic_dict:
             if str(semantic_dict[key]) != "nan":
                 result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
-                print (result)
             else:
                 result = ""
         else:
             result = ""
     return result
+
 
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
