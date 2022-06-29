@@ -10,7 +10,23 @@ import unidecode
 global global_dic
 global_dic = {}
 global functions_pool
-functions_pool = {"toLower":"","replace_unwanted_characters":"","findSemanticStringOutput":"","concat6":"","findBiomarkerTestResult":"","findSemantic_HUPHM":"","findSemantic":"","findComorbidity":"","findFamilyRelationDegree":"","findFamilyRelationDegreeNewCategory":"","concat2":"","falcon_UMLS_CUI_function":""}
+functions_pool = {
+"findSemantic":"","findComorbidity":"",
+"findFamilyRelationDegree":"","findSemantic_HUPHM":"",
+"findFamilyRelationDegreeNewCategory":"",
+"findBiomarkerTestResult":"","concat2":"",
+"findSemanticStringOutput":"","concat6":"",
+"findSemantic_DrugMixture_HUPHM_BreastCancer":"",
+"findSemantic_OralDrugType_HUPHM_BreastCancer":"",
+"findSemantic_TNM_T_HUPHM_BreastCancer":"",
+"findSemantic_TNM_N_HUPHM_BreastCancer":"",
+"findSemantic_TNM_M_HUPHM_BreastCancer":"",
+"findSemantic_smokinghabit_HUPHM_BreastCancer":"",
+"findSemantic_HUPHM_BreastCancer":"",
+"replace_unwanted_characters":"","toLower":"",
+"falcon_UMLS_CUI_function":""
+}
+
 global semantic_dict
 semantic_dict = dict()
 global comprbidity_dict
@@ -452,6 +468,16 @@ def findSemantic_HUPHM_BreastCancer():
             result = ""
     return result
 
+def calculate_surgeryDate_HUPHM_BreastCancer():
+    yearValue = str(global_dic["year"])
+    monthValue = str(global_dic["month"])
+    dayValue = str(global_dic["day"])
+    result = str()
+    if bool(yearValue) and bool(monthValue) and bool(dayValue):
+        result = yearValue + "-" + monthValue + "-" + dayValue
+    else:
+        result = ""
+    return result
 
 ############################################################
 ######### General String processing Functions ##############
