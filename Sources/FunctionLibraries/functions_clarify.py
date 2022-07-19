@@ -23,6 +23,7 @@ functions_pool = {
 "findSemantic_TNM_M_HUPHM_BreastCancer":"",
 "findSemantic_smokinghabit_HUPHM_BreastCancer":"",
 "findSemantic_HUPHM_BreastCancer":"",
+"findDrug":"","findDrugSchema":""
 "replace_unwanted_characters":"","toLower":"",
 "falcon_UMLS_CUI_function":""
 }
@@ -35,6 +36,20 @@ global familyDegree_dict
 familyDegree_dict = dict()
 global family_newCategory_dict
 family_newCategory_dict = dict()
+global semantic_HUPHM_dict
+semantic_HUPHM_dict = dict()
+global semantic_bio_dict
+semantic_bio_dict = dict()
+global semantic_oralDrug_dict
+semantic_oralDrug_dict = dict()
+global semantic_tnm_dict
+semantic_tnm_dict = dict()
+global semantic_smoking_dict
+semantic_smoking_dict = dict()
+global semantic_bc_dict
+semantic_bc_dict = dict()
+global semantic_drug_dict
+semantic_drug_dict = dict()
 
 #######################################################################
 ############### *****SLCG***** Pre-preprocessing Functions ############
@@ -142,15 +157,15 @@ def findFamilyRelationDegree():
 
 def semanticDictionaryCreation_HUPHM():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_specific_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
-                                                + "_" + str(semantic_df["value"][i]).lower()
-        replacedValue = semantic_df["replacement"][i]
+    semantic_HUPHM_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_specific_dictionary.csv", low_memory=False)
+    for i in semantic_HUPHM_df.index:
+        key_name = str(semantic_HUPHM_df["table_name"][i]) + "_" + str(semantic_HUPHM_df["column_name"][i]) \
+                                                + "_" + str(semantic_HUPHM_df["value"][i]).lower()
+        replacedValue = semantic_HUPHM_df["replacement"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_HUPHM_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_HUPHM_dict.update({key_name:str(replacedValue)})        
             
 semanticDictionaryCreation_HUPHM()
 
@@ -162,9 +177,9 @@ def findSemantic_HUPHM():
     result = str()
     if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+        if key in semantic_HUPHM_dict:
+            if str(semantic_HUPHM_dict[key]) != "nan":
+                result = str(resource + str(semantic_HUPHM_dict[key]).replace(" ","_")) 
                 print (result)
             else:
                 result = ""
@@ -205,17 +220,17 @@ def findFamilyRelationDegreeNewCategory():
 
 def biomarkerDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_biomarkers.csv", low_memory=False)
-    for i in semantic_df.index:
+    semantic_bio_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_biomarkers.csv", low_memory=False)
+    for i in semantic_bio_df.index:
         #print (str(semantic_df["value"][i]))
-        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
-                                                + "_" + str(semantic_df["biomarker"][i]) \
-                                                + "_" + str(semantic_df["value"][i])
+        key_name = str(semantic_bio_df["table_name"][i]) + "_" + str(semantic_bio_df["column_name"][i]) \
+                                                + "_" + str(semantic_bio_df["biomarker"][i]) \
+                                                + "_" + str(semantic_bio_df["value"][i])
         replacedValue = semantic_df["replacement"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_bio_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_bio_dict.update({key_name:str(replacedValue)})        
             
 biomarkerDictionaryCreation()
 
@@ -259,48 +274,16 @@ def findSemanticStringOutput():
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
 ################################################################################
 
-def semanticDictionaryCreation_DrugMixture_HUPHM_BreastCancer():
-    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
-                                                + "_" + str(semantic_df["value"][i]).lower()
-        replacedValue = semantic_df["replacement"][i]
-        if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
-        else:
-            semantic_dict.update({key_name:str(replacedValue)})        
-            
-semanticDictionaryCreation_DrugMixture_HUPHM_BreastCancer()
-
-def findSemantic_DrugMixture_HUPHM_BreastCancer():
-    tableName = str(global_dic["tableName"])
-    columnName = str(global_dic["columnName"])
-    resource = str(global_dic["resource"])
-    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
-    result = str()
-    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                valueList = str(semantic_dict[key]).split(" + ")
-                result = list(str(resource + valueList[0]),str(resource + valueList[1]))
-            else:
-                result = ""
-        else:
-            result = ""
-    return result
-
 def semanticDictionaryCreation_OralDrugType_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/OralDrugType_BreastCancer_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["OralDrug"][i]).lower()
-        replacedValue = semantic_df["TherapyType"][i]
+    semantic_oralDrug_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/OralDrugType_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_oralDrug_df.index:
+        key_name = str(semantic_oralDrug_df["OralDrug"][i]).lower()
+        replacedValue = semantic_oralDrug_df["TherapyType"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_oralDrug_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_oralDrug_dict.update({key_name:str(replacedValue)})        
             
 semanticDictionaryCreation_OralDrugType_HUPHM_BreastCancer()
 
@@ -310,9 +293,9 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
     result = str()
     if bool(tableName) and bool(columnName) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+        if key in semantic_oralDrug_dict:
+            if str(semanti_oralDrugc_dict[key]) != "nan":
+                result = str(resource + str(semantic_oralDrug_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
@@ -321,14 +304,14 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_TNM_T_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/TNM_T_BreastCancer_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["column_name"][i]) + "_" + str(semantic_df["value"][i]).lower()
-        replacedValue = semantic_df["replacement"][i]
+    semantic_tnm_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/TNM_T_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_tnm_df.index:
+        key_name = str(semantic_tnm_df["column_name"][i]) + "_" + str(semantic_tnm_df["value"][i]).lower()
+        replacedValue = semantic_tnm_df["replacement"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_tnm_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_tnm_dict.update({key_name:str(replacedValue)})        
             
 semanticDictionaryCreation_TNM_T_HUPHM_BreastCancer()
 
@@ -339,9 +322,9 @@ def findSemantic_TNM_T_HUPHM_BreastCancer():
     result = str()
     if bool(columnName) and bool(columnValue) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                valueList = str(semantic_dict[key]).split(" + ")
+        if key in semantic_tnm_dict:
+            if str(semantic_tnm_dict[key]) != "nan":
+                valueList = str(semantic_tnm_dict[key]).split(" + ")
                 result = list(str(resource + valueList[0]),str(resource + valueList[1]))
             else:
                 result = ""
@@ -411,14 +394,14 @@ def findSemantic_TNM_M_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_smokingHabit_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["value"][i]).lower()
-        replacedValue = semantic_df["replacement"][i]
+    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_smoking_df.index:
+        key_name = str(semantic_smoking_df["value"][i]).lower()
+        replacedValue = semantic_smoking_df["replacement"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_smoking_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_smoking_dict.update({key_name:str(replacedValue)})        
             
 semanticDictionaryCreation_smokingHabit_HUPHM_BreastCancer()
 
@@ -428,9 +411,9 @@ def findSemantic_smokinghabit_HUPHM_BreastCancer():
     result = str()
     if bool(columnValue) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+        if key in semantic_smoking_dict:
+            if str(semantic_semantic_smoking_dictdict[key]) != "nan":
+                result = str(resource + str(semantic_smoking_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
@@ -439,15 +422,15 @@ def findSemantic_smokinghabit_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
-    for i in semantic_df.index:
-        key_name = str(semantic_df["table_name"][i]) + "_" + str(semantic_df["column_name"][i]) \
-                                                + "_" + str(semantic_df["value"][i]).lower()
-        replacedValue = semantic_df["replacement"][i]
+    semantic_bc_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    for i in semantic_bc_df.index:
+        key_name = str(semantic_bc_df["table_name"][i]) + "_" + str(semantic_bc_df["column_name"][i]) \
+                                                + "_" + str(semantic_bc_df["value"][i]).lower()
+        replacedValue = semantic_bc_df["replacement"][i]
         if type(replacedValue) == float:
-            semantic_dict.update({key_name:replacedValue})
+            semantic_bc_dict.update({key_name:replacedValue})
         else:
-            semantic_dict.update({key_name:str(replacedValue)})        
+            semantic_bc_dict.update({key_name:str(replacedValue)})        
             
 semanticDictionaryCreation_HUPHM_BreastCancer()
 
@@ -459,9 +442,9 @@ def findSemantic_HUPHM_BreastCancer():
     result = str()
     if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+        if key in semantic_bc_dict:
+            if str(semantic_bc_dict[key]) != "nan":
+                result = str(resource + str(semantic_bc_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
@@ -479,6 +462,87 @@ def calculate_surgeryDate_HUPHM_BreastCancer():
         result = ""
     return result
 
+################################################################################
+##################### Drug Schema ############## Lung Cancer ###################
+################################################################################
+def semanticDictionaryCreation_Drug():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    semantic_drug_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/schema_drugs_LC_and_BC.csv", low_memory=False)
+    for i in semantic_drug_df.index:
+        key_name = str(semantic_drug_df["table_name"][i]) + "_" + str(semantic_drug_df["column_name"][i]) \
+                                                + "_" + str(semantic_drug_df["value"][i]).lower()
+        replacedValue = semantic_drug_df["replacement"][i]
+        if type(replacedValue) == float:
+            semantic_drug_dict.update({key_name:replacedValue})
+        else:
+            semantic_drug_dict.update({key_name:str(replacedValue)})        
+            
+semanticDictionaryCreation_Drug()
+
+def findDrug_LC():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_drug_dict:
+            if str(semantic_drug_dict[key]) != "nan":
+                result = str(resource + str(semantic_drug_dict[key]).replace(" ","_")) 
+                print (result)
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def findDrug_BC():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_drug_dict:
+            if str(semantic_drug_dict[key]) != "nan":
+                valueList = str(semantic_drug_dict[key]).split("_")
+                result = list(str(resource + valueList[0]),str(resource + valueList[1]))
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def findDrugSchema_LC():
+    result = ""
+    drug1 = str(global_dic["drug1"]).replace(".0","").lower()
+    drug2 = str(global_dic["drug2"]).replace(".0","").lower()
+    drug3 = str(global_dic["drug3"]).replace(".0","").lower()
+    result = str()
+    drugName1 = findDrug(drug1)
+    drugName2 = findDrug(drug2)
+    drugName3 = findDrug(drug3)
+    result = drugName1 + "_" + drugName2 + "_" + drugName3
+    return result
+
+def findDrugSchema_BC():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_drug_dict:
+            if str(semantic_drug_dict[key]) != "nan":
+                result = str(resource + str(semantic_drug_dict[key]).replace(" ","_"))
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
 ############################################################
 ######### General String processing Functions ##############
 ############################################################
