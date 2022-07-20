@@ -23,7 +23,7 @@ functions_pool = {
 "findSemantic_TNM_M_HUPHM_BreastCancer":"",
 "findSemantic_smokinghabit_HUPHM_BreastCancer":"",
 "findSemantic_HUPHM_BreastCancer":"",
-"findDrug":"","findDrugSchema":""
+"findDrug":"","findDrugSchema":"",
 "replace_unwanted_characters":"","toLower":"",
 "falcon_UMLS_CUI_function":""
 }
@@ -220,13 +220,13 @@ def findFamilyRelationDegreeNewCategory():
 
 def biomarkerDictionaryCreation():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_bio_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_biomarkers.csv", low_memory=False)
+    semantic_bio_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/SLCG_biomarkers_treatmentType.csv", low_memory=False)
     for i in semantic_bio_df.index:
         #print (str(semantic_df["value"][i]))
         key_name = str(semantic_bio_df["table_name"][i]) + "_" + str(semantic_bio_df["column_name"][i]) \
                                                 + "_" + str(semantic_bio_df["biomarker"][i]) \
                                                 + "_" + str(semantic_bio_df["value"][i])
-        replacedValue = semantic_df["replacement"][i]
+        replacedValue = semantic_bio_df["replacement"][i]
         if type(replacedValue) == float:
             semantic_bio_dict.update({key_name:replacedValue})
         else:
