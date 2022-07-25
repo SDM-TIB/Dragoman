@@ -557,9 +557,9 @@ def findDrugSchema_LC():
     drug2 = str(global_dic["drug2"]).replace(".0","").lower()
     drug3 = str(global_dic["drug3"]).replace(".0","").lower()
     result = str()
-    drugName1 = findDrug(drug1)
-    drugName2 = findDrug(drug2)
-    drugName3 = findDrug(drug3)
+    drugName1 = findDrug_LC(drug1)
+    drugName2 = findDrug_LC(drug2)
+    drugName3 = findDrug_LC(drug3)
     result = drugName1 + "_" + drugName2 + "_" + drugName3
     return result
 
