@@ -490,6 +490,8 @@ def findDrugSchema_LC():
                 print (drugName1)
         else:
             drugName1 = ""
+    else:
+        drugName1 = ""
     key2 = "chemotherapy_treatment_line_f2_schema_" + str(drug2).replace(".0","").lower()
     if key2 in semantic_drug_dict:
         if str(semantic_drug_dict[key2]) != "nan":
@@ -497,6 +499,8 @@ def findDrugSchema_LC():
                 print (drugName2)
         else:
             drugName2 = ""
+    else:
+        drugName2 = ""
     key3 = "chemotherapy_treatment_line_f3_schema_" + str(drug3).replace(".0","").lower()
     if key3 in semantic_drug_dict:
         if str(semantic_drug_dict[key3]) != "nan":
@@ -504,6 +508,8 @@ def findDrugSchema_LC():
                 print (drugName3)
         else:
             drugName3 = ""
+    else:
+        drugName3 = ""
     result = drugName1 + "_" + drugName2 + "_" + drugName3
     return result
 
