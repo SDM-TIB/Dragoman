@@ -608,7 +608,7 @@ def translate(config_path):
 											for temp in temp_lines:
 												string_values = ""
 												for string in temp_lines[temp]:
-													string_values += string
+													string_values += str(string)
 												if string_values not in line_values:
 													writer.writerow(temp_lines[temp])
 													line_values[string_values] = temp_lines[temp]
