@@ -52,6 +52,9 @@ global semantic_bc_dict
 semantic_bc_dict = dict()
 global semantic_drug_dict
 semantic_drug_dict = dict()
+global treatmentType_dict
+treatmentType_dict = dict()
+
 
 #######################################################################
 ############### *****SLCG***** Pre-preprocessing Functions ############
@@ -228,7 +231,7 @@ def biomarkerDictionaryCreation():
         key_name = str(semantic_bio_df["table_name"][i]) + "_" + str(semantic_bio_df["column_name"][i]) \
                                                 + "_" + str(semantic_bio_df["biomarker"][i]) \
                                                 + "_" + str(semantic_bio_df["value"][i])
-        replacedValue = semantic_df["replacement"][i]
+        replacedValue = semantic_bio_df["replacement"][i]
         if type(replacedValue) == float:
             semantic_bio_dict.update({key_name:replacedValue})
         else:
@@ -246,9 +249,9 @@ def findBiomarkerTestResult():
     result = str()
     if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
         key = tableName + "_" + columnName + "_" + biomarkerName + "_" + columnValue
-        if key in semantic_dict:
-            if str(semantic_dict[key]) != "nan":
-                result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+        if key in semantic_bio_dict:
+            if str(semantic_bio_dict[key]) != "nan":
+                result = str(resource + str(semantic_bio_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
