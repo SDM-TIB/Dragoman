@@ -551,15 +551,51 @@ def findDrug_BC():
             result = ""
     return result
 
+def findDrug(DrugName):
+    tableName = str("chemotherapy_treatment_line")
+    columnName = str("f1_schema")
+    resource = str("http://clarify2020.eu/entity/")
+    columnValue = str(DrugName).replace(".0","").lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in semantic_drug_dict:
+            if str(semantic_drug_dict[key]) != "nan":
+                result = str(resource + str(semantic_drug_dict[key]).replace(" ","_")) 
+                print (result)
+            else:
+                result = ""
+        else:
+            result = ""
+    return result   
+
 def findDrugSchema_LC():
     result = ""
     drug1 = str(global_dic["drug1"]).replace(".0","").lower()
     drug2 = str(global_dic["drug2"]).replace(".0","").lower()
     drug3 = str(global_dic["drug3"]).replace(".0","").lower()
     result = str()
-    drugName1 = findDrug_LC(drug1)
-    drugName2 = findDrug_LC(drug2)
-    drugName3 = findDrug_LC(drug3)
+    key1 = "chemotherapy_treatment_line_f1_schema_" + str(DrugName).replace(".0","").lower()
+    if key1 in semantic_drug_dict:
+        if str(semantic_drug_dict[key1]) != "nan":
+                drugName1 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key1]).replace(" ","_")) 
+                print (drugName1)
+        else:
+            drugName1 = ""
+    key2 = "chemotherapy_treatment_line_f2_schema_" + str(DrugName).replace(".0","").lower()
+    if key2 in semantic_drug_dict:
+        if str(semantic_drug_dict[key2]) != "nan":
+                drugName2 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key2]).replace(" ","_")) 
+                print (drugName2)
+        else:
+            drugName2 = ""
+    key3 = "chemotherapy_treatment_line_f3_schema_" + str(DrugName).replace(".0","").lower()
+    if key3 in semantic_drug_dict:
+        if str(semantic_drug_dict[key3]) != "nan":
+                drugName3 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key3]).replace(" ","_")) 
+                print (drugName3)
+        else:
+            drugName3 = ""
     result = drugName1 + "_" + drugName2 + "_" + drugName3
     return result
 
