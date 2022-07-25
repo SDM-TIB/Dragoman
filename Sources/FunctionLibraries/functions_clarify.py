@@ -424,6 +424,7 @@ def semanticDictionaryCreation_Drug():
 semanticDictionaryCreation_Drug()
 
 def findDrug_LC():
+    result = ""
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
     resource = str(global_dic["resource"])
@@ -442,6 +443,7 @@ def findDrug_LC():
     return result
 
 def findDrug_BC():
+    result = ""
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
     resource = str(global_dic["resource"])
@@ -457,25 +459,7 @@ def findDrug_BC():
                 result = ""
         else:
             result = ""
-    return result
-
-def findDrug(DrugName):
-    tableName = str("chemotherapy_treatment_line")
-    columnName = str("f1_schema")
-    resource = str("http://clarify2020.eu/entity/")
-    columnValue = str(DrugName).replace(".0","").lower()
-    result = str()
-    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue
-        if key in semantic_drug_dict:
-            if str(semantic_drug_dict[key]) != "nan":
-                result = str(resource + str(semantic_drug_dict[key]).replace(" ","_")) 
-                print (result)
-            else:
-                result = ""
-        else:
-            result = ""
-    return result   
+    return result 
 
 def findDrugSchema_LC():
     result = ""
