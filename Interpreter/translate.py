@@ -377,7 +377,7 @@ def translate(config_path):
 														else:
 															for of in object_field:
 																if "}" in of:
-																	if sf.split("}")[0] not in fields:
+																	if of.split("}")[0] not in fields:
 																		fields[of.split("}")[0]] = "object"
 													else:
 														if tp.subject_map.subject_mapping_type == "function":
@@ -388,8 +388,8 @@ def translate(config_path):
 																				"function":temp["executes"],
 																				"func_par":temp}
 																	for attr in temp_dic["inputs"]:
-																		if "template" in inputs:
-																			for value in inputs[0].split("{"):
+																		if "template" in attr:
+																			for value in attr[0].split("{"):
 																				if "}" in value:
 																					if value.split("}")[0] not in fields:
 																						fields[value.split("}")[0]] = "object"
