@@ -15,6 +15,7 @@ functions_pool = {
 "findFamilyRelationDegree":"","findSemantic_HUPHM":"",
 "findFamilyRelationDegreeNewCategory":"",
 "findBiomarkerTestResult":"","concat2":"",
+"findTreatmentType":"",
 "findSemanticStringOutput":"","concat6":"",
 "findSemantic_DrugMixture_HUPHM_BreastCancer":"",
 "findSemantic_OralDrugType_HUPHM_BreastCancer":"",
@@ -248,6 +249,37 @@ def findBiomarkerTestResult():
         if key in semantic_dict:
             if str(semantic_dict[key]) != "nan":
                 result = str(resource + str(semantic_dict[key]).replace(" ","_")) 
+            else:
+                result = ""
+        else:
+            result = ""
+    return result
+
+def TreatmentTypeDictionaryCreation():
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    treatmentType_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/family_antecedents_degree_newCategory.csv", low_memory=False)
+    for i in treatmentType_df.index:
+        key_name = str(treatmentType_df["table_name"][i]) + "_" + str(treatmentType_df["column_name"][i]) \
+                                                + "_" + unidecode.unidecode(str(treatmentType_df["value"][i])).lower()
+        replacedValue = treatmentType_df["replacement"][i]
+        if type(replacedValue) == float:
+            treatmentType_dict.update({key_name:replacedValue})
+        else:
+            treatmentType_dict.update({key_name:str(replacedValue)})        
+            
+TreatmentTypeDictionaryCreation()
+
+def findTreatmentType():
+    tableName = str(global_dic["tableName"])
+    columnName = str(global_dic["columnName"])
+    resource = str(global_dic["resource"])
+    columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
+    result = str()
+    if bool(tableName) and bool(columnName) and bool(columnValue) and bool(columnValue):
+        key = tableName + "_" + columnName + "_" + columnValue
+        if key in treatmentType_dict:
+            if str(treatmentType_dict[key]) != "nan":
+                result = str(resource + str(treatmentType_dict[key]).replace(" ","_")) 
             else:
                 result = ""
         else:
