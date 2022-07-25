@@ -443,7 +443,7 @@ def findDrug_LC():
     return result
 
 def findDrug_BC():
-    result = list()
+    result = []
     tableName = str(global_dic["tableName"])
     columnName = str(global_dic["columnName"])
     resource = str(global_dic["resource"])
@@ -453,9 +453,8 @@ def findDrug_BC():
         if key in semantic_drug_dict:
             if str(semantic_drug_dict[key]) != "nan":
                 valueList = str(semantic_drug_dict[key]).split("_")
-                result.append(str(resource + valueList[0]))
-                result.append(str(resource + valueList[1]))
-                print (result)
+                for i in range(0,len(valueList)):
+                    result.append(str(resource + valueList[i]))
     return result 
 
 def findDrugSchema_LC():
