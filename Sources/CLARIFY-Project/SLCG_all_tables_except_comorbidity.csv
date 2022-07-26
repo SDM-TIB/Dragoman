@@ -915,6 +915,8 @@
 "surgery","resection_degree","1","R1"
 "surgery","resection_degree","2","R2"
 "surgery","resection_degree","-1","UNK"
+"surgery","perioperative_death","1","Yes"
+"surgery","perioperative_death","0","No"
 "surgery","stage_m","4","NA"
 "surgery","stage_m","0","Mx"
 "surgery","stage_m","1","M0"
