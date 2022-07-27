@@ -338,7 +338,7 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_smokingHabit_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/smokinghabit_BreastCancer_dictionary.csv", low_memory=False)
     for i in semantic_smoking_df.index:
         key_name = str(semantic_smoking_df["value"][i]).lower()
         replacedValue = semantic_smoking_df["replacement"][i]
@@ -395,6 +395,7 @@ def findSemantic_HUPHM_BreastCancer():
             result = ""
     return result
 
+'''
 def calculate_surgeryDate_HUPHM_BreastCancer():
     yearValue = str(global_dic["year"])
     monthValue = str(global_dic["month"])
@@ -405,7 +406,7 @@ def calculate_surgeryDate_HUPHM_BreastCancer():
     else:
         result = ""
     return result
-
+'''
 ################################################################################
 ##################### Drug Schema ############## Lung Cancer ###################
 ################################################################################
