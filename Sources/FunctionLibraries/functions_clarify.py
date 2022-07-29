@@ -338,7 +338,7 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_smokingHabit_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/smokinghabit_BreastCancer_dictionary.csv", low_memory=False)
+    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
     for i in semantic_smoking_df.index:
         key_name = str(semantic_smoking_df["value"][i]).lower()
         replacedValue = semantic_smoking_df["replacement"][i]
@@ -395,7 +395,6 @@ def findSemantic_HUPHM_BreastCancer():
             result = ""
     return result
 
-'''
 def calculate_surgeryDate_HUPHM_BreastCancer():
     yearValue = str(global_dic["year"])
     monthValue = str(global_dic["month"])
@@ -406,7 +405,7 @@ def calculate_surgeryDate_HUPHM_BreastCancer():
     else:
         result = ""
     return result
-'''
+
 ################################################################################
 ##################### Drug Schema ############## Lung Cancer ###################
 ################################################################################
@@ -467,8 +466,7 @@ def findDrugSchema_LC():
     key1 = "chemotherapy_treatment_line_f1_schema_" + str(drug1).replace(".0","").lower()
     if key1 in semantic_drug_dict:
         if str(semantic_drug_dict[key1]) != "nan":
-                drugName1 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key1]).replace(" ","_")) 
-                print (drugName1)
+                drugName1 = str(semantic_drug_dict[key1]).replace(" ","_") 
         else:
             drugName1 = ""
     else:
@@ -476,8 +474,7 @@ def findDrugSchema_LC():
     key2 = "chemotherapy_treatment_line_f2_schema_" + str(drug2).replace(".0","").lower()
     if key2 in semantic_drug_dict:
         if str(semantic_drug_dict[key2]) != "nan":
-                drugName2 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key2]).replace(" ","_")) 
-                print (drugName2)
+                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_") 
         else:
             drugName2 = ""
     else:
@@ -485,8 +482,7 @@ def findDrugSchema_LC():
     key3 = "chemotherapy_treatment_line_f3_schema_" + str(drug3).replace(".0","").lower()
     if key3 in semantic_drug_dict:
         if str(semantic_drug_dict[key3]) != "nan":
-                drugName3 = str("http://clarify2020.eu/entity/" + str(semantic_drug_dict[key3]).replace(" ","_")) 
-                print (drugName3)
+                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_") 
         else:
             drugName3 = ""
     else:
