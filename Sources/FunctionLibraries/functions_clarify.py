@@ -22,7 +22,7 @@ functions_pool = {
 "findSemantic_smokinghabit_HUPHM_BreastCancer":"",
 "findSemantic_HUPHM_BreastCancer":"",
 "findDrug_LC":"","findDrug_BC":"",
-"findDrugSchema_LC":"","findDrugSchema_BC":"",
+"findDrugSchema_LC_SLCG":"","findDrugSchema_LC_HUPHM":"","findDrugSchema_BC":"",
 "replace_unwanted_characters":"","toLower":"",
 "falcon_UMLS_CUI_function":""
 }
@@ -457,7 +457,7 @@ def findDrug_BC():
                     result.append(str(resource + valueList[i]))
     return result 
 
-def findDrugSchema_LC():
+def findDrugSchema_LC_SLCG():
     result = ""
     drug1 = str(global_dic["drug1"]).replace(".0","").lower()
     drug2 = str(global_dic["drug2"]).replace(".0","").lower()
@@ -480,6 +480,39 @@ def findDrugSchema_LC():
     else:
         drugName2 = ""
     key3 = "chemotherapy_treatment_line_f3_schema_" + str(drug3).replace(".0","").lower()
+    if key3 in semantic_drug_dict:
+        if str(semantic_drug_dict[key3]) != "nan":
+                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_") 
+        else:
+            drugName3 = ""
+    else:
+        drugName3 = ""
+    result = drugName1 + "_" + drugName2 + "_" + drugName3
+    return result
+
+def findDrugSchema_LC_HUPHM():
+    result = ""
+    drug1 = str(global_dic["drug1"]).replace(".0","").lower()
+    drug2 = str(global_dic["drug2"]).replace(".0","").lower()
+    drug3 = str(global_dic["drug3"]).replace(".0","").lower()
+    result = str()
+    key1 = "chemotherapy_drugs_f1_schema_" + str(drug1).replace(".0","").lower()
+    if key1 in semantic_drug_dict:
+        if str(semantic_drug_dict[key1]) != "nan":
+                drugName1 = str(semantic_drug_dict[key1]).replace(" ","_") 
+        else:
+            drugName1 = ""
+    else:
+        drugName1 = ""
+    key2 = "chemotherapy_drugs_f2_schema_" + str(drug2).replace(".0","").lower()
+    if key2 in semantic_drug_dict:
+        if str(semantic_drug_dict[key2]) != "nan":
+                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_") 
+        else:
+            drugName2 = ""
+    else:
+        drugName2 = ""
+    key3 = "chemotherapy_drugs_f3_schema_" + str(drug3).replace(".0","").lower()
     if key3 in semantic_drug_dict:
         if str(semantic_drug_dict[key3]) != "nan":
                 drugName3 = str(semantic_drug_dict[key3]).replace(" ","_") 
