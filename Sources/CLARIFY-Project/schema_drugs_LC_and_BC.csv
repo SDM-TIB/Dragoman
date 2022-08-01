@@ -415,6 +415,7 @@
 "chemotherapy_drugs","schema_d1","Vincristina","Vincristinea"
 "chemotherapy_drugs","schema_d1","PM060184","PM060184"
 "chemotherapy_drugs","schema_d1","Curtisen(OGX-011)","Curtirsen_(OGX-011)"
+"chemotherapy_drugs","schema_d1","NULL",
 "chemotherapy_drugs","schema_d2","Carboplatino","Carboplatin"
 "chemotherapy_drugs","schema_d2","Erlotinib","Erlotinib"
 "chemotherapy_drugs","schema_d2","Cisplatino","Cisplatin"
@@ -480,6 +481,7 @@
 "chemotherapy_drugs","schema_d2","Vincristina","Vincristinea"
 "chemotherapy_drugs","schema_d2","PM060184","PM060184"
 "chemotherapy_drugs","schema_d2","Curtisen(OGX-011)","Curtirsen_(OGX-011)"
+"chemotherapy_drugs","schema_d2","NULL",
 "chemotherapy_drugs","schema_d3","Carboplatino","Carboplatin"
 "chemotherapy_drugs","schema_d3","Erlotinib","Erlotinib"
 "chemotherapy_drugs","schema_d3","Cisplatino","Cisplatin"
@@ -545,6 +547,7 @@
 "chemotherapy_drugs","schema_d3","Vincristina","Vincristinea"
 "chemotherapy_drugs","schema_d3","PM060184","PM060184"
 "chemotherapy_drugs","schema_d3","Curtisen(OGX-011)","Curtirsen_(OGX-011)"
+"chemotherapy_drugs","schema_d3","NULL",
 "chemotherapy_drugs","id_schema","1","Cyclophosphamide_Doxorubicin"
 "chemotherapy_drugs","id_schema","2","Doxorubicin"
 "chemotherapy_drugs","id_schema","3","Paclitaxel"
