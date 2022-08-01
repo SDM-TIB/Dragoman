@@ -466,28 +466,22 @@ def findDrugSchema_LC_SLCG():
     key1 = "chemotherapy_treatment_line_f1_schema_" + str(drug1).replace(".0","").lower()
     if key1 in semantic_drug_dict:
         if str(semantic_drug_dict[key1]) != "nan":
-                drugName1 = str(semantic_drug_dict[key1]).replace(" ","_") 
+                drugName1 = str(semantic_drug_dict[key1]).replace(" ","_")
+                result = drugName1
         else:
-            drugName1 = ""
+            result = ""
     else:
-        drugName1 = ""
+        result = ""
     key2 = "chemotherapy_treatment_line_f2_schema_" + str(drug2).replace(".0","").lower()
     if key2 in semantic_drug_dict:
         if str(semantic_drug_dict[key2]) != "nan":
-                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_") 
-        else:
-            drugName2 = ""
-    else:
-        drugName2 = ""
+                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_")
+                result = result + "_" + drugName2 
     key3 = "chemotherapy_treatment_line_f3_schema_" + str(drug3).replace(".0","").lower()
     if key3 in semantic_drug_dict:
         if str(semantic_drug_dict[key3]) != "nan":
-                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_") 
-        else:
-            drugName3 = ""
-    else:
-        drugName3 = ""
-    result = drugName1 + "_" + drugName2 + "_" + drugName3
+                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_")
+                result = result + "_" + drugName3
     return result
 
 def findDrugSchema_LC_HUPHM():
@@ -500,27 +494,21 @@ def findDrugSchema_LC_HUPHM():
     if key1 in semantic_drug_dict:
         if str(semantic_drug_dict[key1]) != "nan":
                 drugName1 = str(semantic_drug_dict[key1]).replace(" ","_") 
+                result = drugName1
         else:
-            drugName1 = ""
+            result = ""
     else:
-        drugName1 = ""
+        result = ""
     key2 = "chemotherapy_drugs_schema_d2_" + str(drug2).replace(".0","").lower()
     if key2 in semantic_drug_dict:
         if str(semantic_drug_dict[key2]) != "nan":
-                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_") 
-        else:
-            drugName2 = ""
-    else:
-        drugName2 = ""
+                drugName2 = str(semantic_drug_dict[key2]).replace(" ","_")
+                result = result + "_" + drugName2
     key3 = "chemotherapy_drugs_schema_d3_" + str(drug3).replace(".0","").lower()
     if key3 in semantic_drug_dict:
         if str(semantic_drug_dict[key3]) != "nan":
-                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_") 
-        else:
-            drugName3 = ""
-    else:
-        drugName3 = ""
-    result = drugName1 + "_" + drugName2 + "_" + drugName3
+                drugName3 = str(semantic_drug_dict[key3]).replace(" ","_")
+                result = result + "_" + drugName3
     return result
 
 def findDrugSchema_BC():
