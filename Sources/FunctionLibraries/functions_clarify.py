@@ -338,7 +338,7 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
 
 def semanticDictionaryCreation_smokingHabit_HUPHM_BreastCancer():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/HUPHM_BreastCancer_dictionary.csv", low_memory=False)
+    semantic_smoking_df = pd.read_csv(str(directory)+"/Sources/CLARIFY-Project/smokinghabit_BreastCancer_dictionary.csv", low_memory=False)
     for i in semantic_smoking_df.index:
         key_name = str(semantic_smoking_df["value"][i]).lower()
         replacedValue = semantic_smoking_df["replacement"][i]
@@ -353,10 +353,10 @@ def findSemantic_smokinghabit_HUPHM_BreastCancer():
     resource = str(global_dic["resource"])
     columnValue = str(global_dic["columnValue"]).replace(".0","").lower()
     result = str()
-    if bool(columnValue) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue
+    if bool(columnValue):
+        key = columnValue
         if key in semantic_smoking_dict:
-            if str(semantic_semantic_smoking_dictdict[key]) != "nan":
+            if str(semantic_smoking_dict[key]) != "nan":
                 result = str(resource + str(semantic_smoking_dict[key]).replace(" ","_")) 
             else:
                 result = ""
