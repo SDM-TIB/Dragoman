@@ -324,10 +324,10 @@ def findSemantic_OralDrugType_HUPHM_BreastCancer():
     resource = str(global_dic["resource"])
     columnValue = str(global_dic["OralDrug"]).lower()
     result = str()
-    if bool(tableName) and bool(columnName) and bool(columnValue):
-        key = tableName + "_" + columnName + "_" + columnValue
+    if bool(resource) and bool(columnValue):
+        key = columnValue
         if key in semantic_oralDrug_dict:
-            if str(semanti_oralDrugc_dict[key]) != "nan":
+            if str(semantic_oralDrug_dict[key]) != "nan":
                 result = str(resource + str(semantic_oralDrug_dict[key]).replace(" ","_")) 
             else:
                 result = ""
