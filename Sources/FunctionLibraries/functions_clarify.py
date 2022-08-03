@@ -14,7 +14,7 @@ functions_pool = {
 "findSemantic":"","findComorbidity":"",
 "findFamilyRelationDegree":"","findSemantic_HUPHM":"",
 "findFamilyRelationDegreeNewCategory":"",
-"findBiomarkerTestResult":"","concat2":"",
+"findBiomarkerTestResult":"","concat2":"","concat3":""
 "findTreatmentType":"",
 "findSemanticStringOutput":"","concat6":"",
 "findSemantic_DrugMixture_HUPHM_BreastCancer":"",
@@ -536,6 +536,16 @@ def concat2():
     value2 = global_dic["value2"]
     if bool(value1) and bool(value2):
         result = str(str(value1)+str(value2))
+    else:
+        result = ""  
+    return(result)
+
+def concat3():
+    value1 = global_dic["value1"]
+    value2 = global_dic["value2"]
+    value3 = global_dic["value3"]
+    if bool(value1) and bool(value2) and bool(value3):
+        result = str(str(value1)+str(value2))+str(value2)
     else:
         result = ""  
     return(result)
