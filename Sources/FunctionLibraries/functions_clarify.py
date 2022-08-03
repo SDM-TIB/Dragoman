@@ -14,7 +14,7 @@ functions_pool = {
 "findSemantic":"","findComorbidity":"",
 "findFamilyRelationDegree":"","findSemantic_HUPHM":"",
 "findFamilyRelationDegreeNewCategory":"",
-"findBiomarkerTestResult":"","concat2":"","concat3":""
+"findBiomarkerTestResult":"","concat2":"","concat3":"",
 "findTreatmentType":"",
 "findSemanticStringOutput":"","concat6":"",
 "findSemantic_DrugMixture_HUPHM_BreastCancer":"",
