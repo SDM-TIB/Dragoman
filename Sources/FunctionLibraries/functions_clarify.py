@@ -545,7 +545,7 @@ def concat3():
     value2 = global_dic["value2"]
     value3 = global_dic["value3"]
     if bool(value1) and bool(value2) and bool(value3):
-        result = str(str(value1)+str(value2))+str(value2)
+        result = str(str(value1)+str(value2)+str(value3))
     else:
         result = ""  
     return(result)
