@@ -455,6 +455,8 @@ def findDrug_BC():
                 valueList = str(semantic_drug_dict[key]).split("_")
                 for i in range(0,len(valueList)):
                     result.append(str(resource + valueList[i]))
+    print (result)
+    print (type(result))
     return result 
 
 def findDrugSchema_LC_SLCG():
