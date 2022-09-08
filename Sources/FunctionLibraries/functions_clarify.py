@@ -435,7 +435,7 @@ def findDrug_LC():
         if key in semantic_drug_dict:
             if str(semantic_drug_dict[key]) != "nan":
                 result = str(resource + str(semantic_drug_dict[key]).replace(" ","_")) 
-                #print (result)
+                print (result)
             else:
                 result = ""
         else:
@@ -454,9 +454,8 @@ def findDrug_BC():
             if str(semantic_drug_dict[key]) != "nan":
                 valueList = str(semantic_drug_dict[key]).split("_")
                 for i in range(0,len(valueList)):
-                    return result.append(str(resource + valueList[i]))
-    print (result)
-    print (type(result))
+                    result.append(str(resource + valueList[i]))
+    #print (result)
     return result 
 
 def findDrugSchema_LC_SLCG():
@@ -494,7 +493,6 @@ def findDrugSchema_LC_SLCG():
         result = resource + drugName1 + "_" + drugName2
     else:
         result = resource + drugName1
-    print (result)
     return result
 
 def findDrugSchema_LC_HUPHM():
