@@ -17,7 +17,6 @@ functions_pool = {
 "findBiomarkerTestResult":"","concat2":"","concat3":"",
 "findTreatmentType":"",
 "findSemanticStringOutput":"","concat6":"",
-"findSemantic_DrugMixture_HUPHM_BreastCancer":"",
 "findSemantic_OralDrugType_HUPHM_BreastCancer":"",
 "findSemantic_smokinghabit_HUPHM_BreastCancer":"",
 "findSemantic_HUPHM_BreastCancer":"",
