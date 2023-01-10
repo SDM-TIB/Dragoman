@@ -22,7 +22,7 @@ functions_pool = {
 "findSemantic_HUPHM_BreastCancer":"",
 "findDrug_LC":"","findDrug_BC":"",
 "findDrugSchema_LC_SLCG":"","findDrugSchema_LC_HUPHM":"","findDrugSchema_BC":"",
-"replace_unwanted_characters":"","toLower":"",
+"replace_unwanted_characters":"","toLower":"", "findSmokerType":"",
 "falcon_UMLS_CUI_function":""
 }
 
@@ -301,6 +301,17 @@ def findSemanticStringOutput():
             result = ""
     return result
 
+def findSmokerType():
+    columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
+    if int(columnValue) >= 40:
+        result = "VeryHeavySmoker"
+    elif int(columnValue) < 40 and int(columnValue) >= 20:
+        result = "HeavySmoker"
+    elif int(columnValue) < 20:
+        result = "ModerateSmoker"
+    else:
+        result = ""
+    return result
 
 ################################################################################
 ############### *****Breast Cancer***** Pre-preprocessing Functions ############
