@@ -303,14 +303,17 @@ def findSemanticStringOutput():
 
 def findSmokerType():
     columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
-    if int(columnValue) >= 40:
-        result = "VeryHeavySmoker"
-    elif int(columnValue) < 40 and int(columnValue) >= 20:
-        result = "HeavySmoker"
-    elif int(columnValue) < 20:
-        result = "ModerateSmoker"
+    if bool(columnValue) and columnValue != "none" and columnValue != "None":
+        if int(columnValue) >= 40:
+            result = "VeryHeavySmoker"
+        elif int(columnValue) < 40 and int(columnValue) >= 20:
+            result = "HeavySmoker"
+        elif int(columnValue) < 20:
+            result = "ModerateSmoker"
+        else:
+            result = ""
     else:
-        result = ""
+        result = ""       
     return result
 
 ################################################################################
