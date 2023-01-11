@@ -2,11 +2,11 @@ import re
 import csv
 import sys
 import os
-from .string_subs import *
 import pandas as pd
 from pathlib import Path
 import requests
 import unidecode
+from .string_subs import *
 
 global global_dic
 global_dic = {}
@@ -303,18 +303,20 @@ def findSemanticStringOutput():
     return result
 
 def findSmokerType():
+    resource = str(global_dic["resource"])
     columnValue = unidecode.unidecode(str(global_dic["columnValue"]).replace(".0","")).lower()
     if bool(columnValue) and columnValue != "none" and columnValue != "None":
         if int(columnValue) >= 40:
-            result = "VeryHeavySmoker"
+            smokerType = "VeryHeavySmoker"
         elif int(columnValue) < 40 and int(columnValue) >= 20:
-            result = "HeavySmoker"
+            smokerType = "HeavySmoker"
         elif int(columnValue) < 20:
-            result = "ModerateSmoker"
+            smokerType = "ModerateSmoker"
         else:
-            result = ""
+            smokerType = ""
     else:
-        result = ""       
+        smokerType = "" 
+    result = resource + smokerType      
     return result
 
 ################################################################################
