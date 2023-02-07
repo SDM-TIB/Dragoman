@@ -61,7 +61,7 @@
 "BC_oncological_history","has_previous_cancers","1","Has_previous_cancers"
 "BC_oncological_history","previous_cancer_type","Breast cancer","Breast"
 "BC_oncological_history","previous_cancer_type","Other cancer","Others"
-"smoker_information","smoking_habit","Non smoker  (<= 100cigars/life time)","NonSmoker"
+"smoker_information","smoking_habit","Non smoker  (<= 100cigars/life time)","NonSmoker"
 "smoker_information","smoking_habit","Previous smoker  (>= 1 year )","PreviousSmoker"
 "smoker_information","smoking_habit","Current smoker","CurrentSmoker"
 "smoker_information","smoking_habit","Unknown","UNK"
