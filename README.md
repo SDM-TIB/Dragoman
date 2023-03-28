@@ -9,21 +9,13 @@ An Optimized, RML-engine-agnostic Interpreter for Functional Mappings. It planns
 That's it! You are ready to go :)
 
 # Installing and Running the Dragoman 
-From PyPI (https://pypi.org/project/dragoman-tool/):
+## Installing Requirements
 ```
-python3 -m pip install dragoman-tool
-python3 -m Interpreter -c /path/to/config/file
+pip install -r requirements.txt
 ```
-From Docker (https://hub.docker.com/repository/docker/sdmtib/dragoman):
+## Executing Dragoman
 ```
-docker run -d -p 4000:4000 -v /path/to/yourdata:/data dragoman
-
-Send a GET request with the configuration file to Dragoman container.
-curl localhost:4000/mapping_transformation/data/your-config-file.ini
-
-
-Get the results from the container (if output folder is inside data folder, results are already in your host)
-docker cp CONTAINER_ID:/app/path/to/output .
+python run_translator.py /path/to/config
 ```
 
 ## Version 
