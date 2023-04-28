@@ -316,7 +316,10 @@ def findSmokerType():
             smokerType = ""
     else:
         smokerType = "" 
-    result = resource + smokerType      
+    if smokerType == "":
+        result = ""
+    else:
+        result = resource + smokerType      
     return result
 
 ################################################################################
